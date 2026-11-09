@@ -175,13 +175,3 @@ benchmark/               Prisma vs Whisper noise benchmark
 demo/                    seed visits (Timbre voices), ElevenLabs visit generator, a script to record
 docs/                    business case, audit, API contract, research, submission
 ```
-
-## Honesty notes
-
-- **The demo data is synthetic.** The 10 seed visits use Gnani Timbre voices and one test visit uses
-  ElevenLabs voices, all from written scripts, then run through the real pipeline. The app labels them
-  "Synthetic demo"; real recordings carry no badge.
-- Willingness to pay, DSR headcounts and real-audio cost are **unvalidated**. They're the first
-  milestones in the business case.
-- Nabz reuses ideas and code from the author's earlier project
-  [FieldNotes](https://github.com/Dupahar/FieldNotes) (a Telegram-only sales notetaker, Nov 2026).
