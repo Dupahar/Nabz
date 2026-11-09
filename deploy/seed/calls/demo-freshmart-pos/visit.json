@@ -1,0 +1,15 @@
+{
+  "rep_handle": "sneha",
+  "account": "FreshMart",
+  "contact": "Anjali Desai",
+  "segment": "Retail chain",
+  "region": "Mumbai",
+  "consent_method": "verbal",
+  "note": "Synthetic demo visit (Timbre voices)",
+  "call_id": "demo-freshmart-pos",
+  "rep_name": "Sneha Iyer",
+  "rep_language": "en-IN",
+  "created": "2026-11-09T18:09:57",
+  "upload": "upload.ogg",
+  "synthetic": true
+}

@@ -1,0 +1,30 @@
+{
+  "names": {
+    "S1": "Ravi Kumar (Sales rep, Northwind Distributors)",
+    "S2": "Ramesh Verma (Owner, Verma Kirana)"
+  },
+  "rep": "S1",
+  "source": "diarization",
+  "turns": null,
+  "merge": [],
+  "fix": [],
+  "labels": [
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1",
+    "S2"
+  ],
+  "sides": {
+    "S1": "us",
+    "S2": "them"
+  },
+  "rep_present": true
+}

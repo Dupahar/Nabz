@@ -1,0 +1,253 @@
+{
+  "account": "Patel Supermarket",
+  "contact": "Hitesh Patel",
+  "rep": "Sneha Iyer",
+  "segment": "Modern trade",
+  "language": "en-IN",
+  "summary": "Sneha pitched Tata Tea's new pack, a Maggi combo and an Aashirvaad festive pack, and pushed for fifty cases of Tata Tea. Hitesh pushed back. He said a Tata Tea price hike has cut sales by about twenty percent, he still has old stock, and shoppers are moving to cheaper local tea. He ordered thirty cases of Maggi and ten of Tata Tea, and declined Mom's Magic as too expensive.",
+  "sentiment": "mixed",
+  "score": 48,
+  "score_reason": "An order was taken and schemes were named, but the rep pushed volume without probing the price and old-stock objections, and did not check shelf visibility, collections or the competing local tea.",
+  "needs": [
+    {
+      "text": "Customer needs to clear existing slow-moving Tata Tea stock before taking more.",
+      "quote": "I am still sitting on old stock.",
+      "segment": 4
+    },
+    {
+      "text": "Customer base is price-sensitive and needs affordable SKUs.",
+      "quote": "No, Mom's magic is too expensive for our customers.",
+      "segment": 8
+    }
+  ],
+  "concerns": [
+    {
+      "category": "other",
+      "handled": false,
+      "how": "Rep cited premium quality, brand strength and a TV campaign, then still asked for fifty cases without addressing the price gap.",
+      "quote": "The Tata tea price hike last month, customers are not happy.",
+      "segment": 1
+    },
+    {
+      "category": "stock",
+      "handled": false,
+      "how": "Rep moved on to Maggi without asking how much old stock remains or offering help to liquidate it.",
+      "quote": "I am still sitting on old stock.",
+      "segment": 4
+    },
+    {
+      "category": "competitor",
+      "handled": false,
+      "how": "",
+      "quote": "People are buying the cheaper local tea now.",
+      "segment": 4
+    },
+    {
+      "category": "other",
+      "handled": false,
+      "how": "Rep accepted the refusal without offering a smaller pack or trial quantity.",
+      "quote": "No, Mom's magic is too expensive for our customers.",
+      "segment": 8
+    }
+  ],
+  "signals": [
+    {
+      "text": "Maggi is a reliable seller at this outlet, and the customer readily agreed to thirty cases.",
+      "quote": "Muggy is fine. Muggy always sells.",
+      "segment": 6
+    },
+    {
+      "text": "Customer still placed a small Tata Tea order despite the slowdown.",
+      "quote": "Give me thirty cases of muggy Tata tea, only ten.",
+      "segment": 6
+    }
+  ],
+  "risks": [
+    {
+      "text": "Tata Tea sales at the outlet are down about twenty percent after the price hike.",
+      "quote": "Sales are down almost twenty percent.",
+      "segment": 1
+    },
+    {
+      "text": "Shoppers are switching to cheaper local tea, which threatens Tata Tea share.",
+      "quote": "People are buying the cheaper local tea now.",
+      "segment": 4
+    },
+    {
+      "text": "Pushing high volumes against stated objections may strain the relationship.",
+      "quote": "I would say take at least fifty cases this month.",
+      "segment": 2
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "us",
+      "action": "Send the order (30 cases Maggi, 10 cases Tata Tea) today",
+      "due": "2026-11-09",
+      "quote": "Alright, I will send the order today",
+      "segment": 9
+    },
+    {
+      "owner": "us",
+      "action": "Deliver the order by Thursday",
+      "due": "2026-11-12",
+      "quote": "I will send the order today, delivery by Thursday.",
+      "segment": 9
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "price",
+      "product": "Tata Tea",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Shoppers are unhappy with last month's Tata Tea price hike.",
+      "quote": "The Tata tea price hike last month, customers are not happy.",
+      "segment": 1
+    },
+    {
+      "type": "demand",
+      "product": "Tata Tea",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Tata Tea sales at the outlet are down about twenty percent.",
+      "quote": "Sales are down almost twenty percent.",
+      "segment": 1
+    },
+    {
+      "type": "competitor",
+      "product": "Tata Tea",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Cheaper local (unbranded) tea is taking Tata Tea shoppers. The brand was not named.",
+      "quote": "People are buying the cheaper local tea now.",
+      "segment": 4
+    },
+    {
+      "type": "other",
+      "product": "Tata Tea",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Old Tata Tea stock is slow-moving at the outlet.",
+      "quote": "I am still sitting on old stock.",
+      "segment": 4
+    },
+    {
+      "type": "demand",
+      "product": "Maggi",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Maggi sells consistently at this outlet.",
+      "quote": "Muggy is fine. Muggy always sells.",
+      "segment": 6
+    },
+    {
+      "type": "price",
+      "product": "Mom's Magic",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Mom's Magic is seen as too expensive for this store's shoppers.",
+      "quote": "No, Mom's magic is too expensive for our customers.",
+      "segment": 8
+    },
+    {
+      "type": "scheme",
+      "product": "Maggi",
+      "competitor": null,
+      "polarity": "neutral",
+      "text": "Rep mentioned a Maggi combo offer and an Aashirvaad festive pack for the festive season.",
+      "quote": "Muggie has a combo offer, and Aashirvaad has a festive pack.",
+      "segment": 0
+    }
+  ],
+  "entities": {
+    "products": [
+      "Tata Tea",
+      "Maggi",
+      "Aashirvaad",
+      "Mom's Magic"
+    ],
+    "competitors": [],
+    "amounts": [
+      "fifty cases",
+      "forty cases",
+      "thirty cases Maggi",
+      "ten cases Tata Tea",
+      "twenty percent"
+    ],
+    "people": [
+      "Sneha Iyer",
+      "Hitesh Patel"
+    ]
+  },
+  "checklist": {
+    "order_taken": {
+      "status": "yes",
+      "quote": "Ok, thirty Maggi and ten Tata tea",
+      "segment": 7
+    },
+    "scheme_communicated": {
+      "status": "partial",
+      "quote": "Muggie has a combo offer, and Aashirvaad has a festive pack.",
+      "segment": 0
+    },
+    "stockout_checked": {
+      "status": "partial",
+      "quote": "I am still sitting on old stock.",
+      "segment": 4
+    },
+    "competitor_activity": {
+      "status": "partial",
+      "quote": "People are buying the cheaper local tea now.",
+      "segment": 4
+    },
+    "visibility_checked": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "collection": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    }
+  },
+  "compliance_flags": [],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "You read back the final order clearly (thirty Maggi, ten Tata Tea) and gave a firm delivery date. That builds trust and avoids order errors.",
+      "segment": 7
+    },
+    {
+      "kind": "try-next",
+      "tip": "When Hitesh raised the price hike and old stock, ask questions before pitching: how many cases are left, which local tea is winning, and at what price. Then offer help to liquidate the stock instead of asking for fifty cases.",
+      "segment": 2
+    },
+    {
+      "kind": "do-more",
+      "tip": "Use the visit to check the shelf (Tata Tea new pack placement, Maggi combo display) and to confirm any pending dues. Also try a small trial quantity of Mom's Magic rather than accepting a flat no.",
+      "segment": 8
+    }
+  ],
+  "debrief": "Hi Sneha, a decent visit at Patel Supermarket. You came away with thirty cases of Maggi and ten of Tata Tea, and your quick recap of the order was spot on. Next time, when Hitesh ji says Tata Tea sales are down twenty percent and he's sitting on old stock, pause and ask how much stock is left and which local tea is winning before pushing fifty cases. Next step: send the order today and confirm Thursday delivery.",
+  "call_id": "demo-patel-supermarket",
+  "lens": "fmcg-retail",
+  "region": "Mumbai",
+  "grounding": {
+    "checked": 24,
+    "verified": 24,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 914,
+      "output": 6548,
+      "cache_read": 3319
+    }
+  }
+}

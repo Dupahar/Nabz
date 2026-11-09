@@ -1,0 +1,4 @@
+To: Hitesh Patel
+Subject: Your order: 30 cases Maggi + 10 cases Tata Tea
+
+Hi Hitesh ji, thank you for your time today. Confirming your order: 30 cases of Maggi and 10 cases of Tata Tea. I am sending it today and delivery will reach you by Thursday. Regards, Sneha Iyer, Northwind Distributors

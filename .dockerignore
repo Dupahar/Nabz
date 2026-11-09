@@ -1,0 +1,12 @@
+.git
+.venv
+data
+scratch
+video
+benchmark/audio
+benchmark/noise
+demo/seed/audio
+.env
+.env.*
+**/__pycache__
+tests

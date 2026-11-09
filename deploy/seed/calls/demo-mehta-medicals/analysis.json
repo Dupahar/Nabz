@@ -1,0 +1,222 @@
+{
+  "account": "Mehta Medicals",
+  "contact": "Dr. Vikram Mehta",
+  "rep": "Sneha Iyer",
+  "segment": "Chemist",
+  "language": "en-IN",
+  "summary": "Sneha pitched Dettol antiseptic liquid and the new Dettol handwash. Dr. Mehta ordered 20 antiseptic and 10 handwash for delivery tomorrow. He raised Patanjali price competition and Dettol's lower margin. The order came only after Sneha offered a personal Diwali gift hamper, which is a high-severity inducement breach.",
+  "sentiment": "mixed",
+  "score": 25,
+  "score_reason": "An order was secured, but the margin objection was answered with a personal gift hamper (a high-severity inducement flag that caps the score at 40), key messages were thin, and sample quantities were never stated.",
+  "needs": [
+    {
+      "text": "Better margin on Dettol compared with other brands",
+      "quote": "the margin on Detol is lower than the other brands.",
+      "segment": 3
+    },
+    {
+      "text": "A response to patients asking for a cheaper handwash option",
+      "quote": "many patients now ask for the cheaper Patanjali handwash.",
+      "segment": 1
+    }
+  ],
+  "concerns": [
+    {
+      "category": "price",
+      "handled": false,
+      "how": "Rep answered the margin concern with a personal Diwali gift hamper instead of an approved scheme.",
+      "quote": "Samples are fine, but the margin on Detol is lower than the other brands.",
+      "segment": 3
+    },
+    {
+      "category": "competitor",
+      "handled": false,
+      "how": "Rep said regular customers already trust Dettol and offered sample bottles, but did not address price against Patanjali.",
+      "quote": "many patients now ask for the cheaper Patanjali handwash.",
+      "segment": 1
+    },
+    {
+      "category": "safety",
+      "handled": false,
+      "how": "Rep only said she would note it. No guidance was given on correct dilution.",
+      "quote": "Dettol liquid should not be used undiluted on wounds. Tell your team to mention that.",
+      "segment": 7
+    }
+  ],
+  "signals": [
+    {
+      "text": "Customer placed an order for 20 Dettol antiseptic and 10 Dettol handwash",
+      "quote": "Send twenty bottles of Dettol antiseptic and ten hand wash.",
+      "segment": 5
+    }
+  ],
+  "risks": [
+    {
+      "text": "The order was triggered by a personal gift offer, which is a UCPMP compliance breach and makes the order fragile",
+      "quote": "Gift hamper. Ok, ok. Send twenty bottles of Dettol antiseptic",
+      "segment": 5
+    },
+    {
+      "text": "Patanjali is drawing price-sensitive handwash buyers",
+      "quote": "many patients now ask for the cheaper Patanjali handwash.",
+      "segment": 1
+    },
+    {
+      "text": "Lower margin may reduce the chemist's willingness to push Dettol",
+      "quote": "the margin on Detol is lower than the other brands.",
+      "segment": 3
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "us",
+      "action": "Deliver 20 Dettol antiseptic and 10 Dettol handwash",
+      "due": "2026-11-10",
+      "quote": "Twenty antiseptic and ten hand wash delivery tomorrow.",
+      "segment": 6
+    },
+    {
+      "owner": "us",
+      "action": "Pass the dilution guidance for Dettol liquid on wounds to the team",
+      "due": null,
+      "quote": "Yes sir, I will note that.",
+      "segment": 8
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "demand",
+      "product": "Dettol",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Dettol continues to sell at the counter",
+      "quote": "Dettol sells, but many patients",
+      "segment": 1
+    },
+    {
+      "type": "competitor",
+      "product": "Dettol",
+      "competitor": "Patanjali",
+      "polarity": "negative",
+      "text": "Patients are asking for the cheaper Patanjali handwash instead of Dettol",
+      "quote": "many patients now ask for the cheaper Patanjali handwash.",
+      "segment": 1
+    },
+    {
+      "type": "price",
+      "product": "Dettol",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Chemist says Dettol's margin is lower than other brands",
+      "quote": "the margin on Detol is lower than the other brands.",
+      "segment": 3
+    },
+    {
+      "type": "product_feedback",
+      "product": "Dettol",
+      "competitor": null,
+      "polarity": "neutral",
+      "text": "A local doctor advises that Dettol liquid should not be used undiluted on wounds and wants reps to communicate this",
+      "quote": "the doctor next door says Dettol liquid should not be used undiluted on wounds.",
+      "segment": 7
+    },
+    {
+      "type": "demand",
+      "product": "Dettol",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Order for 20 antiseptic and 10 handwash",
+      "quote": "Send twenty bottles of Dettol antiseptic and ten hand wash.",
+      "segment": 5
+    }
+  ],
+  "entities": {
+    "products": [
+      "Dettol"
+    ],
+    "competitors": [
+      "Patanjali"
+    ],
+    "amounts": [
+      "20 bottles Dettol antiseptic",
+      "10 Dettol handwash"
+    ],
+    "people": [
+      "Dr. Vikram Mehta",
+      "Sneha Iyer"
+    ]
+  },
+  "checklist": {
+    "key_messages": {
+      "status": "partial",
+      "quote": "Your regular customers already trust Detol.",
+      "segment": 2
+    },
+    "doctor_questions_answered": {
+      "status": "no",
+      "quote": "Samples are fine, but the margin on Detol is lower than the other brands.",
+      "segment": 3
+    },
+    "prescription_intent": {
+      "status": "yes",
+      "quote": "Send twenty bottles of Dettol antiseptic and ten hand wash.",
+      "segment": 5
+    },
+    "samples_logged": {
+      "status": "partial",
+      "quote": "And we have new sample bottles for your regular patients.",
+      "segment": 2
+    },
+    "follow_up_agreed": {
+      "status": "yes",
+      "quote": "Twenty antiseptic and ten hand wash delivery tomorrow.",
+      "segment": 6
+    }
+  },
+  "compliance_flags": [
+    {
+      "rule": "inducement",
+      "severity": "high",
+      "text": "Rep offered a personal Diwali gift hamper to the chemist/doctor in return for pushing Dettol, which breaches UCPMP 2024.",
+      "quote": "आपको दिवाली पे एक gift hamper भी मिलेगा personally from my side.",
+      "segment": 4
+    }
+  ],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "You confirmed the exact quantities and a delivery day back to the customer. That clear close avoids order confusion.",
+      "segment": 6
+    },
+    {
+      "kind": "try-next",
+      "tip": "When margin comes up, respond with approved trade schemes or sell-through value (brand trust, faster rotation), never a personal gift. The Diwali hamper offer is a UCPMP inducement breach and should be reported to your manager.",
+      "segment": 4
+    },
+    {
+      "kind": "do-more",
+      "tip": "State sample brand and quantity when offering samples. Also take the dilution feedback seriously: share the approved usage guidance or escalate to medical affairs, not just 'I will note that'.",
+      "segment": 7
+    }
+  ],
+  "debrief": "Hi Sneha, quick note on Mehta Medicals. You walked out with an order of twenty Dettol antiseptic and ten handwash, and confirmed delivery for tomorrow, which was crisp. One important thing: the Diwali gift hamper offer counts as a personal inducement and breaks our compliance rules, so please don't repeat it; answer margin worries with approved schemes instead. Next, make sure tomorrow's delivery lands and pass on the dilution feedback to the team.",
+  "call_id": "demo-mehta-medicals",
+  "lens": "pharma-detailing",
+  "region": "Mumbai",
+  "grounding": {
+    "checked": 21,
+    "verified": 21,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 794,
+      "output": 5377,
+      "cache_read": 0
+    }
+  }
+}

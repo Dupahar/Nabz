@@ -1,0 +1,15 @@
+{
+  "rep_handle": "arjun",
+  "account": "Sharma General Store",
+  "contact": "Sharma ji",
+  "segment": "Kirana",
+  "region": "Delhi NCR",
+  "consent_method": "verbal",
+  "note": "Synthetic demo visit (Timbre voices)",
+  "call_id": "demo-sharma-general",
+  "rep_name": "Arjun Mehta",
+  "rep_language": "hi-en",
+  "created": "2026-11-09T18:01:01",
+  "upload": "upload.ogg",
+  "synthetic": true
+}

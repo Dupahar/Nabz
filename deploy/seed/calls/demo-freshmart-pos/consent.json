@@ -1,0 +1,15 @@
+{
+  "call_id": "demo-freshmart-pos",
+  "method": "verbal",
+  "confirmed_by": "sneha",
+  "subject": "Anjali Desai",
+  "evidence": "Synthetic demo visit (Timbre voices)",
+  "purpose": "Meeting notes, coaching of our representative, CRM update and follow-up drafting for this business conversation. Not used for marketing or shared outside the company.",
+  "recorded_at": "2026-11-09T12:39:57+00:00",
+  "withdrawn": false,
+  "review": null,
+  "verified_segment": 1,
+  "verified": true,
+  "spoken_refusal": false,
+  "verified_at": "2026-11-09T13:57:30+00:00"
+}

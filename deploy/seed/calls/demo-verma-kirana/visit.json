@@ -1,0 +1,15 @@
+{
+  "rep_handle": "ravi",
+  "account": "Verma Kirana",
+  "contact": "Ramesh Verma",
+  "segment": "Kirana",
+  "region": "Lucknow",
+  "consent_method": "verbal",
+  "note": "Synthetic demo visit (Timbre voices)",
+  "call_id": "demo-verma-kirana",
+  "rep_name": "Ravi Kumar",
+  "rep_language": "hi-IN",
+  "created": "2026-11-09T18:16:46",
+  "upload": "upload.ogg",
+  "synthetic": true
+}

@@ -1,0 +1,15 @@
+{
+  "rep_handle": "arjun",
+  "account": "Gupta Kirana",
+  "contact": "Mrs. Gupta",
+  "segment": "Kirana",
+  "region": "Delhi NCR",
+  "consent_method": "rep-confirmed",
+  "note": "Synthetic demo visit (Timbre voices)",
+  "call_id": "demo-gupta-kirana",
+  "rep_name": "Arjun Mehta",
+  "rep_language": "hi-en",
+  "created": "2026-11-09T18:02:48",
+  "upload": "upload.ogg",
+  "synthetic": true
+}

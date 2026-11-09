@@ -1,0 +1,34 @@
+{
+  "call_id": "demo-agarwal-traders",
+  "duration_sec": 58.9,
+  "rep": "S1",
+  "speakers": {
+    "S1": {
+      "name": "Ravi Kumar (Sales rep, Northwind Distributors (diarization also merged several of the customer's replies into S1))",
+      "talk_sec": 51.4,
+      "words": 141,
+      "questions": 6,
+      "fillers": 0,
+      "longest_monologue_sec": 29.3,
+      "turns": 3,
+      "talk_ratio": 0.884,
+      "wpm": 164.7
+    },
+    "S2": {
+      "name": "Suresh Agarwal (Owner, Agarwal Traders (wholesaler))",
+      "talk_sec": 6.7,
+      "words": 14,
+      "questions": 0,
+      "fillers": 0,
+      "longest_monologue_sec": 2.8,
+      "turns": 3,
+      "talk_ratio": 0.116,
+      "wpm": 125.0
+    }
+  },
+  "speaker_switches": 5,
+  "switches_per_min": 5.09,
+  "flags": [
+    "Rep talked 88% of the time. In Gong's 2025 data (326K calls, vendor research) won deals averaged ~57% rep talk and lost deals ~62%. Ask more, pitch less."
+  ]
+}

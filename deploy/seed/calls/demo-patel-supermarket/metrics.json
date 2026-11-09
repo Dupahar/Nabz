@@ -1,0 +1,34 @@
+{
+  "call_id": "demo-patel-supermarket",
+  "duration_sec": 71.9,
+  "rep": "S1",
+  "speakers": {
+    "S1": {
+      "name": "Sneha Iyer (Sales rep, Northwind Distributors)",
+      "talk_sec": 49.9,
+      "words": 152,
+      "questions": 0,
+      "fillers": 0,
+      "longest_monologue_sec": 18.5,
+      "turns": 5,
+      "talk_ratio": 0.694,
+      "wpm": 182.9
+    },
+    "S2": {
+      "name": "Hitesh Patel (Owner/buyer, Patel Supermarket)",
+      "talk_sec": 22.0,
+      "words": 59,
+      "questions": 0,
+      "fillers": 0,
+      "longest_monologue_sec": 6.9,
+      "turns": 4,
+      "talk_ratio": 0.306,
+      "wpm": 160.8
+    }
+  },
+  "speaker_switches": 8,
+  "switches_per_min": 6.68,
+  "flags": [
+    "Rep talked 69% of the time. In Gong's 2025 data (326K calls, vendor research) won deals averaged ~57% rep talk and lost deals ~62%. Ask more, pitch less."
+  ]
+}

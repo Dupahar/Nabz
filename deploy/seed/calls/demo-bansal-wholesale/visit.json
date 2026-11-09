@@ -1,0 +1,15 @@
+{
+  "rep_handle": "arjun",
+  "account": "Bansal Wholesale",
+  "contact": "Rakesh Bansal",
+  "segment": "Wholesaler",
+  "region": "Delhi NCR",
+  "consent_method": "rep-confirmed",
+  "note": "Synthetic demo visit (Timbre voices)",
+  "call_id": "demo-bansal-wholesale",
+  "rep_name": "Arjun Mehta",
+  "rep_language": "hi-en",
+  "created": "2026-11-09T18:04:36",
+  "upload": "upload.ogg",
+  "synthetic": true
+}

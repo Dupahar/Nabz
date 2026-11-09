@@ -1,0 +1,43 @@
+{
+  "call_id": "demo-jain-provision",
+  "duration_sec": 50.3,
+  "rep": "S1",
+  "speakers": {
+    "S1": {
+      "name": "Arjun Mehta (Sales rep, Northwind Distributors)",
+      "talk_sec": 21.4,
+      "words": 58,
+      "questions": 1,
+      "fillers": 0,
+      "longest_monologue_sec": 6.7,
+      "turns": 5,
+      "talk_ratio": 0.426,
+      "wpm": 162.5
+    },
+    "S2": {
+      "name": "Mahesh Jain (Owner, Jain Provision Store)",
+      "talk_sec": 20.8,
+      "words": 52,
+      "questions": 2,
+      "fillers": 0,
+      "longest_monologue_sec": 6.6,
+      "turns": 6,
+      "talk_ratio": 0.414,
+      "wpm": 150.0
+    },
+    "S3": {
+      "name": "Unknown (Unclear speaker. Short turns likely mis-diarized between rep and owner; possibly shop staff.)",
+      "talk_sec": 8.1,
+      "words": 19,
+      "questions": 2,
+      "fillers": 0,
+      "longest_monologue_sec": 3.0,
+      "turns": 4,
+      "talk_ratio": 0.161,
+      "wpm": 141.3
+    }
+  },
+  "speaker_switches": 14,
+  "switches_per_min": 16.7,
+  "flags": []
+}

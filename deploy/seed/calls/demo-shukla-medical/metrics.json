@@ -1,0 +1,32 @@
+{
+  "call_id": "demo-shukla-medical",
+  "duration_sec": 49.7,
+  "rep": "S1",
+  "speakers": {
+    "S1": {
+      "name": "Ravi Kumar (Sales rep, Northwind Distributors)",
+      "talk_sec": 23.4,
+      "words": 63,
+      "questions": 7,
+      "fillers": 0,
+      "longest_monologue_sec": 6.2,
+      "turns": 6,
+      "talk_ratio": 0.472,
+      "wpm": 161.3
+    },
+    "S2": {
+      "name": "Anil Shukla (Owner, Shukla Medical Store)",
+      "talk_sec": 26.2,
+      "words": 66,
+      "questions": 0,
+      "fillers": 0,
+      "longest_monologue_sec": 7.2,
+      "turns": 6,
+      "talk_ratio": 0.528,
+      "wpm": 151.0
+    }
+  },
+  "speaker_switches": 11,
+  "switches_per_min": 13.28,
+  "flags": []
+}

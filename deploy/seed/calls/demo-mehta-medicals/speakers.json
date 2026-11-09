@@ -1,0 +1,27 @@
+{
+  "names": {
+    "S1": "Sneha Iyer (Sales rep, Northwind Distributors)",
+    "S2": "Dr. Vikram Mehta (Owner, Mehta Medicals)"
+  },
+  "rep": "S1",
+  "source": "diarization",
+  "turns": null,
+  "merge": [],
+  "fix": [],
+  "labels": [
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1"
+  ],
+  "sides": {
+    "S1": "us",
+    "S2": "them"
+  },
+  "rep_present": true
+}

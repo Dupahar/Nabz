@@ -1,0 +1,15 @@
+{
+  "rep_handle": "sneha",
+  "account": "Patel Supermarket",
+  "contact": "Hitesh Patel",
+  "segment": "Modern trade",
+  "region": "Mumbai",
+  "consent_method": "rep-confirmed",
+  "note": "Synthetic demo visit (Timbre voices)",
+  "call_id": "demo-patel-supermarket",
+  "rep_name": "Sneha Iyer",
+  "rep_language": "en-IN",
+  "created": "2026-11-09T18:07:58",
+  "upload": "upload.ogg",
+  "synthetic": true
+}

@@ -1,0 +1,32 @@
+{
+  "call_id": "demo-sharma-general",
+  "duration_sec": 58.1,
+  "rep": "S1",
+  "speakers": {
+    "S1": {
+      "name": "Arjun Mehta (Sales rep, Northwind Distributors)",
+      "talk_sec": 28.4,
+      "words": 72,
+      "questions": 4,
+      "fillers": 0,
+      "longest_monologue_sec": 5.7,
+      "turns": 7,
+      "talk_ratio": 0.488,
+      "wpm": 152.3
+    },
+    "S2": {
+      "name": "Sharma ji (Owner, Sharma General Store)",
+      "talk_sec": 29.7,
+      "words": 80,
+      "questions": 0,
+      "fillers": 0,
+      "longest_monologue_sec": 8.0,
+      "turns": 6,
+      "talk_ratio": 0.512,
+      "wpm": 161.4
+    }
+  },
+  "speaker_switches": 12,
+  "switches_per_min": 12.39,
+  "flags": []
+}

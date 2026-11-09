@@ -1,0 +1,4 @@
+To: Mrs. Gupta
+Subject: Aaj ka order: Gupta Kirana
+
+Namaste Gupta aunty, aaj ka order note kar liya hai: Maggi teen carton aur Parle-G ek carton. Mom's Magic abhi nahi bhej rahe. Main agle mangalvar (17 November) ko aaunga, tab baaki baat karenge. Dhanyavaad! – Arjun, Northwind Distributors

@@ -1,0 +1,10 @@
+{
+  "stage": null,
+  "value_inr": null,
+  "next_step": "Send the order for 30 cases Maggi and 10 cases Tata Tea today and deliver by Thursday. On the next visit, check old Tata Tea stock, the competing local tea, shelf visibility and dues.",
+  "next_date": "2026-11-12",
+  "account": "Patel Supermarket",
+  "contact": "Hitesh Patel",
+  "owner": "Sneha Iyer",
+  "status": "proposed"
+}

@@ -1,0 +1,202 @@
+{
+  "account": "Verma Kirana",
+  "contact": "Ramesh Verma",
+  "rep": "Ravi Kumar",
+  "segment": "Kirana",
+  "language": "hi-IN",
+  "summary": "Ravi took a 5-carton Maggi order and set up a standing weekly order of 20 Aashirvaad atta bags from Monday, after learning the atta had been out of stock for two days. He mentioned the 10-carton scheme, but Verma ji said he can't stock that much and asked for a smaller scheme, which was not answered. Visibility, competitors and dues were not covered.",
+  "sentiment": "positive",
+  "score": 64,
+  "score_reason": "A solid order and a recurring atta commitment came from good stock-out questions, but the scheme pitch was unclear and unresolved, and visibility, competitor intel and collection were skipped.",
+  "needs": [
+    {
+      "text": "Maggi is the top customer demand; needs 5 cartons",
+      "quote": "मगी, मगी के बिना दुकान नहीं चलती। पाँच carton चाहिए।",
+      "segment": 3
+    },
+    {
+      "text": "Wants a reliable weekly supply of Aashirvaad atta (20 per week) to avoid stock-outs",
+      "quote": "हर हफ़्ते बीस pack।",
+      "segment": 7
+    },
+    {
+      "text": "Wants a smaller scheme suited to his stock capacity",
+      "quote": "सुना है, पर इतना माल मैं नहीं रख सकता। छोटी scheme हो तो बताओ।",
+      "segment": 9
+    }
+  ],
+  "concerns": [
+    {
+      "category": "scheme",
+      "handled": false,
+      "how": "",
+      "quote": "सुना है, पर इतना माल मैं नहीं रख सकता। छोटी scheme हो तो बताओ।",
+      "segment": 9
+    },
+    {
+      "category": "stock",
+      "handled": true,
+      "how": "Rep fixed a standing weekly delivery of 20 atta bags every Monday",
+      "quote": "आशीर्वाद आटा दो दिन खत्म रहा, distributor से माल नहीं आया।",
+      "segment": 5
+    }
+  ],
+  "signals": [
+    {
+      "text": "Customer confirmed the order and the recurring weekly arrangement",
+      "quote": "ठीक है, तो Maggi पाँच carton और अत्ता बीस bag सोमवार से हर हफ़्ते।",
+      "segment": 10
+    }
+  ],
+  "risks": [
+    {
+      "text": "Unit mismatch: the customer said 20 'pack' but the rep recorded 20 'bags'. The atta pack size needs confirming before the first delivery.",
+      "quote": "मैं हर सोमवार बीस bags fix कर देता हूँ।",
+      "segment": 8
+    },
+    {
+      "text": "Previous supply failure caused a two-day atta stock-out. A repeat would hurt trust.",
+      "quote": "आशीर्वाद आटा दो दिन खत्म रहा, distributor से माल नहीं आया।",
+      "segment": 5
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "us",
+      "action": "Deliver 5 cartons of Maggi",
+      "due": null,
+      "quote": "ठीक है, तो Maggi पाँच carton और अत्ता बीस bag सोमवार से हर हफ़्ते।",
+      "segment": 10
+    },
+    {
+      "owner": "us",
+      "action": "Deliver 20 bags of Aashirvaad atta every Monday (standing weekly order)",
+      "due": "2026-11-16",
+      "quote": "मैं हर सोमवार बीस bags fix कर देता हूँ।",
+      "segment": 8
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "demand",
+      "product": "Maggi",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Maggi is the most asked-for item; the shop says it can't run without it",
+      "quote": "मगी, मगी के बिना दुकान नहीं चलती। पाँच carton चाहिए।",
+      "segment": 3
+    },
+    {
+      "type": "availability",
+      "product": "Aashirvaad",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Aashirvaad atta was out of stock for two days because the distributor did not supply; customers walked away",
+      "quote": "आशीर्वाद आटा दो दिन खत्म रहा, distributor से माल नहीं आया।",
+      "segment": 5
+    },
+    {
+      "type": "demand",
+      "product": "Aashirvaad",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Steady weekly demand of about 20 packs of Aashirvaad atta",
+      "quote": "हर हफ़्ते बीस pack।",
+      "segment": 7
+    },
+    {
+      "type": "scheme",
+      "product": null,
+      "competitor": null,
+      "polarity": "negative",
+      "text": "The 10-carton scheme is too large for a small kirana; retailer wants a smaller-slab scheme",
+      "quote": "सुना है, पर इतना माल मैं नहीं रख सकता। छोटी scheme हो तो बताओ।",
+      "segment": 9
+    }
+  ],
+  "entities": {
+    "products": [
+      "Maggi",
+      "Aashirvaad"
+    ],
+    "competitors": [],
+    "amounts": [
+      "5 cartons Maggi",
+      "20 bags atta weekly"
+    ],
+    "people": [
+      "Ramesh Verma",
+      "Ravi Kumar"
+    ]
+  },
+  "checklist": {
+    "order_taken": {
+      "status": "yes",
+      "quote": "ठीक है, तो Maggi पाँच carton और अत्ता बीस bag सोमवार से हर हफ़्ते।",
+      "segment": 10
+    },
+    "scheme_communicated": {
+      "status": "partial",
+      "quote": "scheme के बारे में पता है, Das Cartum पे एक free",
+      "segment": 8
+    },
+    "stockout_checked": {
+      "status": "yes",
+      "quote": "और कोई चीज जो आपके पास खत्म हो गई और ग्राहक लौट गए?",
+      "segment": 4
+    },
+    "competitor_activity": {
+      "status": "unknown",
+      "quote": "",
+      "segment": null
+    },
+    "visibility_checked": {
+      "status": "unknown",
+      "quote": "",
+      "segment": null
+    },
+    "collection": {
+      "status": "unknown",
+      "quote": "",
+      "segment": null
+    }
+  },
+  "compliance_flags": [],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "Asking what ran out and sent customers away, then asking how much to keep, turned a stock-out complaint into a recurring weekly atta order. Keep using this sequence.",
+      "segment": 4
+    },
+    {
+      "kind": "try-next",
+      "tip": "State the scheme clearly and completely (slab, free goods). When the retailer asks for a smaller scheme, offer the nearest smaller slab from the current scheme list, or promise to check, instead of leaving it unanswered.",
+      "segment": 9
+    },
+    {
+      "kind": "do-more",
+      "tip": "Before closing, confirm the atta pack size (customer said 'pack', you said 'bags'). Also quickly check shelf display, pending dues and any competitor offers. Then try one upsell, such as Parle-G or Tata Tea, on top of the Maggi order.",
+      "segment": 10
+    }
+  ],
+  "debrief": "रवि, वर्मा किराना की विज़िट अच्छी रही। मैगी के पाँच कार्टन और हर हफ़्ते बीस बैग आशीर्वाद आटे का ऑर्डर मिला। बहुत बढ़िया कि आपने पूछा कौन सा माल खत्म हुआ, उसी से आटे का पक्का साप्ताहिक ऑर्डर बना। अगली बार स्कीम साफ़ समझाइए, और जब वर्मा जी छोटी स्कीम माँगें तो लिस्ट से सही विकल्प बताइए। डिस्प्ले, बकाया और प्रतियोगी भी देख लीजिए। अगला कदम: पैक साइज़ पक्का करके सोमवार सोलह नवंबर को पहली आटा डिलीवरी पहुँचाइए।",
+  "call_id": "demo-verma-kirana",
+  "lens": "fmcg-retail",
+  "region": "Lucknow",
+  "grounding": {
+    "checked": 17,
+    "verified": 17,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 929,
+      "output": 5333,
+      "cache_read": 3319
+    }
+  }
+}

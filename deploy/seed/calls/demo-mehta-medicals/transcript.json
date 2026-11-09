@@ -1,0 +1,89 @@
+{
+  "call_id": "demo-mehta-medicals",
+  "title": "Mehta Medicals",
+  "source_file": "upload.ogg",
+  "recorded_at": "2026-11-09T18:18:26",
+  "language": "en-IN",
+  "languages": [
+    "en-IN"
+  ],
+  "duration_sec": 51.2,
+  "engine": "gnani-prisma",
+  "model": "prisma-v3.0",
+  "diarized": true,
+  "segments": [
+    {
+      "i": 0,
+      "start": 0.0,
+      "end": 7.16,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Good evening Mehta sir, I wanted to talk about Detol antiseptic liquid and the new Detol handwash for your counter."
+    },
+    {
+      "i": 1,
+      "start": 7.16,
+      "end": 12.87,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "Dettol sells, but many patients now ask for the cheaper Patanjali handwash."
+    },
+    {
+      "i": 2,
+      "start": 12.87,
+      "end": 18.84,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Your regular customers already trust Detol. And we have new sample bottles for your regular patients."
+    },
+    {
+      "i": 3,
+      "start": 18.84,
+      "end": 23.59,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "Samples are fine, but the margin on Detol is lower than the other brands."
+    },
+    {
+      "i": 4,
+      "start": 23.59,
+      "end": 31.16,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Sir, if you push Detol this month, आपको दिवाली पे एक gift hamper भी मिलेगा personally from my side."
+    },
+    {
+      "i": 5,
+      "start": 31.16,
+      "end": 37.3,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "Gift hamper. Ok, ok. Send twenty bottles of Dettol antiseptic and ten hand wash."
+    },
+    {
+      "i": 6,
+      "start": 37.3,
+      "end": 41.92,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Done, sir. Twenty antiseptic and ten hand wash delivery tomorrow."
+    },
+    {
+      "i": 7,
+      "start": 41.92,
+      "end": 48.84,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "Also, the doctor next door says Dettol liquid should not be used undiluted on wounds. Tell your team to mention that."
+    },
+    {
+      "i": 8,
+      "start": 48.84,
+      "end": 51.2,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Yes sir, I will note that."
+    }
+  ],
+  "redacted": true
+}

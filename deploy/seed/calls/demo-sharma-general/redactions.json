@@ -1,0 +1,12 @@
+{
+  "call_id": "demo-sharma-general",
+  "counts": {
+    "PHONE": 1
+  },
+  "hits": [
+    {
+      "segment": 9,
+      "type": "PHONE"
+    }
+  ]
+}

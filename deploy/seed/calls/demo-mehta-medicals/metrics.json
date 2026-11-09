@@ -1,0 +1,32 @@
+{
+  "call_id": "demo-mehta-medicals",
+  "duration_sec": 51.2,
+  "rep": "S1",
+  "speakers": {
+    "S1": {
+      "name": "Sneha Iyer (Sales rep, Northwind Distributors)",
+      "talk_sec": 27.7,
+      "words": 71,
+      "questions": 0,
+      "fillers": 0,
+      "longest_monologue_sec": 7.6,
+      "turns": 5,
+      "talk_ratio": 0.541,
+      "wpm": 153.9
+    },
+    "S2": {
+      "name": "Dr. Vikram Mehta (Owner, Mehta Medicals)",
+      "talk_sec": 23.5,
+      "words": 61,
+      "questions": 0,
+      "fillers": 0,
+      "longest_monologue_sec": 6.9,
+      "turns": 4,
+      "talk_ratio": 0.459,
+      "wpm": 155.6
+    }
+  },
+  "speaker_switches": 8,
+  "switches_per_min": 9.38,
+  "flags": []
+}

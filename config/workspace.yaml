@@ -14,8 +14,8 @@ team:
   - {name: Arjun Mehta, handle: arjun, role: rep, language: hi-en, region: Delhi NCR, pin_hash: "pbkdf2_sha256$200000$69ad7fc618fc1fde45fc2189ef41859d$fd987db65be3c23c107084de1616ecbd3e84ec069f1333f546e395a6ec19d8f7"}
   - {name: Sneha Iyer, handle: sneha, role: rep, language: en-IN, region: Mumbai, pin_hash: "pbkdf2_sha256$200000$3fae60b18026709a64d95c575b93c7f3$28859952449603bd649c5387da8bce1df8f667d098fa4560482cff8dfad3a0ce"}
   - {name: Ravi Kumar, handle: ravi, role: rep, language: hi-IN, region: Lucknow, pin_hash: "pbkdf2_sha256$200000$74794b80609622e9d38a1393b6fce5bd$691b3b2cb99568e959b043d3fb643a53b09db8f41ee3013dc5057b621d878261"}
-  - {name: Kavita Rao, handle: kavita, role: manager, language: hi-en, region: All, pin_hash: "pbkdf2_sha256$200000$6f097117e1d20e89fa44e0c3231146ee$ec5d9b1d29579490e3c6686cc7a52fb4836b1b930e2edc745d198c16d7f1fec9"}
-  - {name: Meera Nair, handle: meera, role: admin, language: en-IN, region: All, pin_hash: "pbkdf2_sha256$200000$7cc91740f2d7c047badb11e07758946d$302af701972650d942ece663d5d666de6c226a656e523247f193429f0dd97a0b"}
+  - {name: Kavita Rao, handle: kavita, role: manager, language: hi-en, region: All, pin_hash: "pbkdf2_sha256$200000$ce173e3f610705a399bd224a591534db$7e032b899030b77049cf9886b76d94e5ae859f6b9133174d905d70f4f0d0839e"}
+  - {name: Meera Nair, handle: meera, role: admin, language: en-IN, region: All, pin_hash: "pbkdf2_sha256$200000$f94f0068830ef6e4e5a73b477c34d7d3$4274e7a4efa7d1ffb79d4d2a922ad4188cb3d305cafbe4f9cb8a2a29ebbd51d2"}
 
 # Customer segments a visit can be tagged with (market intelligence is sliced by these).
 segments: [Kirana, Chemist, Modern trade, Wholesaler, Doctor, Retail chain, Other]

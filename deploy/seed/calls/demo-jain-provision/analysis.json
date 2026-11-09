@@ -1,0 +1,205 @@
+{
+  "account": "Jain Provision Store",
+  "contact": "Mahesh Jain",
+  "rep": "Arjun Mehta",
+  "segment": "Kirana",
+  "language": "hi-en",
+  "summary": "Short visit where Mahesh Jain ordered 7 cartons of Maggi and 2 cartons of Tata Tea. Arjun pitched the 10+1 free scheme but could not clear up the customer's confusion about whether mixing is allowed, and promised to confirm. Sunfeast Mom's Magic was declined as slow-moving and expensive. Stock, shelf, competitors and dues were not covered.",
+  "sentiment": "mixed",
+  "score": 40,
+  "score_reason": "An order was taken and a scheme was mentioned, but the scheme explanation was unclear, the 3-carton top-up was not closed, and stock, visibility, competitor and collection checks were all missed.",
+  "needs": [
+    {
+      "text": "Maggi masala and atta noodles are both moving and need replenishment.",
+      "quote": "मसाला और अत्ता noodles दोनों चल रहे हैं।",
+      "segment": 3
+    },
+    {
+      "text": "Customer wants clarity on whether the 10+1 scheme allows mixing products.",
+      "quote": "mix चलेगा या सिर्फ़ मगी?",
+      "segment": 7
+    }
+  ],
+  "concerns": [
+    {
+      "category": "scheme",
+      "handled": false,
+      "how": "Rep said the scheme applies to 10 cartons of a single product and promised to confirm the mix rule.",
+      "quote": "पिछले महीने बोला था mix चलेगा, यह scheme हर बार बदल जाती है।",
+      "segment": 10
+    },
+    {
+      "category": "other",
+      "handled": false,
+      "how": "",
+      "quote": "वो नहीं बिकता, महंगा है।",
+      "segment": 14
+    }
+  ],
+  "signals": [
+    {
+      "text": "Customer placed a repeat order for Maggi without hesitation.",
+      "quote": "सात carton भेज दो।",
+      "segment": 5
+    },
+    {
+      "text": "Customer agreed to the combined Maggi and Tata Tea order.",
+      "quote": "अभी सात कार्टों Maggi और दो कार्टों Tata Tea।",
+      "segment": 11
+    }
+  ],
+  "risks": [
+    {
+      "text": "Inconsistent scheme communication is eroding the customer's trust in our offers.",
+      "quote": "यह scheme हर बार बदल जाती है।",
+      "segment": 10
+    },
+    {
+      "text": "The customer was 3 cartons short of a free carton, but the top-up was not closed, so the order stayed below potential.",
+      "quote": "तीन और ले लो तो एक free मिल जाएगा।",
+      "segment": 6
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "us",
+      "action": "Confirm whether the 10+1 free scheme allows mixing products and inform Mahesh Jain.",
+      "due": null,
+      "quote": "मैं confirm करके बताता हूँ।",
+      "segment": 11
+    },
+    {
+      "owner": "us",
+      "action": "Deliver 7 cartons Maggi and 2 cartons Tata Tea.",
+      "due": null,
+      "quote": "अभी सात कार्टों Maggi और दो कार्टों Tata Tea।",
+      "segment": 11
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "demand",
+      "product": "Maggi",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Both Maggi masala and atta noodles are selling well at the outlet.",
+      "quote": "मसाला और अत्ता noodles दोनों चल रहे हैं।",
+      "segment": 3
+    },
+    {
+      "type": "scheme",
+      "product": "Maggi",
+      "competitor": null,
+      "polarity": "neutral",
+      "text": "Current scheme is 1 free on 10 cartons, single product only.",
+      "quote": "एक ही product का दस carton।",
+      "segment": 9
+    },
+    {
+      "type": "scheme",
+      "product": null,
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Retailer is confused and frustrated that scheme terms keep changing; he says mixing was allowed last month.",
+      "quote": "पिछले महीने बोला था mix चलेगा, यह scheme हर बार बदल जाती है।",
+      "segment": 10
+    },
+    {
+      "type": "price",
+      "product": "Mom's Magic",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Sunfeast Mom's Magic is seen as expensive and slow-moving; the retailer declined it.",
+      "quote": "वो नहीं बिकता, महंगा है।",
+      "segment": 14
+    }
+  ],
+  "entities": {
+    "products": [
+      "Maggi",
+      "Tata Tea",
+      "Sunfeast",
+      "Mom's Magic"
+    ],
+    "competitors": [],
+    "amounts": [
+      "7 cartons Maggi",
+      "2 cartons Tata Tea",
+      "1 free on 10 cartons"
+    ],
+    "people": [
+      "Mahesh Jain",
+      "Arjun Mehta"
+    ]
+  },
+  "checklist": {
+    "order_taken": {
+      "status": "yes",
+      "quote": "अभी सात कार्टों Maggi और दो कार्टों Tata Tea।",
+      "segment": 11
+    },
+    "scheme_communicated": {
+      "status": "partial",
+      "quote": "इस महीने दास cotton पे एक free है",
+      "segment": 6
+    },
+    "stockout_checked": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "competitor_activity": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "visibility_checked": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "collection": {
+      "status": "unknown",
+      "quote": "",
+      "segment": null
+    }
+  },
+  "compliance_flags": [],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "You recalled the 10+1 scheme right away and used it to pitch a 3-carton top-up on the Maggi order. That is exactly the right instinct.",
+      "segment": 6
+    },
+    {
+      "kind": "try-next",
+      "tip": "Check the scheme rules (mix vs single product) before the beat. Once the doubt was resolved, you could have asked again for 3 more Maggi cartons to close the free carton.",
+      "segment": 10
+    },
+    {
+      "kind": "do-more",
+      "tip": "When a retailer rejects an SKU like Mom's Magic as expensive, ask what sells instead and at what price, and take a quick look at the shelf for stock and competitor presence.",
+      "segment": 14
+    }
+  ],
+  "debrief": "Arjun, Jain Provision Store ki visit chhoti thi par order mil gaya, saat carton Maggi aur do carton Tata Tea. Achha laga ki tumne turant das pe ek free scheme yaad dilayi aur teen carton aur lene ko bola. Agli baar scheme ke rules, mix chalega ya nahi, pehle se confirm karke jaana, Mahesh ji confuse ho gaye the. Ab jaldi scheme confirm karke unhe call karo aur teen carton ka top-up phir se try karo.",
+  "call_id": "demo-jain-provision",
+  "lens": "fmcg-retail",
+  "region": "Delhi NCR",
+  "grounding": {
+    "checked": 16,
+    "verified": 16,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 989,
+      "output": 5544,
+      "cache_read": 3319
+    }
+  }
+}

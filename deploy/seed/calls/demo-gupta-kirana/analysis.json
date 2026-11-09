@@ -1,0 +1,203 @@
+{
+  "account": "Gupta Kirana",
+  "contact": "Mrs. Gupta",
+  "rep": "Arjun Mehta",
+  "segment": "Kirana",
+  "language": "hi-IN",
+  "summary": "Small top-up order: Maggi 3 cartons and Parle-G 1 carton. Mom's Magic is a slow mover. The 2 cartons from last time are unsold because of price, so she asked us not to send more. She rejected the 10+1 scheme as too big for her shop, and reported that Britannia is offering 15-day credit and a display rack. Arjun did not counter either point.",
+  "sentiment": "mixed",
+  "score": 48,
+  "score_reason": "An order was taken and the scheme was mentioned. However, the order was small, the scheme was not adapted to the outlet, and Britannia's credit and rack offer went unanswered. Visibility and collections were not covered.",
+  "needs": [
+    {
+      "text": "Wants Maggi replenished because it sells well",
+      "quote": "मग्गी तीन carton भेज दो, वो तो चलती है ये।",
+      "segment": 2
+    },
+    {
+      "text": "Needs schemes sized for a small shop with limited storage space",
+      "quote": "दस carton? इतनी जगह कहाँ है मेरी दुकान में?",
+      "segment": 7
+    }
+  ],
+  "concerns": [
+    {
+      "category": "stock",
+      "handled": false,
+      "how": "",
+      "quote": "वो अभी तक पड़े हैं। price ज्यादा है, लोग मरी ले जाते हैं।",
+      "segment": 4
+    },
+    {
+      "category": "scheme",
+      "handled": false,
+      "how": "",
+      "quote": "ये scheme तो बड़े दुकान वालों के लिए है।",
+      "segment": 7
+    },
+    {
+      "category": "competitor",
+      "handled": false,
+      "how": "",
+      "quote": "ब्रिटानिया वाला भी आया था, पंद्रह दिन का उधार दे रहा है और display के लिए rack भी।",
+      "segment": 9
+    }
+  ],
+  "signals": [
+    {
+      "text": "Customer is open to a follow-up discussion next week",
+      "quote": "हाँ, और अगले हफ्ते आना, तब देखेंगे।",
+      "segment": 11
+    }
+  ],
+  "risks": [
+    {
+      "text": "Britannia's 15-day credit and free display rack could pull share away from our biscuit range",
+      "quote": "ब्रिटानिया वाला भी आया था, पंद्रह दिन का उधार दे रहा है और display के लिए rack भी।",
+      "segment": 9
+    },
+    {
+      "text": "Mom's Magic stock is stuck at the outlet, which risks returns or delisting",
+      "quote": "वो अभी तक पड़े हैं। price ज्यादा है, लोग मरी ले जाते हैं।",
+      "segment": 4
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "us",
+      "action": "Revisit Gupta Kirana next Tuesday",
+      "due": "2026-11-17",
+      "quote": "जी आंटी, अगले मंगलवार को आता हूँ।",
+      "segment": 12
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "demand",
+      "product": "Maggi",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Maggi is moving well at the outlet",
+      "quote": "मग्गी तीन carton भेज दो, वो तो चलती है ये।",
+      "segment": 2
+    },
+    {
+      "type": "price",
+      "product": "Mom's Magic",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Mom's Magic is seen as overpriced. Shoppers pick cheaper Marie biscuits instead, and the 2 cartons from the last order are unsold",
+      "quote": "वो अभी तक पड़े हैं। price ज्यादा है, लोग मरी ले जाते हैं।",
+      "segment": 4
+    },
+    {
+      "type": "scheme",
+      "product": null,
+      "competitor": null,
+      "polarity": "negative",
+      "text": "The 10+1 carton scheme is seen as suited only to large shops and is unusable for small kiranas",
+      "quote": "ये scheme तो बड़े दुकान वालों के लिए है।",
+      "segment": 7
+    },
+    {
+      "type": "competitor",
+      "product": null,
+      "competitor": "Britannia",
+      "polarity": "negative",
+      "text": "Britannia is offering 15-day credit plus a display rack to the outlet",
+      "quote": "ब्रिटानिया वाला भी आया था, पंद्रह दिन का उधार दे रहा है और display के लिए rack भी।",
+      "segment": 9
+    }
+  ],
+  "entities": {
+    "products": [
+      "Maggi",
+      "Mom's Magic",
+      "Parle-G"
+    ],
+    "competitors": [
+      "Britannia"
+    ],
+    "amounts": [
+      "3 cartons Maggi",
+      "1 carton Parle-G",
+      "2 cartons Mom's Magic (unsold)",
+      "10+1 carton scheme",
+      "15-day credit"
+    ],
+    "people": [
+      "Mrs. Gupta",
+      "Arjun Mehta"
+    ]
+  },
+  "checklist": {
+    "order_taken": {
+      "status": "yes",
+      "quote": "अच्छा ठीक है, तो Maggi तीन, Parle G एक।",
+      "segment": 10
+    },
+    "scheme_communicated": {
+      "status": "yes",
+      "quote": "इस महीने scheme है, दस carton पे एक carton free।",
+      "segment": 6
+    },
+    "stockout_checked": {
+      "status": "partial",
+      "quote": "तीन carton Maggi और Mom's Magic, पिछली बार दो carton दिए थे।",
+      "segment": 3
+    },
+    "competitor_activity": {
+      "status": "yes",
+      "quote": "ब्रिटानिया वाला भी आया था, पंद्रह दिन का उधार दे रहा है और display के लिए rack भी।",
+      "segment": 9
+    },
+    "visibility_checked": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "collection": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    }
+  },
+  "compliance_flags": [],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "You asked about last visit's Mom's Magic cartons. That surfaced a slow mover and the price feedback behind it. Keep checking previous stock before booking repeats.",
+      "segment": 3
+    },
+    {
+      "kind": "try-next",
+      "tip": "When Mrs. Gupta mentioned Britannia's 15-day credit and rack, don't just move on to closing the order. Acknowledge it, ask how many days of credit she needs, and promise to check with your manager what visibility support Northwind can offer.",
+      "segment": 9
+    },
+    {
+      "kind": "do-more",
+      "tip": "When a small shop says the 10+1 scheme is too big, offer a mixed-SKU way to reach ten cartons (Maggi + Parle-G + Tata Tea), or check for a smaller-slab scheme. Also check shelf display and pending dues before you leave.",
+      "segment": 7
+    }
+  ],
+  "debrief": "Arjun, Gupta Kirana ka visit theek-thaak raha. Maggi teen carton aur Parle-G ek carton ka order mila. Achha kiya ki aapne Mom's Magic ka pichhla stock poocha, isse pata chala do carton abhi tak pade hain. Agli baar jab Britannia ke pandrah din ke udhaar aur rack ki baat aaye, toh wahin ruk ke jawab do aur chhoti dukaan ke liye mixed-carton scheme suggest karo. Next step: agle mangalvar, satrah November ko wapas jaana.",
+  "call_id": "demo-gupta-kirana",
+  "lens": "fmcg-retail",
+  "region": "Delhi NCR",
+  "grounding": {
+    "checked": 17,
+    "verified": 17,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 940,
+      "output": 6048,
+      "cache_read": 3319
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "call_id": "demo-agarwal-traders",
+  "title": "Agarwal Traders",
+  "source_file": "upload.ogg",
+  "recorded_at": "2026-11-09T18:15:04",
+  "language": "hi-IN",
+  "languages": [
+    "hi-IN"
+  ],
+  "duration_sec": 58.9,
+  "engine": "gnani-prisma",
+  "model": "prisma-v3.0",
+  "diarized": true,
+  "segments": [
+    {
+      "i": 0,
+      "start": 0.0,
+      "end": 7.08,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "अग्रवाल जी, नमस्कार। इस महीने आपके retailer क्या सबसे ज्यादा मांग रहे हैं? मग्गी और कुछ नहीं?"
+    },
+    {
+      "i": 1,
+      "start": 7.08,
+      "end": 9.01,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "मगी की मांग बहुत है।"
+    },
+    {
+      "i": 2,
+      "start": 9.01,
+      "end": 24.8,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "चालीस cartoon भेज दो। चालीस cartoon मग्घी और कौन सा माल रुका हुआ है? Sunfeast Mom's Magic। retailer बोलते हैं price ज़्यादा है, बच्चे Parle-G high लेते हैं। अगर mom's magic का छोटा pack आए? दस रुपये वाला तो चलेगा।"
+    },
+    {
+      "i": 3,
+      "start": 24.8,
+      "end": 27.59,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "हाँ, दस रुपये वाला चल जाएगा।"
+    },
+    {
+      "i": 4,
+      "start": 27.59,
+      "end": 45.11,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "अभी वाला तीस रुपये का है, गाँव में नहीं बिकता। और पतंजलि का क्या असर है आपके area में? पतंजलि बहुत आगे बढ़ रहा है। उनका अट्टा और hand wash दोनों retailer को ज़्यादा margin पर देते हैं। retailer को कितना margin चाहिए ताकि वो हमारा माल रखें? कम से कम पंद्रह प्रतिशत।"
+    },
+    {
+      "i": 5,
+      "start": 45.92,
+      "end": 56.9,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "और scheme simple होनी चाहिए। दास कांटों पे एक free, किसी को समझ नहीं आता, समझ गया। मैं ये बात area manager तक पहुँचाऊँगा। तो मग्गी चालीस और परलेज पंद्रह carton।"
+    },
+    {
+      "i": 6,
+      "start": 56.9,
+      "end": 58.9,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "हाँ, ठीक है।"
+    }
+  ],
+  "redacted": true
+}

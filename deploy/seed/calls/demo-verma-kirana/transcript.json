@@ -1,0 +1,113 @@
+{
+  "call_id": "demo-verma-kirana",
+  "title": "Verma Kirana",
+  "source_file": "upload.ogg",
+  "recorded_at": "2026-11-09T18:16:46",
+  "language": "hi-IN",
+  "languages": [
+    "hi-IN"
+  ],
+  "duration_sec": 47.8,
+  "engine": "gnani-prisma",
+  "model": "prisma-v3.0",
+  "diarized": true,
+  "segments": [
+    {
+      "i": 0,
+      "start": 0.0,
+      "end": 4.99,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "वर्मा जी, नमस्ते। मैं यह बात training के लिए record कर रहा हूँ, ठीक है?"
+    },
+    {
+      "i": 1,
+      "start": 4.99,
+      "end": 7.06,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "हाँ भई, ठीक है।"
+    },
+    {
+      "i": 2,
+      "start": 7.06,
+      "end": 10.01,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "इस हफ्ते ग्राहक सबसे ज़्यादा क्या पूछ रहे थे?"
+    },
+    {
+      "i": 3,
+      "start": 10.01,
+      "end": 14.81,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "मगी, मगी के बिना दुकान नहीं चलती। पाँच carton चाहिए।"
+    },
+    {
+      "i": 4,
+      "start": 14.81,
+      "end": 18.46,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "और कोई चीज जो आपके पास खत्म हो गई और ग्राहक लौट गए?"
+    },
+    {
+      "i": 5,
+      "start": 18.46,
+      "end": 23.94,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "आशीर्वाद आटा दो दिन खत्म रहा, distributor से माल नहीं आया।"
+    },
+    {
+      "i": 6,
+      "start": 23.94,
+      "end": 26.32,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "कितना रखना चाहेंगे ताकि खत्म न हो?"
+    },
+    {
+      "i": 7,
+      "start": 26.32,
+      "end": 28.52,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "हर हफ़्ते बीस pack।"
+    },
+    {
+      "i": 8,
+      "start": 28.52,
+      "end": 35.33,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "ठीक है, मैं हर सोमवार बीस bags fix कर देता हूँ। scheme के बारे में पता है, Das Cartum पे एक free..."
+    },
+    {
+      "i": 9,
+      "start": 35.33,
+      "end": 40.37,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "सुना है, पर इतना माल मैं नहीं रख सकता। छोटी scheme हो तो बताओ।"
+    },
+    {
+      "i": 10,
+      "start": 40.37,
+      "end": 45.58,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "ठीक है, तो Maggi पाँच carton और अत्ता बीस bag सोमवार से हर हफ़्ते।"
+    },
+    {
+      "i": 11,
+      "start": 45.58,
+      "end": 47.8,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "हाँ, पक्का।"
+    }
+  ],
+  "redacted": true
+}

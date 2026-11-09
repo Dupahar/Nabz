@@ -1,0 +1,27 @@
+{
+  "names": {
+    "S1": "Sneha Iyer (Sales rep, Northwind Distributors (Northwind POS))",
+    "S2": "Anjali Desai (Contact, FreshMart (12-store retail chain))"
+  },
+  "rep": "S1",
+  "source": "diarization",
+  "turns": null,
+  "merge": [],
+  "fix": [],
+  "labels": [
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1"
+  ],
+  "sides": {
+    "S1": "us",
+    "S2": "them"
+  },
+  "rep_present": true
+}

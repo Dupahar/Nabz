@@ -1,0 +1,15 @@
+{
+  "rep_handle": "sneha",
+  "account": "Mehta Medicals",
+  "contact": "Dr. Vikram Mehta",
+  "segment": "Chemist",
+  "region": "Mumbai",
+  "consent_method": "rep-confirmed",
+  "note": "Synthetic demo visit (Timbre voices)",
+  "call_id": "demo-mehta-medicals",
+  "rep_name": "Sneha Iyer",
+  "rep_language": "en-IN",
+  "created": "2026-11-09T18:18:26",
+  "upload": "upload.ogg",
+  "synthetic": true
+}

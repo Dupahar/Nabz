@@ -1,0 +1,32 @@
+{
+  "call_id": "demo-bansal-wholesale",
+  "duration_sec": 52.9,
+  "rep": "S1",
+  "speakers": {
+    "S1": {
+      "name": "Arjun Mehta (Sales rep, Northwind Distributors)",
+      "talk_sec": 20.8,
+      "words": 49,
+      "questions": 1,
+      "fillers": 0,
+      "longest_monologue_sec": 4.5,
+      "turns": 6,
+      "talk_ratio": 0.394,
+      "wpm": 141.1
+    },
+    "S2": {
+      "name": "Rakesh Bansal (Owner, Bansal Wholesale)",
+      "talk_sec": 32.1,
+      "words": 86,
+      "questions": 0,
+      "fillers": 0,
+      "longest_monologue_sec": 11.3,
+      "turns": 5,
+      "talk_ratio": 0.606,
+      "wpm": 160.8
+    }
+  },
+  "speaker_switches": 10,
+  "switches_per_min": 11.34,
+  "flags": []
+}

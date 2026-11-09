@@ -1,0 +1,33 @@
+{
+  "names": {
+    "S1": "Arjun Mehta (Sales rep, Northwind Distributors)",
+    "S2": "Mrs. Gupta (Owner, Gupta Kirana (short acknowledgements; likely the same person as S3, split by diarization))",
+    "S3": "Mrs. Gupta (Owner, Gupta Kirana)"
+  },
+  "rep": "S1",
+  "source": "diarization",
+  "turns": null,
+  "merge": [],
+  "fix": [],
+  "labels": [
+    "S1",
+    "S2",
+    "S3",
+    "S1",
+    "S3",
+    "S2",
+    "S1",
+    "S3",
+    "S1",
+    "S3",
+    "S1",
+    "S3",
+    "S1"
+  ],
+  "sides": {
+    "S1": "us",
+    "S2": "them",
+    "S3": "them"
+  },
+  "rep_present": true
+}

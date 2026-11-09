@@ -1,0 +1,113 @@
+{
+  "call_id": "demo-bansal-wholesale",
+  "title": "Bansal Wholesale",
+  "source_file": "upload.ogg",
+  "recorded_at": "2026-11-09T18:04:36",
+  "language": "hi-IN",
+  "languages": [
+    "hi-IN"
+  ],
+  "duration_sec": 52.9,
+  "engine": "gnani-prisma",
+  "model": "prisma-v3.0",
+  "diarized": true,
+  "segments": [
+    {
+      "i": 0,
+      "start": 0.0,
+      "end": 3.8,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "राकेश जी, नमस्ते। इस हफ्ते का order बताइये।"
+    },
+    {
+      "i": 1,
+      "start": 3.8,
+      "end": 9.89,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "अर्जुन, पहले एक बात, पिछले हफ्ते आशीर्वाद आटा का माल टाइम पे नहीं आया।"
+    },
+    {
+      "i": 2,
+      "start": 9.89,
+      "end": 13.25,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "तीन दिन late था, मेरे retailer नाराज हो गए।"
+    },
+    {
+      "i": 3,
+      "start": 13.25,
+      "end": 16.13,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "Sorry राकेश जी, transport का issue था।"
+    },
+    {
+      "i": 4,
+      "start": 16.13,
+      "end": 20.83,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "हर बार यही बोलते हो। इस चक्कर में दो retailer ने पतंजलि अत्ता उठा लिया।"
+    },
+    {
+      "i": 5,
+      "start": 20.83,
+      "end": 24.61,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "main warehouse से बात करता हूँ। आटा कितना चाहिए?"
+    },
+    {
+      "i": 6,
+      "start": 24.61,
+      "end": 35.94,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "अत्ता पचास bag, मग्गी बीस carton। और सुनो, Britannia पंद्रह दिन credit दे रहा है, तुम लोग सात दिन देते हो। मेरे काफी retailer Britannia की तरफ जा रहे हैं।"
+    },
+    {
+      "i": 7,
+      "start": 35.94,
+      "end": 40.47,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "खान, वो तो है। Maggi बीस carton, अत्ता पचास bag लिख लिया।"
+    },
+    {
+      "i": 8,
+      "start": 40.47,
+      "end": 44.09,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "credit का कुछ करो वरना next month order आधा हो जाएगा।"
+    },
+    {
+      "i": 9,
+      "start": 44.09,
+      "end": 47.51,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "ठीक है राकेश जी, डिलीवरी परसों तक हो जाएगी।"
+    },
+    {
+      "i": 10,
+      "start": 47.51,
+      "end": 50.5,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "आँसू पक्का, फिर से late मत करना।"
+    },
+    {
+      "i": 11,
+      "start": 50.5,
+      "end": 52.92,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "पक्का, परसों सुबह तक।"
+    }
+  ],
+  "redacted": true
+}

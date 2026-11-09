@@ -1,0 +1,97 @@
+{
+  "call_id": "demo-patel-supermarket",
+  "title": "Patel Supermarket",
+  "source_file": "upload.ogg",
+  "recorded_at": "2026-11-09T18:07:59",
+  "language": "en-IN",
+  "languages": [
+    "en-IN"
+  ],
+  "duration_sec": 71.9,
+  "engine": "gnani-prisma",
+  "model": "prisma-v3.0",
+  "diarized": true,
+  "segments": [
+    {
+      "i": 0,
+      "start": 0.0,
+      "end": 18.52,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Hi Adesh ji, so this month we have a great lineup. Tata Tea Premium has a new pack. Muggie has a combo offer, and Aashirvaad has a festive pack. And I really think your customers will love all of these, because the festive season is coming and everyone is stocking up. So you should take a bigger order this time."
+    },
+    {
+      "i": 1,
+      "start": 18.52,
+      "end": 25.44,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "स्नेहा। The Tata tea price hike last month, customers are not happy. Sales are down almost twenty percent."
+    },
+    {
+      "i": 2,
+      "start": 25.44,
+      "end": 39.59,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Yes, but the quality is premium and the brand is very strong, and we are also running a TV campaign. So customers will come back and, honestly, the new pack looks very good on the shelf, so I would say take at least fifty cases this month."
+    },
+    {
+      "i": 3,
+      "start": 39.59,
+      "end": 41.02,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "Fifty."
+    },
+    {
+      "i": 4,
+      "start": 41.02,
+      "end": 45.16,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "I am still sitting on old stock. People are buying the cheaper local tea now."
+    },
+    {
+      "i": 5,
+      "start": 45.16,
+      "end": 53.96,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Ok, but Maggi is doing very well everywhere, so for Maggi, you should definitely take more. Maybe forty cases, and the combo will move fast."
+    },
+    {
+      "i": 6,
+      "start": 53.96,
+      "end": 60.48,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "Muggy is fine. Muggy always sells. Give me thirty cases of muggy Tata tea, only ten."
+    },
+    {
+      "i": 7,
+      "start": 60.48,
+      "end": 65.02,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Ok, thirty Maggi and ten Tata tea, and Mom's magic."
+    },
+    {
+      "i": 8,
+      "start": 65.02,
+      "end": 68.03,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "No, Mom's magic is too expensive for our customers."
+    },
+    {
+      "i": 9,
+      "start": 68.03,
+      "end": 71.87,
+      "speaker": "S1",
+      "lang": "en-IN",
+      "text": "Alright, I will send the order today, delivery by Thursday."
+    }
+  ],
+  "redacted": true
+}

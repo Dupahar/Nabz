@@ -1,0 +1,15 @@
+{
+  "rep_handle": "ravi",
+  "account": "Shukla Medical Store",
+  "contact": "Anil Shukla",
+  "segment": "Chemist",
+  "region": "Lucknow",
+  "consent_method": "verbal",
+  "note": "Synthetic demo visit (Timbre voices)",
+  "call_id": "demo-shukla-medical",
+  "rep_name": "Ravi Kumar",
+  "rep_language": "hi-IN",
+  "created": "2026-11-09T18:12:56",
+  "upload": "upload.ogg",
+  "synthetic": true
+}

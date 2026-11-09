@@ -1,0 +1,218 @@
+{
+  "account": "Sharma General Store",
+  "contact": "Sharma ji",
+  "rep": "Arjun Mehta",
+  "segment": "Kirana",
+  "language": "hi-en",
+  "summary": "Arjun took an order for 5 cartons Maggi, 2 cartons Parle-G and 1 peti Tata Tea. Sharma ji will pay by UPI on Friday, with delivery and the bill due the same day. Britannia is offering 15-day credit and has already sold Good Day and Marie into the outlet. Sharma ji asked for credit, and Arjun gave no real answer.",
+  "sentiment": "mixed",
+  "score": 60,
+  "score_reason": "Arjun took an order and fixed a payment date, but he did not explain any scheme, did not check visibility, and left a direct credit demand tied to a Britannia threat unaddressed.",
+  "needs": [
+    {
+      "text": "Maggi sells out daily; the outlet needs a steady supply of Maggi",
+      "quote": "मग्गी तो रोज़ ख़त्म हो जाती है भाई।",
+      "segment": 3
+    },
+    {
+      "text": "Wants credit terms from Northwind to match Britannia",
+      "quote": "तुम लोग भी credit दो ना, वरना मैं Britannia high ज़्यादा रखूँगा।",
+      "segment": 7
+    }
+  ],
+  "concerns": [
+    {
+      "category": "credit",
+      "handled": false,
+      "how": "Arjun only said 'haan ji, dekhte hain' and moved on to Tata Tea. He gave no answer and no escalation.",
+      "quote": "तुम लोग भी credit दो ना, वरना मैं Britannia high ज़्यादा रखूँगा।",
+      "segment": 7
+    },
+    {
+      "category": "competitor",
+      "handled": false,
+      "how": "",
+      "quote": "Britannia वाला आदमी पंद्रह दिन का credit दे रहा है।",
+      "segment": 5
+    }
+  ],
+  "signals": [
+    {
+      "text": "Strong, repeated Maggi demand from children; owner ordered 5 cartons",
+      "quote": "पाँच carton भेज दो इस बार।",
+      "segment": 3
+    },
+    {
+      "text": "Customer committed to a payment date",
+      "quote": "शुक्रवार को UPI कर दूँगा।",
+      "segment": 11
+    }
+  ],
+  "risks": [
+    {
+      "text": "Owner threatens to stock more Britannia if Northwind does not give credit",
+      "quote": "तुम लोग भी credit दो ना, वरना मैं Britannia high ज़्यादा रखूँगा।",
+      "segment": 7
+    },
+    {
+      "text": "Parle-G order kept small at 2 cartons while Britannia biscuits were bought on credit",
+      "quote": "उसे good day और mari ले लिया मैंने।",
+      "segment": 5
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "them",
+      "action": "Pay by UPI on Friday",
+      "due": "2026-11-13",
+      "quote": "शुक्रवार को UPI कर दूँगा।",
+      "segment": 11
+    },
+    {
+      "owner": "us",
+      "action": "Deliver the order with the bill on Friday",
+      "due": "2026-11-13",
+      "quote": "शुक्रवार को डिलीवरी के साथ बिल आ जाएगा।",
+      "segment": 12
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "demand",
+      "product": "Maggi",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Maggi sells out daily at the outlet, driven by children; 5 cartons ordered",
+      "quote": "मग्गी तो रोज़ ख़त्म हो जाती है भाई। बच्चे आते हैं, मग्गी मांगते हैं।",
+      "segment": 3
+    },
+    {
+      "type": "competitor",
+      "product": "Parle-G",
+      "competitor": "Britannia",
+      "polarity": "negative",
+      "text": "Britannia salesman offering 15-day credit to the kirana",
+      "quote": "Britannia वाला आदमी पंद्रह दिन का credit दे रहा है।",
+      "segment": 5
+    },
+    {
+      "type": "competitor",
+      "product": "Parle-G",
+      "competitor": "Britannia",
+      "polarity": "negative",
+      "text": "Outlet has bought Britannia Good Day and Marie; Parle-G order held at 2 cartons",
+      "quote": "उसे good day और mari ले लिया मैंने।",
+      "segment": 5
+    },
+    {
+      "type": "other",
+      "product": null,
+      "competitor": "Britannia",
+      "polarity": "negative",
+      "text": "Credit sensitivity: owner will shift shelf share to Britannia unless Northwind offers credit",
+      "quote": "तुम लोग भी credit दो ना, वरना मैं Britannia high ज़्यादा रखूँगा।",
+      "segment": 7
+    },
+    {
+      "type": "demand",
+      "product": "Tata Tea",
+      "competitor": null,
+      "polarity": "neutral",
+      "text": "Routine Tata Tea order of one peti",
+      "quote": "Tata Tea एक पेटी",
+      "segment": 9
+    }
+  ],
+  "entities": {
+    "products": [
+      "Maggi",
+      "Parle-G",
+      "Tata Tea",
+      "Good Day",
+      "Marie"
+    ],
+    "competitors": [
+      "Britannia"
+    ],
+    "amounts": [
+      "5 cartons Maggi",
+      "2 cartons Parle-G",
+      "1 peti Tata Tea",
+      "15-day credit"
+    ],
+    "people": [
+      "Sharma ji",
+      "Arjun Mehta"
+    ]
+  },
+  "checklist": {
+    "order_taken": {
+      "status": "yes",
+      "quote": "पार्ले जी, दो carton लिख देता हूँ।",
+      "segment": 6
+    },
+    "scheme_communicated": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "stockout_checked": {
+      "status": "yes",
+      "quote": "मग्गी का stock कैसा है?",
+      "segment": 2
+    },
+    "competitor_activity": {
+      "status": "yes",
+      "quote": "Britannia वाला आदमी पंद्रह दिन का credit दे रहा है।",
+      "segment": 5
+    },
+    "visibility_checked": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "collection": {
+      "status": "yes",
+      "quote": "शुक्रवार को UPI कर दूँगा।",
+      "segment": 11
+    }
+  },
+  "compliance_flags": [],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "You opened with a stock check on Maggi, which led straight into a 5-carton order. You also closed by fixing a clear payment date (Friday UPI) and tying it to delivery. Keep that discipline.",
+      "segment": 10
+    },
+    {
+      "kind": "try-next",
+      "tip": "When Sharma ji asked for credit to match Britannia, 'dekhte hain' left the threat open. Next time, acknowledge it, explain the current scheme on Parle-G, and promise a specific answer after checking with your manager.",
+      "segment": 8
+    },
+    {
+      "kind": "do-more",
+      "tip": "Sharma ji mentioned Good Day and Marie from Britannia. Use that moment to pitch Sunfeast or Mom's Magic as an alternative. Also check his biscuit shelf share before leaving.",
+      "segment": 5
+    }
+  ],
+  "debrief": "Arjun, Sharma General Store ka visit theek raha. Paanch carton Maggi, do carton Parle-G aur ek peti Tata Tea ka order mila, aur Friday ka UPI payment bhi pakka karwaya, bahut badhiya. Ek cheez try karo: jab Sharma ji ne Britannia ke pandrah din ke credit ki baat ki, 'dekhte hain' se aage jaao, current scheme samjhao aur manager se baat karke clear jawab do. Agla step: Friday ko delivery bill ke saath, aur credit par update.",
+  "call_id": "demo-sharma-general",
+  "lens": "fmcg-retail",
+  "region": "Delhi NCR",
+  "grounding": {
+    "checked": 19,
+    "verified": 19,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 1046,
+      "output": 5214,
+      "cache_read": 0
+    }
+  }
+}

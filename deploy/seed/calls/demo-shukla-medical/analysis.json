@@ -1,0 +1,214 @@
+{
+  "account": "Shukla Medical Store",
+  "contact": "Anil Shukla",
+  "rep": "Ravi Kumar",
+  "segment": "Chemist",
+  "language": "hi-IN",
+  "summary": "Dettol sales at Shukla Medical Store have dropped. A Patanjali rep visits every week, their hand wash is cheaper, they give about 18% margin against our 12%, and they have put up a display stand. Ravi promised to install our display stand next week and took an order for 15 bottles of Dettol liquid and 10 hand wash.",
+  "sentiment": "mixed",
+  "score": 60,
+  "score_reason": "Ravi took an order, captured useful competitor and margin intel and addressed visibility, but he communicated no scheme, did not respond to the margin gap, did not discuss dues and kept the order to two Dettol SKUs.",
+  "needs": [
+    {
+      "text": "Retailer needs better visibility for Dettol at the counter to compete with Patanjali's stand.",
+      "quote": "हाँ, display से फ़र्क पड़ता है। पतंजलि ने अपना stand लगा दिया है।",
+      "segment": 9
+    },
+    {
+      "text": "Retailer wants margins closer to the competitor's (about 18% from Patanjali vs 12% on Dettol).",
+      "quote": "लगभग अठारह प्रतिशत, Dettol पे हमें बारह मिलता है।",
+      "segment": 5
+    }
+  ],
+  "concerns": [
+    {
+      "category": "margin",
+      "handled": false,
+      "how": "",
+      "quote": "लगभग अठारह प्रतिशत, Dettol पे हमें बारह मिलता है।",
+      "segment": 5
+    },
+    {
+      "category": "competitor",
+      "handled": true,
+      "how": "Ravi promised to install the Northwind display stand next week to counter Patanjali's stand.",
+      "quote": "मैं हमारा डिस्प्ले स्टैंड अगले हफ्ते लगवा देता हूँ",
+      "segment": 10
+    }
+  ],
+  "signals": [
+    {
+      "text": "Loyal older customers still ask for Dettol, which is a base to defend.",
+      "quote": "पुराने ग्राहक Dettol high मांगते हैं",
+      "segment": 7
+    },
+    {
+      "text": "Retailer agreed that display placement drives sales of new walk-in customers.",
+      "quote": "नए लोग जो दिखता है वो ले लेते हैं।",
+      "segment": 7
+    }
+  ],
+  "risks": [
+    {
+      "text": "Dettol sales are declining as Patanjali visits weekly with a cheaper hand wash.",
+      "quote": "काम हुई है। पतंजलि वाले हर हफ्ते आते हैं",
+      "segment": 3
+    },
+    {
+      "text": "A 6-point margin gap against Patanjali could push the retailer to favour Patanjali.",
+      "quote": "लगभग अठारह प्रतिशत, Dettol पे हमें बारह मिलता है।",
+      "segment": 5
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "us",
+      "action": "Install the Northwind/Dettol display stand at the counter next week",
+      "due": null,
+      "quote": "मैं हमारा डिस्प्ले स्टैंड अगले हफ्ते लगवा देता हूँ",
+      "segment": 10
+    },
+    {
+      "owner": "them",
+      "action": "Order placed: Dettol liquid 15 bottles, Dettol hand wash 10",
+      "due": null,
+      "quote": "Dettol liquid, पंद्रह bottle hand wash, दस।",
+      "segment": 11
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "demand",
+      "product": "Dettol",
+      "competitor": "Patanjali",
+      "polarity": "negative",
+      "text": "Dettol sales declined last month at this chemist.",
+      "quote": "काम हुई है। पतंजलि वाले हर हफ्ते आते हैं",
+      "segment": 3
+    },
+    {
+      "type": "competitor",
+      "product": "Dettol",
+      "competitor": "Patanjali",
+      "polarity": "negative",
+      "text": "Patanjali rep visits every week and their hand wash is priced lower.",
+      "quote": "पतंजलि वाले हर हफ्ते आते हैं, उनका hand wash सस्ता है।",
+      "segment": 3
+    },
+    {
+      "type": "price",
+      "product": "Dettol",
+      "competitor": "Patanjali",
+      "polarity": "negative",
+      "text": "Patanjali gives retailer about 18% margin against 12% on Dettol.",
+      "quote": "लगभग अठारह प्रतिशत, Dettol पे हमें बारह मिलता है।",
+      "segment": 5
+    },
+    {
+      "type": "demand",
+      "product": "Dettol",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Older customers still ask for Dettol by name; new customers buy whatever is visible.",
+      "quote": "पुराने ग्राहक Dettol high मांगते हैं, नए लोग जो दिखता है वो ले लेते हैं।",
+      "segment": 7
+    },
+    {
+      "type": "competitor",
+      "product": "Dettol",
+      "competitor": "Patanjali",
+      "polarity": "negative",
+      "text": "Patanjali has installed its own display stand at the outlet.",
+      "quote": "पतंजलि ने अपना stand लगा दिया है।",
+      "segment": 9
+    }
+  ],
+  "entities": {
+    "products": [
+      "Dettol"
+    ],
+    "competitors": [
+      "Patanjali"
+    ],
+    "amounts": [
+      "15 bottles Dettol liquid",
+      "10 Dettol hand wash",
+      "18% margin (Patanjali)",
+      "12% margin (Dettol)"
+    ],
+    "people": [
+      "Anil Shukla",
+      "Ravi Kumar"
+    ]
+  },
+  "checklist": {
+    "order_taken": {
+      "status": "yes",
+      "quote": "Dettol liquid, पंद्रह bottle hand wash, दस।",
+      "segment": 11
+    },
+    "scheme_communicated": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "stockout_checked": {
+      "status": "partial",
+      "quote": "पिछले महीने Dettol की बिक्री कैसी रही?",
+      "segment": 2
+    },
+    "competitor_activity": {
+      "status": "yes",
+      "quote": "पतंजलि वाले हर हफ्ते आते हैं, उनका hand wash सस्ता है।",
+      "segment": 3
+    },
+    "visibility_checked": {
+      "status": "yes",
+      "quote": "अगर Dettol counter के सामने रखें तो क्या फर्क पड़ेगा?",
+      "segment": 8
+    },
+    "collection": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    }
+  },
+  "compliance_flags": [],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "Great probing. You asked for the exact competitor margin, checked what customers ask for, and then asked what counter placement would change. That sequence surfaced the real problem and led naturally to the display-stand solution.",
+      "segment": 8
+    },
+    {
+      "kind": "try-next",
+      "tip": "When the retailer told you 18% vs 12% margin, respond with the current Dettol scheme or a value argument such as loyal demand or faster rotation, instead of leaving the margin gap unanswered.",
+      "segment": 5
+    },
+    {
+      "kind": "do-more",
+      "tip": "Before closing, check stock of the other Northwind SKUs and suggest a new SKU suited to a chemist. Also confirm pending dues or a payment date so the order is larger and the visit is complete.",
+      "segment": 11
+    }
+  ],
+  "debrief": "रवि, शुक्ला मेडिकल स्टोर की विज़िट ठीक रही, डेटॉल लिक्विड पंद्रह बोतल और हैंड वॉश दस का ऑर्डर मिला। आपने पतंजलि का मार्जिन और उनके स्टैंड की जानकारी बहुत अच्छे सवालों से निकलवाई, और काउंटर डिस्प्ले वाला सवाल एकदम सही था। अगली बार अठारह बनाम बारह प्रतिशत मार्जिन की बात पर हमारी चालू स्कीम ज़रूर बताइए, और बकाया भुगतान की बात भी कीजिए। अगला कदम: अगले हफ्ते डिस्प्ले स्टैंड लगवाना मत भूलिए।",
+  "call_id": "demo-shukla-medical",
+  "lens": "fmcg-retail",
+  "region": "Lucknow",
+  "grounding": {
+    "checked": 19,
+    "verified": 19,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 981,
+      "output": 5110,
+      "cache_read": 0
+    }
+  }
+}

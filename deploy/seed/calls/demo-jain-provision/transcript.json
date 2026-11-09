@@ -1,0 +1,147 @@
+{
+  "call_id": "demo-jain-provision",
+  "title": "Jain Provision Store",
+  "source_file": "upload.ogg",
+  "recorded_at": "2026-11-09T18:06:17",
+  "language": "hi-IN",
+  "languages": [
+    "en-IN",
+    "gu-IN",
+    "hi-IN"
+  ],
+  "duration_sec": 50.3,
+  "engine": "gnani-prisma",
+  "model": "prisma-v3.0",
+  "diarized": true,
+  "segments": [
+    {
+      "i": 0,
+      "start": 0.01,
+      "end": 5.19,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "जैन साहब, नमस्ते। मैं यह conversation training के लिए record कर रहा हूँ, चलेगा?"
+    },
+    {
+      "i": 1,
+      "start": 5.19,
+      "end": 6.79,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "हाँ, चलेगा। बोलो।"
+    },
+    {
+      "i": 2,
+      "start": 6.79,
+      "end": 9.84,
+      "speaker": "S3",
+      "lang": "hi-IN",
+      "text": "मग्गी का क्या हाल है? Maggi best है।"
+    },
+    {
+      "i": 3,
+      "start": 9.84,
+      "end": 11.99,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "मसाला और अत्ता noodles दोनों चल रहे हैं।"
+    },
+    {
+      "i": 4,
+      "start": 11.99,
+      "end": 12.67,
+      "speaker": "S3",
+      "lang": "hi-IN",
+      "text": "वाला दे।"
+    },
+    {
+      "i": 5,
+      "start": 12.67,
+      "end": 13.8,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "सात carton भेज दो।"
+    },
+    {
+      "i": 6,
+      "start": 13.8,
+      "end": 20.53,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "सात cotton, इस महीने दास cotton पे एक free है, तीन और ले लो तो एक free मिल जाएगा।"
+    },
+    {
+      "i": 7,
+      "start": 20.53,
+      "end": 25.54,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "दस पे एक free मतलब क्या? mix चलेगा या सिर्फ़ मगी?"
+    },
+    {
+      "i": 8,
+      "start": 25.58,
+      "end": 27.07,
+      "speaker": "S3",
+      "lang": "gu-IN",
+      "text": "મિક્સ નહીં."
+    },
+    {
+      "i": 9,
+      "start": 27.07,
+      "end": 29.29,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "एक ही product का दस carton।"
+    },
+    {
+      "i": 10,
+      "start": 29.29,
+      "end": 35.94,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "फिर समझ नहीं आया, पिछले महीने बोला था mix चलेगा, यह scheme हर बार बदल जाती है।"
+    },
+    {
+      "i": 11,
+      "start": 35.94,
+      "end": 41.13,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "मैं confirm करके बताता हूँ। अभी सात कार्टों Maggi और दो कार्टों Tata Tea।"
+    },
+    {
+      "i": 12,
+      "start": 41.13,
+      "end": 43.07,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "हाँ, ठीक है।"
+    },
+    {
+      "i": 13,
+      "start": 43.07,
+      "end": 45.39,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "और Sunfeast Mom's Magic Mat भेजना।"
+    },
+    {
+      "i": 14,
+      "start": 45.39,
+      "end": 48.24,
+      "speaker": "S3",
+      "lang": "hi-IN",
+      "text": "वो नहीं बिकता, महंगा है। ठीक है?"
+    },
+    {
+      "i": 15,
+      "start": 48.24,
+      "end": 50.33,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "सिर्फ Maggi और Tata Tea।"
+    }
+  ],
+  "redacted": true
+}

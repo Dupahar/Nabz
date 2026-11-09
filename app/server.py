@@ -23,6 +23,7 @@ import hmac
 import json
 import logging
 import re
+import os
 import shutil
 import sys
 import tempfile
@@ -373,6 +374,12 @@ def create_visit(request: Request, audio: UploadFile = File(...), account: str =
     user = current_user(request)
     lim = pipeline.limits()
     max_bytes = int(lim["max_upload_mb"] * 1024 * 1024)
+    cap = int(os.environ.get("NABZ_DAILY_VISIT_CAP", "0") or 0)  # public demo: bound API spend per day
+    if cap and CALLS.exists():
+        today = datetime.now().strftime("%Y%m%d")
+        if sum(1 for f in CALLS.iterdir() if f.name.startswith(today)) >= cap:
+            raise HTTPException(429, f"This public demo processes at most {cap} new visits a day. Please try again tomorrow, "
+                                     "or explore the demo visits already here.")
     if consent_confirmed.lower() not in ("true", "1", "yes", "on"):
         audit("visit.blocked_no_consent", actor=user["handle"])
         raise HTTPException(400, "Consent is required before a visit can be processed (DPDP Act 2023).")

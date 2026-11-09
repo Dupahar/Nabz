@@ -1,0 +1,32 @@
+{
+  "call_id": "demo-verma-kirana",
+  "duration_sec": 47.8,
+  "rep": "S1",
+  "speakers": {
+    "S1": {
+      "name": "Ravi Kumar (Sales rep, Northwind Distributors)",
+      "talk_sec": 26.0,
+      "words": 80,
+      "questions": 4,
+      "fillers": 0,
+      "longest_monologue_sec": 6.8,
+      "turns": 6,
+      "talk_ratio": 0.544,
+      "wpm": 184.7
+    },
+    "S2": {
+      "name": "Ramesh Verma (Owner, Verma Kirana)",
+      "talk_sec": 21.8,
+      "words": 45,
+      "questions": 0,
+      "fillers": 0,
+      "longest_monologue_sec": 5.5,
+      "turns": 6,
+      "talk_ratio": 0.456,
+      "wpm": 123.8
+    }
+  },
+  "speaker_switches": 11,
+  "switches_per_min": 13.81,
+  "flags": []
+}

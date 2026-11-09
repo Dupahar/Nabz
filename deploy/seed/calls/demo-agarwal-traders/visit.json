@@ -1,0 +1,15 @@
+{
+  "rep_handle": "ravi",
+  "account": "Agarwal Traders",
+  "contact": "Suresh Agarwal",
+  "segment": "Wholesaler",
+  "region": "Lucknow",
+  "consent_method": "rep-confirmed",
+  "note": "Synthetic demo visit (Timbre voices)",
+  "call_id": "demo-agarwal-traders",
+  "rep_name": "Ravi Kumar",
+  "rep_language": "hi-IN",
+  "created": "2026-11-09T18:15:04",
+  "upload": "upload.ogg",
+  "synthetic": true
+}

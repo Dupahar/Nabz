@@ -1,0 +1,114 @@
+{
+  "call_id": "demo-shukla-medical",
+  "title": "Shukla Medical Store",
+  "source_file": "upload.ogg",
+  "recorded_at": "2026-11-09T18:12:56",
+  "language": "hi-IN",
+  "languages": [
+    "en-IN",
+    "hi-IN"
+  ],
+  "duration_sec": 49.7,
+  "engine": "gnani-prisma",
+  "model": "prisma-v3.0",
+  "diarized": true,
+  "segments": [
+    {
+      "i": 0,
+      "start": 0.04,
+      "end": 6.26,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "शुक्ला जी, प्रणाम। मैं ये बातचीत training के लिए record कर रहा हूँ, आपको कोई आपत्ति तो नहीं?"
+    },
+    {
+      "i": 1,
+      "start": 6.26,
+      "end": 7.71,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "कर लीजिए।"
+    },
+    {
+      "i": 2,
+      "start": 7.71,
+      "end": 10.72,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "पिछले महीने Dettol की बिक्री कैसी रही?"
+    },
+    {
+      "i": 3,
+      "start": 10.72,
+      "end": 17.88,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "काम हुई है। पतंजलि वाले हर हफ्ते आते हैं, उनका hand wash सस्ता है। और margin भी ज़्यादा देते हैं।"
+    },
+    {
+      "i": 4,
+      "start": 17.88,
+      "end": 20.15,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "कितना margin दे रहे हैं वो?"
+    },
+    {
+      "i": 5,
+      "start": 20.15,
+      "end": 24.36,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "लगभग अठारह प्रतिशत, Dettol पे हमें बारह मिलता है।"
+    },
+    {
+      "i": 6,
+      "start": 24.36,
+      "end": 28.39,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "और ग्राहक खुद क्या मांगते हैं? Dettol या पतंजलि?"
+    },
+    {
+      "i": 7,
+      "start": 28.39,
+      "end": 33.17,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "पुराने ग्राहक Dettol high मांगते हैं, नए लोग जो दिखता है वो ले लेते हैं।"
+    },
+    {
+      "i": 8,
+      "start": 33.17,
+      "end": 36.87,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "अगर Dettol counter के सामने रखें तो क्या फर्क पड़ेगा?"
+    },
+    {
+      "i": 9,
+      "start": 36.87,
+      "end": 41.94,
+      "speaker": "S2",
+      "lang": "hi-IN",
+      "text": "हाँ, display से फ़र्क पड़ता है। पतंजलि ने अपना stand लगा दिया है।"
+    },
+    {
+      "i": 10,
+      "start": 41.94,
+      "end": 46.14,
+      "speaker": "S1",
+      "lang": "hi-IN",
+      "text": "मैं हमारा डिस्प्ले स्टैंड अगले हफ्ते लगवा देता हूँ, अभी कितना ऑर्डर करें?"
+    },
+    {
+      "i": 11,
+      "start": 46.14,
+      "end": 49.69,
+      "speaker": "S2",
+      "lang": "en-IN",
+      "text": "Dettol liquid, पंद्रह bottle hand wash, दस।"
+    }
+  ],
+  "redacted": true
+}

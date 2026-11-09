@@ -1,0 +1,229 @@
+{
+  "account": "Bansal Wholesale",
+  "contact": "Rakesh Bansal",
+  "rep": "Arjun Mehta",
+  "segment": "Wholesaler",
+  "language": "hi-IN",
+  "summary": "Rakesh Bansal ordered 50 bags of Aashirvaad atta and 20 cartons of Maggi. He complained that last week's atta arrived three days late, which cost him two retailers to Patanjali. He also warned that Britannia gives 15-day credit against our 7 days, and that his order will halve next month unless we do something on credit. Arjun committed to delivery by Wednesday morning but did not address the credit issue.",
+  "sentiment": "mixed",
+  "score": 45,
+  "score_reason": "An order was taken and delivery was committed, but the credit threat went unaddressed, and there was no scheme talk, stock or visibility check, or collection at a strained account.",
+  "needs": [
+    {
+      "text": "Reliable, on-time delivery of Aashirvaad atta",
+      "quote": "पिछले हफ्ते आशीर्वाद आटा का माल टाइम पे नहीं आया।",
+      "segment": 1
+    },
+    {
+      "text": "Longer credit period, to match Britannia's 15 days",
+      "quote": "credit का कुछ करो वरना next month order आधा हो जाएगा।",
+      "segment": 8
+    }
+  ],
+  "concerns": [
+    {
+      "category": "delivery",
+      "handled": true,
+      "how": "Apologised, blamed transport, said he would talk to the warehouse, and committed to delivery by parso morning",
+      "quote": "तीन दिन late था, मेरे retailer नाराज हो गए।",
+      "segment": 2
+    },
+    {
+      "category": "credit",
+      "handled": false,
+      "how": "Only acknowledged ('वो तो है') and moved on; no escalation or answer given",
+      "quote": "Britannia पंद्रह दिन credit दे रहा है, तुम लोग सात दिन देते हो।",
+      "segment": 6
+    },
+    {
+      "category": "competitor",
+      "handled": false,
+      "how": "",
+      "quote": "इस चक्कर में दो retailer ने पतंजलि अत्ता उठा लिया।",
+      "segment": 4
+    }
+  ],
+  "signals": [
+    {
+      "text": "Customer still placed a regular weekly order despite his complaints",
+      "quote": "अत्ता पचास bag, मग्गी बीस carton।",
+      "segment": 6
+    },
+    {
+      "text": "Customer will accept the delivery commitment if we keep it",
+      "quote": "आँसू पक्का, फिर से late मत करना।",
+      "segment": 10
+    }
+  ],
+  "risks": [
+    {
+      "text": "Customer threatens to halve next month's order unless credit terms improve",
+      "quote": "credit का कुछ करो वरना next month order आधा हो जाएगा।",
+      "segment": 8
+    },
+    {
+      "text": "Downstream retailers are shifting to Britannia because of its credit terms",
+      "quote": "मेरे काफी retailer Britannia की तरफ जा रहे हैं।",
+      "segment": 6
+    },
+    {
+      "text": "Repeated late deliveries are eroding trust",
+      "quote": "हर बार यही बोलते हो।",
+      "segment": 4
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "us",
+      "action": "Deliver 50 bags Aashirvaad atta and 20 cartons Maggi by Wednesday morning",
+      "due": "2026-11-11",
+      "quote": "ठीक है राकेश जी, डिलीवरी परसों तक हो जाएगी।",
+      "segment": 9
+    },
+    {
+      "owner": "us",
+      "action": "Speak to the warehouse about the delivery delays",
+      "due": null,
+      "quote": "main warehouse से बात करता हूँ।",
+      "segment": 5
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "availability",
+      "product": "Aashirvaad",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Aashirvaad atta delivery was three days late last week, and the wholesaler's retailers were upset",
+      "quote": "तीन दिन late था, मेरे retailer नाराज हो गए।",
+      "segment": 2
+    },
+    {
+      "type": "competitor",
+      "product": "Aashirvaad",
+      "competitor": "Patanjali",
+      "polarity": "negative",
+      "text": "Two retailers switched to Patanjali atta because of our late delivery",
+      "quote": "इस चक्कर में दो retailer ने पतंजलि अत्ता उठा लिया।",
+      "segment": 4
+    },
+    {
+      "type": "competitor",
+      "product": null,
+      "competitor": "Britannia",
+      "polarity": "negative",
+      "text": "Britannia offers 15-day credit against Northwind's 7 days, and retailers are moving to Britannia",
+      "quote": "Britannia पंद्रह दिन credit दे रहा है, तुम लोग सात दिन देते हो।",
+      "segment": 6
+    },
+    {
+      "type": "demand",
+      "product": "Maggi",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Weekly order of 20 cartons Maggi and 50 bags Aashirvaad atta",
+      "quote": "Maggi बीस carton, अत्ता पचास bag लिख लिया।",
+      "segment": 7
+    },
+    {
+      "type": "other",
+      "product": null,
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Wholesaler is highly sensitive to credit terms and threatens to halve his order",
+      "quote": "credit का कुछ करो वरना next month order आधा हो जाएगा।",
+      "segment": 8
+    }
+  ],
+  "entities": {
+    "products": [
+      "Aashirvaad",
+      "Maggi"
+    ],
+    "competitors": [
+      "Britannia",
+      "Patanjali"
+    ],
+    "amounts": [
+      "50 bags atta",
+      "20 cartons Maggi",
+      "15-day credit",
+      "7-day credit",
+      "3 days late"
+    ],
+    "people": [
+      "Rakesh Bansal",
+      "Arjun Mehta"
+    ]
+  },
+  "checklist": {
+    "order_taken": {
+      "status": "yes",
+      "quote": "Maggi बीस carton, अत्ता पचास bag लिख लिया।",
+      "segment": 7
+    },
+    "scheme_communicated": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "stockout_checked": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "competitor_activity": {
+      "status": "yes",
+      "quote": "Britannia पंद्रह दिन credit दे रहा है, तुम लोग सात दिन देते हो।",
+      "segment": 6
+    },
+    "visibility_checked": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "collection": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    }
+  },
+  "compliance_flags": [],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "You read back the order (20 cartons Maggi, 50 bags atta) and later gave a firm delivery time. That clarity helps rebuild trust after a late delivery.",
+      "segment": 7
+    },
+    {
+      "kind": "try-next",
+      "tip": "When Rakesh ji raised Britannia's 15-day credit, you only said 'वो तो है'. Next time, ask how much volume is at stake, promise to take it to your manager, and give him a date for an answer, without promising any credit yourself.",
+      "segment": 6
+    },
+    {
+      "kind": "do-more",
+      "tip": "For a wholesaler this size, also cover current schemes, check pending dues, ask which Patanjali SKUs retailers are switching to, and try to add Tata Tea or Parle-G to the order.",
+      "segment": 8
+    }
+  ],
+  "debrief": "Arjun, Bansal Wholesale ka visit thoda tense tha. Rakesh ji late delivery aur credit se naraz the. Achhi baat: tumne pachaas bag atta aur bees carton Maggi ka order turant confirm karke repeat kiya. Agli baar jab Britannia ka pandrah din credit wala point aaye, sirf haan mat bolo. Manager se baat karke Rakesh ji ko ek date do. Next step: Wednesday subah tak delivery pakki karo, warehouse se baat karo, aur credit wali baat manager ko aaj hi batao.",
+  "call_id": "demo-bansal-wholesale",
+  "lens": "fmcg-retail",
+  "region": "Delhi NCR",
+  "grounding": {
+    "checked": 19,
+    "verified": 19,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 960,
+      "output": 5819,
+      "cache_read": 3319
+    }
+  }
+}

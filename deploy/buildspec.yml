@@ -1,0 +1,13 @@
+# AWS CodeBuild: build the Nabz image and push it to ECR. Expects env vars ECR_REPO_URI and AWS_REGION.
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - aws ecr get-login-password --region "$AWS_REGION" | docker login --username AWS --password-stdin "${ECR_REPO_URI%%/*}"
+  build:
+    commands:
+      - docker build -t "$ECR_REPO_URI:latest" -t "$ECR_REPO_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION" .
+  post_build:
+    commands:
+      - docker push "$ECR_REPO_URI:latest"
+      - echo "pushed $ECR_REPO_URI:latest"

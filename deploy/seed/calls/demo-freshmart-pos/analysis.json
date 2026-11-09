@@ -1,0 +1,197 @@
+{
+  "account": "FreshMart",
+  "contact": "Anjali Desai",
+  "rep": "Sneha Iyer",
+  "segment": "Retail chain",
+  "language": "en-IN",
+  "summary": "Sneha pitched Northwind POS to Anjali at FreshMart, a 12-store chain. Anjali's pains are weekend billing queues and no store-wise stock visibility. She flagged that the price of ₹9,000 per store per month (about ₹1.08 lakh a month) is more than they pay now, and said she needs an ROI case for director Mr Kulkarni, who decides by end of December. She agreed a two-store pilot makes sense, and Sneha will send a proposal and pilot plan by Friday.",
+  "sentiment": "mixed",
+  "score": 55,
+  "score_reason": "The need is clearly stated, the decision maker and a December deadline are known, and a two-store pilot is agreed in principle, but price is above current spend, the ROI is unquantified and the director is not yet engaged.",
+  "needs": [
+    {
+      "text": "Reduce billing queues at the counter on weekends",
+      "quote": "Our biggest problem is billing queues on weekends",
+      "segment": 3
+    },
+    {
+      "text": "Store-wise stock visibility across 12 stores",
+      "quote": "we do not know store-wise stock.",
+      "segment": 3
+    },
+    {
+      "text": "An ROI case to present to the director",
+      "quote": "I would need to show ROI to our director.",
+      "segment": 5
+    }
+  ],
+  "concerns": [
+    {
+      "category": "price",
+      "handled": false,
+      "how": "Sneha moved straight to offering a demo and pilot. She did not address the price gap or quantify ROI.",
+      "quote": "that is more than we pay now.",
+      "segment": 5
+    },
+    {
+      "category": "authority",
+      "handled": true,
+      "how": "Offered a demo for the director and a two-store pilot.",
+      "quote": "we can do a demo for your director and a pilot in two stores.",
+      "segment": 6
+    }
+  ],
+  "signals": [
+    {
+      "text": "Customer agreed a two-store pilot makes sense",
+      "quote": "A pilot in two stores makes sense.",
+      "segment": 7
+    },
+    {
+      "text": "Customer volunteered the decision maker and the decision deadline",
+      "quote": "Our director, Mister Kulkarni, decides by the end of December.",
+      "segment": 7
+    }
+  ],
+  "risks": [
+    {
+      "text": "The proposed price exceeds current spend, so the deal depends on proving ROI",
+      "quote": "Nine thousand per store is about one lakh eight thousand a month, that is more than we pay now.",
+      "segment": 5
+    },
+    {
+      "text": "The director has not been met yet and the decision rests with him",
+      "quote": "I would need to show ROI to our director.",
+      "segment": 5
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "us",
+      "action": "Send the proposal and pilot plan to Anjali",
+      "due": "2026-11-13",
+      "quote": "I will send the proposal and pilot plan by Friday.",
+      "segment": 8
+    },
+    {
+      "owner": "us",
+      "action": "Arrange a demo for director Mr Kulkarni and a pilot in two stores",
+      "due": null,
+      "quote": "we can do a demo for your director and a pilot in two stores.",
+      "segment": 6
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "demand",
+      "product": "Northwind POS",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "A 12-store chain has weekend billing-queue and stock-visibility pain and is open to a two-store pilot",
+      "quote": "A pilot in two stores makes sense.",
+      "segment": 7
+    },
+    {
+      "type": "price",
+      "product": "Northwind POS",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "₹9,000 per store per month is seen as higher than the chain's current spend on billing software",
+      "quote": "Nine thousand per store is about one lakh eight thousand a month, that is more than we pay now.",
+      "segment": 5
+    }
+  ],
+  "entities": {
+    "products": [
+      "Northwind POS"
+    ],
+    "competitors": [],
+    "amounts": [
+      "twelve stores",
+      "nine thousand rupees per store per month",
+      "one lakh eight thousand a month",
+      "pilot in two stores",
+      "more than two hundred stores"
+    ],
+    "people": [
+      "Anjali Desai",
+      "Sneha Iyer",
+      "Mister Kulkarni"
+    ]
+  },
+  "checklist": {
+    "budget": {
+      "status": "partial",
+      "quote": "that is more than we pay now.",
+      "segment": 5
+    },
+    "authority": {
+      "status": "partial",
+      "quote": "Our director, Mister Kulkarni, decides by the end of December.",
+      "segment": 7
+    },
+    "need": {
+      "status": "yes",
+      "quote": "Our biggest problem is billing queues on weekends, and we do not know store-wise stock.",
+      "segment": 3
+    },
+    "timeline": {
+      "status": "yes",
+      "quote": "Our director, Mister Kulkarni, decides by the end of December.",
+      "segment": 7
+    },
+    "decision_process": {
+      "status": "partial",
+      "quote": "I would need to show ROI to our director.",
+      "segment": 5
+    }
+  },
+  "compliance_flags": [],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "When Anjali raised ROI and the director, you offered a director demo and a low-risk two-store pilot right away. That reframed the price objection and got a yes on the pilot.",
+      "segment": 6
+    },
+    {
+      "kind": "try-next",
+      "tip": "After Anjali named weekend queues and stock blindness, ask implication questions before quoting price. For example: how long are weekend queues, how many customers walk out, and what do stock-outs cost per store? That quantifies the pain in rupees so the ₹1.08 lakh a month can be weighed against it.",
+      "segment": 4
+    },
+    {
+      "kind": "do-more",
+      "tip": "Turn 'proposal by Friday' into a dated meeting with Mr Kulkarni. Ask Anjali for a demo slot with him and agree what pilot success looks like before December.",
+      "segment": 8
+    }
+  ],
+  "debrief": "Hi Sneha, good visit with Anjali at FreshMart. She has twelve stores, weekend billing queues and no store-wise stock view, and she liked a two-store pilot. Nice move offering a demo and pilot when she raised ROI. Next time, before quoting price, ask how many customers walk out on weekends and what that costs, so the ROI case builds itself. Next step: send the proposal and pilot plan by Friday, and lock a demo date with Mr Kulkarni.",
+  "stage_suggested": "proposal",
+  "question_types": {
+    "situation": [],
+    "problem": [],
+    "implication": [],
+    "need-payoff": [],
+    "other": [
+      0
+    ]
+  },
+  "call_id": "demo-freshmart-pos",
+  "lens": "sales",
+  "region": "Mumbai",
+  "grounding": {
+    "checked": 18,
+    "verified": 18,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 855,
+      "output": 4914,
+      "cache_read": 0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "names": {
+    "S1": "Ravi Kumar (Sales rep, Northwind Distributors (diarization also merged several of the customer's replies into S1))",
+    "S2": "Suresh Agarwal (Owner, Agarwal Traders (wholesaler))"
+  },
+  "rep": "S1",
+  "source": "diarization",
+  "turns": null,
+  "merge": [],
+  "fix": [],
+  "labels": [
+    "S1",
+    "S2",
+    "S1",
+    "S2",
+    "S1",
+    "S1",
+    "S2"
+  ],
+  "sides": {
+    "S1": "us",
+    "S2": "them"
+  },
+  "rep_present": true
+}

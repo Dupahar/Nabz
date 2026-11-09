@@ -1,0 +1,249 @@
+{
+  "account": "Agarwal Traders",
+  "contact": "Suresh Agarwal",
+  "rep": "Ravi Kumar",
+  "segment": "Wholesaler",
+  "language": "hi-IN",
+  "summary": "Short wholesaler visit in Lucknow. The rep booked an order of Maggi 40 cartons and Parle-G 15 cartons. The customer said Mom's Magic is slow because the ₹30 pack is too expensive for villages, asked for a ₹10 pack, said Patanjali gives retailers higher margins, said retailers need at least 15% margin, and said the current scheme is too complicated. The rep agreed to pass this feedback to the area manager.",
+  "sentiment": "positive",
+  "score": 66,
+  "score_reason": "A solid order was taken and useful competitor and slow-mover intel was captured, but there was no visibility check, no dues discussion and no clear explanation of the current scheme.",
+  "needs": [
+    {
+      "text": "A smaller ₹10 pack of Mom's Magic for retailers and rural markets",
+      "quote": "अगर mom's magic का छोटा pack आए? दस रुपये वाला तो चलेगा।",
+      "segment": 2
+    },
+    {
+      "text": "Retailers need at least 15% margin to stock our products",
+      "quote": "retailer को कितना margin चाहिए ताकि वो हमारा माल रखें? कम से कम पंद्रह प्रतिशत।",
+      "segment": 4
+    },
+    {
+      "text": "Schemes should be simpler",
+      "quote": "और scheme simple होनी चाहिए।",
+      "segment": 5
+    }
+  ],
+  "concerns": [
+    {
+      "category": "margin",
+      "handled": false,
+      "how": "The rep only said he would take the point to the area manager.",
+      "quote": "उनका अट्टा और hand wash दोनों retailer को ज़्यादा margin पर देते हैं।",
+      "segment": 4
+    },
+    {
+      "category": "stock",
+      "handled": false,
+      "how": "The rep suggested a smaller pack and the customer agreed, but no solution was committed.",
+      "quote": "अभी वाला तीस रुपये का है, गाँव में नहीं बिकता।",
+      "segment": 4
+    },
+    {
+      "category": "scheme",
+      "handled": true,
+      "how": "The rep acknowledged the issue and said he would escalate it to the area manager.",
+      "quote": "दास कांटों पे एक free, किसी को समझ नहीं आता",
+      "segment": 5
+    }
+  ],
+  "signals": [
+    {
+      "text": "Strong Maggi demand in the customer's retailer network",
+      "quote": "मगी की मांग बहुत है।",
+      "segment": 1
+    },
+    {
+      "text": "The customer agreed that a ₹10 pack would sell",
+      "quote": "हाँ, दस रुपये वाला चल जाएगा।",
+      "segment": 3
+    }
+  ],
+  "risks": [
+    {
+      "text": "Patanjali is gaining ground in this area with higher retailer margins",
+      "quote": "पतंजलि बहुत आगे बढ़ रहा है।",
+      "segment": 4
+    },
+    {
+      "text": "Mom's Magic stock is stuck because of the price point",
+      "quote": "retailer बोलते हैं price ज़्यादा है, बच्चे Parle-G high लेते हैं।",
+      "segment": 2
+    }
+  ],
+  "commitments": [
+    {
+      "owner": "us",
+      "action": "Escalate the feedback on the ₹10 Mom's Magic pack, retailer margin and simpler scheme to the area manager",
+      "due": null,
+      "quote": "मैं ये बात area manager तक पहुँचाऊँगा।",
+      "segment": 5
+    },
+    {
+      "owner": "us",
+      "action": "Supply the order: Maggi 40 cartons and Parle-G 15 cartons",
+      "due": null,
+      "quote": "तो मग्गी चालीस और परलेज पंद्रह carton।",
+      "segment": 5
+    }
+  ],
+  "market_signals": [
+    {
+      "type": "demand",
+      "product": "Maggi",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "Retailers are asking for Maggi the most this month",
+      "quote": "मगी की मांग बहुत है।",
+      "segment": 1
+    },
+    {
+      "type": "price",
+      "product": "Mom's Magic",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Retailers find Sunfeast Mom's Magic overpriced, and children prefer Parle-G",
+      "quote": "retailer बोलते हैं price ज़्यादा है, बच्चे Parle-G high लेते हैं।",
+      "segment": 2
+    },
+    {
+      "type": "product_feedback",
+      "product": "Mom's Magic",
+      "competitor": null,
+      "polarity": "negative",
+      "text": "The current ₹30 Mom's Magic pack does not sell in villages",
+      "quote": "अभी वाला तीस रुपये का है, गाँव में नहीं बिकता।",
+      "segment": 4
+    },
+    {
+      "type": "demand",
+      "product": "Mom's Magic",
+      "competitor": null,
+      "polarity": "positive",
+      "text": "A ₹10 small pack of Mom's Magic would sell",
+      "quote": "हाँ, दस रुपये वाला चल जाएगा।",
+      "segment": 3
+    },
+    {
+      "type": "competitor",
+      "product": null,
+      "competitor": "Patanjali",
+      "polarity": "negative",
+      "text": "Patanjali gives retailers higher margins on atta and hand wash and is growing in the area",
+      "quote": "उनका अट्टा और hand wash दोनों retailer को ज़्यादा margin पर देते हैं।",
+      "segment": 4
+    },
+    {
+      "type": "price",
+      "product": null,
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Retailers expect at least 15% margin to stock our products",
+      "quote": "retailer को कितना margin चाहिए ताकि वो हमारा माल रखें? कम से कम पंद्रह प्रतिशत।",
+      "segment": 4
+    },
+    {
+      "type": "scheme",
+      "product": null,
+      "competitor": null,
+      "polarity": "negative",
+      "text": "Retailers do not understand the '1 free on 10 cartons' scheme and want simpler schemes",
+      "quote": "दास कांटों पे एक free, किसी को समझ नहीं आता",
+      "segment": 5
+    }
+  ],
+  "entities": {
+    "products": [
+      "Maggi",
+      "Parle-G",
+      "Sunfeast",
+      "Mom's Magic"
+    ],
+    "competitors": [
+      "Patanjali"
+    ],
+    "amounts": [
+      "40 cartons Maggi",
+      "15 cartons Parle-G",
+      "₹10 pack",
+      "₹30 pack",
+      "15% margin",
+      "1 free on 10 cartons"
+    ],
+    "people": [
+      "Suresh Agarwal",
+      "Ravi Kumar"
+    ]
+  },
+  "checklist": {
+    "order_taken": {
+      "status": "yes",
+      "quote": "तो मग्गी चालीस और परलेज पंद्रह carton।",
+      "segment": 5
+    },
+    "scheme_communicated": {
+      "status": "partial",
+      "quote": "दास कांटों पे एक free, किसी को समझ नहीं आता",
+      "segment": 5
+    },
+    "stockout_checked": {
+      "status": "yes",
+      "quote": "चालीस cartoon मग्घी और कौन सा माल रुका हुआ है?",
+      "segment": 2
+    },
+    "competitor_activity": {
+      "status": "yes",
+      "quote": "और पतंजलि का क्या असर है आपके area में?",
+      "segment": 4
+    },
+    "visibility_checked": {
+      "status": "no",
+      "quote": "",
+      "segment": null
+    },
+    "collection": {
+      "status": "unknown",
+      "quote": "",
+      "segment": null
+    }
+  },
+  "compliance_flags": [],
+  "coaching": [
+    {
+      "kind": "well-done",
+      "tip": "Asking which stock was stuck brought out the Mom's Magic pricing problem and the ₹10 pack idea. That is excellent field intel, so keep asking about slow movers on every visit.",
+      "segment": 2
+    },
+    {
+      "kind": "try-next",
+      "tip": "When the customer said the scheme was confusing, explain the current scheme yourself with a simple worked example. Also cover display, shelf share and pending dues before closing the visit.",
+      "segment": 5
+    },
+    {
+      "kind": "do-more",
+      "tip": "When Patanjali's margins come up, capture specifics: the exact margin percentage, which SKUs and which retailers. This gives the area manager concrete numbers to act on.",
+      "segment": 4
+    }
+  ],
+  "debrief": "रवि, अग्रवाल ट्रेडर्स की विज़िट अच्छी रही। मैगी चालीस कार्टन और पारले-जी पंद्रह कार्टन का ऑर्डर मिला। बहुत बढ़िया कि आपने पूछा कौन सा माल रुका हुआ है। इससे मॉम्स मैजिक के दाम और पतंजलि के मार्जिन की असली जानकारी मिली। अगली बार शेल्फ़ और डिस्प्ले भी देखिए, बकाया भुगतान की बात कीजिए, और मौजूदा स्कीम खुद आसान शब्दों में समझाइए। अब दस रुपये वाले पैक और पंद्रह प्रतिशत मार्जिन की बात एरिया मैनेजर तक पहुँचाइए।",
+  "call_id": "demo-agarwal-traders",
+  "lens": "fmcg-retail",
+  "region": "Lucknow",
+  "grounding": {
+    "checked": 23,
+    "verified": 23,
+    "failed": [],
+    "dropped_after_retry": 0
+  },
+  "llm": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "attempts": 1,
+    "usage": {
+      "input": 978,
+      "output": 7008,
+      "cache_read": 3319
+    }
+  }
+}
