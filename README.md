@@ -16,7 +16,10 @@ Every insight carries a quote verified against the transcript in code.
 ![Tests](https://img.shields.io/badge/tests-50%20passing-16A34A)
 ![Privacy](https://img.shields.io/badge/consent%20%C2%B7%20redaction%20%C2%B7%20audit-2563EB)
 
-**[Live demo](https://na-43b657e4b1954683b9582565844c955b.ecs.ap-south-1.on.aws)** (reps: PIN `1234`) · **[One-page pitch](PITCH.md)** · [Business case](docs/BUSINESS_CASE.md) · [Noise benchmark](benchmark/)
+**[▶ Watch the 2-min demo](https://youtu.be/PykwsJtIKZw)** · **[Live demo](https://na-43b657e4b1954683b9582565844c955b.ecs.ap-south-1.on.aws)** (reps: PIN `1234`) · **[One-page pitch](PITCH.md)** · [Business case](docs/BUSINESS_CASE.md) · [Noise benchmark](benchmark/)
+
+<a href="https://youtu.be/PykwsJtIKZw"><img src="https://img.youtube.com/vi/PykwsJtIKZw/maxresdefault.jpg" alt="Nabz demo video" width="760"></a>
+
 
 </div>
 

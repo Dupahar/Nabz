@@ -50,4 +50,4 @@ field-conversation dataset, plus distribution through the sales apps brands alre
 **Next.** Three design-partner FMCG brands for a 6-week pilot with agreed success metrics; volume
 pricing from Gnani.
 
-[Live demo](https://na-43b657e4b1954683b9582565844c955b.ecs.ap-south-1.on.aws) · [Repo](https://github.com/Dupahar/Nabz) · [Business case](docs/BUSINESS_CASE.md) · [Benchmark](benchmark/)
+[Demo video](https://youtu.be/PykwsJtIKZw) · [Live demo](https://na-43b657e4b1954683b9582565844c955b.ecs.ap-south-1.on.aws) · [Repo](https://github.com/Dupahar/Nabz) · [Business case](docs/BUSINESS_CASE.md) · [Benchmark](benchmark/)
