@@ -186,7 +186,6 @@ Salesken ₹10.8 Cr (FY23) [3P]. Our plan is deliberately below these.
 | Player | Threat | Our position |
 |---|---|---|
 | **Convin** (India) | **Has an in-person "Physical Conversation Recorder"** in its app; collections and home-services framing; 80+ clients | FMCG-specific lenses (scheme, credit, slow movers), market intelligence for brand teams, voice debriefs in the DSR's language |
-| **VoClyp** (India) | Same idea (field conversations into market intelligence). Unverified early entrant: domain registered June 2026, no team, customers or prices found | Same lane. We have to win on accuracy, verified quotes and distribution |
 | **Bizom / FieldAssist** | **Own the app on the DSR's phone.** One feature away from adding recording | Partner first: Nabz as an add-on inside their app or data flow. If they build it, compete on Indic accuracy and intelligence depth |
 | **Gnani.ai** | Owns the speech models; Assist365 covers contact centres; 200+ enterprise clients (company claim [P]); could build this | **A partner and channel, not a moat.** The ask: volume pricing and co-selling. Gnani covers calls, Nabz covers visits |
 | **Salesforce, Rilla, Siro** | Proven in-person products; US-focused, no Indic languages, priced at $4–5K a seat [3P] | Indian price points, languages and FMCG workflows |

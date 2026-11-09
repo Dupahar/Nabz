@@ -26,7 +26,7 @@ This is the audit of the first prototype; the fixes since are in the git history
 | 15 | Testing | **0** | No tests, no CI |
 | 16 | Ops / deployability | **2** | Localhost only. No HTTPS, so phone recording can't work. No health check, logging or pinned dependencies |
 | 17 | Gnani usage depth | **5** | Prisma is used well (diarization, codemix, keyterms, denoise) and Timbre is real, but the brain is Claude, not Evon |
-| 18 | Innovation | **5** | The category exists (Rilla, Convin, VoClyp). Novel: quote-verified market signals and native-language voice debriefs |
+| 18 | Innovation | **5** | The category exists (Rilla, Convin). Novel: quote-verified market signals and native-language voice debriefs |
 | 19 | Real-world usefulness | **7** | Credible pain, plausible buyer, a believable workflow |
 | 20 | UX and polish | **6** | Clean and modern. English-only rep UI, dense pages, demo debris (an error row, "set rates") |
 | 21 | Demo-ability / engagement | **4** | No video, no live URL. An enterprise dashboard doesn't land in 3 seconds |

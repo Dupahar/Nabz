@@ -10,7 +10,7 @@ Tags: [V] vendor or blog · [PR] peer-reviewed · [PP] preprint · [est] third-p
 
 ## 1. Verdict
 
-**In-person conversation intelligence is a proven, well-funded category in the US. In India it is early: Convin already ships an in-person recorder in its app, and VoClyp (unverified, domain registered June 2026) is an early entrant.**
+**In-person conversation intelligence is a proven, well-funded category in the US. In India it is early: Convin already ships an in-person recorder in its app.**
 
 - **Rilla** (US): about a $757M valuation after a $68.5M Series B in June 2025, and roughly $70M ARR estimated for April 2026 [est, [Sacra](https://sacra.com/c/rilla)].
 - **Siro** (US): $50M Series B in May 2025 [[Pulse2](https://pulse2.com/siro-50-million-series-b-raised-for-bringing-ai-to-in-person-sales)].

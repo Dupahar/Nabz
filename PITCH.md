@@ -42,7 +42,7 @@ distributor salesmen, and over 70% general trade. The buyer is the Head of Sales
   - On Indian English, Whisper was as good or better.
   - Prisma's own `denoise` setting hurt accuracy, so it's off.
 
-**Competition.** Convin (an in-person recorder app) and early entrants like VoClyp. Bizom and FieldAssist
+**Competition.** Convin (an in-person recorder app). Bizom and FieldAssist
 own the rep's app; they're the partner channel. Nabz's edge is Indic-native speech, verified quotes,
 an FMCG lens, and nothing for reps to install. The moat to build is a consented Indic
 field-conversation dataset, plus distribution through the sales apps brands already use.

@@ -162,7 +162,7 @@ def mix(total: float, vo: list[dict], scene_starts: list[float], extras: list[tu
 
 if __name__ == "__main__":
     sys.path.insert(0, str(HERE))
-    from script import NARRATOR, SCENES
+    from script import NARRATOR, SCENES, SCENES_DEMO
 
-    for v in vo_lines(SCENES, NARRATOR):
+    for v in vo_lines(SCENES_DEMO if "demo" in sys.argv else SCENES, NARRATOR):
         print(f"scene {v['scene']} {v['dur']:5.2f}s  {v['text'][:70]}")
