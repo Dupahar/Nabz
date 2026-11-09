@@ -11,17 +11,17 @@ team:
   # role controls what each person sees:
   #   rep: own visits only; manager: team + market intelligence; admin: also audit log, erasure, exports.
   # language is used for voice debriefs (Timbre language codes).
-  - {name: Arjun Mehta, handle: arjun, role: rep, language: hi-en, region: Delhi NCR}
-  - {name: Sneha Iyer, handle: sneha, role: rep, language: en-IN, region: Mumbai}
-  - {name: Ravi Kumar, handle: ravi, role: rep, language: hi-IN, region: Lucknow}
-  - {name: Kavita Rao, handle: kavita, role: manager, language: hi-en, region: All}
-  - {name: Meera Nair, handle: meera, role: admin, language: en-IN, region: All}
+  - {name: Arjun Mehta, handle: arjun, role: rep, language: hi-en, region: Delhi NCR, pin_hash: "pbkdf2_sha256$200000$69ad7fc618fc1fde45fc2189ef41859d$fd987db65be3c23c107084de1616ecbd3e84ec069f1333f546e395a6ec19d8f7"}
+  - {name: Sneha Iyer, handle: sneha, role: rep, language: en-IN, region: Mumbai, pin_hash: "pbkdf2_sha256$200000$3fae60b18026709a64d95c575b93c7f3$28859952449603bd649c5387da8bce1df8f667d098fa4560482cff8dfad3a0ce"}
+  - {name: Ravi Kumar, handle: ravi, role: rep, language: hi-IN, region: Lucknow, pin_hash: "pbkdf2_sha256$200000$74794b80609622e9d38a1393b6fce5bd$691b3b2cb99568e959b043d3fb643a53b09db8f41ee3013dc5057b621d878261"}
+  - {name: Kavita Rao, handle: kavita, role: manager, language: hi-en, region: All, pin_hash: "pbkdf2_sha256$200000$6f097117e1d20e89fa44e0c3231146ee$ec5d9b1d29579490e3c6686cc7a52fb4836b1b930e2edc745d198c16d7f1fec9"}
+  - {name: Meera Nair, handle: meera, role: admin, language: en-IN, region: All, pin_hash: "pbkdf2_sha256$200000$7cc91740f2d7c047badb11e07758946d$302af701972650d942ece663d5d666de6c226a656e523247f193429f0dd97a0b"}
 
 # Customer segments a visit can be tagged with (market intelligence is sliced by these).
 segments: [Kirana, Chemist, Modern trade, Wholesaler, Doctor, Retail chain, Other]
 
 # Words the speech model must get right. They are sent to Prisma as `keyterms` with every
-# recording, together with account and contact names from the CRM.
+# recording, together with account (business) names from the CRM. People's names are never sent.
 vocabulary:
   products: [Parle-G, Maggi, Sunfeast, Mom's Magic, Tata Tea, Aashirvaad, Dettol, Northwind POS]
   competitors: [Britannia, Patanjali, Haldiram, Zoho, Vyapar]
@@ -32,13 +32,16 @@ speech:
   model: prisma-v3.0
   language: indic-auto      # or e.g. "hi-IN,en-IN" or "kn-IN"
   format: codemix           # English words stay in Latin script inside Indian-language speech
-  denoise: true             # shop floors, traffic, car parks
+  denoise: false            # our benchmark: with_denoise RAISED word error 12.7% -> 21.4% at 10 dB SNR (benchmark/README.md)
   max_speakers: 3
 
 llm:
-  model: claude-opus-5-5    # analysis model (web app). The chat agents run on Claude Code.
-  effort: medium            # low | medium | high
-  max_retries_on_check: 1   # re-ask the model once if quotes fail verification
+  fast_model: claude-haiku-5-5    # every visit; ~Rs 0.3 per visit
+  deep_model: claude-opus-5-5     # only when a visit needs it (see escalation reasons in tools/llm.py)
+  fast_effort: medium
+  deep_effort: medium
+  max_retries_on_check: 1         # re-ask once if quotes fail verification
+  long_visit_minutes: 20          # longer visits go to the deep model
 
 voice_debrief:
   enabled: true
@@ -52,8 +55,29 @@ privacy:
   retain_audio_days: 1      # raw audio is deleted within a day of processing (tools/retention.py)
   retain_transcripts_days: 365
 
-# Optional rupee rates for cost-per-visit reporting (tools/cost.py). Leave 0 if unknown.
+auth:
+  # demo_mode: the login page lists names and roles to pick from (PIN still required).
+  # Set false in production and use real SSO/OIDC in front of the app.
+  demo_mode: true
+  session_days: 7
+  max_failed_logins: 5      # per handle and IP, per 15 minutes
+
+server:
+  workers: 3                # visits processed in parallel
+  max_upload_mb: 50
+  max_minutes: 60           # longest recording accepted
+  min_seconds: 5
+  step_timeout_minutes: 20  # any single processing step
+  prisma_timeout_minutes: 15
+  stalled_after_minutes: 20 # the UI offers "Retry" after this long without progress
+  retention_interval_hours: 6
+
+# Rupee rates for cost-per-visit reporting (tools/cost.py, /api/cost). ESTIMATES until Gnani quotes us:
+#   prisma: Rs 27/audio-hour reseller list price (callmissed.com, Nov 2026) -> 0.45/min
+#   timbre: no public price; Sarvam Bulbul TTS (Rs 1 per 1k chars) used as a proxy
+#   llm:    Claude Haiku 5.5 list price, blended (~$0.45 per 1M tokens at our in/out mix) -> ~Rs 0.04/1k tokens.
+#           Per-visit LLM cost is also logged exactly (usage.jsonl cost_inr) and used when present.
 rates_inr:
-  prisma_per_min: 0
-  timbre_per_1k_chars: 0
-  llm_per_1k_tokens: 0
+  prisma_per_min: 0.45
+  timbre_per_1k_chars: 1.0
+  llm_per_1k_tokens: 0.04

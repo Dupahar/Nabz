@@ -5,7 +5,7 @@ score_label: Promise-to-pay likelihood
 score_guide: >
   0-100: likelihood of payment as discussed. 80+ only with a specific amount and date the customer
   committed to in their own words. Any high-severity compliance flag must be escalated to a manager.
-cues: [emi, overdue, due, payment, loan, installment, kisht, bounce, penalty, settlement, recovery, outstanding, bakaya, ईएमआई, किस्त, लोन, बकाया, पैसे, भुगतान, ओवरड्यू]
+cues: [emi, overdue, loan, installment, kisht, bounce, penalty, settlement, recovery, outstanding, bakaya, ईएमआई, किस्त, लोन, बकाया, ओवरड्यू]
 concern_categories: [cash_flow, dispute, job_loss, medical, intent, other]
 checklist:
   identity_confirmed: Did the agent confirm they were speaking to the right person (without reading out full ID numbers)?

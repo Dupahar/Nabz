@@ -34,12 +34,18 @@ DIGIT_WORDS = {
     # Hindi, romanised
     "shunya": "0", "sunya": "0", "ek": "1", "do": "2", "teen": "3", "tin": "3", "char": "4", "chaar": "4",
     "paanch": "5", "panch": "5", "chhe": "6", "chhah": "6", "che": "6", "saat": "7", "sat": "7",
-    "aath": "8", "ath": "8", "nau": "9", "no": "9",
+    "aath": "8", "ath": "8", "nau": "9",
     # Hindi, Devanagari
     "शून्य": "0", "जीरो": "0", "ज़ीरो": "0", "एक": "1", "दो": "2", "तीन": "3", "चार": "4", "पांच": "5", "पाँच": "5",
     "छह": "6", "छः": "6", "छे": "6", "सात": "7", "आठ": "8", "नौ": "9",
 }
 REPEAT_WORDS = {"double": 2, "triple": 3, "डबल": 2, "ट्रिपल": 3}
+TEENS = {"ten": "10", "eleven": "11", "twelve": "12", "thirteen": "13", "fourteen": "14", "fifteen": "15",
+         "sixteen": "16", "seventeen": "17", "eighteen": "18", "nineteen": "19"}
+TENS = {"twenty": "2", "thirty": "3", "forty": "4", "fourty": "4", "fifty": "5", "sixty": "6", "seventy": "7",
+        "eighty": "8", "ninety": "9"}
+# Written identifiers are grouped like this; prices and quantities ("120 150 180 200") are not.
+ID_GROUPS = {(4, 4, 4), (5, 5), (3, 3, 4), (4, 3, 3), (3, 4, 3), (2, 4, 4), (4, 4, 4, 4), (4, 6, 5), (10,), (12,)}
 DEVANAGARI_DIGITS = str.maketrans("०१२३४५६७८९", "0123456789")
 PUNCT = ".,;:!?।\"'()[]"
 
@@ -80,31 +86,59 @@ def normalise_spoken_digits(text: str, min_run: int = 6) -> str:
     digits = ""
     repeat = 1
 
+    spoken = False         # did the run contain spoken digit words?
+    groups: list[int] = []  # lengths of written digit groups in the run
+
     def flush() -> None:
-        nonlocal run, digits, repeat
-        if len(digits) >= min_run:
+        nonlocal run, digits, repeat, spoken, groups
+        looks_like_id = spoken or tuple(groups) in ID_GROUPS
+        if len(digits) >= min_run and looks_like_id:
             trail = run[-1][len(run[-1].rstrip(PUNCT)):] if run else ""
             out.append(digits + trail)
         else:
             out.extend(run)
-        run, digits, repeat = [], "", 1
+        run, digits, repeat, spoken, groups = [], "", 1, False, []
 
+    pending_tens = ""  # "ninety" waiting for "eight" -> "98"
     for tok in tokens:
         core = tok.strip(PUNCT).lower().replace("-", "")
         if core in REPEAT_WORDS:
             run.append(tok)
             repeat = REPEAT_WORDS[core]
             continue
-        if core in DIGIT_WORDS or (core.isdigit() and len(core) <= 12):
-            d = DIGIT_WORDS.get(core, core)
+        if core in TENS:
+            if pending_tens:
+                digits += pending_tens + "0"
+            pending_tens = TENS[core]
+            spoken = True
+            run.append(tok)
+            continue
+        if core in TEENS or core in DIGIT_WORDS or (core.isdigit() and len(core) <= 12):
+            if core in TEENS:
+                d = TEENS[core]
+                spoken = True
+            elif core in DIGIT_WORDS:
+                d = DIGIT_WORDS[core]
+                spoken = True
+            else:
+                d = core
+                groups.append(len(core))
+            if pending_tens:
+                d = pending_tens + d if (len(d) == 1 and d != "0") else pending_tens + "0" + d
+                pending_tens = ""
             digits += d * repeat if len(d) == 1 else d
             repeat = 1
             run.append(tok)
             if tok != tok.rstrip(".,;!?।"):  # sentence punctuation ends a number
                 flush()
             continue
+        if pending_tens:
+            digits += pending_tens + "0"
+            pending_tens = ""
         flush()
         out.append(tok)
+    if pending_tens:
+        digits += pending_tens + "0"
     flush()
     return " ".join(out)
 
@@ -112,7 +146,7 @@ def normalise_spoken_digits(text: str, min_run: int = 6) -> str:
 PATTERNS: list[tuple[str, re.Pattern, object]] = [
     ("GSTIN", re.compile(r"\b\d{2}[A-Z]{5}\d{4}[A-Z][1-9A-Z]Z[0-9A-Z]\b", re.I), None),
     ("PAN", re.compile(r"\b[A-Z]{3}[ABCFGHLJPTK][A-Z]\d{4}[A-Z]\b", re.I), None),
-    ("IFSC", re.compile(r"\b[A-Z]{4}0[A-Z0-9]{6}\b"), None),
+    ("IFSC", re.compile(r"\b[A-Z]{4}0[A-Z0-9]{6}\b", re.I), None),
     ("EMAIL", re.compile(r"\b[\w.+-]+@[\w-]+\.[\w.]+\b"), None),
     ("UPI", re.compile(r"\b[\w.-]{2,}@(?:ok)?[a-z]{2,}\b", re.I), None),
     ("AADHAAR", re.compile(r"(?<!\d)[2-9]\d{3}[ -]?\d{4}[ -]?\d{4}(?!\d)"), lambda m: verhoeff_ok(re.sub(r"\D", "", m))),
@@ -136,6 +170,38 @@ def redact_text(text: str) -> tuple[str, list[str]]:
     return (norm if found else text), found
 
 
+TAIL_DIGITS = re.compile(r"(\d[\d ]*)\W*$")
+HEAD_DIGITS = re.compile(r"^\W*(\d[\d ]*)")
+
+
+def redact_segments(segments: list[dict]) -> list[dict]:
+    """Redact every segment in place, including identifiers split across two consecutive
+    segments of the same speaker ("...nine eight four five" | "zero one two three four five").
+    Returns the hits [{segment, type}]: types only, never values."""
+    hits: list[dict] = []
+    for seg in segments:
+        seg["text"], found = redact_text(seg["text"])
+        hits += [{"segment": seg["i"], "type": t} for t in found]
+    for a, b in zip(segments, segments[1:]):
+        if a.get("speaker") != b.get("speaker"):
+            continue
+        ta, tb = normalise_spoken_digits(a["text"], min_run=3), normalise_spoken_digits(b["text"], min_run=3)
+        ma, mb = TAIL_DIGITS.search(ta), HEAD_DIGITS.search(tb)
+        if not (ma and mb):
+            continue
+        joined = re.sub(r"\D", "", ma.group(1)) + re.sub(r"\D", "", mb.group(1))
+        kind = None
+        if re.fullmatch(r"(?:91|0)?[6-9]\d{9}", joined):
+            kind = "PHONE"
+        elif len(joined) == 12 and joined[0] in "23456789" and verhoeff_ok(joined):
+            kind = "AADHAAR"
+        if kind:
+            a["text"] = ta[: ma.start(1)] + f"[{kind}]" + ta[ma.end(1):]
+            b["text"] = tb[: mb.start(1)] + f"[{kind}]" + tb[mb.end(1):]
+            hits.append({"segment": a["i"], "type": kind})
+    return hits
+
+
 def main() -> None:
     utf8_stdout()
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -157,10 +223,7 @@ def main() -> None:
     if not raw_path.exists():
         write_json(raw_path, transcript)
 
-    hits = []
-    for seg in transcript["segments"]:
-        seg["text"], found = redact_text(seg["text"])
-        hits += [{"segment": seg["i"], "type": t} for t in found]
+    hits = redact_segments(transcript["segments"])
     transcript["redacted"] = True
     write_json(path, transcript)
 

@@ -16,11 +16,21 @@
     </div>
     <div class="card">
       <div class="card-title"><h2>Who are you?</h2><span class="right muted" id="company"></span></div>
-      <p class="muted" style="font-size:.88rem">Demo sign-in. Pick a person from <code>config/workspace.yaml</code>.
-        What you can see depends on the role: reps see their own visits, managers see the team and market intelligence,
-        and admins also see the audit log.</p>
-      <div class="people" id="people"><div class="empty"><span class="big">⏳</span>Loading team…</div></div>
-      <div id="err"></div>
+      <p class="muted" style="font-size:.88rem">Pick your name and enter your PIN. Reps see their own visits,
+        managers see the team and market intelligence, and admins also see the audit log.
+        <span id="demoNote"></span></p>
+      <div class="people" id="people"><div class="empty"><span class="big">⏳</span>Loading…</div></div>
+      <form id="pinForm" class="pin-form hidden" autocomplete="off">
+        <label for="pin">PIN for <b id="pinWho"></b></label>
+        <div class="pin-row">
+          <input id="pin" name="pin" type="password" inputmode="numeric" pattern="[0-9]*" minlength="4" maxlength="8"
+                 required aria-describedby="pinHelp" autocomplete="current-password">
+          <button class="btn primary" type="submit">Sign in</button>
+          <button class="btn ghost" type="button" id="pinCancel">Back</button>
+        </div>
+        <small id="pinHelp" class="muted">4–8 digits. Set with <code>tools/set_pin.py</code>.</small>
+      </form>
+      <div id="err" role="alert"></div>
     </div>
   </div>
   <div id="footer"></div>

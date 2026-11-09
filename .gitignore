@@ -18,3 +18,5 @@ benchmark/audio/
 benchmark/noise/
 benchmark/results/raw/
 data/
+video/out/
+video/cache/

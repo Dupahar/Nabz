@@ -5,45 +5,89 @@
     python tools/retention.py export --account "BrightMart" --out export.zip     # data access request
 
 DPDP Act 2023 s.8(7): erase personal data once the purpose is served; s.11-12: people can ask
-what is held about them, and for erasure. Raw audio goes first (default 30 days); transcripts,
-notes and scores stay longer for coaching and the CRM (default 365 days). Every deletion is
-written to the audit log, so you can show what was removed and when without keeping the data.
+what is held about them, and for erasure. Raw audio and the unredacted transcript go first
+(default: 1 day after the recording); redacted transcripts, notes and scores stay longer for
+coaching and the CRM (default 365 days). The web server runs `apply()` at startup and every few
+hours (config: server.retention_interval_hours). Every deletion is written to the audit log.
 """
 
 from __future__ import annotations
 
 import argparse
-import shutil
 import zipfile
 from datetime import datetime, timedelta
 from pathlib import Path
 
 from common import CALLS, audit, read_json, utf8_stdout, workspace
 
-AUDIO_FILES = ("audio.*", "upload.ogg", "transcript.raw.json", "prisma.json")
+RAW_FILES = ("audio.*", "upload.*", "transcript.raw.json", "prisma.json", "job.json")
+PROCESSING = {"queued", "transcribing", "analysing", "voicing"}
 
 
 def call_date(folder: Path) -> datetime:
-    t = folder / "transcript.json"
-    if t.exists():
-        try:
-            return datetime.fromisoformat(read_json(t)["recorded_at"])
-        except (KeyError, ValueError):
-            pass
+    for name in ("transcript.json", "visit.json"):
+        t = folder / name
+        if t.exists():
+            try:
+                d = read_json(t)
+                value = d.get("recorded_at") or d.get("created")
+                if value:
+                    return datetime.fromisoformat(value).replace(tzinfo=None)
+            except (ValueError, KeyError):
+                pass
     return datetime.fromtimestamp(folder.stat().st_mtime)
+
+
+def _busy(folder: Path) -> bool:
+    st = folder / "status.json"
+    try:
+        return st.exists() and read_json(st).get("status") in PROCESSING
+    except ValueError:
+        return False
+
+
+def apply(dry_run: bool = False) -> list[str]:
+    """Delete raw audio past retain_audio_days and whole visits past retain_transcripts_days.
+    Visits still being processed are skipped. Returns a list of what was (or would be) removed."""
+    p = workspace().get("privacy") or {}
+    audio_cut = datetime.now() - timedelta(days=float(p.get("retain_audio_days", 1)))
+    all_cut = datetime.now() - timedelta(days=float(p.get("retain_transcripts_days", 365)))
+    removed: list[str] = []
+    if not CALLS.exists():
+        return removed
+    for folder in sorted(CALLS.iterdir()):
+        if not folder.is_dir() or _busy(folder):
+            continue
+        when = call_date(folder)
+        if when < all_cut:
+            removed.append(f"visit {folder.name}")
+            if not dry_run:
+                from consent import erase
+
+                erase(folder.name, "retention", reason=f"retention: older than {p.get('retain_transcripts_days', 365)} days")
+        elif when < audio_cut:
+            for pattern in RAW_FILES:
+                for f in folder.glob(pattern):
+                    removed.append(f"{folder.name}/{f.name}")
+                    if not dry_run:
+                        f.unlink(missing_ok=True)
+                        audit("retention.raw_deleted", call_id=folder.name, file=f.name)
+    return removed
 
 
 def calls_for(account: str) -> list[Path]:
     out = []
+    if not CALLS.exists():
+        return out
     for folder in CALLS.iterdir():
-        a = folder / "analysis.json"
-        t = folder / "transcript.json"
         name = ""
-        if a.exists():
-            name = read_json(a).get("account", "")
-        elif t.exists():
-            name = read_json(t).get("title", "")
-        if account.lower() in name.lower():
+        for f in ("analysis.json", "visit.json", "transcript.json"):
+            if (folder / f).exists():
+                d = read_json(folder / f)
+                name = d.get("account") or d.get("title") or ""
+                if name:
+                    break
+        if name and account.lower() in name.lower():
             out.append(folder)
     return out
 
@@ -63,42 +107,27 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.cmd == "run":
-        p = workspace().get("privacy") or {}
-        audio_cut = datetime.now() - timedelta(days=p.get("retain_audio_days", 30))
-        all_cut = datetime.now() - timedelta(days=p.get("retain_transcripts_days", 365))
-        removed = 0
-        for folder in sorted(CALLS.iterdir()) if CALLS.exists() else []:
-            when = call_date(folder)
-            if when < all_cut:
-                print(f"{'would delete' if args.dry_run else 'deleted'} call {folder.name} ({when:%Y-%m-%d})")
-                if not args.dry_run:
-                    shutil.rmtree(folder)
-                    audit("retention.call_deleted", call_id=folder.name, recorded=f"{when:%Y-%m-%d}")
-                removed += 1
-            elif when < audio_cut:
-                for pattern in AUDIO_FILES:
-                    for f in folder.glob(pattern):
-                        print(f"{'would delete' if args.dry_run else 'deleted'} {folder.name}/{f.name}")
-                        if not args.dry_run:
-                            f.unlink()
-                            audit("retention.audio_deleted", call_id=folder.name, file=f.name)
-                        removed += 1
-        print(f"retention: {removed} item(s) {'to remove' if args.dry_run else 'removed'}")
+        removed = apply(args.dry_run)
+        for item in removed:
+            print(("would delete " if args.dry_run else "deleted ") + item)
+        print(f"retention: {len(removed)} item(s) {'to remove' if args.dry_run else 'removed'}")
     elif args.cmd == "erase":
+        from consent import erase
+
         folders = calls_for(args.account)
         for f in folders:
-            shutil.rmtree(f)
-            audit("erasure.call_deleted", actor=args.by, call_id=f.name, reason="erasure request")
-        print(f"erased {len(folders)} conversation(s) for '{args.account}'. Remove the CRM entry with the deal desk if requested too.")
+            erase(f.name, args.by, reason="erasure request")
+        print(f"erased {len(folders)} visit(s) for '{args.account}' (call folders, CRM entries, usage rows)")
     else:
         folders = calls_for(args.account)
         with zipfile.ZipFile(args.out, "w", zipfile.ZIP_DEFLATED) as z:
             for f in folders:
                 for item in f.iterdir():
-                    if item.name not in ("transcript.raw.json", "prisma.json") and not item.name.startswith(("audio", "upload")):
-                        z.write(item, f"{f.name}/{item.name}")
-        audit("access.export", call_id=None, account=args.account, conversations=len(folders))
-        print(f"exported {len(folders)} conversation(s) to {args.out}")
+                    if item.name in ("transcript.raw.json", "prisma.json", "job.json") or item.name.startswith(("audio", "upload")):
+                        continue
+                    z.write(item, f"{f.name}/{item.name}")
+        audit("access.export", account=args.account, visits=len(folders))
+        print(f"exported {len(folders)} visit(s) to {args.out}")
 
 
 if __name__ == "__main__":

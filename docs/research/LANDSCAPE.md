@@ -1,4 +1,8 @@
-# FieldNotes × Gnani: landscape, precedents, enterprise plan (2026-11-09)
+# Nabz: landscape, research precedents and enterprise checklist (2026-11-09)
+
+> Written while the project was still the Telegram-based predecessor (FieldNotes, github.com/Dupahar/FieldNotes). The current positioning,
+> beachhead (FMCG general trade), pricing and sizing are in [`../BUSINESS_CASE.md`](../BUSINESS_CASE.md).
+> The research precedents (§3) and the benchmark method (§4) still apply.
 
 Tags: [V] vendor or blog · [PR] peer-reviewed · [PP] preprint · [est] third-party estimate. Re-check anything you quote publicly.
 
@@ -6,7 +10,7 @@ Tags: [V] vendor or blog · [PR] peer-reviewed · [PP] preprint · [est] third-p
 
 ## 1. Verdict
 
-**In-person conversation intelligence is a proven, well-funded category in the US. In India nobody has built it as a product yet.**
+**In-person conversation intelligence is a proven, well-funded category in the US. In India it is early: Convin already ships an in-person recorder in its app, and VoClyp (unverified, domain registered June 2026) is an early entrant.**
 
 - **Rilla** (US): about a $757M valuation after a $68.5M Series B in June 2025, and roughly $70M ARR estimated for April 2026 [est, [Sacra](https://sacra.com/c/rilla)].
 - **Siro** (US): $50M Series B in May 2025 [[Pulse2](https://pulse2.com/siro-50-million-series-b-raised-for-bringing-ai-to-in-person-sales)].
@@ -14,10 +18,10 @@ Tags: [V] vendor or blog · [PR] peer-reviewed · [PP] preprint · [est] third-p
 - **Granola** raised a $125M Series C at a $1.5B valuation in March 2026 and is expanding into in-person mobile capture [[TechCrunch](https://techcrunch.com/2026/03/25/granola-raises-125m-hits-1-5b-valuation-as-it-expands-from-meeting-notetaker-to-enterprise-ai-app/)].
 - Only **28% of field teams** that use AI use conversation intelligence, against about 80% of inside-sales teams [V, [Sybill](https://www.sybill.ai/blogs/conversation-intelligence-for-field-sales)].
 
-**The gap FieldNotes fills.** Every in-person tool requires its own app. The US leaders don't support Indian languages. The Indian speech vendors (Observe.AI, Uniphore, Level AI, Ozonetel, Exotel, and Gnani's own Assist365) are built for telephony and contact centres. None of them has pharma-detailing or FMCG-beat workflows. The closest competitor is **Convin**, whose phone app has a "Physical Conversation Recorder" aimed at collections and home services [[Convin](https://convin.ai/product/convin-mobile-app)].
+**The gap Nabz aims at.** Every in-person tool requires its own app. The US leaders don't support Indian languages. The Indian speech vendors (Observe.AI, Uniphore, Level AI, Ozonetel, Exotel, and Gnani's own Assist365) are built for telephony and contact centres. None of them has FMCG-beat workflows (trade-scheme recall, competitor credit, slow movers). The closest competitor is **Convin**, whose phone app has a "Physical Conversation Recorder" aimed at collections and home services [[Convin](https://convin.ai/product/convin-mobile-app)].
 
 **Positioning.**
-> *Rilla-grade field coaching for India. A rep drops a voice note into the team's WhatsApp or Telegram group, with no app to install. Gnani's Prisma understands Hinglish recorded at a noisy shop counter. Managers get a scorecard, the CRM is updated, and a person approves every follow-up.*
+> *(Original positioning, superseded; see the business case.) Field coaching for India: a rep records on their phone, with no install (mobile web; offline capture on the roadmap). Gnani's Prisma transcribes Hinglish recorded at a noisy shop counter, managers get a scorecard, and a person approves every CRM change.*
 
 **The risk, and how to answer it.** Prisma v3.0 is marketed for 8 kHz telephony audio, and there's no public benchmark of it on far-field phone-mic recordings [[LDS](https://letsdatascience.com/news/gnani-ai-launches-prisma-v30-speech-to-text-model-for-indian-7163adda)]. **Our noise benchmark (§4) would be the first public one for in-person audio.** It reduces our risk, it's the evidence for the Noise Canceller award, and it's a useful finding to bring to Gnani's interviewers.
 
@@ -33,7 +37,7 @@ Tags: [V] vendor or blog · [PR] peer-reviewed · [PP] preprint · [est] third-p
 | Plaud | Hardware recorder | 112 languages | Device, ₹20k | Notes only; no CRM or coaching |
 | Convin | Yes | 23 Indic languages (vendor claim) | Own app | Closest competitor; collections and home-services framing |
 | Observe.AI, Uniphore, Level AI, Sprinklr, Ozonetel, Exotel, Gnani Assist365 | No | Yes | Telephony | Contact-centre QA |
-| FieldAssist, Bizom, LeadSquared | Log visits only | n/a | Own SFA app | **Partners or channels, not competitors.** FieldNotes writes into them. |
+| FieldAssist, Bizom, LeadSquared | Log visits only | n/a | Own SFA app | **Partner or threat:** they own the app on the rep's phone and could add recording. Nabz aims to plug into them. |
 | BoldReach | Rep's voice debrief only | Hinglish | App | Summarises the rep's debrief, not the meeting |
 
 **Market size.**
@@ -45,7 +49,7 @@ Tags: [V] vendor or blog · [PR] peer-reviewed · [PP] preprint · [est] third-p
 
 ## 3. Research precedents, and what each changes in the product
 
-| Precedent | Finding | What changes in FieldNotes |
+| Precedent | Finding | What changes in Nabz |
 |---|---|---|
 | Gong Labs [V] | The "43:57" talk ratio comes from 2016. 2025 data on 326K calls: won deals average 57% rep talk, lost deals 62%; long monologues go with lost deals. Correlational, US B2B. | Show talk ratio as a **"vendor-reported benchmark"**, not a target. Don't quote 43:57 or "76 s monologue". |
 | Franke & Park 2006, JMR [PR]; Ramsey & Sohi 1997, JAMS [PR] | Adaptive selling and listening are linked to sales performance (meta-analysis of more than 31K reps). | The defensible claim: *"listening and adaptive questioning are linked to performance in peer-reviewed work."* |

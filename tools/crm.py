@@ -49,23 +49,44 @@ def money(v: float | None) -> str:
 
 def cmd_upsert(db: dict, a: argparse.Namespace) -> None:
     hit = find(db, a.account)
-    key, acc = hit if hit else (a.account, {"created": now(), "history": [], "emails": []})
+    call_id = getattr(a, "call_id", None)
+    key, acc = hit if hit else (a.account, {"created": now(), "created_by_call": call_id, "history": [], "emails": []})
     changes = []
     for field in ("contact", "owner", "stage", "value", "next_step", "next_date"):
         val = getattr(a, field)
         if val is None:
             continue
         if field == "stage" and val not in STAGES:
-            raise SystemExit(f"error: stage must be one of {STAGES}")
+            raise ValueError(f"stage must be one of {STAGES}")
         if acc.get(field) != val:
             changes.append(f"{field}: {acc.get(field, '—')} → {val}")
             acc[field] = val
     acc["updated"] = now()
     if changes:
-        acc["history"].append({"at": now(), "type": "update", "summary": "; ".join(changes)})
+        acc["history"].append({"at": now(), "type": "update", "call_id": call_id, "summary": "; ".join(changes)})
     db["accounts"][key] = acc
     verb = ("would update" if hit else "would create") if getattr(a, "dry_run", False) else ("updated" if hit else "created")
     print(f"{verb} {key}: " + ("; ".join(changes) or "no changes"))
+
+
+def purge_call(db: dict, call_id: str) -> list[str]:
+    """Erasure: remove every CRM trace of one visit. History items and follow-up emails tied to
+    the call go; an account that only exists because of this visit is deleted entirely.
+    Returns a list of what was removed (account names, no personal data)."""
+    removed = []
+    for key in list(db.get("accounts", {})):
+        acc = db["accounts"][key]
+        before = len(acc.get("history", [])) + len(acc.get("emails", []))
+        acc["history"] = [h for h in acc.get("history", []) if h.get("call_id") != call_id]
+        acc["emails"] = [e for e in acc.get("emails", []) if e.get("call_id") != call_id]
+        dropped = before - len(acc["history"]) - len(acc["emails"])
+        other_calls = {h.get("call_id") for h in acc["history"] if h.get("call_id")}
+        if not other_calls and (acc.get("created_by_call") == call_id or dropped):
+            del db["accounts"][key]  # nothing else ties this account to a real visit
+            removed.append(f"account {key}")
+        elif dropped:
+            removed.append(f"history on {key}")
+    return removed
 
 
 def cmd_log(db: dict, a: argparse.Namespace) -> None:
@@ -156,6 +177,8 @@ def main() -> None:
     args = parser.parse_args()
 
     db = load()
+    if args.cmd == "upsert":
+        args.call_id = getattr(args, "call_id", None)
     {"upsert": cmd_upsert, "log": cmd_log, "email": cmd_email, "show": cmd_show, "pipeline": cmd_pipeline}[args.cmd](db, args)
     if args.cmd in ("upsert", "log", "email"):
         if getattr(args, "dry_run", False):

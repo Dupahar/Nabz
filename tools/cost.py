@@ -51,15 +51,18 @@ def main() -> None:
         calls = [args.call_id]
     stt_min = sum(r.get("seconds", 0) for r in rows if r["kind"] == "stt" and r.get("call_id") in calls) / 60
     tts_chars = sum(r.get("chars", 0) for r in rows if r["kind"] == "tts" and r.get("call_id") in calls)
-    tokens = sum(llm_tokens(c) for c in calls)
+    llm_rows = [r for r in rows if r["kind"] == "llm" and r.get("call_id") in calls]
+    tokens = sum(r.get("input_tokens", 0) + r.get("output_tokens", 0) + r.get("cache_read", 0) + r.get("cache_write", 0)
+                 for r in llm_rows) or sum(llm_tokens(c) for c in calls)
+    llm_inr = sum(r.get("cost_inr", 0) for r in llm_rows)
 
     inr = (stt_min * rates.get("prisma_per_min", 0) + tts_chars / 1000 * rates.get("timbre_per_1k_chars", 0)
-           + tokens / 1000 * rates.get("llm_per_1k_tokens", 0))
+           + (llm_inr or tokens / 1000 * rates.get("llm_per_1k_tokens", 0)))
     scope = f"call {args.call_id}" if args.call_id else f"last {args.days} days, {len(calls)} conversations"
     print(f"Cost report ({scope})")
     print(f"  Prisma speech-to-text   {stt_min:7.1f} min")
     print(f"  Timbre voice debriefs   {tts_chars:7d} chars")
-    print(f"  LLM (estimated)         {tokens:7d} tokens")
+    print(f"  LLM                     {tokens:7d} tokens" + (f"  (Rs {llm_inr:,.2f} at list prices, measured)" if llm_inr else "  (estimated)"))
     if any(rates.values()):
         print(f"  Total                   ₹{inr:,.2f}" + (f"  (₹{inr / len(calls):,.2f} per conversation)" if len(calls) > 1 else ""))
     else:

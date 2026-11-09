@@ -56,6 +56,8 @@ def main() -> None:
     if not spk_path.exists():
         raise SystemExit("error: speakers.json missing. Run tools/speakers.py first.")
     spk = read_json(spk_path)
+    if spk.get("rep_present") is False:
+        raise SystemExit("skipped: our rep is not on this recording, so talk ratio and question counts would be wrong")
     names, rep, labels = spk["names"], spk["rep"], spk["labels"]
     segments = transcript["segments"]
     duration = transcript["duration_sec"] or (segments[-1]["end"] if segments else 0)

@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nabz · Market intelligence</title>
   <link rel="stylesheet" href="/static/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"
+          integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC"
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
   <header id="topbar"></header>
@@ -29,6 +31,7 @@
     <div id="denied" class="hidden"><div class="card empty"><span class="big">🔒</span>
       Market intelligence is for managers. Ask your manager, or open <a href="/">your visits</a>.</div></div>
     <div id="err"></div>
+    <div id="synBanner" role="note"></div>
 
     <div id="dash">
       <div class="grid cols-6" id="kpis"></div>

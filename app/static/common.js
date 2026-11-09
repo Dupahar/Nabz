@@ -13,7 +13,11 @@
     voicing: { label: "Voice debrief", cls: "brand", pulse: true },
     done: { label: "Ready", cls: "ok", pulse: false },
     error: { label: "Error", cls: "bad", pulse: false },
+    needs_consent_review: { label: "Consent review", cls: "warn", pulse: false },
   };
+
+  /** Every state-changing request carries this header; the server rejects it otherwise (CSRF). */
+  const CSRF = { "X-Nabz": "1" };
 
   function esc(s) {
     return String(s == null ? "" : s)
@@ -24,6 +28,7 @@
   async function api(path, opts) {
     opts = opts || {};
     const init = { method: opts.method || "GET", credentials: "same-origin", headers: {} };
+    if (init.method !== "GET") Object.assign(init.headers, CSRF);
     if (opts.body !== undefined) {
       if (opts.body instanceof FormData) {
         init.body = opts.body;
@@ -94,10 +99,18 @@
     return score >= 65 ? "hi" : score >= 40 ? "mid" : "lo";
   }
 
-  function statusChip(status, stage) {
+  function statusChip(status, stage, stalled) {
+    if (stalled) return `<span class="chip warn" title="No progress for a while"><span class="dot"></span>Stalled</span>`;
     const st = STATUS[status] || { label: status || "Unknown", cls: "", pulse: false };
     const title = stage ? ` title="${esc(stage)}"` : "";
     return `<span class="chip ${st.cls} ${st.pulse ? "pulse" : ""}"${title}><span class="dot"></span>${esc(st.label)}</span>`;
+  }
+
+  /** Visible label for demo data generated with AI voices (no real customer). */
+  function syntheticBadge(v) {
+    return v && v.synthetic
+      ? `<span class="chip synthetic" title="Synthetic demo visit: voices generated with Gnani Timbre / ElevenLabs, processed by the real pipeline">Synthetic demo</span>`
+      : "";
   }
 
   function scoreBadge(score) {
@@ -177,6 +190,6 @@
 
   window.Nabz = {
     api, esc, me, config, initials, fmtDuration, fmtDate, timeAgo, pct, scoreClass, statusChip, scoreBadge,
-    renderRedactions, toast, mountTopbar, mountFooter, STATUS, PULSE_SVG,
+    renderRedactions, toast, mountTopbar, mountFooter, syntheticBadge, STATUS, PULSE_SVG, CSRF,
   };
 })();

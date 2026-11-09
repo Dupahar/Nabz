@@ -1,9 +1,15 @@
-faster-whisper>=1.2,<2
-matplotlib>=3.8
-numpy
-pyyaml
-requests
-fastapi
-uvicorn[standard]
-python-multipart
-anthropic
+# Exact versions tested on 2026-11-09 (Python 3.13, Windows). Update deliberately, then rerun tests/.
+# Runtime
+faster-whisper==1.2.1
+matplotlib==3.11.2
+numpy==2.5.4
+PyYAML==6.0.3
+requests==2.34.2
+fastapi==0.162.2
+uvicorn[standard]==0.54.0
+python-multipart==0.0.33
+anthropic==2.6.0
+
+# Tests (FastAPI TestClient needs httpx)
+httpx==0.28.1
+pytest==9.2.0

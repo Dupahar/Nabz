@@ -19,7 +19,20 @@ from common import CALLS, read_json, utf8_stdout, workspace
 SIDE_US = "us"
 
 
-def load_visits(days: int | None = None, region: str | None = None, segment: str | None = None, rep_handle: str | None = None) -> list[dict]:
+def consent_ok(folder) -> bool:
+    """Consent counts if recorded and not contradicted: a verbal consent the transcript scan could
+    not find (verified == False) only counts once a manager has reviewed it."""
+    path = folder / "consent.json"
+    if not path.exists():
+        return False
+    c = read_json(path)
+    if c.get("withdrawn"):
+        return False
+    return c.get("verified") is not False or bool(c.get("review"))
+
+
+def load_visits(days: int | None = None, region: str | None = None, segment: str | None = None, rep_handle: str | None = None,
+                include_unconsented: bool = False) -> list[dict]:
     cutoff = datetime.now() - timedelta(days=days) if days else None
     out = []
     if not CALLS.exists():
@@ -32,7 +45,11 @@ def load_visits(days: int | None = None, region: str | None = None, segment: str
         if "lens" not in a or "market_signals" not in a:
             continue
         v = read_json(folder / "visit.json") if (folder / "visit.json").exists() else {}
+        if not include_unconsented and not consent_ok(folder):
+            continue  # never aggregate a conversation without valid consent
         when = datetime.fromisoformat(t["recorded_at"])
+        if when.tzinfo is not None:
+            when = when.replace(tzinfo=None)
         reg = a.get("region") or v.get("region") or "Unknown"
         seg = a.get("segment") or v.get("segment") or "Other"
         if cutoff and when < cutoff:
@@ -44,7 +61,9 @@ def load_visits(days: int | None = None, region: str | None = None, segment: str
         if rep_handle and v.get("rep_handle") != rep_handle:
             continue
         m = read_json(folder / "metrics.json") if (folder / "metrics.json").exists() else None
-        out.append({"id": folder.name, "when": when, "a": a, "t": t, "m": m, "v": v, "region": reg, "segment": seg})
+        synthetic = bool(v.get("synthetic")) or folder.name.startswith("demo-") or "synthetic" in (v.get("note") or "").lower()
+        out.append({"id": folder.name, "when": when, "a": a, "t": t, "m": m, "v": v, "region": reg, "segment": seg,
+                    "synthetic": synthetic})
     return out
 
 
@@ -55,14 +74,21 @@ def build(days: int | None = 30, region: str | None = None, segment: str | None 
 
     n = len(visits)
     flags = [(v, f) for v in visits for f in v["a"].get("compliance_flags", [])]
-    checked = sum((v["a"].get("grounding") or {}).get("checked", 0) for v in visits)
-    verified = sum((v["a"].get("grounding") or {}).get("verified", 0) for v in visits)
+    # First-pass numbers: how often the model's quotes were right before any retry or dropping.
+    # (Final numbers are 100% by construction, because unverified claims are dropped.)
+    def fp(v, k):
+        g = v["a"].get("grounding") or {}
+        return (g.get("first_pass") or g).get(k, 0)
+    checked = sum(fp(v, "checked") for v in visits)
+    verified = sum(fp(v, "verified") for v in visits)
+    dropped = sum((v["a"].get("grounding") or {}).get("dropped_after_retry", 0) for v in visits)
     pii = 0
     for v in visits:
         r = CALLS / v["id"] / "redactions.json"
         if r.exists():
             pii += sum(read_json(r).get("counts", {}).values())
-    consent = sum(1 for v in visits if (CALLS / v["id"] / "consent.json").exists())
+    all_recent = load_visits(days, region, segment, include_unconsented=True)
+    pending_review = len(all_recent) - n
 
     kpis = {
         "visits": n,
@@ -70,9 +96,13 @@ def build(days: int | None = 30, region: str | None = None, segment: str | None 
         "reps": len({v["a"].get("rep") for v in visits}),
         "hours_audio": round(sum(v["t"].get("duration_sec") or 0 for v in visits) / 3600, 2),
         "compliance_flags": len(flags),
-        "consent_rate": round(consent / n, 3) if n else None,
+        "consent_rate": round(n / len(all_recent), 3) if all_recent else None,
+        "consent_pending_review": pending_review,
         "pii_redacted": pii,
         "quotes_verified": round(verified / checked, 3) if checked else None,
+        "quotes_verified_basis": "first pass, before retry",
+        "claims_dropped": dropped,
+        "synthetic_visits": sum(1 for v in visits if v["synthetic"]),
     }
 
     signals = [(v, s) for v in visits for s in v["a"].get("market_signals", [])]

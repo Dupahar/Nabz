@@ -2,17 +2,18 @@
 
     python tools/transcribe.py <audio> --title "BrightMart" --consent rep-confirmed --consent-by arjun
                                [--engine prisma|whisper] [--speakers 3] [--language indic-auto]
-                               [--topic "..."] [--no-denoise] [--call-id ID]
+                               [--topic "..."] [--no-denoise] [--call-id ID] [--recorded-at ISO]
 
 Steps, in order (each is logged to the audit trail):
   1. Consent gate: refuses to process unless consent is given with --consent or already on file
      (config/workspace.yaml privacy.consent_required). DPDP Act 2023 s.5-6.
   2. Speech to text. Prisma v3.0 batch: speaker diarization, Indian languages and code-mixed
      speech (format=codemix keeps English words in Latin script), optional denoising, and
-     `keyterms`: your products, competitors and CRM account/contact names, so the words that
-     matter to the business come out right.
-  3. PII redaction (tools/redact.py): Aadhaar, PAN, phone numbers, etc. are removed before any
-     agent or LLM reads the transcript.
+     `keyterms`: your products, competitors and customer BUSINESS names (never people's names),
+     so the words that matter to the business come out right.
+  3. PII redaction happens in-process before transcript.json is written, so an unredacted
+     transcript is never readable by agents, the API or the LLM. The raw text is kept only in
+     transcript.raw.json (blocked for agents; deleted by retention.py with the audio).
 
 Creates data/calls/<call_id>/ with audio.<ext>, consent.json, transcript.json (redacted; segments
 with start/end/speaker), transcript.raw.json, transcript.md and redactions.json.
@@ -25,20 +26,22 @@ import os
 import shutil
 import subprocess
 import time
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from common import CALLS, CRM_FILE, audit, fmt_ts, read_json, slugify, utf8_stdout, workspace, write_json
+from common import CALLS, CRM_FILE, audit, fmt_ts, guard_not_erased, read_json, slugify, utf8_stdout, workspace, write_json
 
 PRISMA_MAX_BYTES = 10 * 1024 * 1024
+IST = timezone(timedelta(hours=5, minutes=30))
+FFMPEG_SAFE = ["-nostdin", "-protocol_whitelist", "file,pipe"]
 
 
 def decode_audio(path: Path):
     """16 kHz mono float32 via ffmpeg (for the Whisper fallback)."""
     import numpy as np
 
-    proc = subprocess.run(["ffmpeg", "-nostdin", "-loglevel", "error", "-i", str(path), "-f", "s16le", "-ac", "1", "-ar", "16000", "-"],
-                          capture_output=True)
+    proc = subprocess.run(["ffmpeg", *FFMPEG_SAFE, "-loglevel", "error", "-i", str(path), "-f", "s16le", "-ac", "1",
+                           "-ar", "16000", "-"], capture_output=True, timeout=600)
     if proc.returncode != 0:
         raise SystemExit(f"error: ffmpeg could not decode {path}: {proc.stderr.decode(errors='replace').strip()}")
     return np.frombuffer(proc.stdout, np.int16).astype(np.float32) / 32768.0
@@ -52,22 +55,20 @@ def upload_copy(audio: Path, folder: Path) -> Path:
     if shutil.which("ffmpeg") is None:
         raise SystemExit("error: recording is over 10 MB and ffmpeg is not installed to compress it")
     out = folder / "upload.ogg"
-    subprocess.run(["ffmpeg", "-nostdin", "-y", "-loglevel", "error", "-i", str(audio), "-ac", "1", "-ar", "16000",
-                    "-c:a", "libopus", "-b:a", "24k", str(out)], check=True)
+    subprocess.run(["ffmpeg", *FFMPEG_SAFE, "-y", "-loglevel", "error", "-i", str(audio), "-vn", "-ac", "1", "-ar", "16000",
+                    "-c:a", "libopus", "-b:a", "24k", str(out)], check=True, timeout=600)
     if out.stat().st_size > PRISMA_MAX_BYTES:
         raise SystemExit("error: recording is longer than ~55 minutes; split it and send the parts")
     return out
 
 
 def keyterms_for(ws: dict, title: str) -> list[str]:
+    """Business vocabulary only: products, competitors, trade terms and customer business names.
+    People's names (CRM contacts, our team) are deliberately NOT sent to the speech API."""
     vocab = ws.get("vocabulary") or {}
     terms = [*vocab.get("products", []), *vocab.get("competitors", []), *vocab.get("terms", [])]
-    terms += [m["name"] for m in ws.get("team", []) if m.get("name")]
     if CRM_FILE.exists():
-        for name, acc in read_json(CRM_FILE).get("accounts", {}).items():
-            terms.append(name)
-            if acc.get("contact"):
-                terms.append(acc["contact"].split(",")[0].strip())
+        terms += list(read_json(CRM_FILE).get("accounts", {}))
     if title:
         terms.append(title)
     return [t for t in dict.fromkeys(t.strip() for t in terms) if t]
@@ -82,14 +83,18 @@ def run_prisma(audio: Path, folder: Path, ws: dict, args) -> tuple[list[dict], d
                            + (f" ({args.title})" if args.title else "") + ". Products, prices in rupees, lakh and crore, and next steps.")
     cfg = stt_config(model=speech.get("model", "prisma-v3.0"), language=args.language or speech.get("language", "indic-auto"),
                      fmt=speech.get("format", "codemix"), speakers=args.speakers or speech.get("max_speakers", 3),
-                     denoise=speech.get("denoise", True) and not args.no_denoise,
+                     denoise=speech.get("denoise", False) and not args.no_denoise,
                      keyterms=keyterms_for(ws, args.title), topic=topic)
     upload = upload_copy(audio, folder)
-    docs = transcribe_batch([upload], cfg, call_ids=[folder.name])
+
+    def remember_job(job_id: str) -> None:  # lets erasure cancel an in-flight job
+        write_json(folder / "job.json", {"job_id": job_id, "engine": "gnani-prisma"})
+
+    timeout_min = float((ws.get("server") or {}).get("prisma_timeout_minutes", 15))
+    docs = transcribe_batch([upload], cfg, call_ids=[folder.name], on_job=remember_job, deadline_sec=timeout_min * 60)
     doc = docs.get(upload.name) or next(iter(docs.values()))
     if "segments" not in doc:
-        raise SystemExit(f"error: Prisma could not transcribe the file: {doc}")
-    write_json(folder / "prisma.json", doc)
+        raise SystemExit(f"error: Prisma could not transcribe the file: {doc.get('error')}")
 
     segments = []
     for seg in doc["segments"]:
@@ -110,13 +115,28 @@ def run_prisma(audio: Path, folder: Path, ws: dict, args) -> tuple[list[dict], d
 def run_whisper(audio: Path, args) -> tuple[list[dict], dict]:
     from faster_whisper import WhisperModel
 
-    name = os.environ.get("FIELDNOTES_WHISPER_MODEL", "small")
+    name = os.environ.get("NABZ_WHISPER_MODEL", "small")
     model = WhisperModel(name, device="cpu", compute_type="int8")
     lang = None if (args.language or "").startswith(("indic", "auto")) else (args.language or None)
     it, info = model.transcribe(decode_audio(audio), language=lang and lang.split("-")[0], vad_filter=True, beam_size=5)
     segments = [{"i": i, "start": round(s.start, 2), "end": round(s.end, 2), "speaker": None, "text": s.text.strip()}
                 for i, s in enumerate(x for x in it if x.text.strip())]
     return segments, {"engine": "whisper-local", "model": name, "duration": info.duration, "language": info.language, "languages": [info.language]}
+
+
+def recorded_time(value: str | None) -> datetime:
+    """When the conversation happened (the recorder's start time or the file's timestamp), within
+    ±7 days of now; otherwise now. Always IST-aware."""
+    now = datetime.now(IST)
+    if value:
+        try:
+            t = datetime.fromisoformat(value.replace("Z", "+00:00"))
+            t = t.replace(tzinfo=IST) if t.tzinfo is None else t.astimezone(IST)
+            if abs(now - t) <= timedelta(days=7):
+                return t
+        except ValueError:
+            pass
+    return now
 
 
 def main() -> None:
@@ -133,6 +153,7 @@ def main() -> None:
     parser.add_argument("--topic", default=None, help="one line of context for the speech model")
     parser.add_argument("--no-denoise", action="store_true")
     parser.add_argument("--call-id", default=None)
+    parser.add_argument("--recorded-at", default=None, help="ISO time the conversation was recorded")
     args = parser.parse_args()
 
     if not args.audio.is_file():
@@ -141,9 +162,10 @@ def main() -> None:
     privacy = ws.get("privacy") or {}
     engine = args.engine or (ws.get("speech") or {}).get("engine", "prisma")
 
-    started = datetime.now()
+    started = recorded_time(args.recorded_at)
     call_id = args.call_id or f"{started:%Y%m%d-%H%M}-{slugify(args.title or args.audio.stem)}"
     folder = CALLS / call_id
+    guard_not_erased(folder / "x")
 
     # 1. Consent gate, before anything is stored or sent anywhere.
     from consent import has_consent, record
@@ -176,25 +198,41 @@ def main() -> None:
 
     transcript = {
         "call_id": call_id, "title": args.title, "source_file": args.audio.name,
-        "recorded_at": started.isoformat(timespec="seconds"), "language": info["language"],
-        "languages": info.get("languages"), "duration_sec": round(info["duration"], 1),
+        # naive IST wall-clock (comparable with older records) + an explicit, timezone-aware copy
+        "recorded_at": started.replace(tzinfo=None).isoformat(timespec="seconds"),
+        "recorded_at_tz": started.isoformat(timespec="seconds"), "timezone": "Asia/Kolkata",
+        "language": info["language"], "languages": info.get("languages"), "duration_sec": round(info["duration"], 1),
         "engine": info["engine"], "model": info["model"], "diarized": any(s.get("speaker") for s in segments),
         "segments": segments,
     }
+    write_json(folder / "transcript.raw.json", transcript)
+
+    # 3. PII redaction in-process: transcript.json only ever exists in redacted form.
+    hits = []
+    if privacy.get("redact_pii", True):
+        from redact import redact_segments
+
+        hits = redact_segments(transcript["segments"])
+        transcript["redacted"] = True
+    counts: dict[str, int] = {}
+    for h in hits:
+        counts[h["type"]] = counts.get(h["type"], 0) + 1
+    write_json(folder / "redactions.json", {"call_id": call_id, "counts": counts, "hits": hits})
     write_json(folder / "transcript.json", transcript)
+    audit("transcript.redacted", call_id=call_id, **{k.lower(): v for k, v in counts.items()})
+
     speakers = sorted({s["speaker"] for s in segments if s.get("speaker")})
     head = [f"# Transcript: {args.title or call_id}", "",
             f"Duration {fmt_ts(info['duration'])} · {info['engine']} {info['model']} · language {info['language']} · "
             f"{len(segments)} segments" + (f" · speakers {', '.join(speakers)}" if speakers else "")]
-    body = [f"[{s['i']}] ({fmt_ts(s['start'])}){' ' + s['speaker'] if s.get('speaker') else ''} {s['text']}" for s in segments]
+    body = [f"[{s['i']}] ({fmt_ts(s['start'])}){' ' + s['speaker'] if s.get('speaker') else ''} {s['text']}" for s in transcript["segments"]]
+    guard_not_erased(folder / "transcript.md")
     (folder / "transcript.md").write_text("\n".join(head) + "\n\n" + "\n".join(body) + "\n", encoding="utf-8")
-
-    # 3. PII redaction before any agent reads it.
-    if privacy.get("redact_pii", True):
-        subprocess.run([os.sys.executable, str(Path(__file__).with_name("redact.py")), call_id], check=True)
+    (folder / "job.json").unlink(missing_ok=True)
 
     words = sum(len(s["text"].split()) for s in segments)
     print(f"engine: {info['engine']} {info['model']}, language: {info['language']}, duration {fmt_ts(info['duration'])}")
+    print(f"redacted {len(hits)} item(s): " + (", ".join(f"{k}×{v}" for k, v in counts.items()) or "none found"))
     if speakers:
         talk = {sp: sum(s["end"] - s["start"] for s in segments if s.get("speaker") == sp) for sp in speakers}
         print("diarized speakers: " + ", ".join(f"{sp} ({fmt_ts(t)} talk)" for sp, t in talk.items()))

@@ -6,17 +6,17 @@
 
 *"Bazaar ki nabz pakadna"*: to have your finger on the market's pulse.
 
-Nabz turns the conversations India's field teams have every day (at a kirana counter, a chemist,
-a doctor's chamber, a borrower's door) into **market intelligence** for marketing and product
-leaders, and **coaching** for the reps who had them. It is built on **Gnani AI's Indian speech models**,
-and every insight is backed by a quote verified against the transcript.
+Nabz turns the conversations FMCG field reps have at the kirana counter into **market intelligence**
+for sales and brand leaders (competitor credit, scheme confusion, slow movers, stock-outs), and into
+**coaching** for the reps who had them. Speech in and out is **Gnani AI** (Prisma v3.0 and Timbre v3.0).
+Every insight carries a quote verified against the transcript in code.
 
 ![Gnani Prisma](https://img.shields.io/badge/speech--to--text-Gnani%20Prisma%20v3.0-6D28D9)
 ![Gnani Timbre](https://img.shields.io/badge/voice-Gnani%20Timbre%20v3.0-6D28D9)
-![Languages](https://img.shields.io/badge/languages-10%20Indian%20%2B%20Hinglish-orange)
-![Privacy](https://img.shields.io/badge/DPDP-consent%20%C2%B7%20redaction%20%C2%B7%20audit-2563EB)
+![Tests](https://img.shields.io/badge/tests-50%20passing-16A34A)
+![Privacy](https://img.shields.io/badge/consent%20%C2%B7%20redaction%20%C2%B7%20audit-2563EB)
 
-Built for the **Great Indian AI Internship Challenge** by Gnani AI · #GnaniAI #GreatIndianAIInternshipChallenge
+Built solo for the **Great Indian AI Internship Challenge** by Gnani AI · #GnaniAI #GreatIndianAIInternshipChallenge
 
 </div>
 
@@ -24,144 +24,142 @@ Built for the **Great Indian AI Internship Challenge** by Gnani AI · #GnaniAI #
 
 ## The problem
 
-India sells face to face. Lakhs of FMCG salesmen, pharma medical reps, insurance and loan agents and
-service technicians talk to customers every day, in Hinglish and a dozen other languages, over traffic
-and shop noise. **What the market tells them never reaches head office**:
-- why outlets switched to a competitor;
-- which scheme confused them;
-- which price hike hurt;
-- which product is gathering dust.
+**89% of India's offline FMCG sales go through traditional trade** (NIQ, Q1 2026). That share is
+decided in face-to-face conversations at the counter, in Hinglish and other Indian languages, over
+street noise. When a kirana owner says *"Britannia wala pandrah din ka credit de raha hai"*, it
+reaches head office weeks later, through a retail audit, a lost-share report, or not at all.
+Meanwhile quick commerce is taking share from general trade every quarter.
 
-CRMs record outcomes, not reasons. Surveys are slow. Mystery audits are expensive. And reps, who have
-the hardest conversations, are almost never coached on them.
+Nabz captures those conversations, with the customer's consent, and turns them into quoted,
+region-by-region intelligence the same day. The rep gets coaching on the visit in their own language.
 
-## What Nabz does
+**Who it's for (beachhead):** Indian FMCG, food and beverage brands with ₹500–5,000 Cr turnover,
+200–2,000 field reps and distributor salesmen, and over 70% of sales through general trade. The full
+case, with sources, pricing, unit economics and an honest risk section, is in
+[`docs/BUSINESS_CASE.md`](docs/BUSINESS_CASE.md).
+
+## What it does
 
 | For | They get |
 |---|---|
-| **Marketing and product leaders** | A **market-intelligence dashboard** built from real conversations: competitor share of voice by region, demand signals per product, price sensitivity by customer segment, scheme confusion, product feedback, and a voice-of-customer feed where every card is a verbatim quote |
-| **Sales managers** | Visit scorecards through the right **lens** (sales, FMCG outlet visit, pharma detailing, collections, support, general), team coaching (talk ratio, SPIN question mix, the top tip per rep), and approve-before-save CRM updates |
-| **Field reps** | A one-tap recorder on their phone (no install: a mobile web app, or a voice note in the team's Telegram group), and a **20-second voice debrief in their own language, voiced by Gnani Timbre** |
-| **Compliance and IT** | A consent gate, PII redaction before any AI sees the text, quote verification in code, compliance rules (UCPMP 2024 for pharma, RBI recovery rules for collections), a tamper-evident audit log, retention, erasure and role-based access |
+| **Sales and brand leaders** | A market-intelligence dashboard: competitor share of voice by region, demand per product, price sensitivity by outlet type, scheme feedback, and a voice-of-customer feed where every card is a verbatim quote |
+| **Area managers** | Visit scorecards through the right lens, team coaching (talk ratio, questions asked), compliance flags, and CRM updates they approve |
+| **Field reps** | A mobile web app with nothing to install: a consent step, then one tap to record or upload. A **20–30 s voice debrief in their language, voiced by Gnani Timbre** |
 
-### How a visit flows
+## How a visit flows
 
 ```text
-Rep's phone ─► consent captured ─► Gnani Prisma v3.0 batch STT ─► PII redaction ─► Claude analysis ─► quote check (code)
- (web app or     (DPDP s.5-6)       diarization · indic-auto        Aadhaar, PAN,     lens + market      every claim must
-  Telegram)                         codemix · denoise · keyterms    phone (incl.      signals + notes    exist verbatim in
-                                                                     spoken "nau aath") + CRM + follow-up the transcript
-                                                                                            │
-          Manager approves CRM + follow-up ◄── Gnani Timbre voice debrief to rep ◄──────────┘
-          Market intelligence dashboard ◄── every visit's quoted signals, by region × segment
+consent ─► Gnani Prisma v3.0 (batch) ─► PII redaction ─► Claude analysis ─► quote check (code) ─► Gnani Timbre debrief
+ (verbal: verified   diarization · indic-auto     in-process, before   Haiku 5.5 first;    exact words, one        in the rep's
+  on tape)           codemix · keyterms             any file is written  Opus 5.5 if needed  speaker, same numbers   language
+                                                                                             and negations
+                 manager approves the CRM update and follow-up  ◄─┘     dashboard updates with quoted signals by region × segment
 ```
 
 ## Gnani AI inside
 
 | Gnani model | Used for |
 |---|---|
-| **Prisma v3.0** (Batch STT) | **Diarization** (speaker labels matched the script on 59/60 segments in our demo) · `indic-auto` across 10 Indian languages · **`codemix`** keeps "carton", "scheme" and "Parle-G" in Latin script inside Hindi · **`keyterms`** from the company's products, competitors and CRM accounts · **`with_denoise`** for shop floors · Telegram/WhatsApp Opus voice notes and browser recordings uploaded directly |
-| **Timbre v3.0** (TTS) | Voice debriefs to reps in Hinglish, Hindi, English, Tamil, Kannada and other languages, returned as an Opus voice note · the synthetic demo visits · the noise benchmark's test speech |
+| **Prisma v3.0** (Batch STT) | **Diarization** (speaker labels matched the script on 59/60 segments in our test) · `indic-auto` language detection · **`codemix`** keeps "Parle-G", "carton" and "scheme" in Latin script inside Devanagari · **`keyterms`** from the workspace's products, competitors and account names (never people's names) · `with_denoise` tested and **turned off**: in our benchmark it raised word error from 12.7% to 21.4% at 10 dB SNR · browser recordings and phone voice notes uploaded directly |
+| **Timbre v3.0** (TTS) | The rep's voice debrief (Hinglish, Hindi or English in the demo; Timbre supports 10 Indian languages) · the synthetic demo visits · test speech for the noise benchmark |
 
-Gnani's own call-analytics guide pairs Prisma with an LLM for reasoning, and Nabz does the same
-(Claude Opus 5.5), behind a swappable interface. The sovereign path is Prisma on-premises plus Gnani's
-open-weight **Evon v3.3** for reasoning, inside the customer's VPC (see [Roadmap](#roadmap)).
+**The reasoning layer is Claude, not Gnani's Evon.** Evon v3.3 has open weights on request but no
+hosted API (see [`docs/research/GNANI_API_NOTES.md`](docs/research/GNANI_API_NOTES.md)), and Gnani's
+own call-analytics guide pairs Prisma with Claude or GPT-4o. The model sits behind one function
+(`tools/llm.py`). The sovereign path is Prisma on-premises plus self-hosted Evon.
 
-## Why trust it
+## Cost per visit (measured)
 
-| | |
+| | Measured |
 |---|---|
-| **No consent, no processing** | The upload is refused without a recorded consent (who, how, purpose, when). Erasing a visit deletes everything; the audit log keeps the tombstone. |
-| **PII never reaches the AI** | Aadhaar (Verhoeff checksum), PAN, GSTIN, phone, card (Luhn), account, IFSC, UPI and email are redacted, **including numbers spoken as English or Hindi words**. Raw audio is deleted on a schedule (1 day by default). |
-| **No invented evidence** | Every judgement and market signal carries a verbatim quote. `analysis.py` verifies each one against the transcript in code. Failures go back to the model once, and anything still unverified is dropped, never shown. |
-| **Humans approve the system of record** | CRM updates and follow-ups are proposals until a person clicks Approve. |
-| **Auditable** | A SHA-256 hash-chained log of every consent, transcription, redaction, analysis, approval and erasure, verified live on the dashboard. |
-| **Least privilege** | Reps see their own visits; managers see the team and intelligence; admins see the audit log. Chat agents are blocked by permission rules from reading raw transcripts and secrets. |
-| **Data in India** | Gnani batch results are served from AWS `ap-south-1` (Mumbai). |
+| Claude Haiku 5.5 (every visit) | **₹0.32** for a 1-minute synthetic visit; 15/15 quotes verified on the first pass |
+| Claude Opus 5.5 (only when escalated) | ~₹10 per visit. Escalation happens only for a recorded reason: compliance flag, failed quotes, low confidence, suspected manipulation, or a long visit |
+| Gnani Prisma | ~₹27 per audio hour (reseller list price; direct pricing not public) |
 
-We are not SOC 2 or ISO 27001 certified. The controls above map to them; certification is on the roadmap.
+Real 5–8 minute visits will cost more than the demo's 1-minute visits. Re-measuring on real audio is
+the first pilot task.
 
-## Noise benchmark: Prisma vs Whisper on in-person audio
+## Why trust it (each line is checked by the tests in `tests/`)
 
-Prisma is trained on telephone audio, but field recordings come from one phone a metre away in a
-shop. We measured it with the standard recipe: synthetic far-field rooms; street, cafeteria and
-babble noise at 20/10/5/0 dB SNR; and WER, CER and **keyterm recall** (did the SKU, price and
-competitor survive?). See [`benchmark/`](benchmark/).
-
-## Research behind the design
-
-| Design choice | Evidence |
+| Control | What the code does |
 |---|---|
-| Talk ratio shown as a vendor reference, not a target | Gong 2025 (326K calls, vendor data): won deals averaged ~57% rep talk, lost deals ~62% |
-| SPIN question mix in the sales lens | Rackham, *SPIN Selling* (1988), a study of 35,000 sales calls |
-| Listening and adaptive questioning matter | Franke & Park 2006 (JMR meta-analysis, 31K+ reps); Ramsey & Sohi 1997 |
-| Quotes verified in code | ALCE (EMNLP 2023): even the best models lack full citation support about half the time |
-| Human approval for CRM writes | CRMArena-Pro (2025): agents complete only ~35% of multi-turn CRM tasks |
-| ASR evaluation method | Vistaar (Interspeech 2023), MUCS 2021, MUSAN, DEMAND, Ko et al. 2017 RIR |
-| Talk ratio only when diarization is trustworthy | pyannote 3.1: about 22% DER on single far-field mics |
+| **Consent before processing** | Uploads are refused without consent. For *verbal* consent, the transcript must show a consent request and a "yes" from another speaker within 90 s; otherwise the visit stops at `needs_consent_review` (no AI analysis) until a manager reviews it |
+| **Identifiers redacted before any AI or file** | Aadhaar (Verhoeff checksum), PAN, GSTIN, phone, card (Luhn), account number, IFSC, UPI and email, including numbers spoken in English or Hindi words and numbers split across two segments. **Names of people and businesses are not redacted**, because the analysis needs them |
+| **No invented evidence** | Every judgement quotes the transcript. Quotes must match exactly, from one speaker, with the same numbers and negations ("will switch" never verifies "will **not** switch"). One retry, then unverified claims are dropped and counted. Visits with invalid output, or where most quotes fail, are rejected, not shown |
+| **Untrusted text stays data** | The transcript and rep note are delimited and escaped. Manipulation phrasing escalates the visit and is recorded |
+| **Humans approve the system of record** | CRM updates and follow-ups are proposals. Numbers in them that weren't said in the conversation are shown as warnings. Reps can't approve their own flagged or low-scoring visits |
+| **Tamper-evident audit log** | An HMAC-keyed hash chain with a signed anchor (edits and truncation are detected). Customer names are stored as keyed hashes |
+| **Retention and erasure** | Raw audio is deleted after 1 day (a job runs at startup and every 6 hours). Erasure removes the visit, its CRM entries and usage rows, cancels in-flight processing, and keeps a tombstone. Only admins can erase a visit with a compliance flag |
+| **Access** | Signed, expiring sessions with a PIN per user (demo mode). CSRF header, CSP and an integrity-pinned Chart.js. Roles: rep (own visits), manager (team and intelligence), admin (audit and erasure) |
+| **Where data goes** | Speech: Gnani batch results are served from AWS `ap-south-1` (Mumbai). **Analysis: the Anthropic API, outside India**, on redacted text |
 
-More in [`docs/research/`](docs/research/).
+**Not yet:** SSO/OIDC (the PIN login is demo-grade), SOC 2 or ISO 27001, offline capture, WhatsApp,
+and a real-audio benchmark. A strict independent audit and its remediation are in
+[`docs/AUDIT.md`](docs/AUDIT.md).
+
+## Noise benchmark
+
+Prisma is trained on phone audio. Field recordings come from one phone a metre away in a shop. So
+we test Prisma and Whisper on far-field rooms with street, cafeteria and babble noise at
+20/10/5/0 dB SNR, on speech from **two independent voice sources** (Gnani Timbre and ElevenLabs),
+scoring WER, CER and **keyterm recall** (did the SKU, price and competitor survive?). See
+[`benchmark/`](benchmark/).
 
 ## Run it
 
-**You need:** Python 3.10+, ffmpeg, a [Gnani AI API key](https://docs.gnani.ai), and an Anthropic API key.
+**You need:** Python 3.10+, ffmpeg, a Gnani API key (`GNANI_API_KEY` in `.env`), and `ANTHROPIC_API_KEY`.
 
 ```bash
 git clone https://github.com/Dupahar/Nabz.git && cd Nabz
 python -m venv .venv && .venv/Scripts/pip install -r requirements.txt   # macOS/Linux: .venv/bin/pip
-cp .env.example .env              # GNANI_API_KEY=..., plus ANTHROPIC_API_KEY in your environment
+cp .env.example .env              # add GNANI_API_KEY=...
 .venv/Scripts/python -m uvicorn app.server:app --port 8000
+.venv/Scripts/python -m pytest -q # 50 tests, no paid API calls
 ```
 
-Open <http://localhost:8000>, pick a user (reps record; Kavita the manager sees the dashboard), and
-record or upload a visit. To process a file without the UI:
+Open <http://localhost:8000>. Pick a user; the **demo PIN is `1234`**. Arjun, Sneha and Ravi are reps
+who record; Kavita (manager) sees the dashboard; Meera is admin. Set real PINs with
+`tools/set_pin.py`. Recording from a phone browser needs HTTPS (a tunnel or deployment); uploading a
+file works anywhere.
 
 ```bash
 ./py tools/pipeline.py demo/kirana_snippet.ogg --rep arjun --account "Sharma Kirana" --segment Kirana --consent rep-confirmed
 ./py tools/intel.py --days 30
 ```
 
-**Chat channel (optional):** Telegram via [Switch](https://github.com/sandbox-quantum/switch). Import
-[`switch/nabz.template.yaml`](switch/nabz.template.yaml) in Switch Console. Three Claude Code agents
-(`nabz-scribe`, `nabz-analyst`, `nabz-dealdesk`) follow the plain-English playbooks in `playbooks/`
-and share the same data and tools.
+**Configure** the company, team (roles, languages, regions), outlet types, product and competitor
+vocabulary, privacy and LLM routing in [`config/workspace.yaml`](config/workspace.yaml). Add a
+conversation type as a YAML file in [`lenses/`](lenses/).
 
-**Configure** your company, team (roles, languages, regions), customer segments, product and competitor
-vocabulary, and privacy rules in [`config/workspace.yaml`](config/workspace.yaml). Add a conversation type by
-writing a YAML file in [`lenses/`](lenses/).
+**Chat channel (optional):** the same tools drive three Claude Code agents in a Telegram group via
+[Switch](https://github.com/sandbox-quantum/switch) (`switch/nabz.template.yaml`, `playbooks/`).
+Carried over from FieldNotes; not re-tested end to end under the Nabz name.
 
 ## Project structure
 
 ```text
-app/server.py            FastAPI: API (docs/API.md) + role checks
+app/server.py            FastAPI: API (docs/API.md), sessions, roles, CSRF/CSP, uploads, retention scheduler
 app/static/              mobile recorder, visit page, market-intelligence dashboard
-config/workspace.yaml    company, team, segments, vocabulary, privacy, LLM, rates
-lenses/*.yaml            sales · fmcg-retail · pharma-detailing · collections · support · general
+config/workspace.yaml    company, team, segments, vocabulary, privacy, LLM routing, rates
+lenses/*.yaml            fmcg-retail · sales · pharma-detailing · collections · support · general
 tools/
-  pipeline.py            consent → transcribe → analyse → metrics → debrief
+  pipeline.py            consent → transcribe+redact → analyse → metrics → debrief (resumable)
   gnani.py               Prisma batch STT + Timbre TTS client
-  transcribe.py          consent gate, Prisma, redaction
-  llm.py                 Claude analysis: lens, market signals, notes, CRM + follow-up proposal, quote retry
-  analysis.py            schema, lenses, quote verification, scorecard
-  intel.py               market-intelligence aggregation
-  redact.py · consent.py · audit.py · retention.py · cost.py · metrics.py · voice.py · crm.py
-playbooks/ + switch/     the Telegram agents
+  llm.py                 Haiku→Opus routing, delimited prompts, quote retry, rejection, number warnings
+  analysis.py            lenses, schema, exact quote verification, scorecard
+  redact.py · consent.py · audit.py · retention.py · intel.py · cost.py · metrics.py · voice.py · crm.py
+tests/                   50 tests: auth, CSRF, uploads, consent, erasure, audit, retention, grounding, redaction, LLM post-processing
 benchmark/               Prisma vs Whisper noise benchmark
-demo/                    sample recordings, synthetic seed visits (Timbre voices), scripts to record
-docs/                    API contract, research, submission
+demo/                    seed visits (Timbre voices), ElevenLabs visit generator, a script to record
+docs/                    business case, audit, API contract, research, submission
 ```
-
-## Roadmap
-
-- **WhatsApp Business** channel. Offline capture in a PWA, synced later.
-- **CRM and SFA connectors:** Zoho (`.zoho.in`), LeadSquared, Salesforce; FieldAssist and Bizom through partnerships.
-- **Sovereign deployment:** Prisma on-premises plus Evon v3.3 for reasoning, in the customer's VPC (Gnani Artha).
-- A real-audio benchmark, a human-rater agreement study (Cohen's κ), SSO/OIDC, and a weekly market digest to the leadership channel.
 
 ## Honesty notes
 
-- The demo dashboard is populated with **synthetic visits** whose voices were generated by Gnani
-  Timbre; they still run through the real pipeline. Real recordings are marked as such in the demo video.
-- Benchmark caveats are in [`benchmark/README.md`](benchmark/README.md).
-- Nabz extends ideas and code from the author's earlier project
-  [FieldNotes](https://github.com/Dupahar/FieldNotes) (Telegram-only sales notetaker, Nov 2026).
+- **The demo data is synthetic.** The 10 seed visits use Gnani Timbre voices and one test visit uses
+  ElevenLabs voices, all from written scripts, then run through the real pipeline. The app labels them
+  "Synthetic demo"; real recordings carry no badge.
+- Willingness to pay, DSR headcounts and real-audio cost are **unvalidated**. They're the first
+  milestones in the business case.
+- Nabz reuses ideas and code from the author's earlier project
+  [FieldNotes](https://github.com/Dupahar/FieldNotes) (a Telegram-only sales notetaker, Nov 2026).

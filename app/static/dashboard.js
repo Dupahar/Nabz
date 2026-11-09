@@ -110,6 +110,18 @@
       return;
     }
     charts[id] = new Chart(canvas.getContext("2d"), cfg);
+    // Accessibility: a text alternative for screen readers, built from the chart's own data.
+    const title = (box.closest(".card") && box.closest(".card").querySelector("h2, h3")) || null;
+    canvas.setAttribute("role", "img");
+    canvas.setAttribute("aria-label", `${title ? title.textContent.trim() + ": " : ""}${summarizeChart(cfg)}`);
+  }
+
+  function summarizeChart(cfg) {
+    const labels = (cfg.data && cfg.data.labels) || [];
+    return ((cfg.data && cfg.data.datasets) || []).slice(0, 4).map((ds) => {
+      const pairs = labels.slice(0, 8).map((l, i) => `${l} ${ds.data[i] == null ? "–" : (typeof ds.data[i] === "number" ? Math.round(ds.data[i] * 10) / 10 : ds.data[i])}`);
+      return `${ds.label ? ds.label + ": " : ""}${pairs.join(", ")}`;
+    }).join("; ") || "no data";
   }
 
   const gridless = { grid: { display: false }, border: { display: false } };
@@ -335,7 +347,12 @@
 
   async function loadRecent() {
     try {
-      const vs = await N.api("/api/visits?scope=all&limit=15");
+      const all = await N.api("/api/visits?scope=all&limit=200");
+      const syn = Array.isArray(all) ? all.filter((v) => v.synthetic).length : 0;
+      $("synBanner").innerHTML = syn
+        ? `<div class="banner-synthetic">ℹ️ Includes <b>${esc(syn)}</b> synthetic demo visit${syn > 1 ? "s" : ""}: voices generated with Gnani Timbre or ElevenLabs from written scripts, then processed by the real pipeline (Prisma, Claude, Timbre). Real recordings carry no badge.</div>`
+        : "";
+      const vs = Array.isArray(all) ? all.slice(0, 15) : all;
       if (!Array.isArray(vs) || !vs.length) {
         $("recent").innerHTML = '<tr><td><div class="empty"><span class="big">🎙️</span>No visits yet. Reps record them from <a href="/">the rep app</a>.</div></td></tr>';
         $("recentMeta").textContent = "";
@@ -343,14 +360,18 @@
       }
       $("recentMeta").textContent = `${vs.length} most recent`;
       $("recent").innerHTML = `<thead><tr><th>When</th><th>Account</th><th>Rep</th><th>Segment · Region</th><th>Lens</th><th>Score</th><th>Status</th></tr></thead>
-        <tbody>${vs.map((v) => `<tr class="click" data-id="${esc(v.call_id)}">
+        <tbody>${vs.map((v) => `<tr class="click rowlink" tabindex="0" role="link" aria-label="Open visit: ${esc(v.account || v.call_id)}" data-id="${esc(v.call_id)}">
           <td class="muted">${esc(N.fmtDate(v.recorded_at))}</td>
-          <td><b>${esc(v.account || "")}</b>${v.summary ? `<div class="muted" style="font-size:.8rem;max-width:380px">${esc(String(v.summary).slice(0, 120))}${String(v.summary).length > 120 ? "…" : ""}</div>` : ""}</td>
+          <td><b>${esc(v.account || "")}</b> ${N.syntheticBadge(v)}${v.summary ? `<div class="muted" style="font-size:.8rem;max-width:380px">${esc(String(v.summary).slice(0, 120))}${String(v.summary).length > 120 ? "…" : ""}</div>` : ""}</td>
           <td>${esc(v.rep || "")}</td><td>${esc([v.segment, v.region].filter(Boolean).join(" · "))}</td>
           <td>${v.lens_name ? `<span class="chip brand">${esc(v.lens_name)}</span>` : ""}</td>
           <td>${v.score != null ? N.scoreBadge(v.score) : ""}</td>
-          <td>${N.statusChip(v.status, v.stage)}${v.flags ? ` <span class="chip bad">🚩 ${esc(v.flags)}</span>` : ""}</td></tr>`).join("")}</tbody>`;
-      $("recent").querySelectorAll("tr.click").forEach((tr) => tr.addEventListener("click", () => { location.href = `/visit/${encodeURIComponent(tr.dataset.id)}`; }));
+          <td>${N.statusChip(v.status, v.stage, v.stalled)}${v.flags ? ` <span class="chip bad">🚩 ${esc(v.flags)}</span>` : ""}</td></tr>`).join("")}</tbody>`;
+      $("recent").querySelectorAll("tr.click").forEach((tr) => {
+        const go = () => { location.href = `/visit/${encodeURIComponent(tr.dataset.id)}`; };
+        tr.addEventListener("click", go);
+        tr.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+      });
     } catch (e) {
       $("recent").innerHTML = "";
     }

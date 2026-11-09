@@ -1,0 +1,524 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Nabz video timeline</title>
+<style>
+:root { --ind:#4F46E5; --vio:#7C3AED; --org:#F97316; --ink:#0F172A; --muted:#64748B; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { width:100vw; height:100vh; overflow:hidden; background:#05040c; color:#fff;
+  font-family:"Segoe UI","Nirmala UI",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+#stage { position:absolute; inset:0; }
+.scene { position:absolute; inset:0; opacity:0; overflow:hidden; will-change:opacity; }
+.dark { background: radial-gradient(120vmax 90vmax at 50% 45%, #1b1450 0%, #0b0820 45%, #05040c 80%); }
+.light { background: linear-gradient(160deg, #f8f9ff 0%, #eef0fb 55%, #e9e6fb 100%); color:var(--ink); }
+.indigo { background: radial-gradient(110vmax 80vmax at 30% 20%, #4338ca 0%, #2a1f7a 45%, #0d0a26 100%); }
+.abs { position:absolute; }
+.center { left:50%; transform:translateX(-50%); text-align:center; }
+.h1 { font-weight:800; letter-spacing:-0.02em; line-height:1.08; }
+.grad { background:linear-gradient(90deg,#a5b4fc,#c4b5fd 45%,#fdba74); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.chip { white-space:nowrap; display:inline-flex; align-items:center; gap:.5em; padding:.45em .9em; border-radius:999px; font-weight:700; }
+.orange { background:rgba(249,115,22,.16); color:#fdba74; border:2px solid rgba(249,115,22,.55); }
+.glow { filter: drop-shadow(0 0 1.2vmin rgba(129,140,248,.9)) drop-shadow(0 0 3vmin rgba(124,58,237,.6)); }
+#grain { position:absolute; inset:0; pointer-events:none; opacity:.07;
+  background-image: repeating-radial-gradient(circle at 17% 32%, #fff 0 .5px, transparent .5px 3px),
+                    repeating-radial-gradient(circle at 71% 63%, #fff 0 .5px, transparent .5px 4px); mix-blend-mode:overlay; }
+/* captions */
+#cap { position:absolute; left:50%; transform:translateX(-50%); text-align:center; width:90vw; pointer-events:none; z-index:50; }
+#cap span { display:inline-block; background:rgba(8,7,20,.78); color:#fff; font-weight:700; border-radius:1.2vmin;
+  padding:.35em .7em; line-height:1.25; box-shadow:0 .6vmin 2vmin rgba(0,0,0,.35); }
+body.portrait #cap { bottom:7.5vh; font-size:4.1vmin; }
+body.landscape #cap { bottom:5.5vh; font-size:3.2vmin; width:70vw; }
+/* live badge */
+#live { position:absolute; top:3.2vmin; left:3.2vmin; z-index:40; font-weight:800; letter-spacing:.06em; font-size:2.1vmin;
+  color:#0f172a; background:#fff; border-radius:999px; padding:.55em 1em; display:flex; align-items:center; gap:.6em;
+  box-shadow:0 .5vmin 2vmin rgba(15,23,42,.18); opacity:0; }
+#live i { width:1.2vmin; height:1.2vmin; border-radius:50%; background:#ef4444; display:inline-block; }
+/* devices */
+.phone { position:absolute; border-radius:6.2vmin; background:#0b0b12; padding:1.3vmin;
+  box-shadow: 0 4vmin 9vmin rgba(30,27,75,.35), 0 0 0 .35vmin #2a2a35 inset; }
+.phone .screen { position:relative; width:100%; height:100%; border-radius:5vmin; overflow:hidden; background:#fff; }
+.phone .notch { position:absolute; top:1.3vmin; left:50%; transform:translateX(-50%); width:28%; height:2.6vmin;
+  background:#0b0b12; border-radius:0 0 2vmin 2vmin; z-index:3; }
+.screen img { position:absolute; left:0; top:0; width:100%; display:block; }
+.laptop { position:absolute; }
+.laptop .lid { position:relative; background:#0b0b12; border-radius:1.6vmin 1.6vmin .6vmin .6vmin; padding:1.4vmin 1.4vmin 2.2vmin;
+  box-shadow:0 4vmin 9vmin rgba(30,27,75,.35); }
+.laptop .screen { position:relative; overflow:hidden; background:#fff; border-radius:.5vmin; }
+.laptop .base { height:2.2vmin; margin:0 -6%; background:linear-gradient(#d4d4dc,#9a9aa6); border-radius:0 0 2.2vmin 2.2vmin; }
+.window { position:absolute; border-radius:2.4vmin; overflow:hidden; background:#fff; box-shadow:0 4vmin 9vmin rgba(30,27,75,.30);
+  border:.25vmin solid #e2e8f0; }
+.window .bar { height:4.2vmin; background:#f1f5f9; display:flex; align-items:center; gap:1vmin; padding:0 2vmin; border-bottom:.2vmin solid #e2e8f0; }
+.window .bar i { width:1.4vmin; height:1.4vmin; border-radius:50%; display:inline-block; }
+.window .view { position:relative; overflow:hidden; }
+.hl { position:absolute; border:.55vmin solid var(--org); border-radius:1.6vmin; box-shadow:0 0 0 100vmax rgba(15,23,42,.18), 0 0 3vmin rgba(249,115,22,.6);
+  pointer-events:none; opacity:0; z-index:4; }
+/* callouts */
+.callout { position:absolute; background:#fff; color:var(--ink); border-radius:2.2vmin; padding:1.6vmin 2.2vmin;
+  box-shadow:0 2vmin 5vmin rgba(30,27,75,.18); border-left:1vmin solid var(--ind); opacity:0; }
+.callout b { display:block; font-size:1.18em; font-weight:800; }
+.callout span { display:block; color:var(--muted); font-weight:600; margin-top:.3em; font-size:.82em; }
+.callout.org { border-left-color:var(--org); }
+.callout.vio { border-left-color:var(--vio); }
+body.portrait .callout { font-size:3.3vmin; }
+body.landscape .callout { font-size:2.5vmin; width:34vw; }
+/* badges */
+.badge { position:absolute; background:rgba(255,255,255,.08); border:.25vmin solid rgba(255,255,255,.18); border-radius:3vmin;
+  padding:2.4vmin; text-align:center; opacity:0; backdrop-filter: blur(4px); }
+.badge svg { width:9vmin; height:9vmin; }
+.badge b { display:block; font-size:3.4vmin; margin-top:1vmin; }
+.badge span { display:block; font-size:2.3vmin; color:#c7d2fe; margin-top:.4vmin; font-weight:600; }
+.pill { display:inline-block; background:#fff; color:var(--ind); font-weight:800; border-radius:999px; padding:.5em 1.1em; margin:.3em; }
+.wave { position:absolute; display:flex; align-items:center; gap:.45vmin; }
+.wave i { display:block; width:.9vmin; border-radius:.5vmin; background:linear-gradient(#a5b4fc,#7c3aed); }
+</style></head>
+<body>
+<div id="stage">
+
+  <!-- 1. HOOK -->
+  <section class="scene dark" id="s-hook">
+    <div class="abs" id="hookPlace" style="font-weight:700;color:#c7d2fe;letter-spacing:.04em"></div>
+    <svg class="abs glow" id="hookEcg" viewBox="0 0 1000 200" preserveAspectRatio="none"><path id="hookPath" fill="none" stroke="#a5b4fc" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <div class="abs center h1" id="hookT1">Sharma ji just switched<br>to <span style="color:#fdba74">Britannia</span>.</div>
+    <div class="abs center" id="hookT2"><span class="chip orange" id="hookChip">₹ 15 days' credit</span></div>
+  </section>
+
+  <!-- 2. REVEAL -->
+  <section class="scene dark" id="s-reveal">
+    <div class="abs center h1" id="revT1">Your head office finds out<br><span style="color:#94a3b8">next quarter.</span></div>
+    <div class="abs center" id="revCal" style="perspective:120vmin">
+      <div id="revCalCard" style="background:#fff;color:#0f172a;border-radius:2vmin;overflow:hidden;box-shadow:0 3vmin 6vmin rgba(0,0,0,.5);transform-origin:50% 0">
+        <div style="background:#ef4444;color:#fff;font-weight:800;padding:1.2vmin 3vmin;font-size:2.6vmin">MARKET REPORT</div>
+        <div style="padding:2vmin 4vmin 2.6vmin;text-align:center"><div style="font-size:9vmin;font-weight:800;line-height:1">Q3</div>
+        <div style="font-size:2.4vmin;color:#64748b;font-weight:700">due in 90 days</div></div>
+      </div>
+    </div>
+    <div class="abs center h1 grad" id="revT2">Nabz hears it today.</div>
+    <div class="abs center" id="revLogo"></div>
+  </section>
+
+  <!-- 3. STATS -->
+  <section class="scene dark" id="s-stats">
+    <div class="abs center" id="stNum" style="font-weight:900;line-height:.9" class="grad"><span class="grad" id="stNumV">0%</span></div>
+    <div class="abs center" id="stLbl" style="font-weight:700;color:#e0e7ff;line-height:1.25">of India's offline FMCG sales<br>happen in general trade</div>
+    <div class="abs center" id="stChips"><span class="chip" style="background:rgba(255,255,255,.1)">🏪 kiranas</span> <span class="chip" style="background:rgba(255,255,255,.1)">💊 chemists</span> <span class="chip" style="background:rgba(255,255,255,.1)">📦 wholesalers</span></div>
+    <div class="abs center" id="stSrc" style="color:#94a3b8;font-weight:600">Source: NielsenIQ India FMCG Snapshot, Q1 2026</div>
+    <svg class="abs" id="stDiagram" viewBox="0 0 1000 300">
+      <g id="stShop" transform="translate(70,60)">
+        <rect x="0" y="70" width="180" height="140" rx="10" fill="#1e1b4b" stroke="#818cf8" stroke-width="4"/>
+        <path d="M-10 70 L190 70 L170 20 L10 20 Z" fill="#f97316"/>
+        <path d="M10 20 L30 70 M50 20 L60 70 M90 20 L90 70 M130 20 L120 70 M170 20 L150 70" stroke="#fff" stroke-width="5" opacity=".75"/>
+        <rect x="65" y="130" width="50" height="80" rx="6" fill="#312e81"/>
+        <text x="90" y="250" fill="#c7d2fe" font-size="30" font-weight="700" text-anchor="middle">Counter</text>
+      </g>
+      <g id="stHQ" transform="translate(750,30)">
+        <rect x="0" y="40" width="180" height="200" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="4"/>
+        <g fill="#818cf8" opacity=".8"><rect x="25" y="70" width="35" height="28"/><rect x="73" y="70" width="35" height="28"/><rect x="121" y="70" width="35" height="28"/>
+        <rect x="25" y="120" width="35" height="28"/><rect x="73" y="120" width="35" height="28"/><rect x="121" y="120" width="35" height="28"/>
+        <rect x="25" y="170" width="35" height="28"/><rect x="121" y="170" width="35" height="28"/></g>
+        <text x="90" y="280" fill="#c7d2fe" font-size="30" font-weight="700" text-anchor="middle">HQ</text>
+      </g>
+      <path id="stLinkL" d="M270 170 L500 170" stroke="#a5b4fc" stroke-width="8" stroke-dasharray="18 14" fill="none"/>
+      <path id="stLinkR" d="M500 170 L730 170" stroke="#a5b4fc" stroke-width="8" stroke-dasharray="18 14" fill="none"/>
+      <g id="stX" transform="translate(500,170)"><circle r="42" fill="#7f1d1d" stroke="#ef4444" stroke-width="6"/><path d="M-18 -18 L18 18 M18 -18 L-18 18" stroke="#fff" stroke-width="9" stroke-linecap="round"/></g>
+    </svg>
+    <div class="abs center h1" id="stT2">None of it reaches HQ.</div>
+  </section>
+
+  <!-- 4. REP APP (live) -->
+  <section class="scene light" id="s-rep">
+    <div class="phone" id="repPhone"><div class="notch"></div><div class="screen"><img id="repImg"></div></div>
+    <div class="callout" id="repC1"><b>① Consent first</b><span>notice read in Hinglish · DPDP-ready</span></div>
+    <div class="callout vio" id="repC2"><b>② Record or upload</b><span>right in the phone's browser</span></div>
+    <div class="callout org" id="repC3"><b>③ Gnani Prisma v3.0</b><span>Hinglish · code-mix · speakers · denoise</span></div>
+  </section>
+
+  <!-- 5. VISIT (live) -->
+  <section class="scene light" id="s-visit">
+    <div class="phone" id="visPhone"><div class="notch"></div><div class="screen" id="visScreenM"><div id="visStripM" style="position:absolute;left:0;top:0;width:100%"></div><div class="hl" id="visHlM"></div></div></div>
+    <div class="laptop" id="visLaptop"><div class="lid"><div class="screen" id="visScreenD"><div id="visStopsD"></div><div class="hl" id="visHlD"></div></div></div><div class="base"></div></div>
+    <div class="callout" id="visC1"><b id="visC1b">🔎 Verified insights</b><span>every claim quoted from the transcript</span></div>
+    <div class="callout org" id="visC2"><b>🔒 Phone number redacted</b><span>before any AI reads the transcript</span></div>
+    <div class="callout vio" id="visC3"><b>📈 Market signals</b><span id="visC3s">Britannia credit · Mom's Magic price</span></div>
+  </section>
+
+  <!-- 6. DEBRIEF (live audio) -->
+  <section class="scene indigo" id="s-debrief">
+    <img id="debBg" class="abs" style="filter:blur(18px) saturate(1.1);opacity:.22;width:100%;left:0;top:0">
+    <div class="abs center" id="debCard" style="background:rgba(255,255,255,.96);color:#0f172a;border-radius:4vmin;box-shadow:0 5vmin 10vmin rgba(0,0,0,.45);text-align:left">
+      <div style="display:flex;align-items:center;gap:2vmin">
+        <div style="width:9vmin;height:9vmin;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#7c3aed);display:grid;place-items:center;font-size:4.6vmin">🎙️</div>
+        <div><div style="font-weight:800;font-size:3.6vmin">Voice debrief for Arjun</div>
+          <div style="color:#64748b;font-weight:700;font-size:2.4vmin">in Hinglish · voiced by Gnani Timbre v3.0</div></div>
+      </div>
+      <div class="wave" id="debWave"></div>
+      <div id="debBar" style="height:.9vmin;background:#e2e8f0;border-radius:1vmin;overflow:hidden"><div id="debBarIn" style="height:100%;width:0;background:linear-gradient(90deg,#4f46e5,#f97316)"></div></div>
+      <div id="debText" style="font-weight:700;color:#1e1b4b;line-height:1.35"></div>
+    </div>
+  </section>
+
+  <!-- 7. DASHBOARD (live) -->
+  <section class="scene light" id="s-dash">
+    <div class="laptop" id="dashLaptop"><div class="lid"><div class="screen" id="dashScreenD"><img id="dashImgD" style="position:absolute;left:0;top:0;transform-origin:0 0"></div></div><div class="base"></div></div>
+    <div class="window" id="dashWin"><div class="bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i>
+      <span style="margin-left:1.5vmin;color:#64748b;font-weight:700;font-size:2.2vmin">Nabz · Market intelligence</span></div>
+      <div class="view" id="dashView"><img id="dashImgP" style="position:absolute;left:0;top:0;transform-origin:0 0"></div></div>
+    <div class="callout org" id="dashC1"><b>Britannia's credit push</b><span>Delhi NCR kiranas · 15-day credit</span></div>
+    <div class="callout vio" id="dashC2"><b>Patanjali in Lucknow</b><span>chemists & wholesalers</span></div>
+    <div class="callout" id="dashC3"><b>Voice of the customer</b><span>verbatim quotes, every one verified</span></div>
+    <div class="callout org" id="dashC4"><b>🚩 Compliance flag</b><span>a gift offered to a chemist, caught</span></div>
+  </section>
+
+  <!-- 8. TRUST -->
+  <section class="scene indigo" id="s-trust">
+    <div class="badge" id="tb1"><svg viewBox="0 0 64 64"><path d="M32 4 L56 14 V32 C56 46 45 56 32 60 C19 56 8 46 8 32 V14 Z" fill="#818cf8"/><path d="M21 33 L29 41 L44 24" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Consent first</b><span>DPDP Act 2023</span></div>
+    <div class="badge" id="tb2"><svg viewBox="0 0 64 64"><rect x="12" y="28" width="40" height="30" rx="6" fill="#f97316"/><path d="M20 28 V20 a12 12 0 0 1 24 0 V28" stroke="#fdba74" stroke-width="6" fill="none"/><circle cx="32" cy="42" r="5" fill="#fff"/></svg><b>PII redacted</b><span>before any AI</span></div>
+    <div class="badge" id="tb3"><svg viewBox="0 0 64 64"><circle cx="27" cy="27" r="17" stroke="#a5b4fc" stroke-width="6" fill="none"/><path d="M40 40 L56 56" stroke="#a5b4fc" stroke-width="7" stroke-linecap="round"/><path d="M19 27 L25 33 L36 21" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Quotes verified</b><span>in code, every insight</span></div>
+    <div class="badge" id="tb4"><svg viewBox="0 0 64 64"><rect x="6" y="24" width="24" height="16" rx="8" stroke="#c4b5fd" stroke-width="6" fill="none"/><rect x="34" y="24" width="24" height="16" rx="8" stroke="#c4b5fd" stroke-width="6" fill="none"/><path d="M24 32 H40" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg><b>Tamper-evident</b><span>hash-chained audit log</span></div>
+    <div class="abs center" id="trGnani"><div class="h1" style="font-size:1em">Built on <span style="color:#fdba74">Gnani AI</span></div>
+      <div style="margin-top:1.4vmin"><span class="pill">Prisma v3.0 · speech-to-text</span><span class="pill" style="color:#7c3aed">Timbre v3.0 · voice</span></div></div>
+  </section>
+
+  <!-- 9. CTA -->
+  <section class="scene dark" id="s-cta">
+    <svg class="abs glow" id="ctaEcg" viewBox="0 0 1000 200" preserveAspectRatio="none"><path id="ctaPath" fill="none" stroke="#a5b4fc" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <div class="abs center" id="ctaLogo"></div>
+    <div class="abs center h1" id="ctaLine" style="color:#e0e7ff">bazaar ki nabz, <span class="grad">har baat se.</span></div>
+    <div class="abs center" id="ctaTags" style="font-weight:800;color:#a5b4fc">#GnaniAI &nbsp; #GreatIndianAIInternshipChallenge</div>
+    <div class="abs center" id="ctaRepo" style="font-weight:700;color:#fff"></div>
+    <div class="abs center" id="ctaDisc" style="color:#94a3b8;font-weight:600"></div>
+  </section>
+
+  <div id="live"><i></i>LIVE DEMO · real app, real pipeline</div>
+  <div id="cap"><span></span></div>
+  <div id="grain"></div>
+</div>
+
+<script src="cache/timeline.js"></script>
+<script>
+"use strict";
+const TL = window.TL;
+const W = TL.W, H = TL.H, PORTRAIT = H > W;
+document.body.className = PORTRAIT ? "portrait" : "landscape";
+const vmin = Math.min(W, H) / 100;
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const io = (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const out = (x) => 1 - Math.pow(1 - x, 3);
+const back = (x) => { const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const P = (t, a, b, f = io) => f(clamp((t - a) / (b - a)));
+function pop(el, p, dy = 4 * vmin, sc = 0.0) {
+  el.style.opacity = clamp(p);
+  const base = el.dataset.base || "";
+  el.style.transform = `${base} translateY(${(1 - p) * dy}px) scale(${1 + sc * (1 - p)})`;
+}
+function place(el, css) { Object.assign(el.style, css); }
+
+// ---------- pulse path (shared)
+function ecgPath(beats = 4) {
+  let d = "M0 100", x = 0; const seg = 1000 / beats;
+  for (let i = 0; i < beats; i++) {
+    const s = x;
+    d += ` L${s + seg * .30} 100 L${s + seg * .36} 92 L${s + seg * .40} 100 L${s + seg * .46} 100 L${s + seg * .50} 20 L${s + seg * .55} 172 L${s + seg * .60} 100 L${s + seg * .70} 100 L${s + seg * .76} 84 L${s + seg * .84} 100 L${s + seg} 100`;
+    x += seg;
+  }
+  return d;
+}
+const LOGO = (size) => `<div style="display:inline-flex;align-items:center;gap:${size * .35}px">
+  <div style="width:${size * 1.25}px;height:${size * 1.25}px;border-radius:${size * .32}px;background:linear-gradient(135deg,#4f46e5,#7c3aed);display:grid;place-items:center;box-shadow:0 0 ${size * .6}px rgba(124,58,237,.7)">
+  <svg width="${size * .8}" height="${size * .8}" viewBox="0 0 32 32"><path d="M3 17h6l3-8 4 14 3-6h10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div style="text-align:left;line-height:1;white-space:nowrap"><div style="font-weight:900;font-size:${size * 1.15}px;letter-spacing:-.02em">Nabz <span style="font-weight:700;color:#c4b5fd;font-size:${size * .8}px">· नब्ज़</span></div>
+  <div style="font-size:${size * .36}px;color:#c7d2fe;font-weight:600;margin-top:${size * .12}px">the pulse of every field conversation</div></div></div>`;
+
+// ---------- one-time layout
+(function layout() {
+  // HOOK
+  const ecgH = PORTRAIT ? 18 * vmin : 16 * vmin;
+  ["hookEcg", "ctaEcg"].forEach((id) => place($(id), { left: "0px", width: W + "px", height: ecgH + "px" }));
+  $("hookEcg").style.top = (PORTRAIT ? H * .30 : H * .22) + "px";
+  $("hookPath").setAttribute("d", ecgPath(PORTRAIT ? 3 : 4));
+  $("ctaPath").setAttribute("d", ecgPath(PORTRAIT ? 3 : 4));
+  $("ctaEcg").style.top = (PORTRAIT ? H * .22 : H * .14) + "px";
+  const big = PORTRAIT ? 8.2 * vmin : 7.2 * vmin;
+  place($("hookT1"), { top: (PORTRAIT ? H * .45 : H * .45) + "px", fontSize: big + "px", width: "92vw" });
+  place($("hookT2"), { top: (PORTRAIT ? H * .62 : H * .70) + "px", fontSize: (PORTRAIT ? 5.6 : 4.4) * vmin + "px" });
+  place($("hookPlace"), { top: (PORTRAIT ? H * .20 : H * .12) + "px", left: "50%", transform: "translateX(-50%)", fontSize: 2.8 * vmin + "px", whiteSpace: "nowrap" });
+  // REVEAL
+  place($("revT1"), { top: (PORTRAIT ? H * .24 : H * .16) + "px", fontSize: big * .9 + "px", width: "92vw" });
+  place($("revCal"), { top: (PORTRAIT ? H * .44 : H * .44) + "px", width: (PORTRAIT ? 34 : 24) * vmin + "px" });
+  place($("revT2"), { top: (PORTRAIT ? H * .36 : H * .30) + "px", fontSize: big * 1.05 + "px", width: "94vw" });
+  $("revLogo").innerHTML = LOGO(PORTRAIT ? 9 * vmin : 8 * vmin);
+  place($("revLogo"), { top: (PORTRAIT ? H * .53 : H * .52) + "px", whiteSpace: "nowrap" });
+  // STATS
+  place($("stNum"), { top: (PORTRAIT ? H * .14 : H * .07) + "px", fontSize: (PORTRAIT ? 34 : 26) * vmin + "px" });
+  place($("stLbl"), { top: (PORTRAIT ? H * .35 : H * .45) + "px", fontSize: (PORTRAIT ? 5.2 : 4.2) * vmin + "px", width: "92vw" });
+  place($("stChips"), { top: (PORTRAIT ? H * .47 : H * .64) + "px", fontSize: (PORTRAIT ? 3.4 : 2.6) * vmin + "px", width: "96vw" });
+  place($("stSrc"), { top: (PORTRAIT ? H * .53 : H * .74) + "px", fontSize: (PORTRAIT ? 2.4 : 1.9) * vmin + "px", width: "90vw" });
+  const dW = PORTRAIT ? W * .92 : W * .62;
+  place($("stDiagram"), { left: (W - dW) / 2 + "px", width: dW + "px", height: dW * .3 + "px", top: (PORTRAIT ? H * .30 : H * .22) + "px" });
+  place($("stT2"), { top: (PORTRAIT ? H * .52 : H * .62) + "px", fontSize: big + "px", width: "92vw" });
+  // PHONE (rep + visit) and callouts
+  const phH = PORTRAIT ? H * .60 : H * .80, phW = phH * 390 / 844 + 2.6 * vmin;
+  const phX = PORTRAIT ? (W - phW) / 2 : W * .20, phY = PORTRAIT ? H * .055 : H * .10;
+  ["repPhone", "visPhone"].forEach((id) => place($(id), { left: phX + "px", top: phY + "px", width: phW + "px", height: phH + "px" }));
+  window.PH = { x: phX, y: phY, w: phW, h: phH, sw: phW - 2.6 * vmin, sh: phH - 2.6 * vmin };
+  const cX = PORTRAIT ? W * .07 : W * .52, cW = PORTRAIT ? W * .86 : W * .38;
+  const cY0 = PORTRAIT ? H * .675 : H * .22, cDY = PORTRAIT ? H * .0 : H * .19;
+  ["repC1", "repC2", "repC3"].forEach((id, i) => place($(id), { left: cX + "px", width: cW + "px", top: (cY0 + i * cDY) + "px" }));
+  ["visC1", "visC2", "visC3"].forEach((id, i) => place($(id), { left: cX + "px", width: cW + "px", top: (cY0 + i * cDY) + "px" }));
+  ["dashC1", "dashC2", "dashC3", "dashC4"].forEach((id, i) => place($(id), PORTRAIT
+    ? { left: cX + "px", width: cW + "px", top: H * .70 + "px" }
+    : { left: W * .70 + "px", width: W * .27 + "px", top: (H * .18 + i * H * .155) + "px" }));
+  // laptop (landscape visit + dash)
+  const lapW = PORTRAIT ? 0 : W * .62, lapScreenW = lapW - 2.8 * vmin, lapScreenH = lapScreenW * 0.6;
+  window.LAP = { w: lapW, sw: lapScreenW, sh: lapScreenH };
+  if (!PORTRAIT) {
+    place($("visLaptop"), { left: W * .03 + "px", top: H * .09 + "px", width: lapW + "px" });
+    place($("dashLaptop"), { left: W * .04 + "px", top: H * .09 + "px", width: lapW + "px" });
+    ["visScreenD", "dashScreenD"].forEach((id) => place($(id), { width: lapScreenW + "px", height: lapScreenH + "px" }));
+    $("visPhone").style.display = "none"; $("dashWin").style.display = "none";
+  } else {
+    $("visLaptop").style.display = "none"; $("dashLaptop").style.display = "none";
+    place($("dashWin"), { left: W * .04 + "px", top: H * .06 + "px", width: W * .92 + "px" });
+    place($("dashView"), { width: W * .92 + "px", height: H * .58 + "px" });
+  }
+  // DEBRIEF
+  const dcW = PORTRAIT ? W * .88 : W * .62;
+  place($("debCard"), { top: (PORTRAIT ? H * .20 : H * .14) + "px", width: dcW + "px", padding: 4 * vmin + "px" });
+  place($("debWave"), { position: "relative", height: (PORTRAIT ? 16 : 13) * vmin + "px", margin: 3 * vmin + "px 0 2vmin" });
+  $("debText").style.fontSize = (PORTRAIT ? 3.9 : 3.0) * vmin + "px";
+  $("debText").style.marginTop = 3 * vmin + "px";
+  $("debText").style.minHeight = (PORTRAIT ? 34 : 18) * vmin + "px";
+  const bars = PORTRAIT ? 46 : 64;
+  $("debWave").innerHTML = Array.from({ length: bars }, () => "<i></i>").join("");
+  // TRUST
+  const bw = PORTRAIT ? W * .41 : W * .20, bh = PORTRAIT ? H * .17 : H * .30;
+  [1, 2, 3, 4].forEach((k, i) => {
+    const col = PORTRAIT ? i % 2 : i, row = PORTRAIT ? Math.floor(i / 2) : 0;
+    const x = PORTRAIT ? W * .06 + col * (bw + W * .06) : W * .07 + col * (bw + W * .02);
+    const y = PORTRAIT ? H * .14 + row * (bh + H * .025) : H * .14;
+    place($("tb" + k), { left: x + "px", top: y + "px", width: bw + "px", height: bh + "px" });
+  });
+  place($("trGnani"), { top: (PORTRAIT ? H * .55 : H * .58) + "px", fontSize: (PORTRAIT ? 6.4 : 5.2) * vmin + "px", width: "96vw" });
+  $("trGnani").querySelectorAll(".pill").forEach((p) => p.style.fontSize = (PORTRAIT ? 3.2 : 2.4) * vmin + "px");
+  // CTA
+  $("ctaLogo").innerHTML = LOGO(PORTRAIT ? 10 * vmin : 8.5 * vmin);
+  place($("ctaLogo"), { top: (PORTRAIT ? H * .35 : H * .33) + "px", whiteSpace: "nowrap" });
+  place($("ctaLine"), { top: (PORTRAIT ? H * .50 : H * .56) + "px", fontSize: (PORTRAIT ? 6.6 : 5.4) * vmin + "px", width: "94vw" });
+  place($("ctaTags"), { top: (PORTRAIT ? H * .58 : H * .68) + "px", fontSize: (PORTRAIT ? 3.3 : 2.6) * vmin + "px", width: "96vw" });
+  place($("ctaRepo"), { top: (PORTRAIT ? H * .625 : H * .75) + "px", fontSize: (PORTRAIT ? 3.5 : 2.7) * vmin + "px", width: "96vw" });
+  $("ctaRepo").textContent = "⭐ " + TL.repo;
+  place($("ctaDisc"), { top: (PORTRAIT ? H * .74 : H * .86) + "px", fontSize: (PORTRAIT ? 2.3 : 1.7) * vmin + "px", width: "88vw" });
+  $("ctaDisc").textContent = TL.disclaimer;
+  // images
+  const S = TL.shots || {};
+  const SM = S.dirSmall || S.dir;
+  if (S.visit_m && S.visit_m.crops) {
+    $("visStripM").innerHTML = S.visit_m.crops.map((c, k) => `<img src="${SM + c.file}" style="position:absolute;left:0;width:100%" data-k="${k}">`).join("");
+  }
+  if (S.visit_d) $("debBg").src = S.dir + "visit_d.png";
+  if (S.visit_d && S.visit_d.stops) $("visStopsD").innerHTML = S.visit_d.stops.map((st) =>
+    `<img src="${S.dir + st.file}" style="position:absolute;left:0;top:0;width:1440px;transform-origin:0 0;opacity:0">`).join("");
+  if (S.dash_d) { $("dashImgD").src = S.dir + "dash_d.png"; $("dashImgP").src = S.dir + "dash_d.png"; }
+  if (S.analysis && S.analysis.verified != null) $("visC1b").textContent = `🔎 ${S.analysis.verified}/${S.analysis.checked} insights verified`;
+  window.FRAMES = [];
+  (S.rep_frames || []).forEach((f) => FRAMES.push({ src: SM + f.file.replace(".png", ".jpg"), hold: f.hold, part: "rep" }));
+  (S.prog_frames || []).forEach((f) => FRAMES.push({ src: SM + f.file.replace(".png", ".jpg"), hold: f.hold, part: "prog" }));
+  const pre = $("stage");
+  FRAMES.forEach((f) => { const im = new Image(); im.src = f.src; im.style.display = "none"; pre.appendChild(im); });
+})();
+
+// ---------- helpers for scrolling screenshots
+function phoneScroll(img, hl, box, scrollY, t, hlOn) {
+  const s = PH.sw / 390;   // css px -> screen px
+  img.style.width = PH.sw + "px";
+  img.style.transform = `translateY(${-scrollY * s}px)`;
+  if (box && hlOn > 0) {
+    place(hl, { left: (box.x - 6) * s + "px", top: (box.y - scrollY - 6) * s + "px", width: (box.w + 12) * s + "px", height: (box.h + 12) * s + "px" });
+    hl.style.opacity = hlOn;
+  } else hl.style.opacity = 0;
+}
+function centerOn(box, viewH_css, docH) {
+  if (!box) return 0;
+  return clamp(box.y + box.h / 2 - viewH_css / 2, 0, Math.max(0, docH - viewH_css));
+}
+// camera into a big screenshot: fit region r (css px) into view (vw x vh px)
+function camFor(r, vw, vh, pad = 24) {
+  const s = Math.min(vw / (r.w + pad * 2), vh / (r.h + pad * 2));
+  return { s, x: r.x - pad - (vw / s - r.w - pad * 2) / 2, y: r.y - pad - (vh / s - r.h - pad * 2) / 2 };
+}
+function camLerp(a, b, k) { return { s: lerp(a.s, b.s, k), x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k) }; }
+function applyCam(img, cam, docW, dsf) {
+  // img natural width = docW*dsf; scale to css then camera
+  img.style.width = docW + "px";
+  img.style.transform = `scale(${cam.s}) translate(${-cam.x}px, ${-cam.y}px)`;
+}
+
+// ---------- scene renderers (t = seconds into the scene, d = scene duration)
+const R = {};
+R.hook = (t, d) => {
+  const p = P(t, 0.0, 2.6, (x) => x);
+  const path = $("hookPath"), len = path.getTotalLength();
+  path.style.strokeDasharray = len; path.style.strokeDashoffset = len * (1 - p);
+  const place = "📍 Delhi NCR · Sharma Kirana Store · 11:42 am";
+  $("hookPlace").textContent = place.slice(0, Math.floor(P(t, 0.15, 1.3, (x) => x) * place.length));
+  const t1 = $("hookT1"); t1.dataset.base = "translateX(-50%)"; pop(t1, P(t, 0.35, 0.9, out), 0, 0.25);
+  const c = $("hookT2"); c.dataset.base = "translateX(-50%)"; pop(c, P(t, 1.9, 2.4, back), 3 * vmin, 0.4);
+  $("hookChip").style.boxShadow = `0 0 ${(2 + 2 * Math.sin(t * 6)) * vmin}px rgba(249,115,22,.55)`;
+};
+R.reveal = (t, d) => {
+  const a = $("revT1"); a.dataset.base = "translateX(-50%)";
+  pop(a, P(t, 0.0, 0.5, out) * (1 - P(t, 1.75, 2.1)), 3 * vmin);
+  const cal = $("revCalCard"), cp = P(t, 0.25, 0.9, out), fall = P(t, 1.6, 2.2, (x) => x * x);
+  $("revCal").style.opacity = cp * (1 - fall);
+  $("revCal").style.transform = "translateX(-50%)";
+  cal.style.transform = `rotateX(${(1 - cp) * -90 + fall * 70}deg) translateY(${fall * 40 * vmin}px) rotate(${fall * 18}deg)`;
+  const b = $("revT2"); b.dataset.base = "translateX(-50%)"; pop(b, P(t, 2.05, 2.6, out), 0, 0.18);
+  const l = $("revLogo"); l.dataset.base = "translateX(-50%)"; pop(l, P(t, 2.55, 3.2, back), 2 * vmin, 0.2);
+};
+R.stats = (t, d) => {
+  const half = Math.min(3.3, d * .52);
+  const k = P(t, 0.15, 1.5, out);
+  $("stNumV").textContent = Math.round(89 * k) + "%";
+  const fadeA = 1 - P(t, half - .3, half + .1);
+  ["stNum", "stLbl", "stChips", "stSrc"].forEach((id, i) => { const e = $(id); e.dataset.base = "translateX(-50%)"; pop(e, P(t, 0.1 + i * .25, 0.6 + i * .25, out) * fadeA, 3 * vmin); });
+  const dg = $("stDiagram"), dp = P(t, half, half + .5, out);
+  dg.style.opacity = dp;
+  const flow = (t * 60) % 32;
+  $("stLinkL").style.strokeDashoffset = -flow; $("stLinkR").style.strokeDashoffset = -flow;
+  const brk = P(t, half + .9, half + 1.3, back);
+  $("stLinkR").style.opacity = 1 - P(t, half + .9, half + 1.2);
+  $("stX").setAttribute("transform", `translate(500,170) scale(${brk})`);
+  const e2 = $("stT2"); e2.dataset.base = "translateX(-50%)"; pop(e2, P(t, half + 1.0, half + 1.5, out), 3 * vmin);
+};
+R.rep = (t, d) => {
+  const reps = FRAMES.filter((f) => f.part === "rep"), progs = FRAMES.filter((f) => f.part === "prog");
+  const tRep = d * (progs.length ? .68 : .95), tProg = d - tRep;
+  let img;
+  if (t < tRep || !progs.length) {
+    const tot = reps.reduce((a, f) => a + f.hold, 0) || 1, k = clamp(t / tRep) * tot; let acc = 0;
+    img = reps[reps.length - 1];
+    for (const f of reps) { acc += f.hold; if (acc >= k) { img = f; break; } }
+  } else {
+    const tot = progs.reduce((a, f) => a + f.hold, 0) || 1, k = clamp((t - tRep) / tProg) * tot; let acc = 0;
+    img = progs[progs.length - 1];
+    for (const f of progs) { acc += f.hold; if (acc >= k) { img = f; break; } }
+  }
+  if (img) { const el = $("repImg"); if (el.getAttribute("src") !== img.src) el.src = img.src; el.style.width = PH.sw + "px"; }
+  const ph = $("repPhone"); ph.style.opacity = P(t, 0, .5, out); ph.style.transform = `translateY(${(1 - P(t, 0, .6, out)) * 6 * vmin}px)`;
+  const shows = PORTRAIT ? [[0.3, tRep * .45], [tRep * .45, tRep], [tRep, d]] : [[0.3, d], [tRep * .45, d], [tRep, d]];
+  ["repC1", "repC2", "repC3"].forEach((id, i) => {
+    const [a, b] = shows[i]; pop($(id), P(t, a, a + .4, out) * (1 - P(t, b - .2, b + .1)), 3 * vmin);
+  });
+};
+R.visit = (t, d) => {
+  const S = TL.shots, st = [[0, d * .30], [d * .30, d * .64], [d * .64, d]];
+  const keys = ["verified", "redact", "signals"];
+  const idx = t < st[1][0] ? 0 : t < st[2][0] ? 1 : 2;
+  if (PORTRAIT && S.visit_m && S.visit_m.crops) {
+    // a strip of crops (one per stop) scrolled like the page; strip y = k*cropH + (docY - crop.top)
+    const M = S.visit_m, C = M.crops, s = PH.sw / 390, viewH = PH.sh / s;
+    const strip = $("visStripM");
+    Array.from(strip.children).forEach((im, k) => { im.style.top = (k * C[k].h * s) + "px"; im.style.height = C[k].h * s + "px"; });
+    const vbox = (k) => C[k].box || (() => { const d = M.boxes[keys[k]] || M.boxes.ring; return { x: d.x, y: d.y - C[k].top, w: d.w, h: d.h }; })();
+    const stripY = (k) => { const b = vbox(k); return k * C[k].h + (b.y + b.h / 2) - viewH / 2; };
+    const k0 = Math.max(0, idx - 1), tr = idx === 0 ? 1 : P(t, st[idx][0] - .05, st[idx][0] + .75);
+    const y = idx === 0 ? stripY(0) : lerp(stripY(k0), stripY(idx), tr);
+    strip.style.transform = `translateY(${-y * s}px)`;
+    strip.style.filter = idx > 0 && tr > 0.02 && tr < 0.98 ? `blur(${Math.sin(Math.PI * tr) * 3}px)` : "none";
+    const b = vbox(idx), hl = $("visHlM"), on = P(t, st[idx][0] + .7, st[idx][0] + 1.0) * (1 - P(t, st[idx][1] - .25, st[idx][1]));
+    if (b) { const by = idx * C[idx].h + b.y - y;
+      place(hl, { left: (b.x - 6) * s + "px", top: (by - 6) * s + "px", width: (b.w + 12) * s + "px", height: (b.h + 12) * s + "px" }); hl.style.opacity = on; }
+  } else if (!PORTRAIT && S.visit_d && S.visit_d.stops) {
+    const D = S.visit_d, vw = LAP.sw, vh = LAP.sh, imgs = $("visStopsD").children;
+    const region = (b) => {
+      const w = Math.min(D.width, Math.max(b.w + 120, 820)), h = w * vh / vw;
+      const cx = b.x + b.w / 2, cy = b.y + b.h / 2;
+      return { x: clamp(cx - w / 2, 0, D.width - w), y: clamp(cy - h / 2, 0, Math.max(0, D.vh - h)), w, h };
+    };
+    for (let k = 0; k < imgs.length; k++) {
+      const b = D.stops[k].box || { x: 600, y: 400, w: 200, h: 60 };
+      const cam = camFor(region(b), vw, vh, 0);
+      const local = clamp((t - st[k][0]) / (st[k][1] - st[k][0]));
+      cam.s *= 1 + 0.035 * local;   // slow push-in
+      const op = k === idx ? (k === 0 ? 1 : P(t, st[k][0] - .1, st[k][0] + .35)) : (k === idx - 1 ? 1 - P(t, st[idx][0] - .1, st[idx][0] + .35) : 0);
+      imgs[k].style.opacity = op;
+      imgs[k].style.transform = `scale(${cam.s}) translate(${-cam.x}px, ${-cam.y}px)`;
+      if (k === idx) {
+        const hl = $("visHlD"), on = P(t, st[k][0] + .6, st[k][0] + .9) * (1 - P(t, st[k][1] - .25, st[k][1]));
+        place(hl, { left: (b.x - cam.x - 8) * cam.s + "px", top: (b.y - cam.y - 8) * cam.s + "px", width: (b.w + 16) * cam.s + "px", height: (b.h + 16) * cam.s + "px" });
+        hl.style.opacity = on;
+      }
+    }
+  }
+  ["visC1", "visC2", "visC3"].forEach((id, i) => {
+    const [a, b] = st[i]; pop($(id), P(t, a + .5, a + .9, out) * (PORTRAIT ? 1 - P(t, b - .2, b + .05) : 1), 3 * vmin);
+  });
+};
+R.debrief = (t, d) => {
+  const env = TL.debriefEnv || [], fi = Math.floor(t * TL.fps);
+  const bars = $("debWave").children, n = bars.length, H0 = parseFloat($("debWave").style.height);
+  for (let i = 0; i < n; i++) {
+    const v = env[clamp(fi - (n - 1 - i), 0, env.length - 1)] || 0;
+    bars[i].style.height = Math.max(.08, Math.min(1, v * 1.6)) * H0 + "px";
+    bars[i].style.opacity = .35 + .65 * (i / n);
+  }
+  $("debBarIn").style.width = clamp(t / (TL.debriefPlay || d)) * 100 + "%";
+  const words = (TL.debriefText || "").split(/\s+/), wps = TL.debriefWps || 2.6;
+  const shown = Math.min(words.length, Math.floor(Math.max(0, t - .25) * wps));
+  $("debText").innerHTML = words.slice(0, shown).join(" ") + (shown < words.length ? ' <span style="opacity:.25">' + words.slice(shown, shown + 6).join(" ") + "…</span>" : "");
+  const c = $("debCard"); c.dataset.base = "translateX(-50%)"; pop(c, P(t, 0, .5, out), 4 * vmin, .04);
+};
+R.dash = (t, d) => {
+  const S = TL.shots; if (!S.dash_d) return;
+  const D = S.dash_d, B = D.boxes;
+  const vw = PORTRAIT ? W * .92 : LAP.sw, vh = PORTRAIT ? H * .58 : LAP.sh;
+  const full = { x: 0, y: 0, w: D.width, h: Math.min(D.height, D.width * vh / vw) };
+  const regs = [full, B.competitors || full, B.voc || full, B.compliance || full];
+  const cams = regs.map((r) => camFor(r, vw, vh, PORTRAIT ? 10 : 24));
+  const st = [0, d * .22, d * .48, d * .76];
+  let i = 0; for (let k = 0; k < st.length; k++) if (t >= st[k]) i = k;
+  const cam = i === 0 ? cams[0] : camLerp(cams[i - 1], cams[i], P(t, st[i], st[i] + .8));
+  applyCam(PORTRAIT ? $("dashImgP") : $("dashImgD"), cam, D.width, D.dsf);
+  const shows = PORTRAIT ? [[st[1], st[2]], [st[1] + 1.2, st[2]], [st[2], st[3]], [st[3], d + 1]] : [[st[1], d + 1], [st[1] + 1.2, d + 1], [st[2], d + 1], [st[3], d + 1]];
+  ["dashC1", "dashC2", "dashC3", "dashC4"].forEach((id, k) => {
+    const [a, b] = shows[k];
+    if (PORTRAIT) { $(id).style.top = (H * .70 + (k === 1 ? H * .085 : 0)) + "px"; }
+    pop($(id), P(t, a + .3, a + .7, out) * (1 - P(t, b - .2, b + .05)), 3 * vmin);
+  });
+  const wrap = PORTRAIT ? $("dashWin") : $("dashLaptop");
+  wrap.style.opacity = P(t, 0, .5, out); wrap.style.transform = `translateY(${(1 - P(t, 0, .6, out)) * 5 * vmin}px)`;
+};
+R.trust = (t, d) => {
+  [1, 2, 3, 4].forEach((k, i) => pop($("tb" + k), P(t, .15 + i * .55, .6 + i * .55, back), 4 * vmin, .25));
+  const g = $("trGnani"); g.dataset.base = "translateX(-50%)"; pop(g, P(t, d * .62, d * .62 + .5, out), 3 * vmin, .1);
+};
+R.cta = (t, d) => {
+  const path = $("ctaPath"), len = path.getTotalLength();
+  path.style.strokeDasharray = len; path.style.strokeDashoffset = len * (1 - P(t, 0, 1.6, (x) => x));
+  [["ctaLogo", .2], ["ctaLine", .7], ["ctaTags", 1.1], ["ctaRepo", 1.4], ["ctaDisc", 1.7]].forEach(([id, a]) => {
+    const e = $(id); e.dataset.base = "translateX(-50%)"; pop(e, P(t, a, a + .5, out), 2.5 * vmin, id === "ctaLogo" ? .2 : 0);
+  });
+};
+
+// ---------- master render
+window.render = function (T) {
+  const sc = TL.scenes;
+  for (let i = 0; i < sc.length; i++) {
+    const s = sc[i], el = $("s-" + s.id), fIn = i === 0 ? 1 : P(T, s.a - .3, s.a + .05), fOut = i === sc.length - 1 ? 1 : 1 - P(T, s.b - .05, s.b + .3);
+    const vis = T >= s.a - .3 && T <= s.b + .3;
+    el.style.opacity = vis ? Math.min(fIn, fOut) : 0;
+    el.style.display = vis ? "block" : "none";
+    if (vis) R[s.id](Math.max(0, T - s.a), s.b - s.a);
+  }
+  const liveScenes = ["rep", "visit", "debrief", "dash"];
+  const cur = sc.find((s) => T >= s.a && T < s.b) || sc[sc.length - 1];
+  const live = $("live"); live.style.opacity = liveScenes.includes(cur.id) ? 1 : 0;
+  live.querySelector("i").style.opacity = .4 + .6 * Math.abs(Math.sin(T * 3));
+  const c = TL.captions.find((x) => T >= x.a && T < x.b);
+  const capEl = $("cap"), sp = capEl.querySelector("span");
+  if (c) { sp.textContent = c.text; capEl.style.opacity = Math.min(P(T, c.a, c.a + .12), 1 - P(T, c.b - .1, c.b)); }
+  else capEl.style.opacity = 0;
+  return true;
+};
+window.ready = () => Array.from(document.images).every((i) => !i.src || i.complete);
+</script>
+</body></html>

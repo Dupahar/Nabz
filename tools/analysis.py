@@ -41,8 +41,8 @@ def load_lens(lens_id: str) -> dict:
     import yaml
 
     path = LENSES_DIR / f"{lens_id}.yaml"
-    if not path.exists():
-        sys.exit(f"error: no lens '{lens_id}'. Available: {', '.join(all_lens_ids())}")
+    if not re.fullmatch(r"[a-z0-9-]+", lens_id or "") or not path.exists():
+        raise ValueError(f"no lens '{lens_id}'. Available: {', '.join(all_lens_ids())}")
     return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
@@ -50,15 +50,24 @@ def all_lens_ids() -> list[str]:
     return sorted(p.stem for p in LENSES_DIR.glob("*.yaml"))
 
 
-def detect(call_id: str) -> list[tuple[str, int, list[str]]]:
+# The customer segment the rep picked is a strong prior for the lens.
+SEGMENT_PRIOR = {"Kirana": "fmcg-retail", "Wholesaler": "fmcg-retail", "Modern trade": "fmcg-retail",
+                 "Chemist": "fmcg-retail", "Doctor": "pharma-detailing", "Retail chain": "sales"}
+
+
+def detect(call_id: str, segment: str | None = None) -> list[tuple[str, int, list[str]]]:
+    """Rank lenses by distinct cue words found as whole words in the transcript, plus a prior from
+    the customer segment (worth 2 cues). Ties go to the lens with fewer cues overall (more specific)."""
     text = " ".join(s["text"] for s in read_json(call_dir(call_id) / "transcript.json")["segments"]).lower()
     ranked = []
     for lid in all_lens_ids():
         lens = load_lens(lid)
-        hits = [c for c in lens.get("cues") or [] if re.search(rf"(?<!\w){re.escape(c.lower())}", text)]
-        ranked.append((lid, len(hits), hits))
-    ranked.sort(key=lambda r: (-r[1], r[0] != "general"))
-    return ranked
+        cues = lens.get("cues") or []
+        hits = [c for c in cues if re.search(rf"(?<!\w){re.escape(c.lower())}(?!\w)", text)]
+        score = len(hits) + (2 if segment and SEGMENT_PRIOR.get(segment) == lid else 0)
+        ranked.append((lid, score, hits, len(cues)))
+    ranked.sort(key=lambda r: (-r[1], r[3], r[0] != "general"))
+    return [(lid, score, hits) for lid, score, hits, _ in ranked]
 
 
 def template(lens: dict) -> dict:
@@ -102,35 +111,64 @@ def template(lens: dict) -> dict:
 
 # ---------------------------------------------------------------- grounding
 
+NUKTA = "़"
+NEGATIONS = {"not", "no", "never", "nahi", "nahin", "nai", "na", "mat", "dont", "don't", "won't", "cannot", "can't",
+             "isn't", "wasn't", "नहीं", "नही", "ना", "न", "मत", "कभी"}
+
+
 def _norm(text: str) -> str:
-    text = text.lower().replace("’", "'")
+    """Case, punctuation and whitespace are ignored; Devanagari nukta variants are folded
+    (हफ़्ते == हफ्ते), and Devanagari digits become ASCII. Nothing else is forgiven."""
+    text = text.lower().replace("’", "'").replace(NUKTA, "").translate(str.maketrans("०१२३४५६७८९", "0123456789"))
     text = re.sub(r"[^\w\s']", " ", text)  # \w keeps Devanagari and other Indic letters
     return re.sub(r"\s+", " ", text).strip()
 
 
+def _critical(tokens: list[str]) -> tuple[list[str], list[str]]:
+    return [t for t in tokens if any(ch.isdigit() for ch in t)], [t for t in tokens if t in NEGATIONS]
+
+
 def find_quote(quote: str, segments: list[dict], hint: int | None) -> tuple[bool, int | None, float]:
-    """Is `quote` in the transcript? Look near the hinted segment first, then everywhere.
-    Exact (normalised) substring = 1.0; otherwise best fuzzy match over a sliding window."""
+    """Is `quote` really in the transcript, said by one speaker?
+
+    Windows are one segment plus up to two following segments by the SAME speaker (a quote may
+    run across a sentence break, never across speakers). A match must be:
+      * exact after normalisation, on whole-word boundaries, at least 2 words; or
+      * near-exact (similarity >= 0.93, at least 5 words) AND with identical numbers and identical
+        negation words: "will not switch" can never verify "will switch", "5" never "50".
+    Returns (verified, segment where the quote starts, similarity)."""
     q = _norm(quote)
-    if not q:
+    qw = q.split()
+    if len(qw) < 2:
         return False, None, 0.0
+    q_digits, q_negs = _critical(qw)
     order = list(range(len(segments)))
     if isinstance(hint, int) and 0 <= hint < len(segments):
         order.sort(key=lambda i: abs(i - hint))
     best = (False, None, 0.0)
     for i in order:
-        window = _norm(" ".join(s["text"] for s in segments[max(0, i - 1): i + 3]))
-        if q in window:
-            return True, i, 1.0
-        if len(q) > 8:
-            words, qw = window.split(), q.split()
-            for j in range(0, max(1, len(words) - len(qw) + 1)):
-                cand = " ".join(words[j: j + len(qw)])
-                r = SequenceMatcher(None, q, cand).ratio()
+        spk = segments[i].get("speaker")
+        win = [segments[i]]
+        for j in range(i + 1, min(i + 3, len(segments))):
+            if segments[j].get("speaker") != spk:
+                break
+            win.append(segments[j])
+        words, owner = [], []  # owner[k] = index of the segment that word k comes from
+        for s in win:
+            w = _norm(s["text"]).split()
+            words += w
+            owner += [s.get("i", i)] * len(w)
+        # exact, whole words
+        for k in range(0, len(words) - len(qw) + 1):
+            if words[k: k + len(qw)] == qw:
+                return True, owner[k], 1.0
+        if len(qw) >= 5:
+            for k in range(0, max(1, len(words) - len(qw) + 1)):
+                cand = words[k: k + len(qw)]
+                r = SequenceMatcher(None, q, " ".join(cand)).ratio()
                 if r > best[2]:
-                    best = (r >= 0.85, i, r)
-        if best[2] >= 0.97:
-            break
+                    c_digits, c_negs = _critical(cand)
+                    best = (r >= 0.93 and c_digits == q_digits and c_negs == q_negs, owner[k] if owner else i, r)
     return best
 
 
@@ -158,8 +196,8 @@ def ground(a: dict, segments: list[dict]) -> dict:
         ok, seg, score = find_quote(quote, segments, it.get("segment"))
         if ok:
             verified += 1
-            if seg is not None and it.get("segment") is None:
-                it["segment"] = seg
+            if seg is not None and it.get("segment") != seg:
+                it["segment"] = seg  # always point at where the words actually are
         else:
             failed.append({"field": path, "quote": quote[:80], "best_match": round(score, 2)})
     return {"checked": checked, "verified": verified, "failed": failed}

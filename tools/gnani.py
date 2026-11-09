@@ -119,9 +119,21 @@ def stt_config(*, model: str = "prisma-v3.0", language: str = "indic-auto", fmt:
     return cfg
 
 
+def cancel_job(job_id: str, reason: str = "") -> bool:
+    """Best effort: cancel a batch job that is still running (used when consent is withdrawn)."""
+    try:
+        resp = _request("POST", f"{BATCH}/{job_id}/cancel", headers={**_headers(), "Content-Type": "application/json"},
+                        data=json.dumps({"reason": reason[:200]}), retries=2, timeout=20)
+        return resp.status_code < 400
+    except (GnaniError, requests.RequestException):
+        return False
+
+
 def transcribe_batch(paths: list[Path], config: dict, *, poll: float = 10.0, call_ids: list[str] | None = None,
-                     verbose: bool = True) -> dict[str, dict]:
-    """Run one batch job over up to 100 files. Returns {file name: transcript document}."""
+                     verbose: bool = True, deadline_sec: float = 900.0, on_job=None) -> dict[str, dict]:
+    """Run one batch job over up to 100 files. Returns {file name: transcript document}.
+    Gives up (and cancels the job) after `deadline_sec`. `on_job(job_id)` is called as soon as the
+    job exists, so a caller can record it and cancel it later (e.g. on consent withdrawal)."""
     if not paths:
         return {}
     handles = []
@@ -137,12 +149,17 @@ def transcribe_batch(paths: list[Path], config: dict, *, poll: float = 10.0, cal
         for fh in handles:
             fh.close()
     job_id = job["job_id"]
+    if on_job:
+        on_job(job_id)
     _check(_request("POST", f"{BATCH}/{job_id}/start", headers=_headers()), "start job")
     if verbose:
         print(f"prisma job {job_id}: {len(paths)} file(s), model {config['model']}", flush=True)
 
     t0 = time.time()
     while True:
+        if time.time() - t0 > deadline_sec:
+            cancel_job(job_id, "timed out")
+            raise GnaniError(f"Prisma job {job_id} did not finish within {deadline_sec / 60:.0f} minutes; cancelled")
         time.sleep(poll)
         status = _check(_request("GET", f"{BATCH}/{job_id}", headers=_headers()), "job status")
         if verbose:
@@ -186,6 +203,9 @@ def synthesize(text: str, out: Path, *, voice: str = "Shivani", language: str = 
     resp = _request("POST", TTS, headers={**_headers(), "Content-Type": "application/json"}, data=json.dumps(body))
     if resp.status_code >= 400:
         raise GnaniError(f"tts: HTTP {resp.status_code} {resp.text[:300]}")
+    from common import guard_not_erased
+
+    guard_not_erased(out)  # never recreate an erased visit's folder
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_bytes(resp.content)
     log_usage("tts", model=model, voice=voice, language=language, chars=len(text), call_id=call_id)

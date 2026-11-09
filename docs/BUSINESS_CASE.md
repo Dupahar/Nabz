@@ -1,290 +1,259 @@
-# Nabz: business case
+# Nabz: business case (FMCG general-trade beachhead)
 
-*Prepared 9 Nov 2026. Every number has a source and a reliability tag. Assumptions are labelled
-**[A]** and can be changed in one place. Tags: [P] primary (regulator, filing, official price page),
-[3P] third-party estimate or press, [V] vendor claim, [M] our own measurement, [A] assumption.*
+*Revised 9 Nov 2026 after an independent audit ([AUDIT.md](AUDIT.md)). Founder: solo.
+Tags: [P] primary (regulator, filing, official page), [3P] third-party or press, [V] vendor claim,
+[M] our measurement, [A] assumption, so you can change it. $ figures use ₹88/$.*
 
 ---
 
-## 1. The problem in one line
+## 1. The problem
 
-**India's revenue is won and lost in face-to-face conversations that no one at head office ever hears.**
-Lakhs of field staff talk to kirana owners, chemists, doctors and borrowers every day, in Hinglish and
-regional languages, over street noise. What the market tells them (why an outlet switched to a
-competitor, which scheme confused them, which price hike hurt) never becomes data. Their conduct
-(what they promised a doctor, how they spoke to a borrower) is invisible until it becomes a complaint
-or a penalty.
+**FMCG brands decide trade schemes, credit terms and pricing for India's kiranas without hearing
+what happens at the counter.** The conversation where a kirana owner says *"Britannia wala pandrah
+din ka credit de raha hai"* or *"das carton pe ek free? itni jagah nahi hai"* happens every day
+between a distributor salesman (DSR) and an owner. It never reaches the brand. Scheme confusion,
+competitor credit, slow movers and stock-outs show up weeks later as lost share, if at all.
 
-## 2. The problem, with numbers
-
-### The conversations happen in person, mostly through general trade
 | Fact | Number | Source |
 |---|---|---|
 | Traditional trade's share of offline FMCG sales | **89%** (Jan–Mar 2026) | NIQ India FMCG Snapshot Q1'26 [P] |
 | Kiranas' share of FMCG sales including e-commerce | **79%** (Dec 2024), down from 81% | Kantar via KNN [3P] |
-| Kiranas' share of grocery | **~91%** in 2025, falling to ~86% by 2030 | Redseer [3P] |
-| Outlets HUL reaches; distributors | **9M+** outlets; **3,500+** distributors | HUL performance highlights [P] |
-| Distributors in India and outlets they serve | **4–4.5 lakh** distributors, **1.3 crore** outlets | AICPDF, a distributors' trade body (2025) [3P] |
+| Distributors and the outlets they serve | **4–4.5 lakh** distributors, **1.3 crore** outlets | AICPDF, distributors' federation (2025) [3P] |
+| Scale of one major brand | HUL: **9M+ outlets**, **3,500+ distributors** | HUL FY24 [P] |
+| How fast quick commerce is growing | **$10–11B** GMV in 2025, projected **$65–70B** by 2030 | Bain [3P] |
+| Quick commerce's effect on kiranas | ~2 lakh closures claimed by distributors; Kearney says only 6–8% of quick-commerce sales are incremental | AICPDF [3P, interested party]; Kearney [3P] |
+| Retail-audit coverage disputes | Tata Consumer, ITC and Adani Wilmar have challenged NielsenIQ's coverage | Press [3P] |
+| FMCG staff attrition | **26–27%** a year (all FMCG roles) | TeamLease 2024 [3P] |
+| Trade-scheme spend | 8–25% of revenue (vendor blog, **unverified**) | [V] |
 
-### The people having them, and how fast they churn
-| Workforce | Size | Churn or quality signal | Source |
+**What brands use today, and the gap.** Retail audits (NIQ) measure *what* sold, but not *why*, and
+coverage is disputed. SFA apps (Bizom, FieldAssist) log orders and GPS check-ins, not the
+conversation. Surveys and area-manager market visits are slow and sample a handful of outlets. None
+of them captures the owner's own words on schemes and competitors at scale.
+
+## 2. How urgent is it? An honest answer
+
+- **Urgent for the business:** general trade is losing about 1–2 share points a year to quick
+  commerce, and competitors compete on credit and schemes at the counter. A regional brand that
+  learns about a rival's 15-day credit a quarter late loses outlets in the meantime.
+- **But the budget is discretionary.** There is no regulatory deadline, unlike call recording in
+  lending. Nabz competes with research spend and sales-capability (training) budgets. **So the first
+  pilot must prove ROI in rupees**: for example, a scheme redesigned on the evidence, measured scheme
+  recall before and after, or outlets recovered from a competitor's credit offer.
+- We dropped the earlier "urgent, with a deadline" framing. The audit was right that the RBI
+  deadline covers *calls*, not field visits.
+
+## 3. Ideal customer and who pays
+
+| | |
+|---|---|
+| **Who** | Indian FMCG, food and beverage brands with **₹500–5,000 Cr turnover**, **200–2,000** company field reps plus DSRs, and **over 70% general trade**. Typically regional snack, biscuit, beverage, staples, spice and tea brands, and personal-care challengers |
+| **Economic buyer** | Head of Sales (owns trade spend and the field force), co-signed by the CMO or brand head (owns the intelligence) |
+| **Champion** | Head of Sales Excellence or Capability |
+| **Already uses** | An SFA/DMS (Bizom, FieldAssist, or an in-house app), sometimes a retail audit |
+| **Trigger** | Share loss to a national brand or quick commerce, a scheme redesign, a new launch into general trade |
+| **Lead use case** | **Trade-scheme and competitor intelligence from the counter:** scheme recall and confusion, competitor credit and schemes, slow movers, stock-outs. Plus coaching for DSRs (voice debrief in their language) |
+| **Who pays** | The brand (never the rep or the distributor), on an annual contract |
+
+**Later lenses, not the beachhead** (they exist in the product, but are not the go-to-market):
+- **Collections (NBFC/MFI):** RBI's 2026 directions require recording recovery *calls*, not visits.
+  A borrower at their own door can't freely consent. The MFI loan portfolio fell 14% in FY25 and NBFC-MFI
+  credit cost reached 15.5%
+  ([Business Standard](https://www.business-standard.com/finance/news/microfinance-portfolio-q2-drop-formal-credit-exit-125112800920_1.html)) [3P].
+- **Pharma:** UCPMP 2024 is voluntary (7 complaints in 5 years [3P]), and doctors may refuse recording.
+  Revisit after the Supreme Court's expert panel (hearing 29 Jan 2027) [3P].
+- **Insurance:** agents are not employees, so adoption and consent are harder.
+
+## 4. Pricing
+
+**Willingness to pay is not validated yet.** The first commercial milestone is **3 written LOIs or
+pilot quotes at a stated price**. Prices are anchored to what FMCG brands already pay for field
+software:
+
+| Benchmark | ₹ per user per month | Source |
+|---|---|---|
+| Bizom (implied: FY25 revenue ÷ users) | ~300 | Inc42 revenue ₹90.9 Cr [3P] ÷ 250K+ users [V] |
+| FieldAssist (implied) | ~550 | Revenue ₹66.5 Cr [3P] ÷ ~100K users [V] |
+| Zoho CRM Enterprise (India) | 2,400 | Business Today [3P] |
+| Convin (revenue per client) | ~₹11 lakh a year per client | FY24 revenue ₹9.05 Cr [3P] ÷ 80+ clients [P] |
+
+| Nabz plan | Price | What it is |
+|---|---|---|
+| **Pulse** (add-on to the SFA) | **₹600–800 per DSR per month** (base ₹700) | Sampled recording (about 4 visits a day), scheme and competitor signals, daily voice debrief |
+| **Intelligence** | **₹1,500 per rep per month** | Full recording (about 8 visits a day) for key beats and key accounts, deeper coaching |
+| **Brand platform fee** | **₹2–5 lakh a year per brand** | Market-intelligence dashboard, weekly market pulse, exports |
+
+**Typical account:**
+- **Land:** 100 DSRs on Pulse, 20 reps on Intelligence and a ₹2 lakh fee, about **₹14 lakh a year**.
+  That's close to the Convin anchor.
+- **Expand:** 300 + 50 + ₹3 lakh, about **₹37 lakh a year**.
+
+## 5. Unit economics
+
+**Usage assumptions [A]:**
+- A DSR records about 8 visits a day at about 5 minutes each, so ~40 minutes a day and ~14.7 hours a month on Intelligence.
+- Pulse samples ~4 visits a day: 20 minutes a day, ~7.3 hours a month.
+- 22 working days a month.
+
+**Unit costs:**
+- **Speech to text:** Gnani Prisma at **₹20–27 per audio hour**. ₹27 is a reseller list price (that page uses ₹96/$) [3P]; ₹20 is the assumed direct rate [A].
+- **Analysis:** **₹0.4–0.8 per visit on Claude Haiku 5.5**, including cache writes, for a 5–8 minute visit.
+  This is an estimate pending re-measurement: our first measurement undercounted cache-write tokens, and
+  the test visits ran about 1 minute [M, being corrected].
+- **Opus escalation:** Opus 5.5 for flagged or low-confidence visits at **₹12–20 per visit**.
+- **Voice debrief:** one Timbre debrief a day, about 350 characters [M]. Timbre's price isn't public; we use Sarvam's ₹1 per 1K characters as a proxy [P].
+
+| ₹ per rep per month | Pulse ₹700 (4 visits/day) | Intelligence ₹1,500 (8 visits/day) |
+|---|---|---|
+| Speech to text | 147–198 | 293–396 |
+| Analysis: Haiku for all visits | 35–70 | 70–141 |
+| Analysis: Opus on **10%** of visits | 106–176 | 211–352 |
+| Voice debrief, hosting, storage | 48 | 68 |
+| Support and re-onboarding (26–27% attrition) | 60 | 60 |
+| **Cost of goods, 10% escalation** | **396–552** | **702–1,017** |
+| **Gross margin, 10% escalation** | **21–43%: too thin** | **32–53%** |
+| Cost of goods, **3% escalation** | 322–429 | 554–771 |
+| **Gross margin, 3% escalation** | **39–54%** | **49–63%** |
+
+**What this tells us:**
+1. **The Opus escalation rate is the biggest lever.** Target 3% or less. Use the quote checker plus
+   confidence scores to decide escalation, and run the weekly market synthesis once per brand, not per visit.
+2. **At ₹700, Pulse only works with sampled recording.** Full recording at ₹700 loses money.
+3. The platform fee is almost all margin and lifts the blended account margin. A land account at about
+   ₹14 lakh a year has cost of goods of about ₹6.4 lakh, so **~54% gross margin**.
+
+**Acquisition and retention [A]:**
+
+| Metric | Estimate |
+|---|---|
+| Cost per pilot (founder time ~6 weeks, travel, free pilot compute) | ₹3–5 lakh |
+| Pilot to paid | 1 in 3 |
+| **CAC per paying brand** | **₹9–15 lakh** |
+| Onboarding (year 1) | ₹1–1.5 lakh per brand (training and re-training DSRs) |
+| Gross profit per year: land account | ~₹7.6 lakh |
+| Gross profit per year: expanded account | ~₹20 lakh |
+| **Payback: land only** | **~21 months (too long)** |
+| **Payback: expanded within year 1** | **~8 months** |
+| Logo churn | 15–20% a year, so an average customer life of 5–6.7 years |
+| LTV/CAC: land only | ~2.9 |
+| LTV/CAC: with expansion | Higher |
+
+**So land-and-expand within year 1 is the business model. A land-only account doesn't pay back fast enough.**
+
+## 6. Market size (FMCG only)
+
+**TAM.** Field users in FMCG general trade × a price anchored to SFA spend.
+
+| | Conservative | Base |
+|---|---|---|
+| DSRs plus company field reps | 4 lakh (4–4.5 lakh distributors × 1 [3P]) | 8 lakh (× 2 [A]) |
+| ₹ per user per month | 300 (Bizom-level add-on) | 700 (Pulse) |
+| **TAM a year** | **₹144 Cr (~$16M)** | **₹672 Cr (~$76M)** |
+
+*Sense-checks:*
+- India's field-force-automation market (all sectors) is ~$140M, about ₹1,232 Cr (2024; method not
+  disclosed) [3P]. Our FMCG-only add-on TAM is 12–55% of that, so **the base case is aggressive** and
+  assumes most FMCG field users adopt an add-on.
+- The MRSI research industry is ₹29,008 Cr (FY25) [P]. Analytics is about 60% of it, and over 90% of
+  analytics demand is international [3P]. We do **not** add research budgets to the TAM. The
+  Intelligence tier competes for the domestic slice of that spend, which isn't separately sourced.
+
+**SAM.** Reachable in about 3 years:
+1. Mid-size brands (₹500–5,000 Cr) sold to directly: ~150 brands [A] × ~300 field users ≈ 45,000.
+2. FMCG users of the two SFA partners we could integrate with: Bizom 250K+ and FieldAssist ~100K users [V],
+   about 70% of them consumer goods [A], ≈ 2.45 lakh.
+
+Overlap is assumed small [A].
+**SAM ≈ 2.7 lakh users × ₹700 × 12 + 150 brands × ₹3 lakh fee ≈ ₹227 Cr + ₹4.5 Cr ≈ ₹231 Cr (~$26M).**
+
+**SOM, built from a sales funnel.** Assumes a 6–18 month enterprise sales cycle [3P].
+
+| | Year 1 (solo) | Year 2 (+1 hire, 1 SFA partner) | Year 3 (partner channel) |
 |---|---|---|---|
-| Pharma medical reps | **2–3 lakh** (no official count; Mankind alone has 18,000+, Sun ~11,000) | 30–35% first-year attrition (dated) | Academic/vendor estimates [3P]; Mankind investor deck [P] |
-| FMCG and distributor salesmen | **~4–8 lakh** [A] (4–4.5 lakh distributors × 1–2 salesmen) | 26–27% FMCG attrition | AICPDF [3P]; TeamLease 2024 [3P] |
-| Insurance agents | **31.2 lakh** registered (FY25); **7 lakh terminated in FY24** | LIC 13th-month persistency fell to **74.8%** (FY25) | IRDAI via press [3P]; LIC [P] |
-| Microfinance loan officers | **2.09 lakh** field staff (of 3.29 lakh) | **52% attrition in FY25** | Sa-Dhan Bharat Microfinance Report 2025 [P] |
-| Collection agents, DSAs, in-store promoters | Not reliably counted (unverified "5 lakh+ DSAs") | n/a | Excluded from sizing |
+| Pilots started | 6 | 12 | 20 |
+| Pilot to paid | 33% | 33% | 35% |
+| New paying brands | 2 | 4 | 7 |
+| Churned brands | 0 | 0–1 | ~1 |
+| Brands paying (end of year) | 2 | 5–6 | ~11–12 |
+| Users | ~240 | ~1,000 | ~3,000 (~1.1% of SAM users) |
+| **ARR at year end** | **~₹28 lakh** | **~₹1.1–1.2 Cr** | **~₹2.5–3 Cr (~$0.3M)** |
 
-High churn means the know-how from good conversations leaves with the people who had them. Coaching
-has to be continuous and cheap, and today it is neither. Managers spend about 9% of their time
-coaching (Gartner, secondary), and they never hear the conversation itself.
+For comparison: Convin had ₹9 Cr revenue (FY24) after about 4 years with 80+ clients [3P], and
+Salesken ₹10.8 Cr (FY23) [3P]. Our plan is deliberately below these.
 
-### What it costs not to know, and what companies pay today to find out
-| Fact | Number | Source |
+## 7. Competition and moat
+
+| Player | Threat | Our position |
 |---|---|---|
-| India research and insights industry | **₹29,008 Cr** in FY25 (+10.9%); about 80% of revenue from international clients, so roughly **₹5,800 Cr** is domestic | MRSI 2025 [P, industry body] |
-| FMCG companies disputing retail-audit data | Tata Consumer, ITC and Adani Wilmar have challenged NielsenIQ for missing channels | Press [3P] |
-| Sales teams that fully trust their CRM data | **35%** (global) | Salesforce State of Sales 2024 [V] |
-| HUL ad spend | ₹6,199 Cr, about **10%** of turnover (FY25). Trade schemes are a further 8–25% of revenue (unverified vendor estimate) | Press [3P]; vendor blogs [V] |
+| **Convin** (India) | **Has an in-person "Physical Conversation Recorder"** in its app; collections and home-services framing; 80+ clients | FMCG-specific lenses (scheme, credit, slow movers), market intelligence for brand teams, voice debriefs in the DSR's language |
+| **VoClyp** (India) | Same idea (field conversations into market intelligence). Unverified early entrant: domain registered June 2026, no team, customers or prices found | Same lane. We have to win on accuracy, verified quotes and distribution |
+| **Bizom / FieldAssist** | **Own the app on the DSR's phone.** One feature away from adding recording | Partner first: Nabz as an add-on inside their app or data flow. If they build it, compete on Indic accuracy and intelligence depth |
+| **Gnani.ai** | Owns the speech models; Assist365 covers contact centres; 200+ enterprise clients (company claim [P]); could build this | **A partner and channel, not a moat.** The ask: volume pricing and co-selling. Gnani covers calls, Nabz covers visits |
+| **Salesforce, Rilla, Siro** | Proven in-person products; US-focused, no Indic languages, priced at $4–5K a seat [3P] | Indian price points, languages and FMCG workflows |
 
-### When the invisible becomes expensive
-| Event | Detail | Source |
-|---|---|---|
-| RBI penalties for recovery-agent conduct | Bajaj Finance ₹2.5 Cr (2021), RBL ₹2.27 Cr (2023), HDFC Bank ₹1 Cr (Sep 2024), Navi ₹3.8 lakh (Feb 2026) | RBI press releases [P] |
-| Recovery visit turned fatal | M&M Finance, Hazaribagh (2022). RBI barred its outsourced recovery | Business Standard [3P] |
-| Insurance mis-selling complaints | **26,667** in FY25, **up 14%**; 22% of life-insurance grievances | IRDAI via press [3P] |
-| Pharma freebies | ₹1,000 Cr allegation (Dolo-650, 2022, disputed); first UCPMP 2024 action against AbbVie over ₹1.91 Cr of doctor travel | Press [3P] |
+**No moat today.** Being built on Gnani is a dependency, and quote verification can be copied. What
+**could** build up over time:
+1. A labelled dataset of consented Indic field conversations, which improves accuracy and lens quality.
+2. FMCG lens and playbook IP: scheme taxonomies and coaching patterns.
+3. Cross-brand benchmarks, for example scheme recall by region. This needs care: no sharing of one
+   brand's data with another, only aggregated and opt-in.
+4. Distribution through SFA integrations.
 
-## 3. Who has it, how, why now
+## 8. Risks
 
-**Who.** Three groups, with different reasons:
-1. **Marketing, brand and product leaders**, who get competitor, price and demand intelligence late,
-   from surveys and audits that cover only part of the market.
-2. **Sales leaders**, who can't coach what they don't hear, in a workforce that turns over every
-   2–4 years.
-3. **Compliance and risk teams** in BFSI and pharma, who answer for conduct they can't see.
-
-**How Nabz solves it.**
-- The rep records the visit after the customer consents, using a mobile web app or a voice note in
-  the team's chat. There's nothing to install.
-- **Gnani Prisma** transcribes Hinglish and Indian languages: diarization, codemix output, denoising,
-  and company vocabulary as keyterms.
-- Personal data is redacted before any AI sees the text.
-- An LLM extracts quoted market signals, a lens-specific score, coaching and compliance flags. Every
-  claim is checked against the transcript in code.
-- **Gnani Timbre** voices a debrief to the rep in their own language.
-- Managers approve CRM updates, and the market dashboard updates in near real time.
-
-**Why now.** Five things changed in 2024–26:
-1. **Indian speech recognition became usable and cheap.**
-   - Code-mixed Indic word-error rates of about 16–19% (Gnani Prisma v3.0, 28 Oct 2026, vendor
-     figure; Sarvam about 19% on IndicVoices).
-   - About ₹16–30 per audio hour (Sarvam ₹0.49/min [P]; Google Chirp batch about ₹16/hr [P]).
-   - In 2023 the best open baseline was IndicWhisper on Vistaar.
-   - These are sovereign-funded models: the IndiaAI Mission (₹10,372 Cr) backs Gnani's 14B voice model [P].
-2. **Language-model analysis became 150–250x cheaper per conversation**: about $0.39 per
-   analysed call at GPT-4 (2023) prices against under $0.003 now, with a measured ₹0.25 per visit on
-   Claude Haiku 5.5 [M]. a16z puts the decline at about 10x a year at equal capability [3P].
-3. **The regulation got sharper:**
-   - **DPDP Rules notified 13 Nov 2025**: consent-manager provisions from 13 Nov 2026, notice and
-     consent duties from about May 2027, penalties up to ₹250 Cr [P].
-   - **RBI recovery directions (6 Aug 2026), in force 1 Jan 2027**: lenders must record recovery
-     calls, keep them for 6 months, contact borrowers only 8am–7pm, and certify agents [P].
-   - **Supreme Court, 8 Oct 2026**: ordered an expert panel on enforceable pharma marketing rules,
-     next hearing 29 Jan 2027 [3P].
-4. **General trade is under pressure.** Quick commerce was $10–11B GMV in 2025, heading for
-   $65–70B by 2030 [3P, Bain]. Kirana share is falling 1–2 points a year. Brands defending general
-   trade need to know what's happening at the counter now, not next quarter.
-5. **The category is proven elsewhere:**
-   - Rilla (~$70M ARR estimated, ~$757M valuation) and Siro ($50M Series B) [3P].
-   - Salesforce added an In-Person Meeting Assistant in Apr 2026.
-   - An Indian early entrant, VoClyp, appeared in Jun 2026, which confirms the same reading of the
-     market.
-
-## 4. Is it urgent? An honest answer
-
-**Urgent for some, nice to have for others. We start where it's urgent.**
-
-| Segment | Verdict | Why |
-|---|---|---|
-| **NBFC/MFI field collections and loan officers** | 🔥 **Urgent, with a deadline** | RBI directions from 1 Jan 2027 make recording the norm for recovery *calls*, and field *visits* are the obvious next gap. Repeated penalties, reputational incidents, 52% attrition (training cost) and a compliance budget owner all exist. Recording also protects the borrower: "this visit is recorded for your protection" |
-| **FMCG and food brands (₹500–5,000 Cr) fighting for general trade** | 🔥 Urgent for the business, but competing for budget | Quick commerce and competitors' credit and schemes are taking counter share now (our demo shows the pattern: Britannia's 15-day credit in Delhi). Market intelligence competes with research budgets (about ₹5,800 Cr domestic) and trade spend. Win by tying insights to scheme ROI |
-| **Pharma** | 💊 Nice to have today; could become urgent in 2027 | UCPMP is voluntary, with only 7 complaints in 5 years. The pull is self-policing and coaching on key messages. The Supreme Court panel could change that after Jan 2027 |
-| **Insurance agents** | 💊 Nice to have | Mis-selling complaints are up 14%, but agents are not employees, and adoption and consent are harder. Later |
-
-**Counterarguments we take seriously:**
-1. **Regulation covers calls, not visits.** Field-visit recording is a sensible extension, not yet a
-   legal requirement.
-2. **Fear of surveillance.** Medical reps' unions protested GPS tracking (2023), and DPDP commentary
-   narrows employee monitoring. *Mitigation:* coaching first. Reps get their own debrief first, a
-   visible consent step, raw audio deleted within a day, no covert recording, and access by role.
-3. **Accuracy on far-field audio is unproven,** since Prisma is tuned on phone audio. *Mitigation:*
-   our open noise benchmark, denoising, keyterms from the CRM, and the quote checker, which drops any
-   claim it can't verify.
-4. **Indian deal sizes and AI budgets are small** (over 95% of firms spend less than 20% of IT budget
-   on AI, EY-CII 2025), and sales cycles run 6–18 months. *Mitigation:* paid pilots, and selling
-   through the sales-software vendors buyers already use.
-
-## 5. Ideal customer and who pays
-
-| | Beachhead 1: lending | Beachhead 2: consumer goods |
-|---|---|---|
-| **Who** | NBFC-MFIs and NBFCs with 1,000–20,000 field officers or collection agents | Indian FMCG, food and beverage brands with ₹500–5,000 Cr turnover, 200–2,000 reps and distributor salesmen, and over 70% of sales through general trade |
-| **Economic buyer** | Chief Risk/Compliance Officer with the Head of Collections | VP or Head of Sales (owns trade spend), co-signed by the CMO or brand head (intelligence) |
-| **Champion** | Head of Training or Field Quality | Head of Sales Excellence or Capability |
-| **Budget line** | Compliance and risk, plus training | Sales capability and training, market research, trade-spend effectiveness |
-| **Trigger** | RBI directions from 1 Jan 2027, a recent penalty or incident, or an audit finding | Lost share to quick commerce or a competitor scheme, a new product launch, a scheme redesign |
-| **Already uses** | A loan management system and call-recording for telephony | A sales/distribution app (Bizom, FieldAssist) and a retail audit (NIQ) |
-| **Why they pick Nabz** | It audits the in-person visit with consent, scores conduct against RBI rules, and keeps an audit log that is evidence for regulators | It gives a weekly view of what the market is saying, with quotes, plus coaching that improves scheme recall |
-
-**Who pays:** the enterprise, never the rep. Annual SaaS **per field user per month**, tiered by
-included audio hours, with a compliance tier for BFSI and pharma.
-
-| Plan | ₹/rep/month | Includes | Benchmarks |
-|---|---|---|---|
-| Coach | 1,000 | 10 audio hrs, coaching and debriefs | Implied Bizom ~₹300 and FieldAssist ~₹550 per user per month (revenue ÷ users) [our calculation from 3P figures] |
-| **Intelligence (base)** | **2,000** | 22 audio hrs, market dashboard, CRM sync | Zoho CRM Enterprise ₹2,400 [3P]; LeadSquared Pro ₹2,500 [3P] |
-| Compliance | 4,000 | Plus compliance lenses, audit export, deployment in the customer's own cloud | Observe.AI ~$69 per agent per month [3P]; Gong $110–160 per seat per month [3P]; Rilla ~$350–400 per seat per month [3P] |
-
-## 6. Precedents
-
-| Company | What it proves | Data |
-|---|---|---|
-| **Rilla** (US) | In-person conversation intelligence is a venture-scale category | ~$70M ARR (Apr 2026 est.), 2,000+ accounts, ~$20K average contract, ~$757M valuation [3P] |
-| **Siro** (US) | Same, in field and home sales | $50M Series B, May 2025 [3P] |
-| **Salesforce** | The incumbent now covers in-person meetings | In-Person Meeting Assistant, Apr 2026 [P] |
-| **Chorus → ZoomInfo** | Conversation-intelligence acquisitions happen | $575M, 2021 [3P] |
-| **Bizom** (India) | Indian field-sales software scales to hundreds of thousands of users | ₹90.9 Cr revenue FY25, 250K+ users, $12M Series B (Dec 2024) [3P] |
-| **FieldAssist** (India) | Indian buyers pay for field software; capital-efficient | ₹66.5 Cr revenue FY25 (+34%), ~100K users, essentially bootstrapped [3P] |
-| **Convin** (India) | Indian buyers pay for conversation intelligence; in-person recorder exists | $6.5M Series A, 80+ clients, ₹9 Cr revenue FY24 [P/3P] |
-| **Salesken** (India) | Expansion from pilot to scale | One insurer went 300 → 1,000 → 4,000 seats in 5 months [V] |
-| **Gnani.ai** | Our speech partner has the same enterprise buyers | $10M Series B (Mar 2026), 200+ enterprise clients, mostly BFSI [P] |
-| **VoClyp** (India) | Others read the market the same way | Domain registered Jun 2026; no named founders, customers or prices; free 3-week pilot [P] |
-
-**Vendor-claimed uplift** (marketing claims, not independently verified): Rilla +33% close rate,
-Siro +36%, Convin +23% conversion, Salesken 15–25% in 60 days.
-
-## 7. Market size: TAM, SAM, SOM (bottom-up)
-
-All rows are reps × ₹/rep/month × 12. Change any **[A]** and the totals follow.
-
-### TAM: every field rep in sized segments who could use Nabz
-| Segment | Conservative reps | Base reps | Basis |
-|---|---|---|---|
-| Pharma medical reps | 2,00,000 | 3,00,000 | Estimates [3P] |
-| FMCG and distributor salesmen | 4,00,000 | 8,00,000 | 4–4.5 lakh distributors × 1–2 [A] |
-| Microfinance field staff | 2,09,000 | 2,09,000 | Sa-Dhan [P] |
-| Insurance agents (active subset) | 3,12,000 (10%) | 6,24,000 (20%) | 31.2 lakh registered [3P] × active share [A] |
-| **Total reps** | **11.2 lakh** | **19.3 lakh** | Excludes collection agents, DSAs and promoters (upside) |
-| **× price** | ₹1,000/mo | ₹2,000/mo | Pricing table |
-| **TAM (annual)** | **₹1,343 Cr (~$153M)** | **₹4,637 Cr (~$527M)** | ₹88/$ |
-
-*Sense-check:* India speech analytics is $113–182M [3P], India field-force automation $140M (2024)
-[3P], and the domestic research industry about ₹5,800 Cr [P]. A TAM of ₹1,300–4,600 Cr sits between
-the software and research budgets it draws from, which is plausible.
-
-### SAM: what we can serve in 3 years
-Mid and large enterprises with employed field forces in our two beachheads, plus pharma. Insurance
-agents are excluded (non-employees, harder consent).
-| Segment | Share in companies with 200+ reps | Reps |
-|---|---|---|
-| FMCG and distributor salesmen (top ~100 brands) | 50% [A] | 4,00,000 |
-| Pharma (top ~100 companies; the top 20 alone have over 1 lakh medical reps [3P]) | 60% [A] | 1,80,000 |
-| NBFC-MFI and NBFC field staff | 70% [A] | 1,46,000 |
-| **SAM** | | **7.26 lakh reps × ₹24,000/yr = ₹1,742 Cr (~$198M)** |
-
-### SOM: what we plan to win by year 3 (end of 2029)
-| | Year 1 | Year 2 | Year 3 |
-|---|---|---|---|
-| Customers | 5 design partners → 4 paid | 15 | 40 |
-| Paid reps | 2,000 | 8,000 | **15,000** (stretch 25,000) |
-| ARR at ₹24,000/rep/yr | ₹4.8 Cr | ₹19.2 Cr | **₹36 Cr (~$4.1M)**; stretch ₹60 Cr |
-| Share of SAM | 0.3% | 1.1% | **2.1%** |
-
-*Precedent check:* 15,000 paid reps in year 3 is about 15% of FieldAssist's user base and 6% of
-Bizom's after roughly a decade each. That's ambitious but grounded, and depends on selling through
-those vendors (section 9).
-
-## 8. Unit economics
-
-Per rep per month at the base plan, assuming **1 hour of recorded conversation a day, 22 days, and
-10 recorded visits a day** [A]:
-
-| Cost line | Calculation | ₹/rep/month |
-|---|---|---|
-| Speech to text (Gnani Prisma batch) | 22 hrs × ₹20–27/hr (₹27/hr via a reseller [3P], ₹20 assumed direct [A]) | 440–594 |
-| AI analysis, **routed** | 220 visits × ₹0.25 (Haiku 5.5, measured token profile [M]) + 10% escalated to Opus 5.5 × ₹10.16 [M] | 55 + 224 = **279** |
-| Voice debrief (Timbre), one a day | 22 × ~350 characters [M] ≈ 7.7K chars (proxy ₹1 per 1K, Sarvam [P]) | ~8 |
-| Hosting, storage, support | [A] | 150 |
-| **Cost of goods** | | **~₹880–1,030** |
-| **Gross margin at ₹2,000** | | **~49–56%**, rising to about 60%+ with batch pricing and Gnani volume rates |
-
-**What we measured** [M], over 14 analysed visits: about 1K input and 5.6K output tokens each. All
-on Opus 5.5 that's ₹10.16 per visit; on Haiku 5.5 it's ₹0.25.
-- 220 visits on Opus alone would cost about ₹2,235 per rep per month, more than the price.
-- **So production routing is required, not optional.** Use Haiku for routine visits and Opus only
-  for compliance flags, low-confidence cases and the weekly market summary.
-- Output size can also be cut. Notes and follow-ups get written only for visits that need them.
-- The quote checker is what makes a cheaper model safe: any claim it can't verify is dropped.
-
-## 9. Execution plan
-
-**First 90 days: prove value with three design partners.**
-- One NBFC-MFI (collections and loan officers), one regional FMCG brand, one mid-size pharma company.
-- 3-week pilot with 50–100 reps each. Success metrics agreed in writing up front:
-  - share of visits recorded;
-  - share of quotes verified;
-  - market insights acted on (e.g. a scheme changed);
-  - debrief listen rate;
-  - compliance issues caught.
-- Product work:
-  - a WhatsApp channel;
-  - offline capture (record now, sync later);
-  - model routing (Haiku/Opus) with an evaluation set built from pilot audio;
-  - a DPDP consent-manager integration;
-  - Hindi, Marathi, Tamil, Kannada and Bengali debriefs.
-- **Gnani partnership:**
-  - volume pricing for Prisma and Timbre;
-  - access to their 200+ BFSI clients, who are the same buyers.
-  - Nabz takes Gnani's speech models into field conversations, beyond the call centre.
-
-**Months 3–12: from pilot to paid; sell through partners.**
-- Integrations: Bizom, FieldAssist and LeadSquared (250K+ and 100K users already, a distribution
-  channel), Zoho (data in India) and Salesforce.
-- SOC 2 Type 1 and ISO 27001 readiness.
-- The compliance tier, with RBI and UCPMP report packs.
-- Target: **₹4–5 Cr ARR**, 4 paid customers, two public case studies.
-
-**Months 12–36: scale and go sovereign.**
-- On-premises deployment (Gnani Prisma on-prem plus open-weight Evon for reasoning) for banks and
-  insurers.
-- A weekly "market pulse" for leadership.
-- More languages, then Southeast Asia (similar general-trade structure).
-- Target: **₹36 Cr ARR, 15,000 reps.**
-
-**Risks, and what we do about them.**
 | Risk | Mitigation |
 |---|---|
-| Reps resist surveillance | Coaching first; the rep's own debrief comes first; visible consent; audio deleted within a day; no covert mode; unions and HR involved in pilot design |
-| Accuracy on noisy audio | Public noise benchmark; denoising; CRM keyterms; claims dropped when quotes can't be verified |
-| Long Indian sales cycles | Paid pilots with fixed scope; sell through SFA vendors; compliance deadline (1 Jan 2027) as the urgency |
-| Dependence on one speech vendor | The speech engine is swappable (Whisper fallback built in; Sarvam as an option) |
-| Margins | Model routing; batch processing; audio-hour tiers |
-| VoClyp, Convin, and Salesforce moving in | Gnani-native Indic accuracy, quote verification, compliance lenses, no app to install, open benchmark, sovereign deployment |
+| **Selection bias:** DSRs record only their good visits | A sampling policy: 2 randomly chosen visits a day plus visits the rep picks; weekly coverage targets per beat; coaching-first incentives (the debrief helps the rep) |
+| **Consent from the customer (kirana owner) and DPDP third-party data** | A spoken notice at the start, checked in the transcript; easy opt-out; deletion on request; personal data redacted before analysis; audio retained only briefly |
+| **DSR surveillance pushback** (medical-rep unions protested GPS tracking in 2023 [3P]) | Coaching first; no covert recording; the rep sees their own data first; HR and distributor buy-in during pilot design |
+| **Accuracy on noisy, far-field audio** | The open [noise benchmark](../benchmark/README.md); denoising; CRM keyterms; claims dropped if their quotes can't be verified |
+| **Willingness to pay is unvalidated** | LOIs and paid pilots before building more |
+| **Sales cycle and discretionary budget** | Pilot success metrics tied to rupees; selling through SFA partners |
+| **Vendor dependence (Gnani, Anthropic)** | A narrow speech and reasoning interface, with a Whisper fallback already built |
 
-## Sources
+## 9. Execution plan (solo founder)
 
-Fuller links are in the research notes (docs/research/). Key primary sources:
-- NIQ India FMCG Snapshot Q1'26
-- HUL FY24 performance highlights
-- Sa-Dhan Bharat Microfinance Report 2025
-- MRSI industry report FY25
-- RBI press releases (Bajaj Finance 2021, HDFC Bank 2024, Navi 2026) and RBI recovery-agent directions (6 Aug 2026)
-- PIB on the DPDP Rules 2025
-- LIC persistency press release FY25
-- Mankind Pharma investor disclosures
-- Sarvam and Google Cloud price pages
-- Gnani Series B (Business Today, 31 Mar 2026)
+**Weeks 0–4: find design partners.** 10 target brand types:
+1. Regional namkeen and snack brands
+2. Regional biscuit and bakery brands
+3. Regional soft-drink, juice and packaged-water brands
+4. Staples (atta, edible oil)
+5. Spice and masala brands
+6. Regional tea and coffee brands
+7. Home and personal-care challengers
+8. Confectionery
+9. D2C brands entering general trade
+10. Super-stockists running several brands
 
-Third-party sources: Sacra (Rilla), Inc42 (Bizom, Convin, Salesken), Bain (quick commerce),
-Redseer, Kantar, a16z and Epoch AI (LLM price trends), EY-CII (GenAI adoption).
+How to reach them:
+- State distributor associations (AICPDF affiliates)
+- SFA partner programmes (Bizom, FieldAssist)
+- LinkedIn outreach to Heads of Sales Excellence
+- Food and FMCG trade expos
+- A Gnani introduction, if they partner
+
+**Goal: 3 LOIs and 2 pilots signed.**
+
+**Weeks 4–10: pilot.** 30–50 DSRs for 6 weeks, paid (₹1.5–2 lakh) or free with an LOI. Success
+metrics agreed in writing:
+- 60% or more of sampled visits captured
+- 90% or more of quotes verified
+- 5 or more insights the brand team accepts (for example a scheme change)
+- Scheme recall up by 15 percentage points or more (before vs after) [A]
+- 50% or more of debriefs listened to
+- DSR satisfaction measured
+
+**Months 3–12.**
+- Convert 2 brands.
+- Build one SFA integration.
+- Re-measure cost per visit on real audio, and make Haiku routing the default (Opus 3% or less).
+- Run a real-audio benchmark.
+- Prepare for SOC 2 and ISO 27001.
+- **First hire:** customer success and sales, at about 5 paying brands or ₹1 Cr ARR.
+
+**If Gnani partners:**
+- Co-sell into Gnani's enterprise clients.
+- Get volume Prisma pricing.
+- Use hosted Evon for reasoning, if it becomes available, so the whole stack is Gnani's (sovereign).
+- Offer on-premises Prisma for larger brands.
+- Position Nabz as the field module next to Assist365.

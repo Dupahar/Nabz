@@ -14,6 +14,7 @@
   let startedAt = 0;
   let blob = null;          // the recording or chosen file to upload
   let blobName = "visit.webm";
+  let recordedAt = "";      // when the conversation happened (recorder start or file timestamp)
   let pollTimer = null;
 
   // ------------------------------------------------------------------ setup
@@ -152,6 +153,7 @@
     blobName = `${acct}.${ext}`;
     $("recBtn").classList.remove("recording");
     $("recIcon").innerHTML = '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="17" x2="12" y2="22"/>';
+    recordedAt = new Date(startedAt).toISOString();
     const secs = (Date.now() - startedAt) / 1000;
     showPreview(`${N.fmtDuration(secs)} recorded · ${(blob.size / 1024).toFixed(0)} KB`);
     updateRecordable();
@@ -173,6 +175,7 @@
     }
     blob = f;
     blobName = f.name;
+    recordedAt = new Date(f.lastModified || Date.now()).toISOString();
     showPreview(`${N.esc(f.name)} · ${(f.size / 1024 / 1024).toFixed(2)} MB`);
   }
 
@@ -212,10 +215,12 @@
     fd.append("region", $("region").value.trim());
     fd.append("consent_method", consentMethod());
     fd.append("consent_confirmed", "true");
+    fd.append("recorded_at", recordedAt || "");
 
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/visits");
     xhr.withCredentials = true;
+    Object.entries(N.CSRF).forEach(([k, val]) => xhr.setRequestHeader(k, val));
     $("uploadProg").classList.remove("hidden");
     $("uploadBtn").disabled = true;
     $("discardBtn").disabled = true;
@@ -271,20 +276,20 @@
     $("listMeta").textContent = `${visits.length} visit${visits.length > 1 ? "s" : ""}`;
     host.innerHTML = visits.map((v) => {
       const done = v.status === "done";
-      const right = done && v.score != null ? N.scoreBadge(v.score) : N.statusChip(v.status, v.stage);
+      const right = done && v.score != null ? N.scoreBadge(v.score) : N.statusChip(v.status, v.stage, v.stalled);
       const sub = [v.segment, v.region, N.timeAgo(v.recorded_at)].filter(Boolean).map(N.esc).join(" · ");
       const extra = done
         ? `${v.lens_name ? `<span class="chip brand">${N.esc(v.lens_name)}</span>` : ""}${v.debrief ? ' <span class="chip" title="Voice debrief ready">🎙️ debrief</span>' : ""}${v.flags ? ` <span class="chip bad">🚩 ${N.esc(v.flags)}</span>` : ""}`
-        : `<span class="muted" style="font-size:.78rem">${N.esc(v.stage || "")}</span>`;
+        : `<span class="muted" style="font-size:.78rem">${N.esc(v.status === "error" || v.status === "needs_consent_review" ? (v.error || v.stage || "") : (v.stalled ? "No progress for a while: open the visit to retry" : (v.stage || "")))}</span>`;
       const who = user && user.role !== "rep" && v.rep ? ` · ${N.esc(v.rep)}` : "";
       return `<a class="list-item fade-in" href="/visit/${encodeURIComponent(v.call_id)}">
         <div class="main">
           <div class="title">${N.esc(v.account || v.call_id)}${v.contact ? ` <span class="muted" style="font-weight:500">· ${N.esc(v.contact)}</span>` : ""}</div>
           <div class="meta">${sub}${who}</div>
-          <div style="margin-top:.3rem">${extra}</div>
+          <div style="margin-top:.3rem">${N.syntheticBadge(v)} ${extra}</div>
         </div>${right}</a>`;
     }).join("");
-    if (visits.some((v) => v.status !== "done" && v.status !== "error")) {
+    if (visits.some((v) => !["done", "error", "needs_consent_review"].includes(v.status) && !v.stalled)) {
       pollTimer = setTimeout(loadVisits, 3000);
     }
   }

@@ -58,8 +58,33 @@
     const st = (d.visit && d.visit.status) || "queued";
     if (st === "done") {
       if (!renderedDone) { renderBody(d); renderedDone = true; } else { renderProposal(d); renderAudit(d); }
-    } else if (st !== "error") {
+    } else if (!["error", "needs_consent_review"].includes(st) && !(d.visit && d.visit.stalled)) {
       pollTimer = setTimeout(load, 3000);
+    }
+    applyPermissions(d);
+  }
+
+  function applyPermissions(d) {
+    const perm = d.permissions || {};
+    const btn = $("eraseBtn");
+    if (btn) {
+      btn.disabled = !perm.erase;
+      btn.title = perm.erase ? "" : (perm.erase_reason || "Not allowed");
+      const why = document.getElementById("eraseWhy");
+      if (!perm.erase && perm.erase_reason && !why) {
+        btn.insertAdjacentHTML("afterend", `<div id="eraseWhy" class="muted" style="font-size:.78rem;margin-top:.3rem">${esc(perm.erase_reason)}</div>`);
+      }
+    }
+  }
+
+  async function action(path, okMsg) {
+    try {
+      await N.api(`/api/visits/${encodeURIComponent(callId)}/${path}`, { method: "POST", body: {} });
+      N.toast(okMsg);
+      renderedDone = false;
+      load();
+    } catch (e) {
+      N.toast(`Failed: ${e.message}`, 3500);
     }
   }
 
@@ -78,11 +103,13 @@
       v.recorded_at && `🗓 ${esc(N.fmtDate(v.recorded_at))}`,
       v.duration_sec && `⏱ ${esc(N.fmtDuration(v.duration_sec))}`,
       langs.length && `🗣 ${esc(langs.join(", "))}`,
+      v.note && `📝 ${esc(v.note)}`,
     ].filter(Boolean);
     $("metaLine").innerHTML = bits.map((b) => `<span>${b}</span>`).join("");
     const chips = [];
+    if (v.synthetic) chips.push(N.syntheticBadge(v));
     if (v.lens_name) chips.push(`<span class="chip brand">${esc(v.lens_name)}</span>`);
-    if (v.status !== "done") chips.push(N.statusChip(v.status, v.stage));
+    if (v.status !== "done") chips.push(N.statusChip(v.status, v.stage, v.stalled));
     if (v.flags) chips.push(`<span class="chip bad">🚩 ${esc(v.flags)} flag${v.flags > 1 ? "s" : ""}</span>`);
     $("headChips").innerHTML = chips.join("");
 
@@ -90,7 +117,7 @@
     const err = v.status === "error";
     $("steps").innerHTML = STEP_LABELS.map(([key, label], i) => {
       let cls = "";
-      if (key === "consent") cls = d.consent ? "done" : "";
+      if (key === "consent") cls = !d.consent ? "" : (d.consent.verified === false && !d.consent.review ? "error" : "done");
       else {
         const k = ORDER.indexOf(key);
         if (v.status === "done" || k < idx) cls = "done";
@@ -99,9 +126,21 @@
       }
       return `<span class="step ${cls}"><span class="dot"></span>${esc(label)}</span>`;
     }).join("");
-    if (err) {
-      $("steps").innerHTML += `<span class="step error"><span class="dot"></span>Error</span>`;
-      $("errBox").innerHTML = `<div class="alert error">Processing failed: ${esc(v.error || v.stage || "unknown error")}</div>`;
+    const perm = d.permissions || {};
+    if (v.status === "needs_consent_review") {
+      $("errBox").innerHTML = `<div class="alert warn-box" role="alert"><b>⚠️ Consent not verified.</b> ${esc(v.error || "")}
+        No AI analysis has run on this recording. ${perm.confirm_consent
+          ? 'Listen to the start of the recording, then confirm if the customer did agree.<div style="margin-top:.5rem"><button class="btn primary sm" id="confirmConsentBtn">I reviewed it: the customer consented</button> <button class="btn secondary sm" id="eraseNowBtn">Erase the recording</button></div>'
+          : "A manager needs to review it before anything else happens."}</div>`;
+      const cb = $("confirmConsentBtn"), eb = $("eraseNowBtn");
+      if (cb) cb.addEventListener("click", () => action("confirm-consent", "Consent confirmed: processing continues"));
+      if (eb) eb.addEventListener("click", erase);
+    } else if (err || v.stalled) {
+      if (err) $("steps").innerHTML += `<span class="step error"><span class="dot"></span>Error</span>`;
+      const msgText = err ? `Processing failed: ${esc(v.error || v.stage || "unknown error")}` : "This visit has made no progress for a while.";
+      $("errBox").innerHTML = `<div class="alert error">${msgText}${perm.retry ? ' <button class="btn secondary sm" id="retryBtn" style="margin-left:.5rem">Retry</button>' : ""}</div>`;
+      const rb = $("retryBtn");
+      if (rb) rb.addEventListener("click", () => action("retry", "Queued again"));
     } else if (v.status !== "done") {
       $("errBox").innerHTML = `<div class="alert info">${esc(v.stage || "Processing…")} This page updates by itself.</div>`;
     } else {
@@ -333,15 +372,19 @@
         <div style="background:#F8FAFC;border-radius:12px;padding:.7rem .8rem;font-size:.9rem">
           ${f.subject ? `<b>${esc(f.subject)}</b><br>` : ""}<span style="white-space:pre-wrap">${N.renderRedactions(f.body || "")}</span></div>`);
     }
-    if (status === "proposed" || status === "drafted") {
+    const perm = d.permissions || {};
+    if ((status === "proposed" || status === "drafted") && !perm.approve) {
+      rows.push(`<div class="alert info" style="margin-top:.8rem">${esc(perm.approve_reason || "Waiting for a manager to approve.")}</div>`);
+    } else if (status === "proposed" || status === "drafted") {
       rows.push(`<div class="row" style="margin-top:.8rem">
         <button class="btn secondary" id="rejectBtn">Reject</button>
         <button class="btn ok" id="approveBtn">✅ Approve &amp; save to CRM</button></div>
         <div class="muted" style="font-size:.78rem;margin-top:.4rem">Nothing changes in the CRM and nothing goes to the customer until a person approves.</div>`);
     } else if (status === "approved" || status === "sent") {
-      rows.push(`<div class="alert ok" style="margin-top:.8rem">✅ Approved${p && p.approved_by ? ` by ${esc(p.approved_by)}` : ""}, saved to CRM, audit logged</div>`);
+      rows.push(`<div class="alert ok" style="margin-top:.8rem">✅ Approved${p && p.approved_by ? ` by ${esc(p.approved_by)}` : ""}${p && p.self_approved ? " (self-approved by the rep)" : ""}, saved to CRM, audit logged</div>`);
     } else if (status === "rejected") {
-      rows.push(`<div class="alert info" style="margin-top:.8rem">Rejected${p && p.approved_by ? ` by ${esc(p.approved_by)}` : ""}. Nothing was saved.</div>`);
+      const by = (p && p.rejected_by) || (f && f.rejected_by);
+      rows.push(`<div class="alert info" style="margin-top:.8rem">Rejected${by ? ` by ${esc(by)}` : ""}. Nothing was saved.</div>`);
     }
     $("proposal").innerHTML = rows.join("");
     const ab = $("approveBtn"), rb = $("rejectBtn");
@@ -357,7 +400,7 @@
       refreshSmall();
     } catch (e) {
       $("approveBtn").disabled = false;
-      N.toast(e.status === 403 ? "Only a manager or this visit's rep can approve" : `Approve failed: ${e.message}`, 3500);
+      N.toast(`Approve failed: ${e.message}`, 4000);
     }
   }
 
@@ -434,6 +477,11 @@
       <dt>Confirmed by</dt><dd>${esc(c.confirmed_by || "")}</dd>
       ${c.subject ? `<dt>Customer</dt><dd>${esc(c.subject)}</dd>` : ""}
       <dt>When</dt><dd>${esc(N.fmtDate(c.recorded_at))}</dd>
+      <dt>Verified</dt><dd>${c.verified === true
+        ? `✅ Customer's yes found on the recording${c.verified_segment != null ? ` (segment #${esc(c.verified_segment)})` : ""}`
+        : c.verified === false
+          ? (c.review ? `Reviewed and confirmed by ${esc(c.review.confirmed_by)}` : "⚠️ Not found on the recording: waiting for manager review")
+          : `Attested by the rep (not checkable on tape)${c.verified_segment != null ? `; a spoken yes was also found (#${esc(c.verified_segment)})` : ""}`}</dd>
       <dt>Purpose</dt><dd style="font-size:.82rem">${esc(c.purpose || "")}</dd>`;
     const counts = (d.redactions && d.redactions.counts) || {};
     const keys = Object.keys(counts);
@@ -459,7 +507,7 @@
       N.toast("Visit erased");
       setTimeout(() => { location.href = user && user.role !== "rep" ? "/dashboard" : "/"; }, 900);
     } catch (e) {
-      N.toast(e.status === 403 ? "You can't erase this visit" : `Erase failed: ${e.message}`, 3500);
+      N.toast(`Erase failed: ${e.message}`, 4000);
     }
   }
 
