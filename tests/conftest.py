@@ -15,9 +15,28 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
 import pytest  # noqa: E402
+import yaml  # noqa: E402
 
 CSRF = {"X-Nabz": "1"}
 DEMO_PIN = "1234"
+
+
+TEST_CONFIG = DATA_DIR.parent / f"{DATA_DIR.name}-workspace.yaml"
+os.environ["NABZ_CONFIG"] = str(TEST_CONFIG)  # must be set before any Nabz module is imported
+
+
+def _write_test_workspace() -> None:
+    """A private copy of config/workspace.yaml in which every user's PIN is DEMO_PIN, so tests never
+    depend on (or reveal) the PINs configured for a real deployment."""
+    from set_pin import hash_pin  # imports common, which now reads NABZ_CONFIG
+
+    ws = yaml.safe_load((ROOT / "config" / "workspace.yaml").read_text(encoding="utf-8"))
+    for member in ws.get("team", []):
+        member["pin_hash"] = hash_pin(DEMO_PIN, iterations=1000)
+    TEST_CONFIG.write_text(yaml.safe_dump(ws, allow_unicode=True, sort_keys=False), encoding="utf-8")
+
+
+_write_test_workspace()
 
 
 def write(path: Path, data) -> None:

@@ -105,7 +105,8 @@ def utf8_stdout() -> None:
 
 # ---------------------------------------------------------------- workspace config + audit log
 
-CONFIG_FILE = ROOT / "config" / "workspace.yaml"
+# NABZ_CONFIG lets tests (and deployments) use a different workspace file.
+CONFIG_FILE = Path(os.environ["NABZ_CONFIG"]) if os.environ.get("NABZ_CONFIG") else ROOT / "config" / "workspace.yaml"
 LENSES_DIR = ROOT / "lenses"
 AUDIT_FILE = DATA / "audit.jsonl"
 
