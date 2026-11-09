@@ -6,8 +6,9 @@ phases:
       - aws ecr get-login-password --region "$AWS_REGION" | docker login --username AWS --password-stdin "${ECR_REPO_URI%%/*}"
   build:
     commands:
-      - docker build -t "$ECR_REPO_URI:latest" -t "$ECR_REPO_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION" .
+      - docker build -t "$ECR_REPO_URI:latest" -t "$ECR_REPO_URI:build-$CODEBUILD_BUILD_NUMBER" .
   post_build:
     commands:
       - docker push "$ECR_REPO_URI:latest"
+      - docker push "$ECR_REPO_URI:build-$CODEBUILD_BUILD_NUMBER"
       - echo "pushed $ECR_REPO_URI:latest"
