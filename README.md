@@ -137,10 +137,16 @@ cp .env.example .env              # add GNANI_API_KEY=...
 .venv/Scripts/python -m pytest -q # 50 tests, no paid API calls
 ```
 
-Open <http://localhost:8000>. Pick a user; the **demo PIN is `1234`**. Arjun, Sneha and Ravi are reps
-who record; Kavita (manager) sees the dashboard; Meera is admin. Set real PINs with
-`tools/set_pin.py`. Recording from a phone browser needs HTTPS (a tunnel or deployment); uploading a
-file works anywhere.
+Open <http://localhost:8000> and pick a user. Arjun, Sneha and Ravi are reps who record (demo PIN
+**`1234`**). Kavita (manager) sees the dashboard and Meera is admin. Their PINs are private in this
+repo's config, so set your own first:
+
+```bash
+./py tools/set_pin.py --handle kavita --pin 1234
+./py tools/set_pin.py --handle meera --pin 1234
+```
+
+Recording from a phone browser needs HTTPS (a tunnel or deployment); uploading a file works anywhere.
 
 ```bash
 ./py tools/pipeline.py demo/kirana_snippet.ogg --rep arjun --account "Sharma Kirana" --segment Kirana --consent rep-confirmed

@@ -30,7 +30,7 @@ from common import CALLS, CallErased, audit, is_erased, read_json, slugify, utf8
 TOOLS = Path(__file__).resolve().parent
 STAGES = {
     "queued": "Waiting to start…",
-    "transcribing": "Transcribing with Gnani Prisma (diarization, Hinglish, denoise)…",
+    "transcribing": "Transcribing with Gnani Prisma (Hinglish, code-mix, speaker diarization)…",
     "analysing": "Analysing with Claude: every quote verified against the transcript…",
     "voicing": "Recording the voice debrief with Gnani Timbre…",
     "needs_consent_review": "Waiting for a manager: verbal consent was not found on the recording",
