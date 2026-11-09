@@ -19,7 +19,7 @@ So I built **Nabz** (नब्ज़, "pulse": *bazaar ki nabz*) on @Gnani.ai's 
 📊 Every market signal (competitor credit, scheme confusion, slow movers) is backed by a quote that code checks against the transcript.
 🔊 The rep gets a 20-second coaching voice note in his own language, spoken by Gnani **Timbre**.
 
-Demo note: the dashboard uses synthetic visits voiced by AI, run through the real pipeline. The opening clip is a real recording.
+Demo note: every visit shown is synthetic: AI voices (Gnani Timbre, ElevenLabs) reading written scripts, run through the real pipeline. If you add a real recording, say which clip it is.
 
 Code and noise benchmark: github.com/Dupahar/Nabz
 
