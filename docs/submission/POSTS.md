@@ -21,7 +21,7 @@ So I built **Nabz** (नब्ज़, "pulse": *bazaar ki nabz*) on @Gnani.ai's 
 
 Demo note: the dashboard uses synthetic visits voiced by AI, run through the real pipeline. The opening clip is a real recording.
 
-Code and noise benchmark: {{github url}}
+Code and noise benchmark: github.com/Dupahar/Nabz
 
 Which FMCG category should I pilot with first: snacks, beverages or staples? 👇
 
@@ -40,21 +40,29 @@ Which FMCG category should I pilot with first: snacks, beverages or staples? �
 
 5/ The rep gets a 20-sec coaching voice note in his own language, from Gnani Timbre. Phone numbers are redacted before any AI sees the text.
 
-6/ Demo dashboard = synthetic visits, voiced by AI, through the real pipeline. Code and benchmark: {{github url}}
+6/ Demo dashboard = synthetic visits, voiced by AI, through the real pipeline. Code and benchmark: github.com/Dupahar/Nabz
 
 ## Post 2: the benchmark (a day later, or as the first comment)
 
 How well does Indian speech AI hear a real shop counter?
 
 I tested Gnani **Prisma v3.0** against **Whisper** on Hinglish and English field-sales conversations
-at 20 → 0 dB of street, cafeteria and crowd noise, a phone about a metre away in a simulated shop.
+at 20 → 0 dB of street, cafeteria and crowd noise, with the phone about 1.7 m away in a simulated shop.
 
-To keep it fair, I used **independent ElevenLabs voices**, so Gnani's own TTS isn't grading Gnani's ASR.
+To keep it fair, every conversation was voiced twice, by Gnani Timbre and by **independent ElevenLabs
+voices**, so Gnani's own TTS isn't grading Gnani's ASR.
 
-- Word error rate at 10 dB: Prisma {{x}}% vs Whisper {{y}}%
-- Brand and price **keyterm recall** at 5 dB: Prisma {{a}}% vs Whisper {{b}}%
-- Where Prisma still slips: {{e.g. "Delhivery" → "delivery"}}
+- Clean Hinglish: **Prisma about 2% word error**, Whisper medium 8–12%, Whisper small 22–27%
+- At 10 dB of street noise: **Prisma 11–14%** vs Whisper medium 23–31%
+- Brand, price and day **keyterm recall** at 10 dB: **Prisma 89%** vs Whisper medium 60%
+- Where Prisma didn't win: on Indian English at 0 dB, Whisper was as good or better
+- A surprise: Prisma's built-in `denoise` option made accuracy *worse* (12.7% → 21.4% at 10 dB), so I turned it off
+- Where it still slips: "Delhivery" → "delivery", even with keyterms
 
-Method, code and caveats (synthetic speech, simulated rooms, small sample): {{github url}}/benchmark
+At 0 dB (noise as loud as the speech) every model loses about half the words, so put the phone
+between the two speakers.
+
+Method, code and caveats (synthetic speech, simulated rooms, 6 conversations per voice source):
+github.com/Dupahar/Nabz/tree/main/benchmark
 
 #GnaniAI #GreatIndianAIInternshipChallenge #SpeechRecognition #IndicAI
