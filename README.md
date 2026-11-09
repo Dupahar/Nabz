@@ -16,8 +16,6 @@ Every insight carries a quote verified against the transcript in code.
 ![Tests](https://img.shields.io/badge/tests-50%20passing-16A34A)
 ![Privacy](https://img.shields.io/badge/consent%20%C2%B7%20redaction%20%C2%B7%20audit-2563EB)
 
-Built solo for the **Great Indian AI Internship Challenge** by Gnani AI · #GnaniAI #GreatIndianAIInternshipChallenge
-
 </div>
 
 ---

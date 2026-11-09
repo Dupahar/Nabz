@@ -23,7 +23,7 @@ Tags: [V] vendor or blog · [PR] peer-reviewed · [PP] preprint · [est] third-p
 **Positioning.**
 > *(Original positioning, superseded; see the business case.) Field coaching for India: a rep records on their phone, with no install (mobile web; offline capture on the roadmap). Gnani's Prisma transcribes Hinglish recorded at a noisy shop counter, managers get a scorecard, and a person approves every CRM change.*
 
-**The risk, and how to answer it.** Prisma v3.0 is marketed for 8 kHz telephony audio, and there's no public benchmark of it on far-field phone-mic recordings [[LDS](https://letsdatascience.com/news/gnani-ai-launches-prisma-v30-speech-to-text-model-for-indian-7163adda)]. **Our noise benchmark (§4) would be the first public one for in-person audio.** It reduces our risk, it's the evidence for the Noise Canceller award, and it's a useful finding to bring to Gnani's interviewers.
+**The risk, and how to answer it.** Prisma v3.0 is marketed for 8 kHz telephony audio, and there's no public benchmark of it on far-field phone-mic recordings [[LDS](https://letsdatascience.com/news/gnani-ai-launches-prisma-v30-speech-to-text-model-for-indian-7163adda)]. **Our noise benchmark (§4) would be the first public one for in-person audio.** It reduces our risk and is a useful finding to share with Gnani.
 
 ---
 
@@ -69,7 +69,7 @@ Tags: [V] vendor or blog · [PR] peer-reviewed · [PP] preprint · [est] third-p
 
 ---
 
-## 4. The noise benchmark (Noise Canceller award evidence)
+## 4. The noise benchmark
 
 1. **Scripts.** 8–10 Hinglish field-sales role-plays (a kirana visit, a distributor, a pharmacy), containing SKUs, prices in lakh and crore, and competitor names. Reference transcripts are written by hand.
 2. **Audio.**
@@ -97,7 +97,7 @@ Tags: [V] vendor or blog · [PR] peer-reviewed · [PP] preprint · [est] third-p
 | 6 | **Append-only, hash-chained audit log** of agent and human actions | 2 | RBI and IRDAI audit rights, CERT-In logs, DPDP one-year logs | RBI IT Outsourcing 2023 |
 | 7 | **Cost per call in rupees**: speech-to-text minutes, LLM tokens, TTS characters | 1.5 | Budget approval and return on investment | — |
 | 8 | **Vertical playbooks**: FMCG outlet visit (order, scheme pitched, stock-outs, competitor shelf) and pharma detailing (key messages, samples, UCPMP inducement flags), replacing generic BANT | 2 | BANT fits field sales in FMCG and pharma poorly; vertical playbooks show domain depth | UCPMP 2024 |
-| 9 | **Noise benchmark** (§4) | 4 | Proof, and the Noise Canceller award | Vistaar, MUSAN |
+| 9 | **Noise benchmark** (§4) | 4 | Proof that the speech layer holds up in shops | Vistaar, MUSAN |
 
 About 21 hours of work in total, which leaves time for the video and the post.
 

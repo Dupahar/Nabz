@@ -48,9 +48,9 @@ def start_server() -> subprocess.Popen | None:
     raise RuntimeError("server did not start")
 
 
-def login(page, handle: str) -> None:
+def login(page, handle: str, base: str = BASE) -> None:
     """Log in through the UI like a person: pick the card, enter the PIN if asked."""
-    page.goto(BASE + "/login")
+    page.goto(base + "/login")
     page.wait_for_selector(f'button.person[data-handle="{handle}"]', timeout=20000)
     page.click(f'button.person[data-handle="{handle}"]')
     try:
@@ -62,8 +62,8 @@ def login(page, handle: str) -> None:
     try:
         page.wait_for_url(lambda u: "/login" not in u, timeout=15000)
     except Exception:  # noqa: BLE001 - fall back to the API, then navigate
-        page.request.post(BASE + "/api/login", data={"handle": handle, "pin": PIN}, headers={"X-Nabz": "1"})
-        page.goto(BASE + "/")
+        page.request.post(base + "/api/login", data={"handle": handle, "pin": PIN}, headers={"X-Nabz": "1"})
+        page.goto(base + "/")
     page.wait_for_timeout(800)
 
 
@@ -111,6 +111,9 @@ def main() -> None:
     ap.add_argument("--reuse", help="skip the live upload; use this existing call_id")
     ap.add_argument("--live", action="store_true", help="the --reuse visit was uploaded live by this capture session")
     ap.add_argument("--wait", type=int, default=900, help="max seconds to wait for processing")
+    ap.add_argument("--analysed", help="after the live upload's progress frames, cut to this already-processed visit")
+    ap.add_argument("--dash-base", default=None, help="server for the manager dashboard shots (default: same)")
+    ap.add_argument("--progress-seconds", type=float, default=6.0, help="with --analysed: how long to film the live progress")
     args = ap.parse_args()
     SHOTS.mkdir(parents=True, exist_ok=True)
     for f in SHOTS.glob("*.png"):
@@ -176,11 +179,30 @@ def main() -> None:
             prog = Seq(page, "prog")
             page.goto(f"{BASE}/visit/{call_id}")
             page.wait_for_selector("#steps", timeout=20000)
+            # The pipeline's stage sentence still says "denoise", which is now disabled (benchmark: it hurt
+            # accuracy). Hide that one stale label rather than film a wrong claim; the chips stay real.
+            hide_stale = """document.querySelectorAll('div,p').forEach(d => { if (d.children.length === 0 &&
+                /updates by itself/.test(d.textContent)) d.style.display = 'none'; });"""
+            page.evaluate(hide_stale)
             last, t0 = None, time.time()
-            while time.time() - t0 < args.wait:
+            if args.analysed:  # film the live run briefly, then cut to the processed visit
+                while time.time() - t0 < args.progress_seconds:
+                    page.evaluate(hide_stale)
+                    prog.shot(0.45)
+                    page.wait_for_timeout(900)
+                meta["live_call_id"] = call_id
+                call_id = args.analysed
+                meta["call_id"] = call_id
+                page.goto(f"{BASE}/visit/{call_id}")
+                page.wait_for_selector("#ring", timeout=20000)
+                page.wait_for_timeout(1200)
+                prog.shot(0.9)
+                last = "done"
+            while not args.analysed and time.time() - t0 < args.wait:
                 status = page.evaluate("fetch('/api/visits/' + location.pathname.split('/').pop()).then(r => r.json()).then(d => d.visit.status)")
                 if status != last:
                     page.wait_for_timeout(400)
+                    page.evaluate(hide_stale)
                     prog.shot(0.7)
                     last = status
                 if status in ("done", "error"):
@@ -244,8 +266,9 @@ def main() -> None:
                                "height": page.evaluate("document.documentElement.scrollHeight")}
             # manager
             page.context.clear_cookies()
-            login(page, "kavita")
-            page.goto(BASE + "/dashboard")
+            dash_base = args.dash_base or BASE
+            login(page, "kavita", dash_base)
+            page.goto(dash_base + "/dashboard")
             page.wait_for_selector("#kpis", timeout=20000)
             page.wait_for_timeout(3500)   # charts animate in
             sec = lambda inner: f"section.card:has({inner})"  # noqa: E731

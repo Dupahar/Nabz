@@ -1,9 +1,9 @@
 # Nabz: independent audit (9 Nov 2026)
 
 Three independent auditors (engineering and security, problem and business case, product and
-contest fit) were given the files, not the authors' conclusions. Their findings were then
-cross-checked against the code. Scores are strict: 1–10, judged against the best student entries
-and pre-seed standards.
+UX) were given the files, not the authors' conclusions. Their findings were then cross-checked
+against the code. Scores are strict: 1–10, judged against pre-seed product standards.
+This is the audit of the first prototype; the fixes since are in the git history.
 
 ## Scorecard
 
@@ -30,10 +30,9 @@ and pre-seed standards.
 | 19 | Real-world usefulness | **7** | Credible pain, plausible buyer, a believable workflow |
 | 20 | UX and polish | **6** | Clean and modern. English-only rep UI, dense pages, demo debris (an error row, "set rates") |
 | 21 | Demo-ability / engagement | **4** | No video, no live URL. An enterprise dashboard doesn't land in 3 seconds |
-| 22 | Award-category fit | **5** | Real Deal and Mixed Vibes are plausible. No regional language (Main Character). Noise Canceller asks for *telephonic* audio |
-| 23 | Honesty / rule compliance | **5** | Synthetic data is disclosed in the README only, not in the UI. At least 6 "Why trust it" claims overreach. No real human recording yet |
-| 24 | Submission readiness | **2** | No remote, no video, no posts, submission text still says FieldNotes, benchmark unfinished and not in the repo |
-| | **Overall** | **3.7 / 10** | **A strong hackathon prototype with honest instincts, but over-claimed, unfinished for submission, and not yet a business** |
+| 22 | Claims vs code | **5** | Synthetic data is disclosed in the README only, not in the UI. At least 6 "Why trust it" claims overreach. No real human recording yet |
+| 23 | Release readiness | **2** | No remote, no video, no deployment, stale FieldNotes docs, benchmark unfinished and not in the repo |
+| | **Overall** | **3.7 / 10** | **A strong prototype with honest instincts, but over-claimed, not yet releasable, and not yet a business** |
 
 ## Auditor errors (findings rejected on verification)
 - "docs/API.md, playbooks/, .env.example and demo/kirana_snippet.ogg don't exist": they do exist in Nabz. The auditor looked in the wrong place.
@@ -45,7 +44,7 @@ and pre-seed standards.
 **Critical**
 1. Anyone can log in as any user, including admin (unsigned handle cookie, team list served before login). `app/server.py:44-49, 105-114, 133`
 2. The quote check accepts fabricated quotes through fuzzy matching (0.85 threshold, no digit or negation check, a 4-segment window that crosses speakers). `tools/analysis.py:111-135`
-3. Not submittable: no public repo, video, posts or live URL. The submission text is stale.
+3. Not releasable: no public repo, video or live URL. Some docs are stale.
 
 **High**
 4. `drop_unverified` sorts field names as text, so `needs[10]` before `needs[9]` drops the wrong item. `tools/llm.py` (drop_unverified)
