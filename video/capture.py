@@ -109,6 +109,8 @@ def smooth_scroll(seq: Seq, to_selector: str, steps: int = 8, offset: int = 90) 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--reuse", help="skip the live upload; use this existing call_id")
+    ap.add_argument("--live", action="store_true", help="the --reuse visit was uploaded live by this capture session")
+    ap.add_argument("--wait", type=int, default=900, help="max seconds to wait for processing")
     args = ap.parse_args()
     SHOTS.mkdir(parents=True, exist_ok=True)
     for f in SHOTS.glob("*.png"):
@@ -165,7 +167,7 @@ def main() -> None:
                     seq.shot(0.6)
                 except Exception as exc:  # noqa: BLE001
                     print("upload failed, falling back to an existing visit:", exc)
-            meta["live_upload"] = bool(call_id and not args.reuse)
+            meta["live_upload"] = bool(call_id and (not args.reuse or args.live))
             call_id = call_id or FALLBACK_VISIT
             meta["call_id"] = call_id
             meta["rep_frames"] = seq.frames
@@ -175,7 +177,7 @@ def main() -> None:
             page.goto(f"{BASE}/visit/{call_id}")
             page.wait_for_selector("#steps", timeout=20000)
             last, t0 = None, time.time()
-            while time.time() - t0 < 300:
+            while time.time() - t0 < args.wait:
                 status = page.evaluate("fetch('/api/visits/' + location.pathname.split('/').pop()).then(r => r.json()).then(d => d.visit.status)")
                 if status != last:
                     page.wait_for_timeout(400)

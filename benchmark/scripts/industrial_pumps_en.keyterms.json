@@ -1,0 +1,12 @@
+{"prisma_keyterms": ["Apex Hydra", "Kirloskar", "hydraulic pumps", "annual maintenance"],
+ "entities": [
+  {"name": "Apex Hydra", "variants": ["apex hydra", "apex hydro", "एपेक्स"]},
+  {"name": "Kirloskar (competitor)", "variants": ["kirloskar", "किर्लोस्कर"]},
+  {"name": "Rs 1.8 lakh competitor quote", "variants": ["1 lakh 80 thousand", "one lakh eighty thousand", "180000", "1,80,000", "180,000", "1.8 lakh", "1 lakh 80,000"]},
+  {"name": "Rs 2.1 lakh price", "variants": ["2 lakh 10 thousand", "two lakh ten thousand", "210000", "2,10,000", "210,000", "2.1 lakh", "2 lakh 10,000"]},
+  {"name": "Rs 30,000 difference", "variants": ["30 thousand", "thirty thousand", "30000", "30,000"]},
+  {"name": "Mr. Nair", "variants": ["nair", "नायर"]},
+  {"name": "24-hour service", "variants": ["24 hours", "twenty four hours", "twenty-four hours"]},
+  {"name": "Wednesday", "variants": ["wednesday"]},
+  {"name": "15th", "variants": ["fifteenth", "15th", "15"]}
+ ]}

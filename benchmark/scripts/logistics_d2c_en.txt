@@ -1,0 +1,14 @@
+# voices: A=Tarika, B=Shubham
+# language: en-IN
+# Office visit. A = account manager at ShipFast Logistics. B = Karan, founder of a D2C brand.
+A: Hi Karan, thanks for meeting me in person. How are deliveries going for your brand?
+B: Honestly, not great. Our return to origin rate is almost twenty two percent.
+A: That is high. Which courier are you using right now?
+B: Mostly Delhivery, and some orders through Shiprocket.
+A: With ShipFast, we verify the address on WhatsApp before dispatch, which usually brings returns below ten percent.
+B: Interesting. What do you charge per shipment?
+A: Forty five rupees for the first five hundred grams, within the same zone.
+B: We ship about three thousand orders a month, mostly to tier two cities.
+A: At that volume, I can offer forty rupees, and a free pilot for the first two weeks.
+B: Let us start the pilot from the first of December.
+A: Perfect. I will share the onboarding checklist by Friday.

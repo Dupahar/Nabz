@@ -14,7 +14,7 @@ SCENES = [
     {"id": "stats", "min": 6.0, "vo": [("en-IN", "Eighty-nine percent of India's offline FMCG sales happen in general trade. "
                                                   "None of what's said there reaches HQ.")]},
     {"id": "rep", "min": 7.5, "vo": [("en-IN", "The rep takes consent and records the visit. "
-                                                "Gnani Prisma transcribes the Hinglish, separates speakers and cuts the noise.")]},
+                                                "Gnani Prisma transcribes the Hinglish and separates the speakers, even over street noise.")]},
     {"id": "visit", "min": 6.0, "vo": [("en-IN", "Phone numbers are redacted before any AI sees them. "
                                                   "Every insight is quoted, and verified against the transcript.")]},
     {"id": "debrief", "min": 6.0, "vo": [], "audio": "debrief"},   # the real Timbre debrief plays here

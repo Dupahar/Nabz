@@ -1,0 +1,13 @@
+# voices: A=Shubham, B=Kalpana
+# language: hi-en
+# Doctor visit. A = Amit, medical representative at Zenova Pharma. B = Dr. Mehta, general physician.
+A: Good morning डॉक्टर मेहता, मैं Zenova Pharma से अमित। दो मिनट मिलेंगे?
+B: हाँ अमित, जल्दी बताओ, बाहर patients wait कर रहे हैं।
+A: हमारी नई tablet Glucosafe five hundred अब launch हो गई है, type two diabetes के लिए।
+B: Metformin तो मैं already लिखती हूँ। इसमें नया क्या है?
+A: इसमें extended release है, तो patient को दिन में सिर्फ एक बार लेनी होती है। Side effects भी कम हैं।
+B: Price क्या है? मेरे ज़्यादातर patients गाँव से आते हैं।
+A: दस tablets का strip एक सौ बीस रुपये का है। Glycomet से थोड़ा सस्ता है।
+B: ठीक है, कुछ samples छोड़ दो, मैं दो हफ्ते try करूँगी।
+A: ज़रूर। मैं बीस strips के samples छोड़ रहा हूँ, और अगले गुरुवार को feedback के लिए आऊँगा।
+B: ठीक है, गुरुवार को lunch के बाद आना।

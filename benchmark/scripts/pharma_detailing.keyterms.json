@@ -1,0 +1,11 @@
+{"prisma_keyterms": ["Zenova Pharma", "Glucosafe", "Metformin", "Glycomet", "extended release"],
+ "entities": [
+  {"name": "Zenova Pharma", "variants": ["zenova", "ज़ेनोवा", "जेनोवा"]},
+  {"name": "Glucosafe", "variants": ["glucosafe", "gluco safe", "ग्लूकोसेफ", "ग्लूकोसेफ़"]},
+  {"name": "Metformin", "variants": ["metformin", "मेटफॉर्मिन", "मेटफोर्मिन"]},
+  {"name": "Glycomet (competitor)", "variants": ["glycomet", "glycomate", "ग्लाइकोमेट"]},
+  {"name": "Type 2 diabetes", "variants": ["type two", "type 2", "टाइप टू", "टाइप 2"]},
+  {"name": "Rs 120 per strip", "variants": ["120", "एक सौ बीस", "one hundred twenty", "one twenty"]},
+  {"name": "20 strips of samples", "variants": ["20 strips", "बीस strips", "बीस स्ट्रिप्स", "twenty strips", "20 स्ट्रिप्स"]},
+  {"name": "Thursday", "variants": ["गुरुवार", "thursday"]}
+ ]}

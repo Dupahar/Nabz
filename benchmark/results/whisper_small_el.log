@@ -1,0 +1,32 @@
+== transcribe
+Prisma audio to submit:  | total 0.0 min
+  whisper-small industrial_pumps_en-el__clean: 9s for 55s audio
+  whisper-small industrial_pumps_en-el__ff20: 8s for 55s audio
+  whisper-small industrial_pumps_en-el__ff10: 8s for 55s audio
+  whisper-small industrial_pumps_en-el__ff5: 8s for 55s audio
+  whisper-small industrial_pumps_en-el__ff0: 8s for 55s audio
+  whisper-small kirana_distributor-el__clean: 86s for 49s audio
+  whisper-small kirana_distributor-el__ff20: 51s for 49s audio
+  whisper-small kirana_distributor-el__ff10: 79s for 49s audio
+  whisper-small kirana_distributor-el__ff5: 76s for 49s audio
+  whisper-small kirana_distributor-el__ff0: 78s for 49s audio
+  whisper-small loan_field_agent-el__clean: 38s for 45s audio
+  whisper-small loan_field_agent-el__ff20: 41s for 46s audio
+  whisper-small loan_field_agent-el__ff10: 42s for 46s audio
+  whisper-small loan_field_agent-el__ff5: 59s for 46s audio
+  whisper-small loan_field_agent-el__ff0: 122s for 46s audio
+  whisper-small logistics_d2c_en-el__clean: 6s for 48s audio
+  whisper-small logistics_d2c_en-el__ff20: 7s for 48s audio
+  whisper-small logistics_d2c_en-el__ff10: 8s for 48s audio
+  whisper-small logistics_d2c_en-el__ff5: 13s for 48s audio
+  whisper-small logistics_d2c_en-el__ff0: 13s for 48s audio
+  whisper-small pharma_detailing-el__clean: 55s for 42s audio
+  whisper-small pharma_detailing-el__ff20: 183s for 42s audio
+  whisper-small pharma_detailing-el__ff10: 173s for 42s audio
+  whisper-small pharma_detailing-el__ff5: 62s for 42s audio
+  whisper-small pharma_detailing-el__ff0: 68s for 42s audio
+  whisper-small realestate_site_visit-el__clean: 96s for 47s audio
+  whisper-small realestate_site_visit-el__ff20: 108s for 47s audio
+  whisper-small realestate_site_visit-el__ff10: 101s for 47s audio
+  whisper-small realestate_site_visit-el__ff5: 65s for 47s audio
+  whisper-small realestate_site_visit-el__ff0: 69s for 47s audio

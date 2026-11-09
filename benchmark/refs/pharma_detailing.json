@@ -1,0 +1,83 @@
+{
+ "name": "pharma_detailing",
+ "language": "hi-en",
+ "voices": {
+  "A": "Shubham",
+  "B": "Kalpana"
+ },
+ "duration": 48.16,
+ "turns": [
+  {
+   "speaker": "A",
+   "text": "Good morning डॉक्टर मेहता, मैं Zenova Pharma से अमित। दो मिनट मिलेंगे?",
+   "start": 0.5,
+   "end": 5.3,
+   "line": 0
+  },
+  {
+   "speaker": "B",
+   "text": "हाँ अमित, जल्दी बताओ, बाहर patients wait कर रहे हैं।",
+   "start": 5.753,
+   "end": 9.593,
+   "line": 1
+  },
+  {
+   "speaker": "A",
+   "text": "हमारी नई tablet Glucosafe five hundred अब launch हो गई है, type two diabetes के लिए।",
+   "start": 10.089,
+   "end": 15.529,
+   "line": 2
+  },
+  {
+   "speaker": "B",
+   "text": "Metformin तो मैं already लिखती हूँ। इसमें नया क्या है?",
+   "start": 15.918,
+   "end": 19.118,
+   "line": 3
+  },
+  {
+   "speaker": "A",
+   "text": "इसमें extended release है, तो patient को दिन में सिर्फ एक बार लेनी होती है। Side effects भी कम हैं।",
+   "start": 19.447,
+   "end": 25.447,
+   "line": 4
+  },
+  {
+   "speaker": "B",
+   "text": "Price क्या है? मेरे ज़्यादातर patients गाँव से आते हैं।",
+   "start": 25.775,
+   "end": 29.215,
+   "line": 5
+  },
+  {
+   "speaker": "A",
+   "text": "दस tablets का strip एक सौ बीस रुपये का है। Glycomet से थोड़ा सस्ता है।",
+   "start": 29.701,
+   "end": 34.501,
+   "line": 6
+  },
+  {
+   "speaker": "B",
+   "text": "ठीक है, कुछ samples छोड़ दो, मैं दो हफ्ते try करूँगी।",
+   "start": 34.823,
+   "end": 38.983,
+   "line": 7
+  },
+  {
+   "speaker": "A",
+   "text": "ज़रूर। मैं बीस strips के samples छोड़ रहा हूँ, और अगले गुरुवार को feedback के लिए आऊँगा।",
+   "start": 39.41,
+   "end": 45.01,
+   "line": 8
+  },
+  {
+   "speaker": "B",
+   "text": "ठीक है, गुरुवार को lunch के बाद आना।",
+   "start": 45.362,
+   "end": 47.842,
+   "line": 9
+  }
+ ],
+ "text": "Good morning डॉक्टर मेहता, मैं Zenova Pharma से अमित। दो मिनट मिलेंगे? हाँ अमित, जल्दी बताओ, बाहर patients wait कर रहे हैं। हमारी नई tablet Glucosafe five hundred अब launch हो गई है, type two diabetes के लिए। Metformin तो मैं already लिखती हूँ। इसमें नया क्या है? इसमें extended release है, तो patient को दिन में सिर्फ एक बार लेनी होती है। Side effects भी कम हैं। Price क्या है? मेरे ज़्यादातर patients गाँव से आते हैं। दस tablets का strip एक सौ बीस रुपये का है। Glycomet से थोड़ा सस्ता है। ठीक है, कुछ samples छोड़ दो, मैं दो हफ्ते try करूँगी। ज़रूर। मैं बीस strips के samples छोड़ रहा हूँ, और अगले गुरुवार को feedback के लिए आऊँगा। ठीक है, गुरुवार को lunch के बाद आना।",
+ "source": "timbre-v3.0"
+}

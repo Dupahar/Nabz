@@ -99,11 +99,33 @@ and a real-audio benchmark. A strict independent audit and its remediation are i
 
 ## Noise benchmark
 
-Prisma is trained on phone audio. Field recordings come from one phone a metre away in a shop. So
-we test Prisma and Whisper on far-field rooms with street, cafeteria and babble noise at
-20/10/5/0 dB SNR, on speech from **two independent voice sources** (Gnani Timbre and ElevenLabs),
-scoring WER, CER and **keyterm recall** (did the SKU, price and competitor survive?). See
-[`benchmark/`](benchmark/).
+Prisma is trained on phone audio. Field recordings come from one phone about 1.7 m away in a shop.
+So we tested Prisma and Whisper in a simulated shop (RT60 0.5 s) with street, cafeteria and babble
+noise at 20/10/5/0 dB SNR. Six scripted field-sales conversations (4 Hinglish, 2 Indian English) were
+each voiced **twice, by two independent vendors** (Gnani Timbre and ElevenLabs), so this isn't only
+Gnani TTS scored by Gnani ASR.
+
+| Word error rate (Timbre / ElevenLabs voices) | Clean | 10 dB | 0 dB |
+|---|---|---|---|
+| **Gnani Prisma v3.0** | **1.8% / 2.1%** | **11.3% / 14.1%** | 40.7% / 48.9% |
+| Whisper medium | 8.4% / 12.2% | 22.6% / 30.5% | 48.4% / 50.5% |
+| Whisper small | 27.3% / 22.2% | 35.0% / 48.4% | 57.6% / 66.4% |
+
+![Word error rate vs noise](benchmark/results/wer_vs_snr.png)
+
+What we learned, including what doesn't flatter Prisma:
+- **Hinglish and code-mix are where Prisma wins**, on both voice vendors. Keyterm recall (brands,
+  prices, days) pooled across both: Prisma 94% / 89% / 59% at clean / 10 dB / 0 dB, Whisper medium
+  71% / 60% / 42%.
+- **On Indian English, Whisper matches or beats Prisma** (at 0 dB: Whisper medium 12–21% WER,
+  Prisma 28–48%).
+- **Prisma's `with_denoise` made things worse every time** (10 dB: 12.7% → 21.4% WER), so Nabz
+  turns it off. **`keyterms` made no measurable difference** ("Delhivery" still came out as "delivery").
+- **Speaker attribution held up:** 99–100% down to 10 dB, 87–94% at 0 dB.
+- **At 0 dB every system loses about half the words.** Nabz tells reps to put the phone between the
+  two speakers.
+- Caveats: synthetic voices are cleaner than real people; n = 6 conversations per source. Real
+  recordings come next. Method, code and every table are in [`benchmark/`](benchmark/).
 
 ## Run it
 

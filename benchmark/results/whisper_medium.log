@@ -1,0 +1,35 @@
+== transcribe
+Prisma audio to submit:  | total 0.0 min
+  whisper-medium kirana_distributor__ff0: 112s for 56s audio
+  whisper-medium loan_field_agent__clean: 77s for 48s audio
+  whisper-medium loan_field_agent__ff10: 79s for 49s audio
+  whisper-medium loan_field_agent__ff0: 78s for 49s audio
+  whisper-medium logistics_d2c_en__clean: 18s for 49s audio
+  whisper-medium logistics_d2c_en__ff10: 18s for 49s audio
+  whisper-medium logistics_d2c_en__ff0: 18s for 49s audio
+  whisper-medium pharma_detailing__clean: 96s for 48s audio
+  whisper-medium pharma_detailing__ff10: 96s for 49s audio
+  whisper-medium pharma_detailing__ff0: 349s for 49s audio
+  whisper-medium realestate_site_visit__clean: 95s for 47s audio
+  whisper-medium realestate_site_visit__ff10: 57s for 48s audio
+  whisper-medium realestate_site_visit__ff0: 204s for 48s audio
+  whisper-medium industrial_pumps_en-el__clean: 20s for 55s audio
+  whisper-medium industrial_pumps_en-el__ff10: 20s for 55s audio
+  whisper-medium industrial_pumps_en-el__ff0: 22s for 55s audio
+  whisper-medium kirana_distributor-el__clean: 99s for 49s audio
+  whisper-medium kirana_distributor-el__ff10: 96s for 49s audio
+  whisper-medium kirana_distributor-el__ff0: 105s for 49s audio
+  whisper-medium loan_field_agent-el__clean: 83s for 45s audio
+  whisper-medium loan_field_agent-el__ff10: 82s for 46s audio
+  whisper-medium loan_field_agent-el__ff0: 145s for 46s audio
+  whisper-medium logistics_d2c_en-el__clean: 28s for 48s audio
+  whisper-medium logistics_d2c_en-el__ff10: 28s for 48s audio
+  whisper-medium logistics_d2c_en-el__ff0: 30s for 48s audio
+  whisper-medium pharma_detailing-el__clean: 127s for 42s audio
+  whisper-medium pharma_detailing-el__ff10: 178s for 42s audio
+  whisper-medium pharma_detailing-el__ff0: 302s for 42s audio
+  whisper-medium realestate_site_visit-el__clean: 134s for 47s audio
+  whisper-medium realestate_site_visit-el__ff10: 138s for 47s audio
+  whisper-medium realestate_site_visit-el__ff0: 259s for 47s audio
+  whisper-medium demo_brightmart__clean: 153s for 232s audio
+  whisper-medium demo_kapoor__clean: 82s for 124s audio

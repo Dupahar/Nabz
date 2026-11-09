@@ -1,0 +1,14 @@
+{"prisma_keyterms": ["ShipFast", "Delhivery", "Shiprocket", "WhatsApp", "return to origin", "D2C"],
+ "entities": [
+  {"name": "ShipFast", "variants": ["shipfast", "ship fast"]},
+  {"name": "Delhivery (competitor)", "variants": ["delhivery"]},
+  {"name": "Shiprocket (competitor)", "variants": ["shiprocket", "ship rocket"]},
+  {"name": "22% RTO", "variants": ["22", "twenty two", "twenty-two"]},
+  {"name": "WhatsApp", "variants": ["whatsapp", "whats app"]},
+  {"name": "Rs 45 per shipment", "variants": ["45", "forty five", "forty-five"]},
+  {"name": "500 grams", "variants": ["500", "five hundred"]},
+  {"name": "3,000 orders a month", "variants": ["3000", "3,000", "three thousand"]},
+  {"name": "Rs 40 offer", "variants": ["40 rupees", "forty rupees", "rs 40", "rs. 40", "₹40"]},
+  {"name": "1 December", "variants": ["first of december", "1st of december", "1st december", "1 december", "december 1"]},
+  {"name": "Friday", "variants": ["friday"]}
+ ]}

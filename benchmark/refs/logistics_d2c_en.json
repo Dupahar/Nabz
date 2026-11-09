@@ -1,0 +1,90 @@
+{
+ "name": "logistics_d2c_en",
+ "language": "en-IN",
+ "voices": {
+  "A": "Tarika",
+  "B": "Shubham"
+ },
+ "duration": 48.67,
+ "turns": [
+  {
+   "speaker": "A",
+   "text": "Hi Karan, thanks for meeting me in person. How are deliveries going for your brand?",
+   "start": 0.5,
+   "end": 5.46,
+   "line": 0
+  },
+  {
+   "speaker": "B",
+   "text": "Honestly, not great. Our return to origin rate is almost twenty two percent.",
+   "start": 5.858,
+   "end": 10.578,
+   "line": 1
+  },
+  {
+   "speaker": "A",
+   "text": "That is high. Which courier are you using right now?",
+   "start": 10.95,
+   "end": 13.99,
+   "line": 2
+  },
+  {
+   "speaker": "B",
+   "text": "Mostly Delhivery, and some orders through Shiprocket.",
+   "start": 14.478,
+   "end": 17.278,
+   "line": 3
+  },
+  {
+   "speaker": "A",
+   "text": "With ShipFast, we verify the address on WhatsApp before dispatch, which usually brings returns below ten percent.",
+   "start": 17.625,
+   "end": 24.345,
+   "line": 4
+  },
+  {
+   "speaker": "B",
+   "text": "Interesting. What do you charge per shipment?",
+   "start": 24.834,
+   "end": 27.234,
+   "line": 5
+  },
+  {
+   "speaker": "A",
+   "text": "Forty five rupees for the first five hundred grams, within the same zone.",
+   "start": 27.576,
+   "end": 31.256,
+   "line": 6
+  },
+  {
+   "speaker": "B",
+   "text": "We ship about three thousand orders a month, mostly to tier two cities.",
+   "start": 31.556,
+   "end": 35.716,
+   "line": 7
+  },
+  {
+   "speaker": "A",
+   "text": "At that volume, I can offer forty rupees, and a free pilot for the first two weeks.",
+   "start": 36.212,
+   "end": 41.492,
+   "line": 8
+  },
+  {
+   "speaker": "B",
+   "text": "Let us start the pilot from the first of December.",
+   "start": 41.917,
+   "end": 44.317,
+   "line": 9
+  },
+  {
+   "speaker": "A",
+   "text": "Perfect. I will share the onboarding checklist by Friday.",
+   "start": 44.797,
+   "end": 48.317,
+   "line": 10
+  }
+ ],
+ "text": "Hi Karan, thanks for meeting me in person. How are deliveries going for your brand? Honestly, not great. Our return to origin rate is almost twenty two percent. That is high. Which courier are you using right now? Mostly Delhivery, and some orders through Shiprocket. With ShipFast, we verify the address on WhatsApp before dispatch, which usually brings returns below ten percent. Interesting. What do you charge per shipment? Forty five rupees for the first five hundred grams, within the same zone. We ship about three thousand orders a month, mostly to tier two cities. At that volume, I can offer forty rupees, and a free pilot for the first two weeks. Let us start the pilot from the first of December. Perfect. I will share the onboarding checklist by Friday.",
+ "source": "timbre-v3.0"
+}

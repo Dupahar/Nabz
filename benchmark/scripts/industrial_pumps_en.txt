@@ -1,0 +1,14 @@
+# voices: A=Harshad, B=Vasudha
+# language: en-IN
+# Plant visit. A = sales engineer selling Apex Hydra pumps. B = Ms. Iyer, procurement manager.
+A: Good afternoon, Ms. Iyer. Thanks for meeting me at the plant.
+B: No problem. We have been having trouble with our current hydraulic pumps.
+A: What kind of trouble are you seeing?
+B: Two breakdowns this month. Each one stopped the line for six hours.
+A: Our Apex Hydra three hundred series comes with a two year warranty and service within twenty four hours.
+B: Kirloskar quoted us one lakh eighty thousand per pump. What is your price?
+A: Our price is two lakh ten thousand, but that includes installation and annual maintenance.
+B: That is thirty thousand more. I will need approval from our plant head, Mr. Nair.
+A: Understood. Shall I send a cost comparison over five years so Mr. Nair can see the savings?
+B: Yes, please send it by Wednesday. Our budget meeting is on the fifteenth.
+A: I will send it by Wednesday morning, and I can join the budget meeting if that helps.

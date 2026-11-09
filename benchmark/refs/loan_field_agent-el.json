@@ -1,0 +1,91 @@
+{
+ "name": "loan_field_agent-el",
+ "script": "loan_field_agent",
+ "language": "hi-en",
+ "voices": {
+  "A": "Raju",
+  "B": "Simran"
+ },
+ "duration": 45.41,
+ "turns": [
+  {
+   "speaker": "A",
+   "text": "नमस्ते मैडम, मैं Shakti Finance से विक्रम। आपने business loan के लिए enquiry की थी।",
+   "start": 0.5,
+   "end": 5.655,
+   "line": 0
+  },
+  {
+   "speaker": "B",
+   "text": "हाँ, दुकान बढ़ानी है। मुझे तीन लाख रुपये चाहिए।",
+   "start": 6.075,
+   "end": 9.558,
+   "line": 1
+  },
+  {
+   "speaker": "A",
+   "text": "तीन लाख मिल जाएँगे। Interest rate चौदह परसेंट है और tenure छत्तीस महीने का होगा।",
+   "start": 10.007,
+   "end": 14.744,
+   "line": 2
+  },
+  {
+   "speaker": "B",
+   "text": "चौदह परसेंट बहुत ज़्यादा है। Bajaj Finance ने मुझे बारह परसेंट बोला था।",
+   "start": 15.225,
+   "end": 19.543,
+   "line": 3
+  },
+  {
+   "speaker": "A",
+   "text": "उनके यहाँ processing fee दो परसेंट है, हमारे यहाँ सिर्फ एक परसेंट। कुल मिलाकर हम सस्ते पड़ेंगे।",
+   "start": 19.888,
+   "end": 25.786,
+   "line": 4
+  },
+  {
+   "speaker": "B",
+   "text": "EMI कितनी आएगी?",
+   "start": 26.092,
+   "end": 27.532,
+   "line": 5
+  },
+  {
+   "speaker": "A",
+   "text": "लगभग दस हज़ार दो सौ रुपये महीना।",
+   "start": 27.959,
+   "end": 30.142,
+   "line": 6
+  },
+  {
+   "speaker": "B",
+   "text": "ठीक है। कौन से documents चाहिए?",
+   "start": 30.581,
+   "end": 32.857,
+   "line": 7
+  },
+  {
+   "speaker": "A",
+   "text": "Aadhaar, PAN card, छह महीने का bank statement, और GST certificate।",
+   "start": 33.274,
+   "end": 38.615,
+   "line": 8
+  },
+  {
+   "speaker": "B",
+   "text": "शुक्रवार तक सब तैयार कर दूँगी।",
+   "start": 38.977,
+   "end": 41.206,
+   "line": 9
+  },
+  {
+   "speaker": "A",
+   "text": "बढ़िया, मैं शुक्रवार सुबह ग्यारह बजे documents लेने आ जाऊँगा।",
+   "start": 41.53,
+   "end": 44.967,
+   "line": 10
+  }
+ ],
+ "text": "नमस्ते मैडम, मैं Shakti Finance से विक्रम। आपने business loan के लिए enquiry की थी। हाँ, दुकान बढ़ानी है। मुझे तीन लाख रुपये चाहिए। तीन लाख मिल जाएँगे। Interest rate चौदह परसेंट है और tenure छत्तीस महीने का होगा। चौदह परसेंट बहुत ज़्यादा है। Bajaj Finance ने मुझे बारह परसेंट बोला था। उनके यहाँ processing fee दो परसेंट है, हमारे यहाँ सिर्फ एक परसेंट। कुल मिलाकर हम सस्ते पड़ेंगे। EMI कितनी आएगी? लगभग दस हज़ार दो सौ रुपये महीना। ठीक है। कौन से documents चाहिए? Aadhaar, PAN card, छह महीने का bank statement, और GST certificate। शुक्रवार तक सब तैयार कर दूँगी। बढ़िया, मैं शुक्रवार सुबह ग्यारह बजे documents लेने आ जाऊँगा।",
+ "source": "elevenlabs/eleven_multilingual_v2"
+}

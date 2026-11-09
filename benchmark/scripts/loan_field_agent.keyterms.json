@@ -1,0 +1,13 @@
+{"prisma_keyterms": ["Shakti Finance", "Bajaj Finance", "EMI", "Aadhaar", "PAN card", "GST certificate", "processing fee"],
+ "entities": [
+  {"name": "Shakti Finance", "variants": ["shakti", "शक्ति"]},
+  {"name": "Rs 3 lakh loan", "variants": ["3 लाख", "तीन लाख", "3 lakh", "300000", "3,00,000", "teen lakh", "three lakh"]},
+  {"name": "14% interest", "variants": ["14", "चौदह", "fourteen"]},
+  {"name": "36-month tenure", "variants": ["36", "छत्तीस", "thirty six"]},
+  {"name": "Bajaj Finance (competitor)", "variants": ["bajaj", "बजाज"]},
+  {"name": "EMI Rs 10,200", "variants": ["10200", "10,200", "दस हज़ार दो सौ", "दस हजार दो सौ", "10 हज़ार 200", "10 हजार 200", "ten thousand two hundred"]},
+  {"name": "Aadhaar", "variants": ["aadhaar", "aadhar", "आधार"]},
+  {"name": "PAN", "variants": ["pan", "पैन"]},
+  {"name": "GST", "variants": ["gst", "जीएसटी"]},
+  {"name": "Friday", "variants": ["शुक्रवार", "friday"]}
+ ]}

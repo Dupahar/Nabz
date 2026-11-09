@@ -1,0 +1,14 @@
+# voices: A=Avinash, B=Prakash
+# language: hi-en
+# Kirana store visit. A = Rahul, salesman at Sunrise Distributors (FMCG). B = Sharma ji, kirana store owner.
+A: नमस्ते शर्मा जी, मैं Sunrise Distributors से राहुल। आज का order ले लूँ?
+B: हाँ राहुल, बैठो। Parle-G की दस पेटी चाहिए, और Maggi की पाँच पेटी।
+A: ठीक है। इस हफ्ते Tata Salt पर scheme है, दस पेटी लेने पर एक पेटी free।
+B: Scheme तो अच्छी है, पर Britannia वाला distributor पंद्रह परसेंट margin दे रहा है।
+A: समझ गया। हमारा margin बारह परसेंट है, लेकिन हम delivery अगले दिन करते हैं और credit तीस दिन का देते हैं।
+B: पिछली बार delivery तीन दिन late आई थी, इसलिए मुझे भरोसा नहीं है।
+A: वो गलती हमारी थी। इस बार अगर delivery late हुई तो मैं पाँच सौ रुपये का discount दूँगा।
+B: ठीक है, तो कुल कितना हुआ?
+A: सब मिलाकर अड़तालीस हज़ार रुपये। Payment सोमवार तक कर दीजिए।
+B: सोमवार तक आधा दूँगा, बाकी अगले महीने।
+A: ठीक है शर्मा जी, मैं manager से बात करके आपको शाम तक confirm करता हूँ।

@@ -64,23 +64,39 @@ def _headers() -> dict:
 
 
 def _request(method: str, url: str, *, retries: int = 6, **kw) -> requests.Response:
-    """HTTP with backoff on 429/5xx. The batch API rate-limits bursts of polling calls."""
+    """HTTP with backoff on 429/5xx AND on network errors (DNS failures, resets, timeouts). The batch
+    API rate-limits bursts of polling calls; field Wi-Fi drops. Uploads are rewound before a retry."""
     delay = 4.0
+    timeout = kw.pop("timeout", 120)
+    last = "no attempt"
+
+    def rewind() -> None:
+        for value in kw.get("files") or []:
+            fh = value[1][1] if isinstance(value[1], tuple) and len(value[1]) > 1 else None
+            if hasattr(fh, "seek"):
+                fh.seek(0)
+
     for attempt in range(retries):
-        resp = requests.request(method, url, timeout=kw.pop("timeout", 120), **kw)
-        if resp.status_code == 429 or resp.status_code >= 500:
+        try:
+            resp = requests.request(method, url, timeout=timeout, **kw)
+        except (requests.ConnectionError, requests.Timeout) as exc:
+            last = f"{type(exc).__name__}: {str(exc)[:200]}"
             if attempt == retries - 1:
                 break
-            wait = float(resp.headers.get("Retry-After") or delay)
-            time.sleep(wait)
+            time.sleep(delay)
             delay = min(delay * 2, 60)
-            for value in kw.get("files") or []:  # rewind uploads before retrying
-                fh = value[1][1] if isinstance(value[1], tuple) and len(value[1]) > 1 else None
-                if hasattr(fh, "seek"):
-                    fh.seek(0)
+            rewind()
+            continue
+        if resp.status_code == 429 or resp.status_code >= 500:
+            last = f"HTTP {resp.status_code} {resp.text[:300]}"
+            if attempt == retries - 1:
+                break
+            time.sleep(float(resp.headers.get("Retry-After") or delay))
+            delay = min(delay * 2, 60)
+            rewind()
             continue
         return resp
-    raise GnaniError(f"{method} {url.split('?')[0]} failed after {retries} tries: HTTP {resp.status_code} {resp.text[:300]}")
+    raise GnaniError(f"{method} {url.split('?')[0]} failed after {retries} tries: {last}")
 
 
 def _check(resp: requests.Response, what: str) -> dict:

@@ -1,0 +1,90 @@
+{
+ "name": "industrial_pumps_en",
+ "language": "en-IN",
+ "voices": {
+  "A": "Harshad",
+  "B": "Vasudha"
+ },
+ "duration": 51.31,
+ "turns": [
+  {
+   "speaker": "A",
+   "text": "Good afternoon, Ms. Iyer. Thanks for meeting me at the plant.",
+   "start": 0.5,
+   "end": 3.46,
+   "line": 0
+  },
+  {
+   "speaker": "B",
+   "text": "No problem. We have been having trouble with our current hydraulic pumps.",
+   "start": 3.79,
+   "end": 7.87,
+   "line": 1
+  },
+  {
+   "speaker": "A",
+   "text": "What kind of trouble are you seeing?",
+   "start": 8.182,
+   "end": 9.782,
+   "line": 2
+  },
+  {
+   "speaker": "B",
+   "text": "Two breakdowns this month. Each one stopped the line for six hours.",
+   "start": 10.165,
+   "end": 14.325,
+   "line": 3
+  },
+  {
+   "speaker": "A",
+   "text": "Our Apex Hydra three hundred series comes with a two year warranty and service within twenty four hours.",
+   "start": 14.677,
+   "end": 20.437,
+   "line": 4
+  },
+  {
+   "speaker": "B",
+   "text": "Kirloskar quoted us one lakh eighty thousand per pump. What is your price?",
+   "start": 20.903,
+   "end": 26.023,
+   "line": 5
+  },
+  {
+   "speaker": "A",
+   "text": "Our price is two lakh ten thousand, but that includes installation and annual maintenance.",
+   "start": 26.433,
+   "end": 31.393,
+   "line": 6
+  },
+  {
+   "speaker": "B",
+   "text": "That is thirty thousand more. I will need approval from our plant head, Mr. Nair.",
+   "start": 31.792,
+   "end": 36.432,
+   "line": 7
+  },
+  {
+   "speaker": "A",
+   "text": "Understood. Shall I send a cost comparison over five years so Mr. Nair can see the savings?",
+   "start": 36.848,
+   "end": 41.968,
+   "line": 8
+  },
+  {
+   "speaker": "B",
+   "text": "Yes, please send it by Wednesday. Our budget meeting is on the fifteenth.",
+   "start": 42.329,
+   "end": 46.489,
+   "line": 9
+  },
+  {
+   "speaker": "A",
+   "text": "I will send it by Wednesday morning, and I can join the budget meeting if that helps.",
+   "start": 46.83,
+   "end": 50.99,
+   "line": 10
+  }
+ ],
+ "text": "Good afternoon, Ms. Iyer. Thanks for meeting me at the plant. No problem. We have been having trouble with our current hydraulic pumps. What kind of trouble are you seeing? Two breakdowns this month. Each one stopped the line for six hours. Our Apex Hydra three hundred series comes with a two year warranty and service within twenty four hours. Kirloskar quoted us one lakh eighty thousand per pump. What is your price? Our price is two lakh ten thousand, but that includes installation and annual maintenance. That is thirty thousand more. I will need approval from our plant head, Mr. Nair. Understood. Shall I send a cost comparison over five years so Mr. Nair can see the savings? Yes, please send it by Wednesday. Our budget meeting is on the fifteenth. I will send it by Wednesday morning, and I can join the budget meeting if that helps.",
+ "source": "timbre-v3.0"
+}

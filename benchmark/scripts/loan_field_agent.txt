@@ -1,0 +1,14 @@
+# voices: A=Yashraj, B=Lakshmi
+# language: hi-en
+# Doorstep loan visit. A = Vikram, field officer at Shakti Finance. B = shop owner applying for a business loan.
+A: नमस्ते मैडम, मैं Shakti Finance से विक्रम। आपने business loan के लिए enquiry की थी।
+B: हाँ, दुकान बढ़ानी है। मुझे तीन लाख रुपये चाहिए।
+A: तीन लाख मिल जाएँगे। Interest rate चौदह परसेंट है और tenure छत्तीस महीने का होगा।
+B: चौदह परसेंट बहुत ज़्यादा है। Bajaj Finance ने मुझे बारह परसेंट बोला था।
+A: उनके यहाँ processing fee दो परसेंट है, हमारे यहाँ सिर्फ एक परसेंट। कुल मिलाकर हम सस्ते पड़ेंगे।
+B: EMI कितनी आएगी?
+A: लगभग दस हज़ार दो सौ रुपये महीना।
+B: ठीक है। कौन से documents चाहिए?
+A: Aadhaar, PAN card, छह महीने का bank statement, और GST certificate।
+B: शुक्रवार तक सब तैयार कर दूँगी।
+A: बढ़िया, मैं शुक्रवार सुबह ग्यारह बजे documents लेने आ जाऊँगा।

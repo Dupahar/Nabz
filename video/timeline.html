@@ -127,7 +127,7 @@ body.landscape .callout { font-size:2.5vmin; width:34vw; }
     <div class="phone" id="repPhone"><div class="notch"></div><div class="screen"><img id="repImg"></div></div>
     <div class="callout" id="repC1"><b>① Consent first</b><span>notice read in Hinglish · DPDP-ready</span></div>
     <div class="callout vio" id="repC2"><b>② Record or upload</b><span>right in the phone's browser</span></div>
-    <div class="callout org" id="repC3"><b>③ Gnani Prisma v3.0</b><span>Hinglish · code-mix · speakers · denoise</span></div>
+    <div class="callout org" id="repC3"><b>③ Gnani Prisma v3.0</b><span>Hinglish · code-mix · speaker diarization</span></div>
   </section>
 
   <!-- 5. VISIT (live) -->
@@ -173,7 +173,9 @@ body.landscape .callout { font-size:2.5vmin; width:34vw; }
     <div class="badge" id="tb3"><svg viewBox="0 0 64 64"><circle cx="27" cy="27" r="17" stroke="#a5b4fc" stroke-width="6" fill="none"/><path d="M40 40 L56 56" stroke="#a5b4fc" stroke-width="7" stroke-linecap="round"/><path d="M19 27 L25 33 L36 21" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Quotes verified</b><span>in code, every insight</span></div>
     <div class="badge" id="tb4"><svg viewBox="0 0 64 64"><rect x="6" y="24" width="24" height="16" rx="8" stroke="#c4b5fd" stroke-width="6" fill="none"/><rect x="34" y="24" width="24" height="16" rx="8" stroke="#c4b5fd" stroke-width="6" fill="none"/><path d="M24 32 H40" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg><b>Tamper-evident</b><span>hash-chained audit log</span></div>
     <div class="abs center" id="trGnani"><div class="h1" style="font-size:1em">Built on <span style="color:#fdba74">Gnani AI</span></div>
-      <div style="margin-top:1.4vmin"><span class="pill">Prisma v3.0 · speech-to-text</span><span class="pill" style="color:#7c3aed">Timbre v3.0 · voice</span></div></div>
+      <div style="margin-top:1.4vmin"><span class="pill">Prisma v3.0 · speech-to-text</span><span class="pill" style="color:#7c3aed">Timbre v3.0 · voice</span></div>
+      <div id="trBench" style="margin-top:2.2vmin;font-weight:700;color:#e0e7ff;line-height:1.35"><span style="color:#fdba74">12.7%</span> word error at 10 dB street noise<br>
+      <span style="color:#a5b4fc;font-weight:600">Prisma v3.0 · our open benchmark, synthetic Hinglish (Whisper small: 27% on clean audio)</span></div></div>
   </section>
 
   <!-- 9. CTA -->
@@ -299,6 +301,7 @@ const LOGO = (size) => `<div style="display:inline-flex;align-items:center;gap:$
   });
   place($("trGnani"), { top: (PORTRAIT ? H * .55 : H * .58) + "px", fontSize: (PORTRAIT ? 6.4 : 5.2) * vmin + "px", width: "96vw" });
   $("trGnani").querySelectorAll(".pill").forEach((p) => p.style.fontSize = (PORTRAIT ? 3.2 : 2.4) * vmin + "px");
+  $("trBench").style.fontSize = (PORTRAIT ? 3.0 : 2.3) * vmin + "px";
   // CTA
   $("ctaLogo").innerHTML = LOGO(PORTRAIT ? 10 * vmin : 8.5 * vmin);
   place($("ctaLogo"), { top: (PORTRAIT ? H * .35 : H * .33) + "px", whiteSpace: "nowrap" });

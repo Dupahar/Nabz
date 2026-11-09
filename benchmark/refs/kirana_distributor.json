@@ -1,0 +1,90 @@
+{
+ "name": "kirana_distributor",
+ "language": "hi-en",
+ "voices": {
+  "A": "Avinash",
+  "B": "Prakash"
+ },
+ "duration": 55.14,
+ "turns": [
+  {
+   "speaker": "A",
+   "text": "नमस्ते शर्मा जी, मैं Sunrise Distributors से राहुल। आज का order ले लूँ?",
+   "start": 0.5,
+   "end": 4.82,
+   "line": 0
+  },
+  {
+   "speaker": "B",
+   "text": "हाँ राहुल, बैठो। Parle-G की दस पेटी चाहिए, और Maggi की पाँच पेटी।",
+   "start": 5.135,
+   "end": 10.735,
+   "line": 1
+  },
+  {
+   "speaker": "A",
+   "text": "ठीक है। इस हफ्ते Tata Salt पर scheme है, दस पेटी लेने पर एक पेटी free।",
+   "start": 11.146,
+   "end": 16.266,
+   "line": 2
+  },
+  {
+   "speaker": "B",
+   "text": "Scheme तो अच्छी है, पर Britannia वाला distributor पंद्रह परसेंट margin दे रहा है।",
+   "start": 16.623,
+   "end": 21.023,
+   "line": 3
+  },
+  {
+   "speaker": "A",
+   "text": "समझ गया। हमारा margin बारह परसेंट है, लेकिन हम delivery अगले दिन करते हैं और credit तीस दिन का देते हैं।",
+   "start": 21.441,
+   "end": 28.401,
+   "line": 4
+  },
+  {
+   "speaker": "B",
+   "text": "पिछली बार delivery तीन दिन late आई थी, इसलिए मुझे भरोसा नहीं है।",
+   "start": 28.858,
+   "end": 33.258,
+   "line": 5
+  },
+  {
+   "speaker": "A",
+   "text": "वो गलती हमारी थी। इस बार अगर delivery late हुई तो मैं पाँच सौ रुपये का discount दूँगा।",
+   "start": 33.65,
+   "end": 39.33,
+   "line": 6
+  },
+  {
+   "speaker": "B",
+   "text": "ठीक है, तो कुल कितना हुआ?",
+   "start": 39.738,
+   "end": 41.818,
+   "line": 7
+  },
+  {
+   "speaker": "A",
+   "text": "सब मिलाकर अड़तालीस हज़ार रुपये। Payment सोमवार तक कर दीजिए।",
+   "start": 42.177,
+   "end": 46.497,
+   "line": 8
+  },
+  {
+   "speaker": "B",
+   "text": "सोमवार तक आधा दूँगा, बाकी अगले महीने।",
+   "start": 46.954,
+   "end": 50.154,
+   "line": 9
+  },
+  {
+   "speaker": "A",
+   "text": "ठीक है शर्मा जी, मैं manager से बात करके आपको शाम तक confirm करता हूँ।",
+   "start": 50.494,
+   "end": 54.734,
+   "line": 10
+  }
+ ],
+ "text": "नमस्ते शर्मा जी, मैं Sunrise Distributors से राहुल। आज का order ले लूँ? हाँ राहुल, बैठो। Parle-G की दस पेटी चाहिए, और Maggi की पाँच पेटी। ठीक है। इस हफ्ते Tata Salt पर scheme है, दस पेटी लेने पर एक पेटी free। Scheme तो अच्छी है, पर Britannia वाला distributor पंद्रह परसेंट margin दे रहा है। समझ गया। हमारा margin बारह परसेंट है, लेकिन हम delivery अगले दिन करते हैं और credit तीस दिन का देते हैं। पिछली बार delivery तीन दिन late आई थी, इसलिए मुझे भरोसा नहीं है। वो गलती हमारी थी। इस बार अगर delivery late हुई तो मैं पाँच सौ रुपये का discount दूँगा। ठीक है, तो कुल कितना हुआ? सब मिलाकर अड़तालीस हज़ार रुपये। Payment सोमवार तक कर दीजिए। सोमवार तक आधा दूँगा, बाकी अगले महीने। ठीक है शर्मा जी, मैं manager से बात करके आपको शाम तक confirm करता हूँ।",
+ "source": "timbre-v3.0"
+}

@@ -1,0 +1,14 @@
+# voices: A=Devansh, B=Chetana
+# language: hi-en
+# Site visit. A = sales executive at Green Valley Residency. B = home buyer.
+A: यह है Green Valley Residency का two BHK sample flat, बारह सौ square feet का।
+B: Flat तो अच्छा है। Possession कब मिलेगा?
+A: Possession अगले साल मार्च तक मिल जाएगा। Project RERA registered है।
+B: Price क्या है?
+A: सत्तर लाख रुपये, जिसमें parking और clubhouse शामिल है।
+B: Godrej का project बगल में है, वहाँ पैंसठ लाख में मिल रहा है।
+A: वहाँ carpet area कम है, और maintenance भी ज़्यादा है। आप दोनों compare कर लीजिए।
+B: Home loan के लिए आपकी किसी bank से tie up है?
+A: हाँ, HDFC और SBI दोनों से। Booking amount सिर्फ दो लाख है।
+B: मैं अपने husband के साथ रविवार को फिर से आऊँगी।
+A: ठीक है, रविवार को मैं आपके लिए floor plan और payment schedule तैयार रखूँगा।

@@ -1,0 +1,15 @@
+{"prisma_keyterms": ["Green Valley Residency", "BHK", "RERA", "Godrej", "HDFC", "SBI", "carpet area", "clubhouse"],
+ "entities": [
+  {"name": "Green Valley Residency", "variants": ["green valley", "ग्रीन वैली"]},
+  {"name": "2 BHK", "variants": ["two bhk", "2 bhk", "2bhk", "टू बीएचके", "टू bhk"]},
+  {"name": "1200 sq ft", "variants": ["1200", "बारह सौ", "twelve hundred", "1,200"]},
+  {"name": "March possession", "variants": ["मार्च", "march"]},
+  {"name": "RERA", "variants": ["rera", "रेरा"]},
+  {"name": "Rs 70 lakh price", "variants": ["70 लाख", "सत्तर लाख", "70 lakh", "seventy lakh"]},
+  {"name": "Godrej (competitor)", "variants": ["godrej", "गोदरेज"]},
+  {"name": "Rs 65 lakh competitor price", "variants": ["65 लाख", "पैंसठ लाख", "65 lakh", "sixty five lakh"]},
+  {"name": "HDFC", "variants": ["hdfc", "एचडीएफसी"]},
+  {"name": "SBI", "variants": ["sbi", "एसबीआई"]},
+  {"name": "Rs 2 lakh booking", "variants": ["2 लाख", "दो लाख", "2 lakh", "two lakh"]},
+  {"name": "Sunday", "variants": ["रविवार", "sunday"]}
+ ]}

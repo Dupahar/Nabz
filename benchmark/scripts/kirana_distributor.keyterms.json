@@ -1,0 +1,14 @@
+{"prisma_keyterms": ["Sunrise Distributors", "Parle-G", "Maggi", "Tata Salt", "Britannia"],
+ "entities": [
+  {"name": "Sunrise Distributors", "variants": ["sunrise", "सनराइज"]},
+  {"name": "Parle-G", "variants": ["parle", "पारले"]},
+  {"name": "Maggi", "variants": ["maggi", "मैगी"]},
+  {"name": "Tata Salt", "variants": ["tata salt", "टाटा salt", "टाटा सॉल्ट", "टाटा साल्ट"]},
+  {"name": "Britannia (competitor)", "variants": ["britannia", "ब्रिटानिया", "ब्रिटेनिया"]},
+  {"name": "15% margin", "variants": ["15", "पंद्रह", "fifteen"]},
+  {"name": "12% margin", "variants": ["12", "बारह", "twelve"]},
+  {"name": "30-day credit", "variants": ["30 दिन", "तीस दिन", "30 din", "thirty day"]},
+  {"name": "Rs 500 discount", "variants": ["500", "पाँच सौ", "पांच सौ", "five hundred"]},
+  {"name": "Rs 48,000 total", "variants": ["48000", "48,000", "48 हज़ार", "48 हजार", "अड़तालीस हज़ार", "अड़तालीस हजार", "अड़तालिस हज़ार", "अड़तालिस हजार", "forty eight thousand"]},
+  {"name": "Monday", "variants": ["सोमवार", "monday"]}
+ ]}

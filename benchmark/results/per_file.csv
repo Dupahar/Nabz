@@ -1,0 +1,263 @@
+system,file,source,cond,group,noise,ref_words,errors,wer,errors_spell,wer_spell,cer,keyterms_hit,keyterms_total,keyterms_missed,speaker_acc
+prisma-v3,demo_brightmart,windows-sapi,clean,demo-en,none,563,19,0.0337,19,0.0337,0.0134,0,0,,
+prisma-v3,demo_kapoor,windows-sapi,clean,demo-en,none,307,4,0.013,4,0.013,0.0031,0,0,,
+prisma-v3,industrial_pumps_en-el,elevenlabs,clean,english,none,140,5,0.0357,6,0.0429,0.0234,8,9,Kirloskar (competitor),1.0
+prisma-v3,industrial_pumps_en-el,elevenlabs,ff0,english,pcafeter,140,70,0.5,71,0.5071,0.3871,6,9,Apex Hydra; Kirloskar (competitor); Mr. Nair,1.0
+prisma-v3,industrial_pumps_en-el,elevenlabs,ff10,english,pcafeter,140,11,0.0786,12,0.0857,0.0455,8,9,Kirloskar (competitor),1.0
+prisma-v3,industrial_pumps_en-el,elevenlabs,ff20,english,pcafeter,140,4,0.0286,6,0.0429,0.0234,8,9,Kirloskar (competitor),1.0
+prisma-v3,industrial_pumps_en-el,elevenlabs,ff5,english,pcafeter,140,35,0.25,37,0.2643,0.1529,8,9,Kirloskar (competitor),1.0
+prisma-v3,industrial_pumps_en,timbre,clean,english,none,140,3,0.0214,5,0.0357,0.0165,9,9,,1.0
+prisma-v3,industrial_pumps_en,timbre,ff0,english,pcafeter,140,33,0.2357,34,0.2429,0.1846,6,9,Kirloskar (competitor); Rs 1.8 lakh competitor quote; 15th,1.0
+prisma-v3,industrial_pumps_en,timbre,ff10,english,pcafeter,140,5,0.0357,6,0.0429,0.0289,8,9,15th,1.0
+prisma-v3,industrial_pumps_en,timbre,ff20,english,pcafeter,140,3,0.0214,4,0.0286,0.0124,8,9,Kirloskar (competitor),1.0
+prisma-v3,industrial_pumps_en,timbre,ff5,english,pcafeter,140,19,0.1357,20,0.1429,0.095,8,9,Apex Hydra,1.0
+prisma-v3,kirana_distributor-el,elevenlabs,clean,hinglish,none,145,1,0.0069,8,0.0552,0.021,11,11,,1.0
+prisma-v3,kirana_distributor-el,elevenlabs,ff0,hinglish,straffic,145,29,0.2,32,0.2207,0.1678,9,11,Parle-G; Maggi,1.0
+prisma-v3,kirana_distributor-el,elevenlabs,ff10,hinglish,straffic,145,10,0.069,12,0.0828,0.0668,10,11,Parle-G,1.0
+prisma-v3,kirana_distributor-el,elevenlabs,ff20,hinglish,straffic,145,2,0.0138,5,0.0345,0.0131,11,11,,1.0
+prisma-v3,kirana_distributor-el,elevenlabs,ff5,hinglish,straffic,145,9,0.0621,10,0.069,0.0603,10,11,Parle-G,1.0
+prisma-v3,kirana_distributor,timbre,clean,hinglish,none,145,1,0.0069,9,0.0621,0.0275,11,11,,1.0
+prisma-v3,kirana_distributor,timbre,ff0,hinglish,straffic,145,34,0.2345,35,0.2414,0.1809,10,11,Parle-G,1.0
+prisma-v3,kirana_distributor,timbre,ff10,hinglish,straffic,145,3,0.0207,6,0.0414,0.0118,10,11,Parle-G,1.0
+prisma-v3,kirana_distributor,timbre,ff20,hinglish,straffic,145,3,0.0207,6,0.0414,0.017,10,11,Parle-G,1.0
+prisma-v3,kirana_distributor,timbre,ff5,hinglish,straffic,145,9,0.0621,11,0.0759,0.0301,10,11,Parle-G,1.0
+prisma-v3,loan_field_agent-el,elevenlabs,clean,hinglish,none,107,2,0.0187,5,0.0467,0.0241,10,10,,1.0
+prisma-v3,loan_field_agent-el,elevenlabs,ff0,hinglish,straffic,107,34,0.3178,35,0.3271,0.2781,8,10,Shakti Finance; Bajaj Finance (competitor),1.0
+prisma-v3,loan_field_agent-el,elevenlabs,ff10,hinglish,straffic,107,3,0.028,4,0.0374,0.0177,10,10,,1.0
+prisma-v3,loan_field_agent-el,elevenlabs,ff20,hinglish,straffic,107,2,0.0187,3,0.028,0.0113,10,10,,1.0
+prisma-v3,loan_field_agent-el,elevenlabs,ff5,hinglish,straffic,107,4,0.0374,5,0.0467,0.0305,10,10,,1.0
+prisma-v3,loan_field_agent,timbre,clean,hinglish,none,107,1,0.0093,3,0.028,0.0096,10,10,,1.0
+prisma-v3,loan_field_agent,timbre,ff0,hinglish,straffic,107,21,0.1963,23,0.215,0.172,9,10,Bajaj Finance (competitor),1.0
+prisma-v3,loan_field_agent,timbre,ff10,hinglish,straffic,107,5,0.0467,7,0.0654,0.0402,10,10,,1.0
+prisma-v3,loan_field_agent,timbre,ff20,hinglish,straffic,107,5,0.0467,7,0.0654,0.0418,10,10,,1.0
+prisma-v3,loan_field_agent,timbre,ff5,hinglish,straffic,107,10,0.0935,12,0.1121,0.0531,10,10,,1.0
+prisma-v3,logistics_d2c_en-el,elevenlabs,clean,english,none,127,1,0.0079,1,0.0079,0.0015,10,11,Delhivery (competitor),1.0
+prisma-v3,logistics_d2c_en-el,elevenlabs,ff0,english,pcafeter,127,57,0.4488,58,0.4567,0.4012,6,11,ShipFast; Delhivery (competitor); WhatsApp; 1 December; Friday,1.0
+prisma-v3,logistics_d2c_en-el,elevenlabs,ff10,english,pcafeter,127,13,0.1024,14,0.1102,0.0741,10,11,Delhivery (competitor),1.0
+prisma-v3,logistics_d2c_en-el,elevenlabs,ff20,english,pcafeter,127,7,0.0551,7,0.0551,0.0334,10,11,Delhivery (competitor),1.0
+prisma-v3,logistics_d2c_en-el,elevenlabs,ff5,english,pcafeter,127,24,0.189,24,0.189,0.1337,9,11,Delhivery (competitor); Rs 45 per shipment,1.0
+prisma-v3,logistics_d2c_en,timbre,clean,english,none,127,5,0.0394,5,0.0394,0.0116,10,11,Delhivery (competitor),1.0
+prisma-v3,logistics_d2c_en,timbre,ff0,english,pcafeter,127,41,0.3228,41,0.3228,0.2703,8,11,Delhivery (competitor); Shiprocket (competitor); 22% RTO,1.0
+prisma-v3,logistics_d2c_en,timbre,ff10,english,pcafeter,127,10,0.0787,10,0.0787,0.0523,10,11,Delhivery (competitor),1.0
+prisma-v3,logistics_d2c_en,timbre,ff20,english,pcafeter,127,10,0.0787,10,0.0787,0.0451,10,11,Delhivery (competitor),1.0
+prisma-v3,logistics_d2c_en,timbre,ff5,english,pcafeter,127,20,0.1575,20,0.1575,0.1061,10,11,Delhivery (competitor),1.0
+prisma-v3,pharma_detailing-el,elevenlabs,clean,hinglish,none,126,2,0.0159,6,0.0476,0.0165,6,8,Zenova Pharma; Metformin,1.0
+prisma-v3,pharma_detailing-el,elevenlabs,ff0,hinglish,babble,126,98,0.7778,98,0.7778,0.6042,1,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples,0.5523
+prisma-v3,pharma_detailing-el,elevenlabs,ff10,hinglish,babble,126,33,0.2619,35,0.2778,0.2099,6,8,Zenova Pharma; Glucosafe,1.0
+prisma-v3,pharma_detailing-el,elevenlabs,ff20,hinglish,babble,126,5,0.0397,10,0.0794,0.0375,6,8,Zenova Pharma; Glucosafe,1.0
+prisma-v3,pharma_detailing-el,elevenlabs,ff5,hinglish,babble,126,49,0.3889,50,0.3968,0.2879,4,8,Zenova Pharma; Glucosafe; Metformin; 20 strips of samples,1.0
+prisma-v3,pharma_detailing,timbre,clean,hinglish,none,126,1,0.0079,6,0.0476,0.0165,6,8,Zenova Pharma; Glucosafe,1.0
+prisma-v3,pharma_detailing,timbre,ff0,hinglish,babble,126,108,0.8571,112,0.8889,0.6672,1,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Rs 120 per strip; 20 strips of samples; Thursday,0.8173
+prisma-v3,pharma_detailing,timbre,ff10,hinglish,babble,126,34,0.2698,37,0.2937,0.2189,5,8,Zenova Pharma; Glucosafe; Type 2 diabetes,0.9661
+prisma-v3,pharma_detailing,timbre,ff20,hinglish,babble,126,3,0.0238,6,0.0476,0.0285,7,8,Zenova Pharma,1.0
+prisma-v3,pharma_detailing,timbre,ff5,hinglish,babble,126,68,0.5397,69,0.5476,0.3883,3,8,Zenova Pharma; Glucosafe; Metformin; Rs 120 per strip; 20 strips of samples,0.8908
+prisma-v3,realestate_site_visit-el,elevenlabs,clean,hinglish,none,116,5,0.0431,10,0.0862,0.0269,12,12,,1.0
+prisma-v3,realestate_site_visit-el,elevenlabs,ff0,hinglish,babble,116,84,0.7241,88,0.7586,0.5436,4,12,2 BHK; 1200 sq ft; March possession; Rs 70 lakh price; Godrej (competitor); HDFC; SBI; Rs 2 lakh booking,0.6463
+prisma-v3,realestate_site_visit-el,elevenlabs,ff10,hinglish,babble,116,37,0.319,39,0.3362,0.2932,10,12,RERA; Rs 70 lakh price,0.959
+prisma-v3,realestate_site_visit-el,elevenlabs,ff20,hinglish,babble,116,6,0.0517,13,0.1121,0.0301,11,12,Godrej (competitor),1.0
+prisma-v3,realestate_site_visit-el,elevenlabs,ff5,hinglish,babble,116,61,0.5259,65,0.5603,0.401,9,12,2 BHK; RERA; Rs 65 lakh competitor price,0.881
+prisma-v3,realestate_site_visit,timbre,clean,hinglish,none,116,3,0.0259,10,0.0862,0.0317,12,12,,1.0
+prisma-v3,realestate_site_visit,timbre,ff0,hinglish,babble,116,73,0.6293,76,0.6552,0.4945,4,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; HDFC; SBI,0.8406
+prisma-v3,realestate_site_visit,timbre,ff10,hinglish,babble,116,29,0.25,33,0.2845,0.1918,12,12,,0.9796
+prisma-v3,realestate_site_visit,timbre,ff20,hinglish,babble,116,9,0.0776,17,0.1466,0.0729,12,12,,1.0
+prisma-v3,realestate_site_visit,timbre,ff5,hinglish,babble,116,40,0.3448,42,0.3621,0.2567,9,12,2 BHK; March possession; RERA,0.7472
+prisma-v3-denoise,industrial_pumps_en-el,elevenlabs,ff0,english,pcafeter,140,80,0.5714,83,0.5929,0.4601,6,9,Apex Hydra; Kirloskar (competitor); Rs 1.8 lakh competitor quote,1.0
+prisma-v3-denoise,industrial_pumps_en-el,elevenlabs,ff10,english,pcafeter,140,17,0.1214,19,0.1357,0.1006,8,9,Kirloskar (competitor),1.0
+prisma-v3-denoise,industrial_pumps_en,timbre,clean,english,none,140,2,0.0143,3,0.0214,0.0124,9,9,,1.0
+prisma-v3-denoise,industrial_pumps_en,timbre,ff0,english,pcafeter,140,68,0.4857,69,0.4929,0.4628,4,9,"Apex Hydra; Kirloskar (competitor); Rs 1.8 lakh competitor quote; Rs 30,000 difference; 15th",1.0
+prisma-v3-denoise,industrial_pumps_en,timbre,ff10,english,pcafeter,140,9,0.0643,10,0.0714,0.0496,7,9,Kirloskar (competitor); 15th,1.0
+prisma-v3-denoise,industrial_pumps_en,timbre,ff20,english,pcafeter,140,6,0.0429,7,0.05,0.0413,9,9,,1.0
+prisma-v3-denoise,industrial_pumps_en,timbre,ff5,english,pcafeter,140,35,0.25,35,0.25,0.2052,8,9,Kirloskar (competitor),1.0
+prisma-v3-denoise,kirana_distributor-el,elevenlabs,ff0,hinglish,straffic,145,36,0.2483,37,0.2552,0.2123,8,11,Sunrise Distributors; Parle-G; Maggi,1.0
+prisma-v3-denoise,kirana_distributor-el,elevenlabs,ff10,hinglish,straffic,145,13,0.0897,14,0.0966,0.0655,10,11,Parle-G,1.0
+prisma-v3-denoise,kirana_distributor,timbre,clean,hinglish,none,145,2,0.0138,4,0.0276,0.0118,10,11,Parle-G,0.6112
+prisma-v3-denoise,kirana_distributor,timbre,ff0,hinglish,straffic,145,28,0.1931,32,0.2207,0.1547,9,11,Parle-G; Maggi,1.0
+prisma-v3-denoise,kirana_distributor,timbre,ff10,hinglish,straffic,145,5,0.0345,8,0.0552,0.0249,10,11,Parle-G,1.0
+prisma-v3-denoise,kirana_distributor,timbre,ff20,hinglish,straffic,145,5,0.0345,10,0.069,0.0249,10,11,Parle-G,1.0
+prisma-v3-denoise,kirana_distributor,timbre,ff5,hinglish,straffic,145,7,0.0483,9,0.0621,0.0236,10,11,Parle-G,1.0
+prisma-v3-denoise,loan_field_agent-el,elevenlabs,ff0,hinglish,straffic,107,24,0.2243,26,0.243,0.1994,10,10,,1.0
+prisma-v3-denoise,loan_field_agent-el,elevenlabs,ff10,hinglish,straffic,107,4,0.0374,5,0.0467,0.0305,10,10,,1.0
+prisma-v3-denoise,loan_field_agent,timbre,clean,hinglish,none,107,3,0.028,5,0.0467,0.0145,9,10,36-month tenure,1.0
+prisma-v3-denoise,loan_field_agent,timbre,ff0,hinglish,straffic,107,17,0.1589,19,0.1776,0.1479,9,10,Bajaj Finance (competitor),1.0
+prisma-v3-denoise,loan_field_agent,timbre,ff10,hinglish,straffic,107,3,0.028,5,0.0467,0.0257,10,10,,1.0
+prisma-v3-denoise,loan_field_agent,timbre,ff20,hinglish,straffic,107,8,0.0748,10,0.0935,0.0691,10,10,,1.0
+prisma-v3-denoise,loan_field_agent,timbre,ff5,hinglish,straffic,107,13,0.1215,15,0.1402,0.09,10,10,,1.0
+prisma-v3-denoise,logistics_d2c_en-el,elevenlabs,ff0,english,pcafeter,127,96,0.7559,97,0.7638,0.7195,2,11,ShipFast; Delhivery (competitor); 22% RTO; WhatsApp; Rs 45 per shipment; 500 grams; Rs 40 offer; 1 December; Friday,1.0
+prisma-v3-denoise,logistics_d2c_en-el,elevenlabs,ff10,english,pcafeter,127,26,0.2047,27,0.2126,0.1613,8,11,Delhivery (competitor); Rs 45 per shipment; Rs 40 offer,1.0
+prisma-v3-denoise,logistics_d2c_en,timbre,clean,english,none,127,4,0.0315,4,0.0315,0.0073,10,11,Delhivery (competitor),1.0
+prisma-v3-denoise,logistics_d2c_en,timbre,ff0,english,pcafeter,127,97,0.7638,98,0.7717,0.7442,2,11,ShipFast; Delhivery (competitor); Shiprocket (competitor); 22% RTO; WhatsApp; Rs 45 per shipment; Rs 40 offer; 1 December; Friday,1.0
+prisma-v3-denoise,logistics_d2c_en,timbre,ff10,english,pcafeter,127,28,0.2205,28,0.2205,0.1672,10,11,Delhivery (competitor),1.0
+prisma-v3-denoise,logistics_d2c_en,timbre,ff20,english,pcafeter,127,15,0.1181,15,0.1181,0.1017,10,11,Delhivery (competitor),1.0
+prisma-v3-denoise,logistics_d2c_en,timbre,ff5,english,pcafeter,127,27,0.2126,27,0.2126,0.1831,9,11,ShipFast; Delhivery (competitor),1.0
+prisma-v3-denoise,pharma_detailing-el,elevenlabs,ff0,hinglish,babble,126,107,0.8492,108,0.8571,0.6657,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,0.5364
+prisma-v3-denoise,pharma_detailing-el,elevenlabs,ff10,hinglish,babble,126,68,0.5397,69,0.5476,0.4903,3,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes,1.0
+prisma-v3-denoise,pharma_detailing,timbre,clean,hinglish,none,126,1,0.0079,6,0.0476,0.0165,6,8,Zenova Pharma; Glucosafe,1.0
+prisma-v3-denoise,pharma_detailing,timbre,ff0,hinglish,babble,126,116,0.9206,120,0.9524,0.6852,1,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples,0.6651
+prisma-v3-denoise,pharma_detailing,timbre,ff10,hinglish,babble,126,51,0.4048,56,0.4444,0.3028,2,8,Zenova Pharma; Glucosafe; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples,1.0
+prisma-v3-denoise,pharma_detailing,timbre,ff20,hinglish,babble,126,5,0.0397,8,0.0635,0.0435,6,8,Zenova Pharma; Glucosafe,1.0
+prisma-v3-denoise,pharma_detailing,timbre,ff5,hinglish,babble,126,97,0.7698,101,0.8016,0.5892,3,8,Zenova Pharma; Glucosafe; Glycomet (competitor); Rs 120 per strip; 20 strips of samples,0.8541
+prisma-v3-denoise,realestate_site_visit-el,elevenlabs,ff0,hinglish,babble,116,95,0.819,95,0.819,0.6434,2,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); HDFC; SBI; Rs 2 lakh booking,0.7536
+prisma-v3-denoise,realestate_site_visit-el,elevenlabs,ff10,hinglish,babble,116,63,0.5431,64,0.5517,0.477,8,12,1200 sq ft; RERA; Rs 70 lakh price; Rs 2 lakh booking,0.7354
+prisma-v3-denoise,realestate_site_visit,timbre,clean,hinglish,none,116,5,0.0431,13,0.1121,0.038,12,12,,1.0
+prisma-v3-denoise,realestate_site_visit,timbre,ff0,hinglish,babble,116,92,0.7931,97,0.8362,0.6117,2,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; HDFC; SBI; Rs 2 lakh booking; Sunday,0.7505
+prisma-v3-denoise,realestate_site_visit,timbre,ff10,hinglish,babble,116,39,0.3362,40,0.3448,0.2631,8,12,RERA; Rs 70 lakh price; HDFC; SBI,0.8622
+prisma-v3-denoise,realestate_site_visit,timbre,ff20,hinglish,babble,116,13,0.1121,16,0.1379,0.0824,12,12,,1.0
+prisma-v3-denoise,realestate_site_visit,timbre,ff5,hinglish,babble,116,82,0.7069,86,0.7414,0.5531,3,12,2 BHK; 1200 sq ft; March possession; RERA; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Sunday,0.9501
+prisma-v3-denoise-keyterms,industrial_pumps_en,timbre,clean,english,none,140,2,0.0143,3,0.0214,0.0124,9,9,,1.0
+prisma-v3-denoise-keyterms,industrial_pumps_en,timbre,ff0,english,pcafeter,140,62,0.4429,62,0.4429,0.4256,5,9,"Apex Hydra; Kirloskar (competitor); Rs 1.8 lakh competitor quote; Rs 30,000 difference",1.0
+prisma-v3-denoise-keyterms,industrial_pumps_en,timbre,ff10,english,pcafeter,140,9,0.0643,10,0.0714,0.0496,7,9,Kirloskar (competitor); 15th,1.0
+prisma-v3-denoise-keyterms,kirana_distributor,timbre,clean,hinglish,none,145,2,0.0138,3,0.0207,0.0105,10,11,Parle-G,0.6112
+prisma-v3-denoise-keyterms,kirana_distributor,timbre,ff0,hinglish,straffic,145,28,0.1931,32,0.2207,0.1547,9,11,Parle-G; Maggi,1.0
+prisma-v3-denoise-keyterms,kirana_distributor,timbre,ff10,hinglish,straffic,145,5,0.0345,8,0.0552,0.0249,10,11,Parle-G,1.0
+prisma-v3-denoise-keyterms,loan_field_agent,timbre,clean,hinglish,none,107,3,0.028,5,0.0467,0.0145,9,10,36-month tenure,1.0
+prisma-v3-denoise-keyterms,loan_field_agent,timbre,ff0,hinglish,straffic,107,17,0.1589,19,0.1776,0.1479,9,10,Bajaj Finance (competitor),1.0
+prisma-v3-denoise-keyterms,loan_field_agent,timbre,ff10,hinglish,straffic,107,3,0.028,5,0.0467,0.0257,10,10,,1.0
+prisma-v3-denoise-keyterms,logistics_d2c_en,timbre,clean,english,none,127,4,0.0315,4,0.0315,0.0073,10,11,Delhivery (competitor),1.0
+prisma-v3-denoise-keyterms,logistics_d2c_en,timbre,ff0,english,pcafeter,127,97,0.7638,98,0.7717,0.7442,2,11,ShipFast; Delhivery (competitor); Shiprocket (competitor); 22% RTO; WhatsApp; Rs 45 per shipment; Rs 40 offer; 1 December; Friday,1.0
+prisma-v3-denoise-keyterms,logistics_d2c_en,timbre,ff10,english,pcafeter,127,26,0.2047,26,0.2047,0.1686,10,11,Delhivery (competitor),1.0
+prisma-v3-denoise-keyterms,pharma_detailing,timbre,clean,hinglish,none,126,1,0.0079,6,0.0476,0.0165,6,8,Zenova Pharma; Glucosafe,1.0
+prisma-v3-denoise-keyterms,pharma_detailing,timbre,ff0,hinglish,babble,126,118,0.9365,120,0.9524,0.7046,1,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples,0.6651
+prisma-v3-denoise-keyterms,pharma_detailing,timbre,ff10,hinglish,babble,126,51,0.4048,55,0.4365,0.3208,2,8,Zenova Pharma; Glucosafe; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples,1.0
+prisma-v3-denoise-keyterms,realestate_site_visit,timbre,clean,hinglish,none,116,5,0.0431,13,0.1121,0.038,12,12,,1.0
+prisma-v3-denoise-keyterms,realestate_site_visit,timbre,ff0,hinglish,babble,116,90,0.7759,93,0.8017,0.5864,3,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; HDFC; SBI; Rs 2 lakh booking,0.7505
+prisma-v3-denoise-keyterms,realestate_site_visit,timbre,ff10,hinglish,babble,116,39,0.3362,40,0.3448,0.2631,8,12,RERA; Rs 70 lakh price; HDFC; SBI,0.8622
+prisma-v3-keyterms,industrial_pumps_en-el,elevenlabs,clean,english,none,140,5,0.0357,6,0.0429,0.0234,8,9,Kirloskar (competitor),1.0
+prisma-v3-keyterms,industrial_pumps_en-el,elevenlabs,ff0,english,pcafeter,140,70,0.5,71,0.5071,0.3871,6,9,Apex Hydra; Kirloskar (competitor); Mr. Nair,1.0
+prisma-v3-keyterms,industrial_pumps_en-el,elevenlabs,ff10,english,pcafeter,140,11,0.0786,12,0.0857,0.0455,8,9,Kirloskar (competitor),1.0
+prisma-v3-keyterms,industrial_pumps_en,timbre,clean,english,none,140,3,0.0214,4,0.0286,0.0138,9,9,,1.0
+prisma-v3-keyterms,industrial_pumps_en,timbre,ff0,english,pcafeter,140,32,0.2286,34,0.2429,0.186,7,9,Kirloskar (competitor); Rs 1.8 lakh competitor quote,1.0
+prisma-v3-keyterms,industrial_pumps_en,timbre,ff10,english,pcafeter,140,5,0.0357,6,0.0429,0.0289,8,9,15th,1.0
+prisma-v3-keyterms,kirana_distributor-el,elevenlabs,clean,hinglish,none,145,1,0.0069,8,0.0552,0.021,11,11,,1.0
+prisma-v3-keyterms,kirana_distributor-el,elevenlabs,ff0,hinglish,straffic,145,29,0.2,32,0.2207,0.1678,9,11,Parle-G; Maggi,1.0
+prisma-v3-keyterms,kirana_distributor-el,elevenlabs,ff10,hinglish,straffic,145,10,0.069,12,0.0828,0.0668,10,11,Parle-G,1.0
+prisma-v3-keyterms,kirana_distributor,timbre,clean,hinglish,none,145,1,0.0069,9,0.0621,0.0275,11,11,,1.0
+prisma-v3-keyterms,kirana_distributor,timbre,ff0,hinglish,straffic,145,34,0.2345,35,0.2414,0.1809,10,11,Parle-G,1.0
+prisma-v3-keyterms,kirana_distributor,timbre,ff10,hinglish,straffic,145,3,0.0207,6,0.0414,0.0118,10,11,Parle-G,1.0
+prisma-v3-keyterms,loan_field_agent-el,elevenlabs,clean,hinglish,none,107,2,0.0187,5,0.0467,0.0241,10,10,,1.0
+prisma-v3-keyterms,loan_field_agent-el,elevenlabs,ff0,hinglish,straffic,107,34,0.3178,35,0.3271,0.2781,8,10,Shakti Finance; Bajaj Finance (competitor),1.0
+prisma-v3-keyterms,loan_field_agent-el,elevenlabs,ff10,hinglish,straffic,107,3,0.028,4,0.0374,0.0177,10,10,,1.0
+prisma-v3-keyterms,loan_field_agent,timbre,clean,hinglish,none,107,1,0.0093,3,0.028,0.0096,10,10,,1.0
+prisma-v3-keyterms,loan_field_agent,timbre,ff0,hinglish,straffic,107,21,0.1963,23,0.215,0.172,9,10,Bajaj Finance (competitor),1.0
+prisma-v3-keyterms,loan_field_agent,timbre,ff10,hinglish,straffic,107,5,0.0467,7,0.0654,0.0402,10,10,,1.0
+prisma-v3-keyterms,logistics_d2c_en-el,elevenlabs,clean,english,none,127,1,0.0079,1,0.0079,0.0015,10,11,Delhivery (competitor),1.0
+prisma-v3-keyterms,logistics_d2c_en-el,elevenlabs,ff0,english,pcafeter,127,65,0.5118,66,0.5197,0.4593,6,11,ShipFast; Delhivery (competitor); WhatsApp; 1 December; Friday,1.0
+prisma-v3-keyterms,logistics_d2c_en-el,elevenlabs,ff10,english,pcafeter,127,10,0.0787,11,0.0866,0.0596,10,11,Delhivery (competitor),1.0
+prisma-v3-keyterms,logistics_d2c_en,timbre,clean,english,none,127,5,0.0394,5,0.0394,0.0116,10,11,Delhivery (competitor),1.0
+prisma-v3-keyterms,logistics_d2c_en,timbre,ff0,english,pcafeter,127,43,0.3386,43,0.3386,0.2762,8,11,Delhivery (competitor); Shiprocket (competitor); 22% RTO,1.0
+prisma-v3-keyterms,logistics_d2c_en,timbre,ff10,english,pcafeter,127,10,0.0787,10,0.0787,0.0538,10,11,Delhivery (competitor),1.0
+prisma-v3-keyterms,pharma_detailing-el,elevenlabs,clean,hinglish,none,126,2,0.0159,6,0.0476,0.0165,6,8,Zenova Pharma; Metformin,1.0
+prisma-v3-keyterms,pharma_detailing-el,elevenlabs,ff0,hinglish,babble,126,95,0.754,95,0.754,0.5982,1,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples,0.5523
+prisma-v3-keyterms,pharma_detailing-el,elevenlabs,ff10,hinglish,babble,126,32,0.254,34,0.2698,0.2114,6,8,Zenova Pharma; Glucosafe,1.0
+prisma-v3-keyterms,pharma_detailing,timbre,clean,hinglish,none,126,1,0.0079,6,0.0476,0.0165,6,8,Zenova Pharma; Glucosafe,1.0
+prisma-v3-keyterms,pharma_detailing,timbre,ff0,hinglish,babble,126,108,0.8571,112,0.8889,0.6672,1,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Rs 120 per strip; 20 strips of samples; Thursday,0.8173
+prisma-v3-keyterms,pharma_detailing,timbre,ff10,hinglish,babble,126,34,0.2698,37,0.2937,0.2189,5,8,Zenova Pharma; Glucosafe; Type 2 diabetes,0.9661
+prisma-v3-keyterms,realestate_site_visit-el,elevenlabs,clean,hinglish,none,116,5,0.0431,12,0.1034,0.0349,11,12,RERA,1.0
+prisma-v3-keyterms,realestate_site_visit-el,elevenlabs,ff0,hinglish,babble,116,83,0.7155,88,0.7586,0.5341,4,12,2 BHK; 1200 sq ft; March possession; Rs 70 lakh price; Godrej (competitor); HDFC; SBI; Rs 2 lakh booking,0.6463
+prisma-v3-keyterms,realestate_site_visit-el,elevenlabs,ff10,hinglish,babble,116,37,0.319,39,0.3362,0.2932,10,12,RERA; Rs 70 lakh price,0.959
+prisma-v3-keyterms,realestate_site_visit,timbre,clean,hinglish,none,116,3,0.0259,9,0.0776,0.0269,12,12,,1.0
+prisma-v3-keyterms,realestate_site_visit,timbre,ff0,hinglish,babble,116,73,0.6293,76,0.6552,0.4945,4,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; HDFC; SBI,0.8406
+prisma-v3-keyterms,realestate_site_visit,timbre,ff10,hinglish,babble,116,29,0.25,33,0.2845,0.1918,12,12,,0.9796
+whisper-medium,demo_brightmart,windows-sapi,clean,demo-en,none,563,9,0.016,9,0.016,0.0046,0,0,,
+whisper-medium,demo_kapoor,windows-sapi,clean,demo-en,none,307,0,0.0,1,0.0033,0.0013,0,0,,
+whisper-medium,industrial_pumps_en-el,elevenlabs,clean,english,none,140,2,0.0143,2,0.0143,0.0028,8,9,Kirloskar (competitor),
+whisper-medium,industrial_pumps_en-el,elevenlabs,ff0,english,pcafeter,140,32,0.2286,33,0.2357,0.1653,8,9,Kirloskar (competitor),
+whisper-medium,industrial_pumps_en-el,elevenlabs,ff10,english,pcafeter,140,3,0.0214,3,0.0214,0.0124,8,9,Kirloskar (competitor),
+whisper-medium,industrial_pumps_en,timbre,clean,english,none,140,5,0.0357,5,0.0357,0.0358,9,9,,
+whisper-medium,industrial_pumps_en,timbre,ff0,english,pcafeter,140,20,0.1429,20,0.1429,0.0771,7,9,Kirloskar (competitor); Mr. Nair,
+whisper-medium,industrial_pumps_en,timbre,ff10,english,pcafeter,140,2,0.0143,2,0.0143,0.0069,9,9,,
+whisper-medium,industrial_pumps_en,timbre,ff20,english,pcafeter,140,6,0.0429,6,0.0429,0.0358,9,9,,
+whisper-medium,industrial_pumps_en,timbre,ff5,english,pcafeter,140,3,0.0214,3,0.0214,0.0124,8,9,Kirloskar (competitor),
+whisper-medium,kirana_distributor-el,elevenlabs,clean,hinglish,none,145,18,0.1241,43,0.2966,0.1088,9,11,Sunrise Distributors; Monday,
+whisper-medium,kirana_distributor-el,elevenlabs,ff0,hinglish,straffic,145,48,0.331,64,0.4414,0.2071,5,11,Sunrise Distributors; Parle-G; Maggi; Tata Salt; Britannia (competitor); 30-day credit,
+whisper-medium,kirana_distributor-el,elevenlabs,ff10,hinglish,straffic,145,37,0.2552,58,0.4,0.1664,8,11,Sunrise Distributors; Parle-G; Tata Salt,
+whisper-medium,kirana_distributor,timbre,clean,hinglish,none,145,9,0.0621,16,0.1103,0.0262,10,11,Parle-G,
+whisper-medium,kirana_distributor,timbre,ff0,hinglish,straffic,145,59,0.4069,79,0.5448,0.2713,6,11,Sunrise Distributors; Parle-G; Maggi; Tata Salt; Monday,
+whisper-medium,kirana_distributor,timbre,ff10,hinglish,straffic,145,31,0.2138,48,0.331,0.1415,8,11,Sunrise Distributors; Parle-G; Tata Salt,
+whisper-medium,kirana_distributor,timbre,ff20,hinglish,straffic,145,22,0.1517,40,0.2759,0.1075,9,11,Sunrise Distributors; Parle-G,
+whisper-medium,kirana_distributor,timbre,ff5,hinglish,straffic,145,45,0.3103,61,0.4207,0.1861,6,11,Sunrise Distributors; Parle-G; Maggi; Tata Salt; Monday,
+whisper-medium,loan_field_agent-el,elevenlabs,clean,hinglish,none,107,17,0.1589,37,0.3458,0.1254,6,10,"Rs 3 lakh loan; EMI Rs 10,200; PAN; GST",
+whisper-medium,loan_field_agent-el,elevenlabs,ff0,hinglish,straffic,107,62,0.5794,73,0.6822,0.336,5,10,Shakti Finance; Rs 3 lakh loan; 14% interest; 36-month tenure; PAN,
+whisper-medium,loan_field_agent-el,elevenlabs,ff10,hinglish,straffic,107,47,0.4393,54,0.5047,0.217,6,10,"Rs 3 lakh loan; Bajaj Finance (competitor); EMI Rs 10,200; PAN",
+whisper-medium,loan_field_agent,timbre,clean,hinglish,none,107,9,0.0841,28,0.2617,0.0788,10,10,,
+whisper-medium,loan_field_agent,timbre,ff0,hinglish,straffic,107,52,0.486,66,0.6168,0.3521,4,10,"14% interest; 36-month tenure; Bajaj Finance (competitor); EMI Rs 10,200; PAN; GST",
+whisper-medium,loan_field_agent,timbre,ff10,hinglish,straffic,107,17,0.1589,35,0.3271,0.1125,9,10,GST,
+whisper-medium,logistics_d2c_en-el,elevenlabs,clean,english,none,127,2,0.0157,2,0.0157,0.0029,10,11,Delhivery (competitor),
+whisper-medium,logistics_d2c_en-el,elevenlabs,ff0,english,pcafeter,127,24,0.189,26,0.2047,0.1323,6,11,ShipFast; Delhivery (competitor); Shiprocket (competitor); WhatsApp; Friday,
+whisper-medium,logistics_d2c_en-el,elevenlabs,ff10,english,pcafeter,127,5,0.0394,5,0.0394,0.016,9,11,Delhivery (competitor); Shiprocket (competitor),
+whisper-medium,logistics_d2c_en,timbre,clean,english,none,127,0,0.0,1,0.0079,0.0029,10,11,Delhivery (competitor),
+whisper-medium,logistics_d2c_en,timbre,ff0,english,pcafeter,127,11,0.0866,11,0.0866,0.0349,8,11,Delhivery (competitor); Shiprocket (competitor); 22% RTO,
+whisper-medium,logistics_d2c_en,timbre,ff10,english,pcafeter,127,2,0.0157,2,0.0157,0.0044,10,11,Delhivery (competitor),
+whisper-medium,pharma_detailing-el,elevenlabs,clean,hinglish,none,126,26,0.2063,48,0.381,0.1589,4,8,Zenova Pharma; Glucosafe; Metformin; 20 strips of samples,
+whisper-medium,pharma_detailing-el,elevenlabs,ff0,hinglish,babble,126,118,0.9365,121,0.9603,0.7616,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-medium,pharma_detailing-el,elevenlabs,ff10,hinglish,babble,126,71,0.5635,81,0.6429,0.4048,3,8,Zenova Pharma; Glucosafe; Metformin; 20 strips of samples; Thursday,
+whisper-medium,pharma_detailing,timbre,clean,hinglish,none,126,22,0.1746,43,0.3413,0.1439,2,8,Zenova Pharma; Glucosafe; Metformin; Type 2 diabetes; Rs 120 per strip; 20 strips of samples,
+whisper-medium,pharma_detailing,timbre,ff0,hinglish,babble,126,119,0.9444,122,0.9683,0.7031,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-medium,pharma_detailing,timbre,ff10,hinglish,babble,126,51,0.4048,70,0.5556,0.2669,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-medium,realestate_site_visit-el,elevenlabs,clean,hinglish,none,116,28,0.2414,47,0.4052,0.1775,3,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; Rs 2 lakh booking,
+whisper-medium,realestate_site_visit-el,elevenlabs,ff0,hinglish,babble,116,100,0.8621,105,0.9052,0.6719,1,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking,
+whisper-medium,realestate_site_visit-el,elevenlabs,ff10,hinglish,babble,116,69,0.5948,78,0.6724,0.3201,1,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking,
+whisper-medium,realestate_site_visit,timbre,clean,hinglish,none,116,19,0.1638,43,0.3707,0.1569,6,12,Green Valley Residency; 1200 sq ft; March possession; Rs 70 lakh price; Rs 65 lakh competitor price; Rs 2 lakh booking,
+whisper-medium,realestate_site_visit,timbre,ff0,hinglish,babble,116,107,0.9224,107,0.9224,0.6719,1,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); HDFC; SBI; Rs 2 lakh booking; Sunday,
+whisper-medium,realestate_site_visit,timbre,ff10,hinglish,babble,116,69,0.5948,76,0.6552,0.4406,2,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; Rs 70 lakh price; Godrej (competitor); HDFC; SBI; Rs 2 lakh booking; Sunday,
+whisper-small,demo_brightmart,windows-sapi,clean,demo-en,none,563,9,0.016,9,0.016,0.0046,0,0,,
+whisper-small,demo_kapoor,windows-sapi,clean,demo-en,none,307,3,0.0098,3,0.0098,0.0031,0,0,,
+whisper-small,industrial_pumps_en-el,elevenlabs,clean,english,none,140,3,0.0214,4,0.0286,0.0096,7,9,Kirloskar (competitor); Rs 1.8 lakh competitor quote,
+whisper-small,industrial_pumps_en-el,elevenlabs,ff0,english,pcafeter,140,47,0.3357,47,0.3357,0.2424,5,9,Apex Hydra; Kirloskar (competitor); Rs 2.1 lakh price; Mr. Nair,
+whisper-small,industrial_pumps_en-el,elevenlabs,ff10,english,pcafeter,140,4,0.0286,6,0.0429,0.0248,8,9,Kirloskar (competitor),
+whisper-small,industrial_pumps_en-el,elevenlabs,ff20,english,pcafeter,140,4,0.0286,5,0.0357,0.0193,6,9,Apex Hydra; Kirloskar (competitor); Rs 1.8 lakh competitor quote,
+whisper-small,industrial_pumps_en-el,elevenlabs,ff5,english,pcafeter,140,15,0.1071,17,0.1214,0.0854,6,9,Apex Hydra; Kirloskar (competitor); Rs 2.1 lakh price,
+whisper-small,industrial_pumps_en,timbre,clean,english,none,140,3,0.0214,3,0.0214,0.0083,9,9,,
+whisper-small,industrial_pumps_en,timbre,ff0,english,pcafeter,140,27,0.1929,28,0.2,0.1019,7,9,Kirloskar (competitor); Mr. Nair,
+whisper-small,industrial_pumps_en,timbre,ff10,english,pcafeter,140,4,0.0286,4,0.0286,0.0124,9,9,,
+whisper-small,industrial_pumps_en,timbre,ff20,english,pcafeter,140,4,0.0286,4,0.0286,0.0124,9,9,,
+whisper-small,industrial_pumps_en,timbre,ff5,english,pcafeter,140,12,0.0857,12,0.0857,0.0468,7,9,Apex Hydra; Kirloskar (competitor),
+whisper-small,kirana_distributor-el,elevenlabs,clean,hinglish,none,145,45,0.3103,68,0.469,0.1953,6,11,"Sunrise Distributors; Britannia (competitor); 15% margin; Rs 500 discount; Rs 48,000 total",
+whisper-small,kirana_distributor-el,elevenlabs,ff0,hinglish,straffic,145,84,0.5793,97,0.669,0.3735,2,11,"Sunrise Distributors; Parle-G; Maggi; Tata Salt; Britannia (competitor); 15% margin; 30-day credit; Rs 48,000 total; Monday",
+whisper-small,kirana_distributor-el,elevenlabs,ff10,hinglish,straffic,145,80,0.5517,96,0.6621,0.3512,3,11,"Sunrise Distributors; Parle-G; Tata Salt; Britannia (competitor); 15% margin; 30-day credit; Rs 48,000 total; Monday",
+whisper-small,kirana_distributor-el,elevenlabs,ff20,hinglish,straffic,145,52,0.3586,72,0.4966,0.2136,6,11,"Sunrise Distributors; Parle-G; Britannia (competitor); 30-day credit; Rs 48,000 total",
+whisper-small,kirana_distributor-el,elevenlabs,ff5,hinglish,straffic,145,92,0.6345,104,0.7172,0.4037,4,11,"Sunrise Distributors; Parle-G; Britannia (competitor); 15% margin; 30-day credit; Rs 500 discount; Rs 48,000 total",
+whisper-small,kirana_distributor,timbre,clean,hinglish,none,145,37,0.2552,67,0.4621,0.1966,5,11,Sunrise Distributors; Parle-G; Tata Salt; Britannia (competitor); 12% margin; Rs 500 discount,
+whisper-small,kirana_distributor,timbre,ff0,hinglish,straffic,145,84,0.5793,96,0.6621,0.3997,1,11,"Sunrise Distributors; Parle-G; Tata Salt; Britannia (competitor); 15% margin; 12% margin; 30-day credit; Rs 500 discount; Rs 48,000 total; Monday",
+whisper-small,kirana_distributor,timbre,ff10,hinglish,straffic,145,51,0.3517,70,0.4828,0.2136,6,11,"Sunrise Distributors; Parle-G; Tata Salt; Rs 48,000 total; Monday",
+whisper-small,kirana_distributor,timbre,ff20,hinglish,straffic,145,51,0.3517,74,0.5103,0.2359,3,11,"Sunrise Distributors; Parle-G; Britannia (competitor); 15% margin; 12% margin; Rs 500 discount; Rs 48,000 total; Monday",
+whisper-small,kirana_distributor,timbre,ff5,hinglish,straffic,145,65,0.4483,85,0.5862,0.2739,3,11,Sunrise Distributors; Parle-G; Maggi; Tata Salt; Britannia (competitor); 15% margin; 12% margin; Monday,
+whisper-small,loan_field_agent-el,elevenlabs,clean,hinglish,none,107,32,0.2991,59,0.5514,0.2219,6,10,Rs 3 lakh loan; 14% interest; Aadhaar; PAN,
+whisper-small,loan_field_agent-el,elevenlabs,ff0,hinglish,straffic,107,100,0.9346,103,0.9626,0.5884,0,10,"Shakti Finance; Rs 3 lakh loan; 14% interest; 36-month tenure; Bajaj Finance (competitor); EMI Rs 10,200; Aadhaar; PAN; GST; Friday",
+whisper-small,loan_field_agent-el,elevenlabs,ff10,hinglish,straffic,107,64,0.5981,73,0.6822,0.3312,2,10,"Rs 3 lakh loan; 14% interest; 36-month tenure; Bajaj Finance (competitor); EMI Rs 10,200; Aadhaar; PAN; GST",
+whisper-small,loan_field_agent-el,elevenlabs,ff20,hinglish,straffic,107,50,0.4673,59,0.5514,0.2669,3,10,Shakti Finance; Rs 3 lakh loan; 14% interest; 36-month tenure; Aadhaar; PAN; GST,
+whisper-small,loan_field_agent-el,elevenlabs,ff5,hinglish,straffic,107,87,0.8131,92,0.8598,0.6929,2,10,"Rs 3 lakh loan; 14% interest; 36-month tenure; Bajaj Finance (competitor); EMI Rs 10,200; Aadhaar; PAN; GST",
+whisper-small,loan_field_agent,timbre,clean,hinglish,none,107,66,0.6168,80,0.7477,0.4743,3,10,Rs 3 lakh loan; 14% interest; 36-month tenure; Bajaj Finance (competitor); Aadhaar; PAN; GST,
+whisper-small,loan_field_agent,timbre,ff0,hinglish,straffic,107,74,0.6916,83,0.7757,0.4437,2,10,"Rs 3 lakh loan; 14% interest; 36-month tenure; Bajaj Finance (competitor); EMI Rs 10,200; Aadhaar; PAN; GST",
+whisper-small,loan_field_agent,timbre,ff10,hinglish,straffic,107,42,0.3925,57,0.5327,0.2556,5,10,Rs 3 lakh loan; 14% interest; 36-month tenure; Aadhaar; PAN,
+whisper-small,loan_field_agent,timbre,ff20,hinglish,straffic,107,67,0.6262,80,0.7477,0.4984,3,10,Rs 3 lakh loan; 14% interest; 36-month tenure; Bajaj Finance (competitor); Aadhaar; PAN; GST,
+whisper-small,loan_field_agent,timbre,ff5,hinglish,straffic,107,61,0.5701,74,0.6916,0.3682,3,10,"Rs 3 lakh loan; 14% interest; 36-month tenure; EMI Rs 10,200; Aadhaar; PAN; GST",
+whisper-small,logistics_d2c_en-el,elevenlabs,clean,english,none,127,0,0.0,1,0.0079,0.0044,10,11,Delhivery (competitor),
+whisper-small,logistics_d2c_en-el,elevenlabs,ff0,english,pcafeter,127,37,0.2913,39,0.3071,0.2078,5,11,ShipFast; Delhivery (competitor); Shiprocket (competitor); WhatsApp; 1 December; Friday,
+whisper-small,logistics_d2c_en-el,elevenlabs,ff10,english,pcafeter,127,10,0.0787,11,0.0866,0.0392,9,11,Delhivery (competitor); Shiprocket (competitor),
+whisper-small,logistics_d2c_en-el,elevenlabs,ff20,english,pcafeter,127,8,0.063,9,0.0709,0.0291,10,11,Delhivery (competitor),
+whisper-small,logistics_d2c_en-el,elevenlabs,ff5,english,pcafeter,127,10,0.0787,11,0.0866,0.0538,8,11,ShipFast; Delhivery (competitor); Shiprocket (competitor),
+whisper-small,logistics_d2c_en,timbre,clean,english,none,127,1,0.0079,1,0.0079,0.0015,10,11,Delhivery (competitor),
+whisper-small,logistics_d2c_en,timbre,ff0,english,pcafeter,127,24,0.189,25,0.1969,0.1032,7,11,Delhivery (competitor); Shiprocket (competitor); 22% RTO; 1 December,
+whisper-small,logistics_d2c_en,timbre,ff10,english,pcafeter,127,2,0.0157,2,0.0157,0.0044,10,11,Delhivery (competitor),
+whisper-small,logistics_d2c_en,timbre,ff20,english,pcafeter,127,2,0.0157,2,0.0157,0.0044,10,11,Delhivery (competitor),
+whisper-small,logistics_d2c_en,timbre,ff5,english,pcafeter,127,8,0.063,8,0.063,0.0218,9,11,Delhivery (competitor); Shiprocket (competitor),
+whisper-small,pharma_detailing-el,elevenlabs,clean,hinglish,none,126,49,0.3889,72,0.5714,0.2384,2,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Rs 120 per strip; 20 strips of samples,
+whisper-small,pharma_detailing-el,elevenlabs,ff0,hinglish,babble,126,121,0.9603,123,0.9762,0.8186,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-small,pharma_detailing-el,elevenlabs,ff10,hinglish,babble,126,104,0.8254,116,0.9206,0.6447,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-small,pharma_detailing-el,elevenlabs,ff20,hinglish,babble,126,74,0.5873,96,0.7619,0.3628,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-small,pharma_detailing-el,elevenlabs,ff5,hinglish,babble,126,126,1.0,126,1.0,0.9925,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-small,pharma_detailing,timbre,clean,hinglish,none,126,62,0.4921,83,0.6587,0.3583,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-small,pharma_detailing,timbre,ff0,hinglish,babble,126,118,0.9365,120,0.9524,0.7256,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-small,pharma_detailing,timbre,ff10,hinglish,babble,126,92,0.7302,103,0.8175,0.4873,1,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples,
+whisper-small,pharma_detailing,timbre,ff20,hinglish,babble,126,69,0.5476,85,0.6746,0.2954,1,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples,
+whisper-small,pharma_detailing,timbre,ff5,hinglish,babble,126,126,1.0,126,1.0,0.9925,0,8,Zenova Pharma; Glucosafe; Metformin; Glycomet (competitor); Type 2 diabetes; Rs 120 per strip; 20 strips of samples; Thursday,
+whisper-small,realestate_site_visit-el,elevenlabs,clean,hinglish,none,116,40,0.3448,59,0.5086,0.2631,2,12,Green Valley Residency; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking,
+whisper-small,realestate_site_visit-el,elevenlabs,ff0,hinglish,babble,116,116,1.0,116,1.0,0.9921,0,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking; Sunday,
+whisper-small,realestate_site_visit-el,elevenlabs,ff10,hinglish,babble,116,106,0.9138,109,0.9397,0.6957,0,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking; Sunday,
+whisper-small,realestate_site_visit-el,elevenlabs,ff20,hinglish,babble,116,68,0.5862,80,0.6897,0.3978,2,12,Green Valley Residency; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking,
+whisper-small,realestate_site_visit-el,elevenlabs,ff5,hinglish,babble,116,108,0.931,110,0.9483,0.7512,0,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking; Sunday,
+whisper-small,realestate_site_visit,timbre,clean,hinglish,none,116,39,0.3362,57,0.4914,0.2298,5,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; Rs 70 lakh price; Rs 65 lakh competitor price; Rs 2 lakh booking,
+whisper-small,realestate_site_visit,timbre,ff0,hinglish,babble,116,111,0.9569,113,0.9741,0.7258,0,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking; Sunday,
+whisper-small,realestate_site_visit,timbre,ff10,hinglish,babble,116,75,0.6466,88,0.7586,0.5135,0,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking; Sunday,
+whisper-small,realestate_site_visit,timbre,ff20,hinglish,babble,116,47,0.4052,62,0.5345,0.2361,3,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; Rs 2 lakh booking,
+whisper-small,realestate_site_visit,timbre,ff5,hinglish,babble,116,104,0.8966,109,0.9397,0.6767,0,12,Green Valley Residency; 2 BHK; 1200 sq ft; March possession; RERA; Rs 70 lakh price; Godrej (competitor); Rs 65 lakh competitor price; HDFC; SBI; Rs 2 lakh booking; Sunday,

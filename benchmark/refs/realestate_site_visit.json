@@ -1,0 +1,90 @@
+{
+ "name": "realestate_site_visit",
+ "language": "hi-en",
+ "voices": {
+  "A": "Devansh",
+  "B": "Chetana"
+ },
+ "duration": 47.04,
+ "turns": [
+  {
+   "speaker": "A",
+   "text": "यह है Green Valley Residency का two BHK sample flat, बारह सौ square feet का।",
+   "start": 0.5,
+   "end": 5.3,
+   "line": 0
+  },
+  {
+   "speaker": "B",
+   "text": "Flat तो अच्छा है। Possession कब मिलेगा?",
+   "start": 5.794,
+   "end": 9.554,
+   "line": 1
+  },
+  {
+   "speaker": "A",
+   "text": "Possession अगले साल मार्च तक मिल जाएगा। Project RERA registered है।",
+   "start": 9.953,
+   "end": 14.193,
+   "line": 2
+  },
+  {
+   "speaker": "B",
+   "text": "Price क्या है?",
+   "start": 14.551,
+   "end": 15.511,
+   "line": 3
+  },
+  {
+   "speaker": "A",
+   "text": "सत्तर लाख रुपये, जिसमें parking और clubhouse शामिल है।",
+   "start": 15.896,
+   "end": 19.496,
+   "line": 4
+  },
+  {
+   "speaker": "B",
+   "text": "Godrej का project बगल में है, वहाँ पैंसठ लाख में मिल रहा है।",
+   "start": 19.839,
+   "end": 23.759,
+   "line": 5
+  },
+  {
+   "speaker": "A",
+   "text": "वहाँ carpet area कम है, और maintenance भी ज़्यादा है। आप दोनों compare कर लीजिए।",
+   "start": 24.177,
+   "end": 29.057,
+   "line": 6
+  },
+  {
+   "speaker": "B",
+   "text": "Home loan के लिए आपकी किसी bank से tie up है?",
+   "start": 29.5,
+   "end": 32.46,
+   "line": 7
+  },
+  {
+   "speaker": "A",
+   "text": "हाँ, HDFC और SBI दोनों से। Booking amount सिर्फ दो लाख है।",
+   "start": 32.92,
+   "end": 38.44,
+   "line": 8
+  },
+  {
+   "speaker": "B",
+   "text": "मैं अपने husband के साथ रविवार को फिर से आऊँगी।",
+   "start": 38.842,
+   "end": 41.642,
+   "line": 9
+  },
+  {
+   "speaker": "A",
+   "text": "ठीक है, रविवार को मैं आपके लिए floor plan और payment schedule तैयार रखूँगा।",
+   "start": 42.076,
+   "end": 46.716,
+   "line": 10
+  }
+ ],
+ "text": "यह है Green Valley Residency का two BHK sample flat, बारह सौ square feet का। Flat तो अच्छा है। Possession कब मिलेगा? Possession अगले साल मार्च तक मिल जाएगा। Project RERA registered है। Price क्या है? सत्तर लाख रुपये, जिसमें parking और clubhouse शामिल है। Godrej का project बगल में है, वहाँ पैंसठ लाख में मिल रहा है। वहाँ carpet area कम है, और maintenance भी ज़्यादा है। आप दोनों compare कर लीजिए। Home loan के लिए आपकी किसी bank से tie up है? हाँ, HDFC और SBI दोनों से। Booking amount सिर्फ दो लाख है। मैं अपने husband के साथ रविवार को फिर से आऊँगी। ठीक है, रविवार को मैं आपके लिए floor plan और payment schedule तैयार रखूँगा।",
+ "source": "timbre-v3.0"
+}
