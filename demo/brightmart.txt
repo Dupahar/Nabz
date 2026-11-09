@@ -1,0 +1,30 @@
+# voices: A=Microsoft David Desktop, B=Microsoft Zira Desktop
+# In-person meeting. A = Arjun Mehta, sales rep at Northwind POS. B = Priya Shah, Head of Operations at BrightMart, a 40-store grocery chain.
+A: Thanks for making the time, Priya. Before I show you anything, can you tell me what is going on at the stores right now? What made you take this meeting?
+B: Honestly, it's the stock-outs. Our billing system and our inventory don't talk to each other. Every week at least ten stores run out of fast-moving items, and we only find out when customers complain.
+A: Ten stores a week. What does a stock-out cost you, roughly, when it happens?
+B: Our finance team estimated around four lakh rupees a month in lost sales across the chain. And the store managers spend their Sunday doing manual counts.
+A: That's painful. How are you tracking inventory today?
+B: Excel sheets that the managers email to the head office every evening. And our accounts run on Tally.
+A: Got it. If you could fix one thing in the next quarter, what would it be?
+B: Real-time stock visibility, and automatic reorder alerts before we run out.
+A: That is exactly what our inventory module does. The billing counter updates stock the moment an item is sold, and when an item falls below a level you set, the store manager and the buyer both get an alert on their phone.
+B: That sounds good. But how long does it take to set up? We cannot shut stores down.
+A: We roll out store by store, usually overnight. A forty-store chain typically goes live in about six weeks.
+B: Six weeks is fine. What about Tally? We are not changing our accounting.
+A: You don't have to. We have a Tally connector that syncs sales and purchase entries every hour.
+B: Okay. To be very honest, we also met Zoho last week, and their quote was lower than what I expect from you.
+A: That's fair, and I'd rather you compare properly. Can I ask what was in their quote? Did it include the hardware and the store rollout?
+B: I think it was software only. Hardware was separate.
+A: Ours includes the billing hardware, the rollout team and the first year of support. If I put both side by side for forty stores, would that help you?
+B: Yes, that would help. What would forty stores cost with you?
+A: For forty stores, it comes to around twelve thousand rupees per store per month, so roughly four lakh eighty thousand a month.
+B: Hmm. That is close to what we lose from stock-outs. I'm not sure the CFO will see it that way.
+A: Who else is involved in this decision, besides you and the CFO?
+B: Our CFO, Mr. Rao, signs off on anything above two lakh a month. And the IT head will want to check the Tally integration.
+A: Would it make sense to set up a short session with Mr. Rao and the IT head, where we walk through the return on investment and the integration?
+B: Yes. Mr. Rao is free next Thursday. We want to decide before the new financial year in April.
+A: Perfect. I'll send you the side by side comparison and a pilot proposal for five stores by Monday, and we can meet Mr. Rao on Thursday.
+B: A pilot for five stores is a good idea. Send it to me and I will forward it to him.
+A: Great. Thank you, Priya. I'll also include the case study from FreshCart, they had the same stock-out problem.
+B: Thank you, Arjun. See you Thursday.

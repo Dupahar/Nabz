@@ -1,0 +1,11 @@
+# voices: A=Microsoft Zira Desktop, B=Microsoft David Desktop
+# In-person store visit. A = Sneha Iyer, sales rep at Northwind POS. B = Vikram Kapoor, owner of Kapoor Pharmacies, 6 stores.
+A: Hi Vikram, thanks for having me. So let me tell you about Northwind. We are the fastest growing point of sale company in India, we have more than two thousand retail customers, we have billing, inventory, loyalty, analytics, e-invoicing, GST filing, mobile apps for owners, and our support team is available all day. Our billing counter is very fast, and we have a special module for pharmacies with batch tracking and expiry alerts, and it also handles schedule H drugs. We also have integrations with all the major distributors, and the dashboard shows you sales for every store in real time. Most of our pharmacy customers see a big improvement in the first month.
+B: Okay. We already have a billing system though.
+A: Yes, and that's fine, most customers come from an older system. We migrate all your data for free, we train your staff, and we can go live in two weeks. We also have a loyalty program, so your customers earn points, and you can send them offers on WhatsApp. And our pricing is very competitive, it's only eight thousand rupees per store per month, and if you sign this month we give you two months free.
+B: Eight thousand per store is a lot for us. Marg is much cheaper.
+A: I understand, but Marg does not have the analytics and the loyalty features. With us you get everything in one place. And the expiry alerts alone will save you a lot of money, because pharmacies lose a lot to expired stock.
+B: Maybe. I need to think about it, and my brother handles the money side.
+A: Sure, I can send you a brochure and the pricing. Should I come back next week to do a demo for your brother?
+B: Send the brochure first. We'll see.
+A: Okay, I will send it today. Thank you so much, Vikram.

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4F46E5">
+  <title>Nabz · Visit</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header id="topbar"></header>
+  <main class="container mid">
+    <a href="/" class="muted" id="backLink" style="font-size:.88rem">← Back</a>
+
+    <section class="card" style="margin-top:.6rem">
+      <div class="visit-head">
+        <div style="flex:1;min-width:240px">
+          <h1 id="title">Loading visit…</h1>
+          <div class="meta-line" id="metaLine"></div>
+        </div>
+        <div class="chips" id="headChips"></div>
+      </div>
+      <div class="steps" id="steps" style="margin-top:.8rem"></div>
+      <div id="errBox"></div>
+    </section>
+
+    <div id="body" class="hidden">
+      <div class="grid cols-2" style="margin-top:1rem">
+        <!-- Left column: score + debrief + checklist + signals -->
+        <div>
+          <section class="card">
+            <div class="score-wrap">
+              <div class="ring" id="ring"></div>
+              <div style="flex:1;min-width:0">
+                <div class="chips" id="scoreChips" style="margin-bottom:.4rem"></div>
+                <p id="summary" style="margin:0"></p>
+                <p class="muted" id="scoreReason" style="font-size:.85rem;margin:.4rem 0 0"></p>
+              </div>
+            </div>
+            <div style="margin-top:.8rem" id="verifiedBox"></div>
+          </section>
+
+          <section class="card debrief hidden" id="debriefCard">
+            <div class="card-title"><h2 style="color:#fff">🎙️ Voice debrief</h2></div>
+            <small id="debriefCaption"></small>
+            <audio id="debriefAudio" controls preload="none"></audio>
+            <div class="script" id="debriefText"></div>
+          </section>
+
+          <section class="card hidden flags-box" id="flagsCard">
+            <div class="card-title"><h3>🚩 Compliance flags</h3></div>
+            <div id="flags"></div>
+          </section>
+
+          <section class="card">
+            <div class="card-title"><h2 id="checklistTitle">Checklist</h2><span class="right chip brand" id="lensChip"></span></div>
+            <div class="checklist" id="checklist"></div>
+          </section>
+
+          <section class="card">
+            <div class="card-title"><h2>📈 Market signals</h2><span class="right muted" style="font-size:.8rem">feeds market intelligence</span></div>
+            <div id="signals"></div>
+          </section>
+
+          <section class="card">
+            <div class="card-title"><h2>Concerns</h2></div>
+            <div id="concerns"></div>
+          </section>
+
+          <section class="card">
+            <div class="card-title"><h2>Needs &amp; risks</h2></div>
+            <div id="needsRisks"></div>
+          </section>
+        </div>
+
+        <!-- Right column: coaching, metrics, commitments, CRM, transcript -->
+        <div>
+          <section class="card">
+            <div class="card-title"><h2>🎯 Coaching</h2></div>
+            <div id="coaching"></div>
+          </section>
+
+          <section class="card">
+            <div class="card-title"><h2>Measured</h2><span class="right muted" style="font-size:.78rem">from timestamps, not AI judgement</span></div>
+            <div id="metrics"></div>
+          </section>
+
+          <section class="card">
+            <div class="card-title"><h2>Commitments</h2></div>
+            <div id="commitments"></div>
+          </section>
+
+          <section class="card hidden" id="proposalCard">
+            <div class="card-title"><h2>🗂 Proposed CRM update + follow-up</h2></div>
+            <div id="proposal"></div>
+          </section>
+
+          <section class="card">
+            <div class="card-title"><h2>Transcript</h2><span class="right muted" id="trMeta" style="font-size:.8rem"></span></div>
+            <div class="legend" id="trLegend" style="margin:-.3rem 0 .6rem"></div>
+            <div class="transcript" id="transcript"></div>
+          </section>
+        </div>
+      </div>
+
+      <div class="grid cols-2" style="margin-top:1rem">
+        <section class="card">
+          <div class="card-title"><h2>📝 Meeting notes</h2></div>
+          <div id="notes" style="font-size:.92rem"></div>
+        </section>
+        <div>
+          <section class="card">
+            <div class="card-title"><h2>🔒 Consent &amp; privacy</h2></div>
+            <dl class="kv" id="consent"></dl>
+            <div id="redactions" style="margin-top:.6rem"></div>
+            <button class="btn danger sm" id="eraseBtn" style="margin-top:.8rem">Erase this visit (consent withdrawn)</button>
+          </section>
+          <section class="card">
+            <details class="audit" id="auditBox">
+              <summary>Audit trail <span class="muted" id="auditCount"></span></summary>
+              <div id="audit" style="margin-top:.6rem"></div>
+            </details>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script src="/static/common.js"></script>
+  <script src="/static/visit.js"></script>
+</body>
+</html>

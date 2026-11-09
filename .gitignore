@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.pyc
+# Recordings, transcripts and the CRM are customer data: never commit them.
+data/
+demo/*.wav
+.claude/settings.local.json
+.env
+.env.*
+!.env.example
+scratch/
+benchmark/audio/
+benchmark/noise/
+benchmark/results/raw/
+scratch/
+demo/seed/audio/
+benchmark/audio/
+benchmark/noise/
+benchmark/results/raw/
+data/

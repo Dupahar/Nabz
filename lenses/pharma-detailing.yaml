@@ -1,0 +1,29 @@
+id: pharma-detailing
+name: Pharma medical rep / doctor or chemist visit
+description: A medical representative detailing products to a doctor, or visiting a chemist.
+score_label: Detailing quality
+score_guide: >
+  0-100: key messages delivered accurately, the doctor's questions answered, prescription intent
+  understood, and no compliance issues. Any high-severity compliance flag caps the score at 40.
+cues: [doctor, patient, prescription, prescribe, dose, dosage, tablet, molecule, sample, mg, side effect, clinical, study, chemist, therapy, daktar, डॉक्टर, दवा, दवाई, मरीज़, मरीज, प्रिस्क्रिप्शन, सैंपल, टैबलेट, केमिस्ट]
+concern_categories: [efficacy, safety, price, availability, competitor, evidence, other]
+checklist:
+  key_messages: Were the brand's approved key messages delivered?
+  doctor_questions_answered: Were the doctor's questions answered accurately?
+  prescription_intent: Did the doctor indicate whether they would prescribe?
+  samples_logged: If samples were given or requested, were brand and quantity stated?
+  follow_up_agreed: Was a next visit or follow-up agreed?
+# UCPMP 2024 (Uniform Code for Pharmaceutical Marketing Practices, notified 12 Mar 2024).
+compliance:
+  - id: inducement
+    rule: "UCPMP 2024: offering gifts, cash, travel, hospitality or any personal benefit to a healthcare professional"
+    severity: high
+  - id: off_label
+    rule: Claims outside the approved indication, or unsupported efficacy or safety claims
+    severity: high
+  - id: patient_data
+    rule: Identifiable patient details discussed (must not be stored)
+    severity: high
+coaching_focus: >
+  Accuracy and order of key messages, handling efficacy and safety questions with evidence, and
+  asking for a prescription commitment.

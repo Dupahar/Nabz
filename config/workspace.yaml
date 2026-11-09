@@ -1,0 +1,59 @@
+# Nabz workspace: who "we" are and the rules every agent and tool follows.
+# A team lead edits this file; nothing here needs code changes.
+
+company: Northwind Distributors
+# What Northwind does, in one line. Goes into the speech model's topic hint and the analyst's context.
+about: >
+  FMCG distributor serving kiranas, chemists and modern trade across North and West India;
+  also sells Northwind POS billing software to retail chains.
+
+team:
+  # role controls what each person sees:
+  #   rep: own visits only; manager: team + market intelligence; admin: also audit log, erasure, exports.
+  # language is used for voice debriefs (Timbre language codes).
+  - {name: Arjun Mehta, handle: arjun, role: rep, language: hi-en, region: Delhi NCR}
+  - {name: Sneha Iyer, handle: sneha, role: rep, language: en-IN, region: Mumbai}
+  - {name: Ravi Kumar, handle: ravi, role: rep, language: hi-IN, region: Lucknow}
+  - {name: Kavita Rao, handle: kavita, role: manager, language: hi-en, region: All}
+  - {name: Meera Nair, handle: meera, role: admin, language: en-IN, region: All}
+
+# Customer segments a visit can be tagged with (market intelligence is sliced by these).
+segments: [Kirana, Chemist, Modern trade, Wholesaler, Doctor, Retail chain, Other]
+
+# Words the speech model must get right. They are sent to Prisma as `keyterms` with every
+# recording, together with account and contact names from the CRM.
+vocabulary:
+  products: [Parle-G, Maggi, Sunfeast, Mom's Magic, Tata Tea, Aashirvaad, Dettol, Northwind POS]
+  competitors: [Britannia, Patanjali, Haldiram, Zoho, Vyapar]
+  terms: [GST, lakh, crore, carton, peti, scheme, credit, UPI, SKU, display, MRP]
+
+speech:
+  engine: prisma            # prisma (Gnani AI) or whisper (local fallback)
+  model: prisma-v3.0
+  language: indic-auto      # or e.g. "hi-IN,en-IN" or "kn-IN"
+  format: codemix           # English words stay in Latin script inside Indian-language speech
+  denoise: true             # shop floors, traffic, car parks
+  max_speakers: 3
+
+llm:
+  model: claude-opus-5-5    # analysis model (web app). The chat agents run on Claude Code.
+  effort: medium            # low | medium | high
+  max_retries_on_check: 1   # re-ask the model once if quotes fail verification
+
+voice_debrief:
+  enabled: true
+  model: timbre-v3.0
+  voice: Shivani            # Timbre v3.0 voices speak all ten languages
+  default_language: hi-en
+
+privacy:
+  consent_required: true    # DPDP Act 2023 s.5-6: no processing without a recorded notice + consent
+  redact_pii: true          # Aadhaar, PAN, GSTIN, phone, email, card and account numbers
+  retain_audio_days: 1      # raw audio is deleted within a day of processing (tools/retention.py)
+  retain_transcripts_days: 365
+
+# Optional rupee rates for cost-per-visit reporting (tools/cost.py). Leave 0 if unknown.
+rates_inr:
+  prisma_per_min: 0
+  timbre_per_1k_chars: 0
+  llm_per_1k_tokens: 0

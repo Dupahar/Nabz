@@ -1,0 +1,21 @@
+id: support
+name: Service / support visit
+description: A technician or service executive resolving a customer's issue on site.
+score_label: Resolution score
+score_guide: >
+  0-100: was the issue understood, fixed or given a clear plan, and did the customer confirm they
+  were satisfied?
+cues: [complaint, issue, problem, not working, repair, service, warranty, replace, technician, ticket, kharab, install, installation, शिकायत, ख़राब, खराब, रिपेयर, सर्विस, वारंटी, इंस्टॉल]
+concern_categories: [product_fault, delay, cost, warranty, communication, other]
+checklist:
+  issue_identified: Was the customer's issue stated clearly?
+  root_cause: Was a cause found?
+  resolution: Was it resolved, or a plan with a date given?
+  customer_confirmed: Did the customer confirm satisfaction or the plan?
+  upsell_or_amc: Was an AMC, upgrade or related product appropriately offered?
+compliance:
+  - id: warranty_misstatement
+    rule: Misstating the warranty, or charging for covered repairs
+    severity: medium
+coaching_focus: >
+  Listening to the full complaint, explaining what was done in plain words, and confirming satisfaction.

@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./py tools/:*)",
+      "Bash(.venv/Scripts/python tools/:*)",
+      "Bash(.venv/bin/python tools/:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Read(./**)",
+      "Write(./data/**)",
+      "Edit(./data/**)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./data/calls/*/transcript.raw.json)",
+      "Read(./data/calls/*/prisma.json)",
+      "Bash(cat:*)",
+      "Bash(type:*)",
+      "Edit(./data/audit.jsonl)",
+      "Write(./data/audit.jsonl)"
+    ]
+  }
+}

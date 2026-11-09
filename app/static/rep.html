@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4F46E5">
+  <title>Nabz · Record a visit</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header id="topbar"></header>
+  <main class="container narrow">
+    <div class="page-head">
+      <div>
+        <h1 id="hello">New visit</h1>
+        <div class="sub">Record the conversation. Nabz writes the notes, scores it and coaches you.</div>
+      </div>
+    </div>
+
+    <!-- 1. Visit details -->
+    <section class="card" id="detailsCard">
+      <div class="card-title"><h2>1 · Visit details</h2></div>
+      <label class="field"><span>Account (shop or organisation)</span>
+        <input type="text" id="account" placeholder="e.g. Sharma Kirana Store" autocomplete="off" required></label>
+      <div class="row">
+        <label class="field"><span>Contact (optional)</span>
+          <input type="text" id="contact" placeholder="e.g. Sharma ji" autocomplete="off"></label>
+        <label class="field"><span>Segment</span><select id="segment"></select></label>
+      </div>
+      <label class="field"><span>Region</span><input type="text" id="region" autocomplete="off"></label>
+    </section>
+
+    <!-- 2. Consent -->
+    <section class="card" id="consentCard">
+      <div class="card-title"><h2>2 · Consent</h2><span class="right chip brand">DPDP Act 2023</span></div>
+      <div class="notice">
+        Read this to the customer:<br>
+        <span class="q">"Main yeh baat-cheet sirf quality aur training ke liye record kar raha hoon. Aapka data India mein
+          surakshit rahega, aur aap kabhi bhi delete karwa sakte hain."</span>
+      </div>
+      <div class="radio-group">
+        <label class="radio"><input type="radio" name="cmethod" value="verbal" checked>
+          <span><b>Verbal, on tape</b>: I'll ask at the start of the recording.</span></label>
+        <label class="radio"><input type="radio" name="cmethod" value="rep-confirmed">
+          <span><b>Agreed before recording</b>: the customer said yes before I started.</span></label>
+      </div>
+      <div style="margin-top:.6rem">
+        <label class="check"><input type="checkbox" id="consentOk">
+          <span><b>Customer agreed</b> to this conversation being recorded for quality and training.</span></label>
+      </div>
+    </section>
+
+    <!-- 3. Record -->
+    <section class="card" id="recordCard">
+      <div class="card-title"><h2>3 · Record</h2><span class="right muted" id="recState">Waiting for consent</span></div>
+      <div class="recorder">
+        <button class="rec-btn" id="recBtn" disabled aria-label="Start recording">
+          <svg id="recIcon" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/>
+            <path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="17" x2="12" y2="22"/></svg>
+        </button>
+        <div class="rec-timer" id="timer">0:00</div>
+        <div class="meter"><div id="level"></div></div>
+        <div class="rec-hint" id="recHint">Tick "Customer agreed" to start. Keep the phone on the counter, not in a pocket.</div>
+      </div>
+
+      <div id="preview" class="hidden fade-in">
+        <div class="section-label">Preview</div>
+        <audio id="previewAudio" controls style="width:100%"></audio>
+        <div class="muted" id="previewMeta" style="font-size:.82rem;margin-top:.3rem"></div>
+        <div class="progress hidden" id="uploadProg" style="margin-top:.7rem"><div id="uploadBar"></div></div>
+        <div class="row" style="margin-top:.8rem">
+          <button class="btn secondary" id="discardBtn">Discard</button>
+          <button class="btn" id="uploadBtn">Upload &amp; analyse</button>
+        </div>
+      </div>
+
+      <div class="divider">or upload an existing recording</div>
+      <label class="btn secondary block" for="fileInput" id="fileLabel">📁 Choose audio file (voice note, m4a, mp3, wav)</label>
+      <input type="file" id="fileInput" accept="audio/*,.ogg,.opus,.m4a,.mp3,.wav,.webm" class="hidden">
+      <div id="msg"></div>
+    </section>
+
+    <!-- My visits -->
+    <section class="card">
+      <div class="card-title"><h2 id="listTitle">My visits</h2><span class="right muted" id="listMeta"></span></div>
+      <div class="list" id="visits"><div class="empty"><span class="big">🎙️</span>No visits yet. Record your first one above.</div></div>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <script src="/static/common.js"></script>
+  <script src="/static/rep.js"></script>
+</body>
+</html>

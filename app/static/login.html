@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nabz · Sign in</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container mid">
+    <div class="login-hero">
+      <div class="brand-mark" id="mark"></div>
+      <h1>Nabz</h1>
+      <p class="muted">The pulse of every field conversation: market intelligence and coaching from
+        India's in-person, Hinglish, noisy-shop conversations.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><h2>Who are you?</h2><span class="right muted" id="company"></span></div>
+      <p class="muted" style="font-size:.88rem">Demo sign-in. Pick a person from <code>config/workspace.yaml</code>.
+        What you can see depends on the role: reps see their own visits, managers see the team and market intelligence,
+        and admins also see the audit log.</p>
+      <div class="people" id="people"><div class="empty"><span class="big">⏳</span>Loading team…</div></div>
+      <div id="err"></div>
+    </div>
+  </div>
+  <div id="footer"></div>
+  <script src="/static/common.js"></script>
+  <script src="/static/login.js"></script>
+</body>
+</html>

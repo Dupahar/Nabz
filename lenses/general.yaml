@@ -1,0 +1,18 @@
+# The fallback lens: any business conversation. Every other lens adds to this core.
+id: general
+name: General business conversation
+description: Any meeting, visit or call that does not fit a more specific lens.
+score_label: Outcome score
+score_guide: >
+  0-100: how likely the conversation's purpose is achieved. 80+ only with a clear decision or
+  agreement and a dated next step with an owner. Below 30 when nothing was agreed.
+cues: []
+concern_categories: [price, timing, trust, process, quality, other]
+checklist:
+  purpose_clear: Was the purpose of the conversation stated or obvious?
+  decision_made: Was a decision or agreement reached?
+  next_step_dated: Is there a next step with a date?
+  owner_assigned: Does every action have an owner?
+compliance: []
+coaching_focus: >
+  Clarity, listening, confirming next steps out loud, and summarising agreements before ending.

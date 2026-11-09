@@ -1,0 +1,22 @@
+id: fmcg-retail
+name: FMCG / distributor outlet visit
+description: A field rep or distributor salesman visiting a kirana, chemist or modern-trade outlet.
+score_label: Visit quality
+score_guide: >
+  0-100: did the visit achieve what a beat visit should: order taken, schemes communicated,
+  stock and visibility checked, dues collected, relationship strengthened.
+cues: [order, scheme, stock, sku, carton, peti, case, distributor, retailer, dukaan, shop, outlet, display, shelf, margin, credit, udhaar, payment, beat, offer, free, piece, kirana, ऑर्डर, स्कीम, स्टॉक, पेमेंट, उधार, दुकान, कार्टन, पेटी, डिस्प्ले, माल, क्रेडिट, maal]
+concern_categories: [margin, credit, stock, scheme, competitor, delivery, quality, other]
+checklist:
+  order_taken: Was an order taken (SKUs and quantities)?
+  scheme_communicated: Were current schemes or offers explained?
+  stockout_checked: Did the rep check for stock-outs or slow movers?
+  competitor_activity: Was competitor activity at the outlet noted?
+  visibility_checked: Were display, shelf share or POSM checked?
+  collection: Were pending dues collected or a date agreed?
+compliance:
+  - id: unauthorised_scheme
+    rule: Promising a scheme, discount or credit period not in the current scheme list
+    severity: medium
+coaching_focus: >
+  Order size versus outlet potential, upselling new SKUs, scheme recall, and capturing competitor intel.

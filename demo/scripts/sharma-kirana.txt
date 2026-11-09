@@ -1,0 +1,16 @@
+# voices: A=FZkK3TvQ0pjyDmT8fzIW, B=zT03pEAEi0VHKciJODfn
+# A = Arjun (Northwind distributor rep), ElevenLabs "Bunty". B = Sharma ji (kirana owner), ElevenLabs "Raju".
+# Synthetic test visit for Nabz. The phone number is made up.
+A: नमस्ते शर्मा जी! एक second, मैं ये बात company training के लिए record कर लूँ?
+B: हाँ हाँ, कर लो, कोई बात नहीं।
+A: तो इस हफ़्ते कैसा चल रहा है? क्या fast निकल रहा है?
+B: Parle-G और Maggi तो रोज़ ख़त्म हो जाता है। वो नया वाला Sunfeast Mom's Magic पड़ा हुआ है, नहीं बिक रहा, लोग बोलते हैं price ज़्यादा है।
+A: अच्छा। और Parle-G का stock कितना बचा है?
+B: बस दो-तीन packet। पाँच carton भेज दो। और Maggi के तीन carton।
+A: Done। और इस महीने scheme चल रही है, दस carton पे एक carton free।
+B: दस carton? इतनी जगह नहीं है भाई। और Britannia वाला आदमी पंद्रह दिन का credit दे रहा है।
+A: समझ गया। मैं manager से बात करके credit का देखता हूँ। अभी पाँच और तीन लिख देता हूँ।
+B: ठीक है। मेरा नया number लिख लो: नौ आठ चार पाँच, शून्य एक दो, तीन चार पाँच।
+A: लिख लिया। Payment कब तक?
+B: Friday को UPI कर दूँगा, पक्का।
+A: Perfect। Friday को delivery के साथ bill आ जाएगा। धन्यवाद शर्मा जी!

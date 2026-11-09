@@ -1,0 +1,29 @@
+id: collections
+name: Collections / recovery visit
+description: A field agent visiting a borrower or customer about overdue payments.
+score_label: Promise-to-pay likelihood
+score_guide: >
+  0-100: likelihood of payment as discussed. 80+ only with a specific amount and date the customer
+  committed to in their own words. Any high-severity compliance flag must be escalated to a manager.
+cues: [emi, overdue, due, payment, loan, installment, kisht, bounce, penalty, settlement, recovery, outstanding, bakaya, ईएमआई, किस्त, लोन, बकाया, पैसे, भुगतान, ओवरड्यू]
+concern_categories: [cash_flow, dispute, job_loss, medical, intent, other]
+checklist:
+  identity_confirmed: Did the agent confirm they were speaking to the right person (without reading out full ID numbers)?
+  amount_due_stated: Was the overdue amount clearly stated?
+  reason_captured: Was the reason for non-payment captured?
+  promise_to_pay: Did the customer commit to an amount and a date?
+  payment_mode: Was a payment method agreed?
+# RBI Fair Practices Code and guidelines on recovery agents.
+compliance:
+  - id: harassment
+    rule: "RBI recovery guidelines: threats, intimidation, abusive or humiliating language"
+    severity: high
+  - id: third_party_disclosure
+    rule: Discussing the debt with family, neighbours or colleagues
+    severity: high
+  - id: false_claims
+    rule: Misrepresenting legal consequences or the agent's authority
+    severity: high
+coaching_focus: >
+  Empathy with firmness, getting a specific amount and date in the customer's own words, and never
+  crossing compliance lines.

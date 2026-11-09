@@ -1,0 +1,29 @@
+id: sales
+name: Sales meeting / customer visit
+description: Discovery, demo, proposal or negotiation with a prospect or customer.
+score_label: Deal score
+score_guide: >
+  0-100: likelihood the deal progresses. 80+ only with confirmed need, budget, decision maker
+  engaged and a dated next step. Below 30 when no pain was uncovered or there is no next step.
+stages: [lead, discovery, demo, proposal, negotiation, closed-won, closed-lost]
+cues: [price, quote, discount, demo, proposal, pilot, budget, competitor, decision, contract, per month, lakh, crore, pricing, rate, kitna, deal, roi, प्रपोज़ल, पायलट, डेमो, प्राइस, क़ीमत, कीमत, डील, बजट]
+concern_categories: [price, timing, competitor, authority, need, trust, integration, other]
+checklist:
+  budget: "BANT Budget: did the customer indicate money is available or what they spend today?"
+  authority: "BANT Authority: do we know who decides, and are they involved?"
+  need: "BANT Need: did the customer state a problem in their own words?"
+  timeline: "BANT Timeline: is there a date or event driving the decision?"
+  decision_process: Do we know the steps and people between now and a signed order?
+# Classify the rep's questions (Rackham, SPIN Selling, 1988): Situation, Problem, Implication,
+# Need-payoff. Implication and need-payoff questions are associated with success in larger sales.
+spin: true
+compliance:
+  - id: unapproved_discount
+    rule: Discounts or price commitments beyond the rep's approved limit
+    severity: medium
+  - id: overpromise
+    rule: Delivery dates, features or guarantees the rep cannot confirm
+    severity: medium
+coaching_focus: >
+  Discovery depth (implication and need-payoff questions), handling objections before moving on,
+  quantifying the customer's pain in rupees, and leaving with a dated next step with the decision maker.

@@ -1,0 +1,224 @@
+# Synthetic demo visits for the Nabz dashboard. Voices: Gnani Timbre v3.0. All names, shops and
+# numbers are invented; the phone number in sharma-general is fake.
+# Each line is "A" (our rep) or "B" (the customer). `lang` is the Timbre language per visit;
+# a line can override it with "A@en-IN: ..." style prefixes.
+
+visits:
+  - slug: sharma-general
+    rep: arjun
+    account: Sharma General Store
+    contact: Sharma ji
+    segment: Kirana
+    consent: verbal
+    lang: hi-en
+    voices: {A: Avinash, B: Harshad}
+    noise: straffic
+    script:
+      - "A: Namaste Sharma ji. Ek minute, main ye baat training ke liye record kar raha hoon, theek hai?"
+      - "B: Haan haan, kar lo, koi baat nahi."
+      - "A: Toh is hafte kya chal raha hai? Maggi ka stock kaisa hai?"
+      - "B: Maggi toh roz khatam ho jaati hai bhai. Bachche aate hi Maggi maangte hain. Paanch carton bhej do is baar."
+      - "A: Paanch carton Maggi, done. Parle-G bhi chahiye?"
+      - "B: Parle-G abhi do carton rakho. Dekho, Britannia wala aadmi pandrah din ka credit de raha hai. Usse Good Day aur Marie le liya maine."
+      - "A: Achha. Theek hai, Parle-G do carton likh deta hoon."
+      - "B: Tum log bhi credit do na, warna main Britannia hi zyada rakhunga."
+      - "A: Haan ji, dekhte hain. Aur Tata Tea?"
+      - "B: Tata Tea ek peti. Aur mera naya number likh lo, nau aath saat chaar shunya ek do teen chaar paanch."
+      - "A: Likh liya. Payment kab tak hoga?"
+      - "B: Shukravaar ko UPI kar dunga."
+      - "A: Theek hai Sharma ji, Shukravaar ko delivery ke saath bill aa jaayega. Dhanyavaad."
+
+  - slug: gupta-kirana
+    rep: arjun
+    account: Gupta Kirana
+    contact: Mrs. Gupta
+    segment: Kirana
+    consent: rep-confirmed
+    lang: hi-en
+    voices: {A: Avinash, B: Lakshmi}
+    noise: babble
+    script:
+      - "A: Namaste Gupta aunty. Naya order le loon?"
+      - "B: Haan beta, Maggi teen carton bhej do, woh toh chalti hi hai."
+      - "A: Teen carton Maggi. Aur Mom's Magic? Pichhli baar do carton diye the."
+      - "B: Woh abhi tak pade hain. Price zyada hai, log Marie le jaate hain. Mom's Magic mat bhejo abhi."
+      - "A: Theek hai. Is mahine scheme hai, das carton pe ek carton free."
+      - "B: Das carton? Itni jagah kahan hai meri dukaan mein. Ye scheme toh bade dukaan walon ke liye hai."
+      - "A: Haan, minimum zyada hai. Aur Parle-G?"
+      - "B: Parle-G ek carton. Britannia wala bhi aaya tha, pandrah din ka udhaar de raha hai, aur display ke liye rack bhi."
+      - "A: Achha, theek hai. Toh Maggi teen, Parle-G ek."
+      - "B: Haan. Aur agle hafte aana, tab dekhenge."
+      - "A: Ji aunty, agle Mangalvaar ko aata hoon."
+
+  - slug: bansal-wholesale
+    rep: arjun
+    account: Bansal Wholesale
+    contact: Rakesh Bansal
+    segment: Wholesaler
+    consent: rep-confirmed
+    lang: hi-en
+    voices: {A: Avinash, B: Prakash}
+    noise: straffic
+    script:
+      - "A: Rakesh ji namaste. Is hafte ka order bataiye."
+      - "B: Arjun, pehle ek baat. Pichhle hafte Aashirvaad atta ka maal time pe nahi aaya. Teen din late tha, mere retailer naraaz ho gaye."
+      - "A: Sorry Rakesh ji, transport ka issue tha."
+      - "B: Har baar yahi bolte ho. Is chakkar mein do retailer ne Patanjali atta utha liya."
+      - "A: Main warehouse se baat karta hoon. Atta kitna chahiye?"
+      - "B: Atta pachaas bag. Maggi bees carton. Aur suno, Britannia pandrah din credit de raha hai, tum log saat din dete ho. Mere kaafi retailer Britannia ki taraf ja rahe hain."
+      - "A: Haan, wo toh hai. Maggi bees carton, atta pachaas bag likh liya."
+      - "B: Credit ka kuch karo, warna next month order aadha ho jaayega."
+      - "A: Theek hai Rakesh ji, delivery parso tak ho jaayegi."
+      - "B: Parso pakka? Phir se late mat karna."
+      - "A: Pakka, parso subah tak."
+
+  - slug: jain-provision
+    rep: arjun
+    account: Jain Provision Store
+    contact: Mahesh Jain
+    segment: Kirana
+    consent: verbal
+    lang: hi-en
+    voices: {A: Avinash, B: Yashraj}
+    noise: babble
+    script:
+      - "A: Jain sahab namaste. Main ye conversation training ke liye record kar raha hoon, chalega?"
+      - "B: Haan chalega, bolo."
+      - "A: Maggi ka kya haal hai?"
+      - "B: Maggi best hai. Masala aur atta noodles dono chal rahe hain. Saat carton bhej do."
+      - "A: Saat carton. Is mahine das carton pe ek free hai, teen aur le lo toh ek free mil jaayega."
+      - "B: Das pe ek free matlab kya, mixed chalega ya sirf Maggi?"
+      - "A: Mixed nahi, ek hi product ka das carton."
+      - "B: Phir samajh nahi aaya. Pichhle mahine bola tha mixed chalega. Ye scheme har baar badal jaati hai."
+      - "A: Main confirm karke batata hoon. Abhi saat carton Maggi aur do carton Tata Tea?"
+      - "B: Haan theek hai. Aur Sunfeast Mom's Magic mat bhejna, wo nahi bikta, mehenga hai."
+      - "A: Theek hai, sirf Maggi aur Tata Tea."
+
+  - slug: patel-supermarket
+    rep: sneha
+    account: Patel Supermarket
+    contact: Hitesh Patel
+    segment: Modern trade
+    consent: rep-confirmed
+    lang: en-IN
+    voices: {A: Shivani, B: Devansh}
+    noise: pcafeter
+    script:
+      - "A: Hi Hitesh ji, so this month we have a great lineup. Tata Tea Premium has a new pack, Maggi has a combo offer, and Aashirvaad has a festive pack, and I really think your customers will love all of these because the festive season is coming and everyone is stocking up, so you should take a bigger order this time."
+      - "B: Sneha, the Tata Tea price hike last month, customers are not happy. Sales are down almost twenty percent."
+      - "A: Yes but the quality is premium, and the brand is very strong, and we are also running a TV campaign, so customers will come back, and honestly the new pack looks very good on the shelf, so I would say take at least fifty cases this month."
+      - "B: Fifty? I am still sitting on old stock. People are buying the cheaper local tea now."
+      - "A: Okay, but Maggi is doing very well everywhere, so for Maggi you should definitely take more, maybe forty cases, and the combo will move fast."
+      - "B: Maggi is fine, Maggi always sells. Give me thirty cases of Maggi. Tata Tea only ten."
+      - "A: Okay, thirty Maggi and ten Tata Tea. And Mom's Magic?"
+      - "B: No, Mom's Magic is too expensive for our customers."
+      - "A: Alright, I will send the order today, delivery by Thursday."
+
+  - slug: freshmart-pos
+    rep: sneha
+    account: FreshMart
+    contact: Anjali Desai
+    segment: Retail chain
+    consent: verbal
+    lang: en-IN
+    voices: {A: Shivani, B: Chetana}
+    noise: pcafeter
+    script:
+      - "A: Anjali, before we start, I am recording this conversation for training, is that okay?"
+      - "B: Sure, go ahead."
+      - "A: So Northwind POS is our billing and inventory software, it works on any counter, it syncs with Tally, it gives real-time stock across all your stores, reorder alerts, GST invoices, and we have more than two hundred stores using it already, and the setup is very fast, and we also give training to your staff."
+      - "B: We have twelve stores. Our biggest problem is billing queues on weekends, and we do not know store-wise stock."
+      - "A: Yes, that is exactly what we solve, the billing is very fast and the dashboard shows store-wise stock, and the pricing is also very reasonable, it is nine thousand rupees per store per month including support."
+      - "B: Nine thousand per store is about one lakh eight thousand a month. That is more than we pay now. I would need to show ROI to our director."
+      - "A: Of course, and we can do a demo for your director and a pilot in two stores."
+      - "B: A pilot in two stores makes sense. Our director, Mr. Kulkarni, decides by the end of December."
+      - "A: Great, I will send the proposal and pilot plan by Friday."
+
+  - slug: mehta-medicals
+    rep: sneha
+    account: Mehta Medicals
+    contact: Dr. Vikram Mehta
+    segment: Chemist
+    consent: rep-confirmed
+    lang: en-IN
+    voices: {A: Shivani, B: Harshad}
+    noise: pcafeter
+    script:
+      - "A: Good evening Mehta sir. I wanted to talk about Dettol antiseptic liquid and the new Dettol hand wash for your counter."
+      - "B: Dettol sells, but many patients now ask for the cheaper Patanjali hand wash."
+      - "A: Your regular customers already trust Dettol, and we have new sample bottles for your regular patients."
+      - "B: Samples are fine. But the margin on Dettol is lower than the other brands."
+      - "A: Sir, if you push Dettol this month, aapko Diwali pe ek gift hamper bhi milega personally, from my side."
+      - "B: Gift hamper? Okay, okay. Send twenty bottles of Dettol antiseptic and ten hand wash."
+      - "A: Done sir. Twenty antiseptic and ten hand wash, delivery tomorrow."
+      - "B: Also, the doctor next door says Dettol liquid should not be used undiluted on wounds, tell your team to mention that."
+      - "A: Yes sir, I will note that."
+
+  - slug: shukla-medical
+    rep: ravi
+    account: Shukla Medical Store
+    contact: Anil Shukla
+    segment: Chemist
+    consent: verbal
+    lang: hi-en
+    voices: {A: Shubham, B: Prakash}
+    noise: straffic
+    script:
+      - "A: Shukla ji pranaam. Main ye baat-cheet training ke liye record kar raha hoon, aapko koi aapatti toh nahi?"
+      - "B: Nahi nahi, kar lijiye."
+      - "A: Pichhle mahine Dettol ki bikri kaisi rahi?"
+      - "B: Kam hui hai. Patanjali wale har hafte aate hain, unka hand wash sasta hai aur margin bhi zyada dete hain."
+      - "A: Kitna margin de rahe hain woh?"
+      - "B: Lagbhag athaarah pratishat, Dettol pe humein barah milta hai."
+      - "A: Aur grahak khud kya maangte hain, Dettol ya Patanjali?"
+      - "B: Purane grahak Dettol hi maangte hain, naye log jo dikhta hai woh le lete hain."
+      - "A: Agar Dettol counter ke saamne rakhein, toh kya farak padega?"
+      - "B: Haan, display se farak padta hai. Patanjali ne apna stand laga diya hai."
+      - "A: Main hamara display stand agle hafte lagwa deta hoon. Abhi kitna order karein?"
+      - "B: Dettol liquid pandrah bottle, hand wash das."
+
+  - slug: agarwal-traders
+    rep: ravi
+    account: Agarwal Traders
+    contact: Suresh Agarwal
+    segment: Wholesaler
+    consent: rep-confirmed
+    lang: hi-en
+    voices: {A: Shubham, B: Yashraj}
+    noise: babble
+    script:
+      - "A: Agarwal ji namaskar. Is mahine aapke retailer kya sabse zyada maang rahe hain?"
+      - "B: Maggi, aur kuch nahi. Maggi ki maang bahut hai, chaalis carton bhej do."
+      - "A: Chaalis carton Maggi. Aur kaunsa maal ruka hua hai?"
+      - "B: Sunfeast Mom's Magic. Retailer bolte hain price zyada hai, bachche Parle-G hi lete hain."
+      - "A: Agar Mom's Magic ka chhota pack aaye, das rupaye wala, toh chalega?"
+      - "B: Haan, das rupaye wala chal jaayega. Abhi wala tees rupaye ka hai, gaon mein nahi bikta."
+      - "A: Aur Patanjali ka kya asar hai aapke area mein?"
+      - "B: Patanjali bahut aage badh raha hai. Unka atta aur hand wash dono retailer ko zyada margin pe dete hain."
+      - "A: Retailer ko kitna margin chahiye taaki woh hamara maal rakhein?"
+      - "B: Kam se kam pandrah pratishat. Aur scheme simple honi chahiye, das carton pe ek free kisi ko samajh nahi aata."
+      - "A: Samajh gaya. Main ye baat area manager tak pahunchaunga. Toh Maggi chaalis aur Parle-G pandrah carton?"
+      - "B: Haan, theek hai."
+
+  - slug: verma-kirana
+    rep: ravi
+    account: Verma Kirana
+    contact: Ramesh Verma
+    segment: Kirana
+    consent: verbal
+    lang: hi-en
+    voices: {A: Shubham, B: Harshad}
+    noise: straffic
+    script:
+      - "A: Verma ji namaste. Main ye baat training ke liye record kar raha hoon, theek hai?"
+      - "B: Haan bhai, theek hai."
+      - "A: Is hafte grahak sabse zyada kya pooch rahe the?"
+      - "B: Maggi. Maggi ke bina dukaan nahi chalti. Paanch carton chahiye."
+      - "A: Aur koi cheez jo aapke paas khatam ho gayi aur grahak laut gaye?"
+      - "B: Aashirvaad atta. Do din khatam raha, distributor se maal nahi aaya."
+      - "A: Atta kitna rakhna chahenge taaki khatam na ho?"
+      - "B: Har hafte bees bag."
+      - "A: Theek hai, main har Somvaar bees bag fix kar deta hoon. Scheme ke baare mein pata hai, das carton pe ek free?"
+      - "B: Suna hai, par itna maal main nahi rakh sakta. Chhoti scheme ho toh batao."
+      - "A: Theek hai. Toh Maggi paanch carton aur atta bees bag, Somvaar se har hafte."
+      - "B: Haan, pakka."

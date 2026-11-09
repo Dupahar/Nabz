@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nabz · Market intelligence</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header id="topbar"></header>
+  <main class="container">
+    <div class="page-head">
+      <div>
+        <h1>Market intelligence</h1>
+        <div class="sub" id="sub">What the market is telling your field team, from every in-person conversation.</div>
+      </div>
+      <div class="filters">
+        <select id="fDays" aria-label="Period">
+          <option value="7">Last 7 days</option>
+          <option value="30" selected>Last 30 days</option>
+          <option value="90">Last 90 days</option>
+        </select>
+        <select id="fRegion" aria-label="Region"><option value="All">All regions</option></select>
+        <select id="fSegment" aria-label="Segment"><option value="All">All segments</option></select>
+      </div>
+    </div>
+
+    <div id="denied" class="hidden"><div class="card empty"><span class="big">🔒</span>
+      Market intelligence is for managers. Ask your manager, or open <a href="/">your visits</a>.</div></div>
+    <div id="err"></div>
+
+    <div id="dash">
+      <div class="grid cols-6" id="kpis"></div>
+
+      <div class="grid cols-3" style="margin-top:1rem">
+        <section class="card span-2">
+          <div class="card-title"><h2>Competitor share of voice</h2><span class="right muted" style="font-size:.8rem">mentions in field conversations, by region</span></div>
+          <div class="chart-box"><canvas id="cCompetitors"></canvas></div>
+          <div id="compEmpty" class="empty hidden">No competitor mentions yet.</div>
+        </section>
+        <section class="card">
+          <div class="card-title"><h2>🛡️ Trust</h2></div>
+          <div id="trust"><div class="muted">Loading…</div></div>
+        </section>
+      </div>
+
+      <div class="grid cols-3" style="margin-top:1rem">
+        <section class="card">
+          <div class="card-title"><h2>Market signals by type</h2></div>
+          <div class="chart-box"><canvas id="cSignals"></canvas></div>
+          <div id="sigEmpty" class="empty hidden">No signals yet.</div>
+        </section>
+        <section class="card">
+          <div class="card-title"><h2>Price sensitivity</h2><span class="right muted" style="font-size:.8rem">% of visits with a price concern</span></div>
+          <div class="chart-box"><canvas id="cPrice"></canvas></div>
+          <div id="priceEmpty" class="empty hidden">No data yet.</div>
+        </section>
+        <section class="card">
+          <div class="card-title"><h2>Objections</h2><span class="right muted" style="font-size:.8rem">handled vs not</span></div>
+          <div class="chart-box"><canvas id="cConcerns"></canvas></div>
+          <div id="concEmpty" class="empty hidden">No objections yet.</div>
+        </section>
+      </div>
+
+      <div class="grid cols-3" style="margin-top:1rem">
+        <section class="card span-2">
+          <div class="card-title"><h2>🗣️ Voice of the customer</h2>
+            <div class="right seg-tabs" id="vocTabs"></div></div>
+          <div class="voc" id="voc"></div>
+        </section>
+        <div>
+          <section class="card">
+            <div class="card-title"><h2>Demand by product</h2></div>
+            <div id="demand"></div>
+          </section>
+          <section class="card flags-box" id="complianceCard">
+            <div class="card-title"><h3>🚩 Compliance flags</h3></div>
+            <div id="compliance"></div>
+          </section>
+        </div>
+      </div>
+
+      <div class="grid cols-3" style="margin-top:1rem">
+        <section class="card span-2">
+          <div class="card-title"><h2>Team coaching</h2><span class="right muted" style="font-size:.8rem">talk-ratio reference: Gong 2025 (vendor data), won deals ~57% rep talk</span></div>
+          <div class="table-wrap"><table class="tbl" id="reps"></table></div>
+        </section>
+        <section class="card">
+          <div class="card-title"><h2>Activity</h2></div>
+          <div class="chart-box"><canvas id="cTrend"></canvas></div>
+          <div id="trendEmpty" class="empty hidden">No visits in this period.</div>
+          <div id="cost" style="margin-top:.8rem"></div>
+        </section>
+      </div>
+
+      <section class="card" style="margin-top:1rem">
+        <div class="card-title"><h2>Recent visits</h2><span class="right muted" id="recentMeta"></span></div>
+        <div class="table-wrap"><table class="tbl" id="recent"></table></div>
+      </section>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script src="/static/common.js"></script>
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
